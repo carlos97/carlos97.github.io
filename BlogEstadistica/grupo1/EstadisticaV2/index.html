@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="bootstrap-4.4.1-dist/JQuery/jquery-3.4.1.slim.js"></script>
+    <script src="bootstrap-4.4.1-dist/bootstrap-4.4.1-dist/js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <title>Estimacion Por Intervalos</title>
+</head>
+<body>
+  
+  <main class="container-fluid">
+
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+      <!-- Navbar content -->
+        <a class="navbar-brand" href="https://bogota.gov.co/">	
+          <img src="images/distrito1.jpg" width="60" height="60" alt="">
+        </a>
+        <h1 class="titPrin">Estimacion por intervalos</h1>
+        <a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+          <img src="images/logoDistri.png" width="80" height="80" alt="">
+        </a>
+          <form class="form-inline">
+          <input class="form-control mr-sm-2" id="formulario" placeholder="Search" aria-label="Search">
+          <button class="btn btn-alert my-2 my-sm-0" id="buscar">Buscar</button>
+          </form>
+      </nav>
+
+    <div class="row"> 
+      <nav id="tmSidebar" class="tm-bg-black-transparent tm-sidebar">
+        
+        
+        <div class="tm-brand-box">
+          <h1 class="tm-brand text-uppercase">
+            Estimacion por intervalos
+          </h1>
+        </div>
+        
+        <ul id="tmMainNav" class="nav flex-column text-uppercase text-left tm-main-nav">
+          <li class="nav-item">
+            <a href="#1" class="nav-link active">
+              <span class="d-inline-block mr-3">Media poblacional con varianza conocida</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#2" class="nav-link">
+              <span class="d-inline-block mr-3">Media poblacional con varianza desconocida</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#3" class="nav-link">
+              <span class="d-inline-block mr-3">Determinacion del tamaño de la muestra</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#4" class="nav-link">
+              <span class="d-inline-block mr-3 ">Proporcion poblacional</span>
+            </a>
+          </li>
+        </ul>
+        
+      </nav>
+        
+      <main role="main" class="ml-sm-auto col-12">
+        
+        <div class="tm-section-wrap" id="1">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Media poblacional con varianza conocida</h2>
+                <h5><b>Ejemplo :</b></h5>
+                <p>                      
+                  El ciclo medio de vida de una muestra aleatoria de 12 focos es de 2000 horas, con una desviación estándar muestral de 200
+                  horas.<br>
+                   Se supone que la vida media de los focos se distribuye normalmente.<br>
+                    Determine los intervalos de confianza del 
+                  95% para la vida media de los focos 
+                </p> 
+                <img src="images/varianzaC/01.png" width="250px" height="40px">
+                <blockquote> 
+                  <cite>
+                    Ecuación 1. [Formula]. Tomado de <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">codecogs</a>
+                  </cite>
+                </blockquote> 
+                <h5><b>
+                  Resultado
+                </b></h5>
+                <p>
+                  Alfa = 5%
+                </p>
+                <p>
+                  t = 2.593
+                </p>
+                <blockquote> 
+                  <cite>
+                      Adaptado del Ejercicio 3.7 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                      Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.131)
+                  </cite>
+                </blockquote>  
+                
+              </div>
+              <div class="contenedorframe">
+                <iframe width="700" height="600" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=1F9C6357BD5F1704%211558&authkey=%21AHTVkkYdM4TCWII&em=2&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+  
+              </div>
+              <blockquote> 
+                <cite>
+                 <i>Fuente: Autor</i>i
+                </cite>
+              </blockquote> 
+            </div>
+            
+            
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de solución</h2>
+                  <ol type="a">
+                    <li>
+                      <ol>
+                        <li>Lo primero que se debe hacer es transformar el intervalo de confianza al valor Ƶ,<br>
+                           esto se realiza transformando el porcentaje a decimales y dividiendo entre 2, <br>
+                           este valor obtenido se debe buscar en la tabla de áreas de la distribución normal estándar.</li>
+                         
+                        <li>Aplicamos la fórmula para intervalos de confianza con varianza conocida </li>                       
+                        
+                      </ol>
+                      
+                    </li>
+                  </ol>
+                                   
+              </div>
+            </div>
+            <div class="col-xl-6">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos utilizados</h2>
+                <ol type="a">
+                  <li>
+                    <ol>
+                      <li>Tabla de area de la distribucion normal</li>
+                      <img src="images/varianzaC/c01.jpeg" width="400" height="500">
+                      <img src="images/varianzaC/c02.jpeg" width="400" height="500">
+                      <blockquote> 
+                        <cite>
+                            Adaptado del Ejercicio 3.7 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                            Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.735)
+                        </cite>
+                      </blockquote> 
+                      <li>formulas</li>
+                      <img src="images/varianzaC/c03.png" style="margin-bottom: 30px;"> 
+                      <blockquote> 
+                        <cite>
+                         <i>Fuente: Autor</i>i
+                        </cite>
+                      </blockquote> 
+                    </ol>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </section>
+        </div>
+        
+        <div class="tm-section-wrap" id="2">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Media poblacional con varianza desconocida</h2>
+                <h5><b>Ejemplo :</b></h5>
+                <p>                      
+                  Se desea construir un intervalo de confianza del 90% para la estatura media de los habitantes de una población.
+                </p> 
+                <p>
+                  Datos: 175,177,180,165,170,170,181,169,165,190,170,171
+                </p>
+                
+                <h5><b>
+                  Resultado
+                </b></h5>
+                <p>
+                  169.776 < µ < 170.390
+                </p>
+                <blockquote> 
+                  <cite>
+                   <i>Fuente: Autor</i>i
+                  </cite>
+                </blockquote> 
+                  
+              </div>
+              <div class="contenedorframe">
+                <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=1F9C6357BD5F1704%211593&authkey=%21ACYzF10yKKt-Yfs&em=2&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+              </div>
+              <blockquote> 
+                <cite>
+                 <i>Fuente: Autor</i>i
+                </cite>
+              </blockquote> 
+            </div>
+            
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de solución</h2>
+                  <ol type="a">
+                    <li>
+                      <ol>
+                        <li>Se cuenta el número de datos, los cuales equivalen a : <b>n</b></li>
+                        <li>Se obtiene la media:</li>
+                        <p><b>X = 173.5</b></p>
+                        <li>Se obtiene la desviación muestral</li>
+                        <p>
+                          S = 7.3
+                        </p>
+                        <li>Hallar alfa</li>
+                        <p>a = 0.1 </p>
+                        <li>Hallar en la tabla de distribución de <b>tstudent</b> el valor <b>T</b></li>
+                        <p>T (0.05, 11) = 1.7</p>
+                        <li>Usar la fórmula de estimación por intervalos</li>
+                        <h5 class="resp">Respuesta:</h5>
+                        <p class="conc">169.776 < µ < 170.390 </p>
+                       </ol>
+                    </li>
+                  </ol>
+                                  
+              </div>
+            </div>
+            <div class="col-xl-6">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos utilizados</h2>
+                <ol type="a">
+                  <li>
+                    <ol>
+                      <li>
+                       Formula de la media<br>
+                        </li>
+                        <img src="images/varianzaD/c01.png"  width="120" height="60">
+                        <blockquote> 
+                          <cite>
+                            Ecuación 2. [Formula]. Tomado de <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">codecogs</a>
+                          </cite>
+                        </blockquote> 
+                      <li>Formula de desviación muestral</li>
+                      <img src="images/varianzaD/c02.png" width="120" height="60">
+                      <blockquote> 
+                        <cite>
+                          Ecuación 3. [Formula]. Recuperado de <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">codecogs</a>
+                        </cite>
+                      </blockquote>
+                      <li>
+                        Como 90% es el intervalo de confianza, alfa es lo que falta para llegar en valor numérico a 1
+                      </li>
+                      <li>
+                        Formula de distribucion de tstudent
+                      </li>
+                      <img src="images/varianzaD/c03.png" width="120" height="60">
+                      <blockquote> 
+                        <cite>
+                          Ecuación 4. [Formula]. Tomado de <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">codecogs</a>
+                        </cite>
+                      </blockquote> 
+                      <li>
+                        Formula de estimación por intervalo
+                      </li>
+                      <img src="images/varianzaD/c04.png" width="150" height="60">
+                      <blockquote> 
+                        <cite>
+                          Ecuación 5. [Formula]. Tomado de <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">codecogs</a>
+                        </cite>
+                      </blockquote>
+                    </ol>
+                  </li>
+                </ol>
+              </div>
+            </div>  
+          </section>
+        </div>
+        
+        <div class="tm-section-wrap" id="3">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Determinacion del tamaño de la muestra</h2>
+                <h5><b>Ejemplo :</b></h5>
+                <p>                      
+                  El gerente de una fábrica de camisas desea estimar el promedio de las camisas vendidas mensualmente de talla m,<br>
+                  con un error que no exceda 2 camisas fabricadas, y un nivel de confianza deseado de 95%. <br>
+                  ¿Cuántas camisas deberá vender si se sabe que la desviación estándar es de 1650? 
+                </p>                 
+                <blockquote> 
+                  <cite>
+                    Adaptado de Martínez C. (2012). Estadística y muestreo (10ma Edición), Bogotá D.C.: ECOE EDICIONES (p.303)
+                  </cite>
+                </blockquote> 
+                <h5><b>
+                  Resultado
+                </b></h5> 
+                <p>
+                  n = 2.6
+                </p> 
+              </div>
+              <div class="contenedorframe">
+                <iframe width="700" height="900" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=1F9C6357BD5F1704%211561&authkey=%21AGgkd28A96LqCAo&em=2&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Sheet1'!D9&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+              </div>
+              <blockquote> 
+                <cite>
+                 <i>Fuente: Autor</i>i
+                </cite>
+              </blockquote> 
+            </div>
+                        
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de solución</h2>
+                  
+                      <ol>
+                        <li>Identificar los datos dados: </li>
+                        <p>
+                          <b>z: </b> 95% el cual equivale a 1.9
+                        </p>
+                        <p>
+                          <b>E: </b> 2
+                        </p>
+                        <p>
+                          <b>σ: </b> 1650
+                        </p>
+                        <li>Remplazar los valores en la fórmula: </li>
+                        <img src="images/tamañoM/p01.png" width="150" height="60">
+                        <blockquote> 
+                          <cite>
+                            Ecuación 6. [Formula]. Tomado de <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">codecogs</a>
+                          </cite>
+                        </blockquote>
+                        <li>Resolviendo: </li>
+                        <img src="images/tamañoM/p02.png" width="150" height="60">
+                        <blockquote> 
+                          <cite>
+                            Ecuación 7. [Formula]. Recuperado de <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">codecogs</a>
+                          </cite>
+                        </blockquote>
+                        <p>
+                          n = 2.614.689                          
+                        </p>
+                        
+                        <li>El resultado es: <br> n = 2.615</li>
+                        
+                        
+                      </ol>
+                    
+                                  
+              </div>
+            </div>
+            <div class="col-xl-6">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos utilizados</h2>
+                
+                    <ol>
+                      <li>Es importante comprender el ejercicio, los datos dados y lo que se pide, para saber cómo aplicar la formula.</li>
+                      <li>Una vez se identificaron los valores se reemplazan en la formula.</li>
+                      <img src="images/tamañoM/c01.png" width="150" height="60"> 
+                      <blockquote> 
+                        <cite>
+                          Ecuación 8. [Formula]. Recuperado de <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">codecogs</a>
+                        </cite>
+                      </blockquote>
+                      <li>
+                        Se opera matemáticamente y si en el resultado, n no es un número entero se redondea al número superior. <br>
+                        Siendo 2.615 el número total de camisas que se deben fabricar mensualmente para lograr el nivel de confianza deseado de 95%
+                      </li>
+                    </ol>
+               </div>   
+            </div>
+          </section>
+        </div>
+      
+        <div class="tm-section-wrap" id="4">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Proporción poblacional</h2>
+                <h5><b>Ejemplo :</b></h5>
+                                     
+                    <p>                      
+                      En una muestra de 400 pilas tipo b, fabricadas por Energice, se encontraron 20 pilas defectuosas.<br>
+                      Encontrar el intervalo de confianza para las pilas defectuosas tipo b, utilizar un nivel de confianza del 95%,
+                      y también determinar la proporción de pilas defectuosas                      
+                    </p> 
+                    <p><b>Datos</b></p>
+                    <p>
+                      400 pilas = n <i>(Tamaño de la muestra)</i><br>
+                      x = 20 <i> número de pilas defectuosas</i><br>
+                      Proporción de pilas defectuosas<br>
+                      <img src="images/proporcionP/01.png" width="200" height="60"><br>
+                      Proporción de pilas bien fabricadas <br>
+                      q = 1 - p<br>
+                        = 1 - 0.05<br>
+                        = 95<br>
+                      Nivel de confianza = 0.95
+                    </p>
+                    
+                    <blockquote> 
+                      <cite>
+                          Fuente:Autor
+                      </cite>
+                    </blockquote> 
+                    <p>
+                      Intervalo de confianza:<br>
+                      Superior= 7.1%<br>
+                      Inferior= 2.8%<br>
+                    </p>
+                    <p><b>Resultado</b></p>
+                    <p>
+                      Por lo tanto, se estima que la proporción de pilas defectuosas se encuentra entre el 7.13% y el 2.86%,
+                      con un 95% de confianza
+                    </p>
+              </div>
+              <div class="contenedorframe">
+                <iframe width="700" height="600" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=1F9C6357BD5F1704%211595&authkey=%21AG4N01kb6mw442Y&em=2&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Hoja%201'!A1&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+              </div>
+              
+                <image src="images/proporcionP/grafica1.png" width="700" height="200" frameborder="0" scrolling="no">
+                  <blockquote> 
+                    <cite>
+                     <i>Fuente: Autor</i>i
+                    </cite>
+                  </blockquote> 
+            </div>
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de Solución</h2>
+                  <ol>
+                   <li>Hallar la proporción de pilas defectuosas</li>
+                   <li>Hallar la Proporción de pilas bien fabricadas </li>
+                   <li>Hallar el nivel de confianza</li>
+                   <li>tilizar la campana de gauss para hallar nuestra área y normalizar el valor</li>
+                   <li>Calcular el error poblacional</li>
+                   <li>Utilizar la fórmula para obtener el intervalo de confianza de una proporción poblacional </li>
+                   <li>Interpretar los datos que nos da la fórmula para hallar el resultado</li>
+                  </ol>
+                                  
+              </div>
+            </div>
+            <div class="col-xl-6">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos utilizados</h2>
+                <ol >
+                  <li>para ello aplicamos la fórmula</li>
+                  <img src="images/proporcionP/c01.png" style="max-width: 450px; ">
+                  <blockquote> 
+                    <cite>
+                      Ecuación 8 [Formula]. Recuperado de <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">codecogs</a>
+                    </cite>
+                  </blockquote>
+                  <li>
+                    Para ello aplicamos la fórmula<br>
+                    q = 1 - p
+                  </li>
+                  <li>
+                    Para ello usamos la fórmula:<br>
+                    1 - α
+                  </li>
+                  <li>
+                    Para esto utilizamos la fórmula<br>
+                  </li>
+                </ol>
+                </div>
+            </div>
+          </section>
+        </div>
+        
+      </main>
+    </div>
+  </main>        
+    
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.singlePageNav.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/navs.js"></script>
+</body>
+</html>
