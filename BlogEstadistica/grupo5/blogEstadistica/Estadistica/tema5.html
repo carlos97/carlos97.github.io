@@ -1,0 +1,575 @@
+﻿<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Estadistica
+    </title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tema5.css">
+
+    <style>
+        
+        .frac {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            letter-spacing: 0.001em;
+            text-align: center;
+        }
+
+        .frac>span {
+            display: block;
+            padding: 0.1em;
+        }
+
+        .frac span.bottom {
+            border-top: thin solid black;
+        }
+
+        .frac span.symbol {
+            display: none;
+        }
+
+        .floating {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navMain">
+        <div class="container">
+            <a href="https://bogota.gov.co/"><img width="50" height="60" src="..//img/escudo bogota.svg" alt=""></a>
+            <a class="navbar-brand " href="#" data-toggle="modal" data-target="#bondad"><b class="TextColorBackBlack"> Pruebas de bondad de ajustes</b></a>
+            <a class="navbar-brand " href="#" onclick="goHome()"><b class="TextColorBackBlack">Inicio</b></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button style="color: white; background-color: white;" class="btn btn-outline-primary my-2 my-sm-0 buscaBotonNoBorder" onclick="buscar()"
+                        type="submit"><b>Buscar</b></button>
+                </form>
+            </div>
+            <a href="https://udistrital.edu.co/"><img width="50" height="60" src="../img/escudo universidad.png" alt=""></a>
+
+        </div>
+    </nav>
+
+    <br />
+
+    <div class="container-fluid contenedor" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+            <div class="col-sm-3 leftCol">
+                <br />
+
+                <ul class="list-group">
+                    <a href="#" data-toggle="modal" data-target="#bondad"><h3 style="color: white;">Prueba de bondad de ajustes para:</h3></a>
+                    <li class="list-group-item itemHover">
+                        
+                        <a>Poblacion Multinomial &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(1)" active>
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(3)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Prueba de independencia &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(4)">
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(5)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Distribuciones de Poisson y Normal &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(6)">
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(7)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-sm-9 rigthCol">
+                <div class="container">
+                    <br />
+                    <div class="row" id="home">
+                        <div class="col-sm-12">
+                            <div id="pageContent">
+                                <center>
+                                    <h1>Blog de Estadistica
+                                    <h1 >Prueba de bondad de ajuste 
+                                        <img src="../img/logo.png" alt="Estadistica"
+                                            style="max-width: 50%;max-height: 50%;display: block;">
+                                </center>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" id="tema1">
+                        <div class="col-lg-12">
+                            <h1>Prueba de bondad de ajuste para poblacion multinomial</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <p>Este primer tipo de prueba se aplica a las poblaciones en las cuales sus elementos corresponden a una y sólo a una de varias clases o categorías.</p>
+                            <p>A estas poblaciones se les conoce como poblaciones multinomiales. La distribución multinomial se puede entender como una extensión de la distribución binomial al caso en el que hay tres o más categorías de resultados.</p>
+                            <br />
+                            <CENTER>
+                                <a href="https://www.codecogs.com/latex/eqneditor.php">
+                                    <img src="../img/PruBondadAjuste.png" alt="">
+                                        <p style="margin-left: 35%;">Generado en codecogs.com</p>
+                                    </a>
+                            </CENTER>
+                            <CENTER>&fnof;<sub>i</sub> = Frecuencia observada en la categoría i </CENTER>
+                            <CENTER>e<sub>i</sub> = Frecuencia esperada en la categoría i </CENTER>
+                            <CENTER>k = Número de categorías</CENTER>
+                            <br />
+                            <p>En cada ensayo de un experimento multinomial uno y sólo uno de los resultados ocurre. Se supone que cada ensayo del experimento es independiente y que en todos los ensayos las probabilidades para los resultados permanecen constantes.</p>
+                            
+                            
+                                
+                            </p>
+                            <p>
+                                
+                            </p>
+                            <br />
+                            
+                        
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+
+                    </div>
+                    <div class="row" id="tema3">
+                        <div class="col-lg-12">
+                            <h1>Prueba de bondad de ajuste para poblacion multinomial</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo11"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo12"><b
+                                            style="font-size: larger;">ejemplo 2 &rarr;</b></button>
+                                </li>
+                                
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">Siguiente: Prueba de independencia &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema4">
+                        <div class="col-lg-12">
+                            <h1>Prueba de independencia</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <p>El objetivo es verificar si existe una dependencia entre las variables cualitativas que definen filas y columnas, es decir, si para todo <b>i = 1, ..., k</b>  y  <b>j = 1, .., m</b> se verifica que la probabilidad del resultado correspondiente a la combinación <b>Ai ∩ Bj</b>  es el producto de las probabilidades marginales correspondientes. <b> P(Ai) </b>es la probabilidad del resultado <b>i</b>para la variable fila y <b> P(Bj)</b> la del resultado <b>j</b> para la variable columna.</p>
+                            <center>
+                                <b style="font-size: 1.5em;">P(Ai ∩ Bj) = P(Ai) · P(Bj)</b>
+                            </center>
+                            <p>Utilizaremos generalmente la notación más simplificada:</p>
+                            <center>
+                                <b style="font-size: 1.5em;">P(Ai ∩ Bj) = Pij</b> <br />
+                                <b style="font-size: 1.5em;">P(Ai) = Pi</b><br />
+                                <b style="font-size: 1.5em;">P(Bj) = Pj</b>
+                            </center>
+                            <p>Los valores de <b> Pi</b> y<b> Pj </b> se estimarán, a partir de los valores observados en la tabla de contingencia, por <b> ni/N </b> y <b> nj/N </b>respectivamente.</p>
+                            <h2>Hipótesis nula de independencia:</h2>
+                            <p>Para toda combinación de resultados de las variables fila y columna (i, j).</p>
+                            <center>
+                                <b style="font-size: 1.5em;">H0: Pij = Pi Pj                  para todo      i = 1, ..., k    j = 1, .., m</b>
+                            </center>
+                            <p>La hipótesis alternativa, que implica dependencia, se puede formular diciendo que alguna de las igualdades de la hipótesis nula es falsa.</p> 
+                            <p>Los valores observados son <b>nij</b>. Los valores esperados bajo la hipótesis nula de independencia se calculan de la manera siguiente:</p>
+                            <center>
+                                <b style="font-size: 1.5em;">eij = N · Pij = N · Pi · Pj = N · (ni/N ) · (nj/N ) = (ni · nj )/N</b>
+                            </center>
+                            <p>El estadístico de contraste se calcula de la manera habitual: </p>
+                            <center>
+                                <a href="https://www.codecogs.com/latex/eqneditor.php">
+                                <img src="../img/x2.png" alt="">
+                                    <p style="margin-left: 35%;">Generado en codecogs.com</p>
+                                </a>
+                            </center>
+                            <p>La distribución asintótica bajo la hipótesis nula es una <b>χ2</b> con <b>(k − 1) · (m − 1)</b> grados de libertad. Los grados de libertad pueden entenderse, de manera intuitiva, entendiendo que el número de parámetros que se estiman son <b>(k − 1) </b>y<b> (m − 1)</b>, ya que queda fijada la probabilidad de la última clase de cada característica una vez estimadas las restantes. Por tanto, aplicando la fórmula para los grados de libertad se obtiene:</p>
+                            <center>
+                                <b style="font-size: 1.5em;">grados de libertad = número de clases − número de parámetros estimados − 1</b>
+                                <b style="font-size: 1.5em;">grados de libertad = k · m − (k − 1) − (m − 1) − 1 = (k − 1) · (m − 1)</b>
+                            </center>
+                            <p>El criterio de decisión es el mismo que en el caso general:</p>
+                            <p>Rechazamos la hipótesis nula si</p>
+                            <CENTER>
+                                <a href="https://www.codecogs.com/latex/eqneditor.php">
+                                    <img src="../img/x2x2.png" alt="">
+                                        <p style="margin-left: 35%;">Generado en codecogs.com</p>
+                                    </a>
+                            </CENTER>
+                            <p>donde el último término es el valor crítico asociado con una distribución <b> χ2</b>, con <b>(k − 1) · (m − 1) </b> grados de libertad, tal que deja a su derecha una probabilidad igual a <b>α</b>.</p>
+                            <p>La condición de validez es que las frecuencias esperadas <b>eij</b> sean mayores que 5.</p>
+                            
+                            <br />
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                    style="font-size: larger;">&larr; Anterior: Poblacion Multinomial </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema5">
+                        <div class="col-lg-12">
+                            <h1>Prueba de independencia</h1>
+
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo21"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+								<li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo22"><b
+                                            style="font-size: larger;">ejemplo 2 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                    style="font-size: larger;">Siguiente: Distribuciones de Poisson y Normal &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema6">
+                        <div class="col-lg-12">
+                            <h1>Prueba de bondad de ajuste para distribuciones de Poisson y Normal</h1>
+                            <p>La prueba de bondad de ajuste se utiliza tambien para los tipos de distribucion como la distribucion Poisson y la distribucion normal, ahora explicaremos como son este tipo de distribuciones:</p>
+                            
+                            <br />
+                            <h2>Distribución de Poisson:</h2>
+                            <br />
+                            <p>Es un tipo de distribucion de variable disctreta. sus principales aplicaciones hacen referencia a la modelización de situaciones en las que es necesario determinar
+                                el numerto de hechos que se pueden producir en un intervalo de tiempo o de espacio.    
+                            </p>
+                            <br />
+                            <CENTER>
+                                <a href="https://www.codecogs.com/latex/eqneditor.php">
+                                    <img src="../img/Poisson.png" alt="">
+                                        <p style="margin-left: 35%;">Generado en codecogs.com</p>
+                                    </a>
+                            </CENTER>
+
+                            <br />
+                            <h2>Distribución Normal:</h2>
+                            <p>
+                                La prueba de bondad de ajuste para la distribución normal también se basa en el uso de la distribución
+                                chi-cuadrada. Se sigue un procedimiento similar al aplicado para la distribución de Poisson.   
+                            </p>
+                            <p>
+                                Una distribución normal de media &micro; y desviación típica &sigma; se designa por N( &micro;,&sigma;). Su grafica es la campana de Gauss.
+                            </p>
+                            <br />
+                            <CENTER>
+                                <a href="https://www.master-malaga.com/master-mba/campana-de-gauss/">
+                                    <img src="../img/campanaG.jpg" alt="">
+                                        <p style="margin-left: 35%;">https://www.master-malaga.com/master-mba/campana-de-gauss/</p>
+                                    </a>
+                            </CENTER>
+                            <br />
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">&larr; Anterior: Prueba de independencia </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema7">
+                        <div class="col-lg-12">
+                            <h1>Distribuciones de Poisson y Normal</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo31"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo32"><b
+                                            style="font-size: larger;">ejemplo 2 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div id="modals">
+        <div class="modal" id="bondad">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Prueba de bondad de ajuste</h2>
+                        
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                <p style="margin-left: 10px; margin-right: 10px;">Las pruebas de bondad de ajuste son aquellas que comparan los resultados de una muestra con los que se espera obtener cuando la hipótesis <b>nula</b> es verdadera. Esta tienen por objetivo determinar si los datos se ajustan a una determinada distribución, la cual puede estar completamente especificada (hipótesis simple) o perteneciente a una clase para-métrica (hipótesis compuesta).</p>    
+                <h2>Prueba de chi-cuadrado</h2>
+                <p>Es una prueba no para-métrica la cual se emplea tanto para distribuciones continuas como para las discretas. Esta se utiliza para encontrar la distribución de una serie de datos.  Utiliza la siguiente formula:</p>
+                    <center>
+                        <a href="https://simulacion2011.blogspot.com/2011/02/pruebas-de-bondad-de-ajuste.html">
+                        <img  src="../img/ch 2.jpg"  alt="Formula para chi-cuadrado" style="max-width: 50%;max-height: 50%;display: block;" >
+                        <p style="margin-left: 35%;">Tomado de simulacion2011.blogspot.com</p>
+                        </a>
+                    </center>
+                <p >Donde <b>x^2</b> es un valor de una variable aleatoria cuya distribución muestral se aproxima muy de cerca con <b>v = k – 1</b> grados de libertad. Los símbolos <b>Oi</b> y <b> Ei</b> representan las frecuencias observadas y esperada, respectivamente, para la i-ésima celda.</p>
+                <h2>hipótesis</h2>
+                <p><b>Ho.</b> la muestra se ajusta a una distribución teórica (esperado o modelo)</p>
+                <p><b>H1.</b> la muestra no se ajusta a una distribución teórica (esperado o modelado)</p>
+                <p>Pasos para realizar la prueba de chi-cuadrado               </p>
+                <p>Partiendo del supuesto de que los datos son normales y que ya se conocen la media y desviación se hace lo siguiente:</p>
+                <p class="sangria"><b>1.</b> Determinar el número de intervalos y partiendo del límite superior e inferior, y el tamaño del intervalo se calcula cada uno para los intervalos.</p>
+                <p class="sangria"><b>2.</b> Determinar la frecuencia observada por cada intervalo                </p>
+                <p class="sangria"><b>3.</b> Hallar la frecuencia relativa esperada acumulada teniendo en cuenta la función de distribución a utilizar, el límite superior,  la media y desviación.</p>
+                <p class="sangria"><b>4.</b> Hallar la frecuencia relativa esperada restando la frecuencia relativa esperada acumulada con el dato anterior de la frecuencia dentro de la columna.</p>
+                <p class="sangria"><b>5.</b> Hallar la frecuencia observada esperada (FOE) multiplicando la frecuencia relativa esperada con la suma de los datos de la frecuencia observada.</p>
+                <p class="sangria"><b>6.</b> Calcular el estimador a partir de la formula de chi-cuadrado</p>
+                <p class="sangria"><b>7.</b> Se suman los datos calculados en el paso anterior</p>
+                <p class="sangria"><b>8.</b> Se determinan los grados de libertad (V) restando el número de intervalos con 1 y teniendo en cuenta la suma anterior se busca en la siguiente tabla:</p>
+                <center >
+                    <div style="overflow: auto; width: 500px; height: 400px;">
+                    <a  href="https://simulacion2011.blogspot.com/2011/02/pruebas-de-bondad-de-ajuste.html"><img src="../img/tabla chi 2.jpg" alt="Tabla " style="width: 100%; height: 700px;">
+                        
+                        
+                    </a>
+            
+                </div>
+                <a  href="https://simulacion2011.blogspot.com/2011/02/pruebas-de-bondad-de-ajuste.html">
+                <p style="margin-left: 35%;">Tomado de simulacion2011.blogspot.com</p>       
+                </a>
+                </center>
+                    <p class="sangria"><b>9.</b> Si el estimador <b>S2</b> es menor o igual al valor correspondiente en la tabla entonces se acepta <b>Ho</b>, en caso contrario se rechaza.</p>
+                <footer ><a href="https://simulacion2011.blogspot.com/2011/02/pruebas-de-bondad-de-ajuste.html"><p>Tomado de: https://simulacion2011.blogspot.com/2011/02/pruebas-de-bondad-de-ajuste.html</p></a></footer>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo11">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Poblacion Multinomial - ejemplo 1</h2>
+                        
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        Adaptado del ejemplo. Anderson, Sweeney & Williams(2008). <b><i>Estadística para
+                            administración y economía</b></i> (10° Edición) Mexico: Limusa (P. 462)
+                    </div>
+
+
+                    <div class="contenedorframe">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=8243B294C02D5089%21360563&authkey=%21AGrXulNmXVcIO-M&em=2&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo12">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Poblacion Multinomial - ejemplo 2</h2>
+                        
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                       
+                        <hr>
+                    </div>
+                    <div class="contenedorframe">
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=8243B294C02D5089%21360575&authkey=%21ACzhAXaDkutvJjo&em=2&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>                 
+                       </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo21">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Prueba de independencia - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <b>Fuente: <i>Autor</b></i> 
+                        <hr>
+                        <div class="contenedorframe">
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=8243B294C02D5089%21360571&authkey=%21ADA-AyOCGfoMBDc&em=2&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo22">Ejemplo 2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="modal" id="ejemplo22">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Prueba de independencia - ejemplo 2</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        Adaptado del ejemplo. Ejercicios de prueba de Independencia de Prof. Emma C. Argüello D. Ver mas en 
+						<a href="https://www.academia.edu/28605017/Ejercicios_de_prueba_de_Independencia">https://www.academia.edu/28605017/Ejercicios_de_prueba_de_Independencia</a> 
+                        <hr>
+                        <div class="contenedorframe">
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=8243B294C02D5089%21360573&authkey=%21ACeX0ZXiC-eq9Tw&em=2&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                            </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo22">Ejemplo 2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo31">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Distribuciones de Poisson y Normal - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <b>Fuente: <i>Autor</b></i> 
+                        <hr>
+                        <div class="contenedorframe">
+                            <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=8243B294C02D5089%21360577&authkey=%21AKLCCsqnh4LjlHE&em=2&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>         
+                        </div>
+                     </div>
+                    
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo32">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo32">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Distribuciones de Poisson y Normal - ejemplo 2</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <b>Fuente: <i>Autor</b></i> 
+                        <hr>
+                        <div class="contenedorframe">
+                            <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=8243B294C02D5089%21360579&authkey=%21ADu1vn187vMdQ_g&em=2&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                            </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo31">Ejemplo 1</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    <script src="../js/jQuery.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/blogs.js"></script>
+
+    <script>
+        function calculoEj11() {
+            $("res11-1")[0].textContent = (Number($("tej11-3")[0].textContent) / Number($("tej11-1")[0].textContent)).toFixed(2);
+        }
+
+        function calculoEj21() {
+            if ((Number($("tej21-1")[0].textContent) + Number($("tej21-2")[0].textContent) + Number($("tej21-3")[0].textContent)).toFixed(2) != 1) {
+                alert("la suma de los campos debe ser 100%");
+            } else {
+                var res = 0;
+                for (var i = 1; i <= 3; i++) {
+                    res += Number($("tej21-" + i)[0].textContent) * Number($("tej21-" + (i + 3))[0].textContent);
+                }
+                $("tej21-r1")[0].textContent = res;
+                $("tej21-r2")[0].textContent = (res * 100);
+            }
+
+        }
+
+        function calculoEj31() {
+            if ((Number($("tej31-1")[0].textContent) + Number($("tej31-2")[0].textContent) + Number($("tej31-3")[0].textContent)).toFixed(2) != 1) {
+                alert("la suma de los campos debe ser 100%");
+            } else {
+                var probTotal = 0;
+                for (var i = 1; i <= 3; i++) {
+                    probTotal += Number($("tej31-" + i)[0].textContent) * Number($("tej31-" + (i + 3))[0].textContent);
+                }
+                $("tej31-7")[0].textContent = probTotal;
+                $("tej31-r1")[0].textContent = (Number($("tej31-1")[0].textContent) * Number($("tej31-4")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r2")[0].textContent = (Number($("tej31-1")[0].textContent) * Number($("tej31-4")[0].textContent) / probTotal).toFixed(3) * 100;
+                $("tej31-r3")[0].textContent = (Number($("tej31-2")[0].textContent) * Number($("tej31-5")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r4")[0].textContent = (Number($("tej31-2")[0].textContent) * Number($("tej31-5")[0].textContent) / probTotal).toFixed(3) * 100;
+                $("tej31-r5")[0].textContent = (Number($("tej31-3")[0].textContent) * Number($("tej31-6")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r6")[0].textContent = (Number($("tej31-3")[0].textContent) * Number($("tej31-6")[0].textContent) / probTotal).toFixed(3) * 100;
+            }
+        }
+
+        
+    </script>
+</body>
+
+</html>
