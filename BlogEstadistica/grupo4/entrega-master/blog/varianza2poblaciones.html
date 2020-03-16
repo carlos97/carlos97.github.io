@@ -1,0 +1,121 @@
+	
+<!DOCTYPE html>
+<html>
+<title>Inferencia Varianza de dos poblaciones</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<style>
+p {
+    
+    font-family: 'Luckiest Guy';
+    color:white;
+    font-size: 20px;
+
+}
+iframe{
+width: 100%;
+height: 700px;
+border-style: none;
+}
+td{color: rgb(0, 0, 0)}
+ .invert {filter: invert(100%);}
+}
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+
+.w3-row-padding img {margin-bottom: 20px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 150px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 180px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+
+
+
+
+
+
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="imagenes/preloader.png"  class="invert" style="width:100%">
+  <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>Inicio</p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p> ¿Qué es?</p>
+  </a>
+  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-eye w3-xxlarge"></i>
+    <p>Ejemplo</p>
+  </a><a href="#graficas" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-eye w3-xxlarge"></i>
+    <p>Graficas</p>
+  </a>
+  
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="index.html" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:30% !important"> ¿QUÉ ES ?</a>
+    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">EJEMPLO</a>
+  
+  </div>
+</div>
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+   
+    <p>Youssef||Diego||Brayan||Nicolas||Jose.</p>
+    <img src="imagenes/header.png"  alt="banner" class="w3-image" width="992" height="1108">
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-light-grey">Inferencias acerca de dos varianzas poblacionales</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p style="">Para comparar las varianzas de dos poblaciones se emplean datos obtenidos de dos muestras aleatorias independientes: una de la población 1 y otra de la población 2. Para hacer las inferencias acerca de las dos varianzas poblacionales σ2 1 y σ2 2 se usan las dos varianzas muestrales s1 y s2. Cuando las varianzas de dos poblaciones normales son iguales (σ1 = σ2), la distribución de muestreo de la proporción entre las dos varianzas muestrales s1/s2 es la siguiente:</p>
+
+    <h3 class="w3-padding-16 w3-text-light-grey"> <p>ESTADISTICO DE PRUEBA PARA PRUEBAS DE HIPOTESIS ACERCA DE VARIANZAS POBLACIONALES CON σ1=σ2. </p></h3>
+    <center><img src="formulas/estprueba2.png" alt="boy" class="w3-image" width="100" height="100	"></center>
+  	
+  	<p>Como el estadístico de prueba F se construye con la varianza muestral más grande s1 en
+el numerador, el valor de este estadístico se encontrará siempre en la cola superior de la distribución F. Por tanto, las tablas de la distribución , únicamente necesitan proporcionar áreas o probabilidades en la cola superior.</p>
+
+ <img src="formulas/tablaf.png" alt="boy" class="w3-image" width="500" height="800">
+
+
+    </div>
+    
+    
+	<h2>Ejemplo interactivo</h2>
+	<iframe src="https://docs.google.com/spreadsheets/d/12nLcyybr893zFERksky4JWLUeFnMw2lTjCGCemhLXVY/edit?usp=sharing" width="500px" height="500px"></iframe>
+
+</div>
+
+  </div>
+    <!-- ejeplis -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="graficas">
+    <iframe src="graficador.html"></iframe>
+
+
+    </div>
+</div>  
+</body>
+</html>
+
+    
