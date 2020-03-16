@@ -1,0 +1,1570 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Estadistica
+    </title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tema3.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/tooltip.css">
+    <style>
+        .frac {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            letter-spacing: 0.001em;
+            text-align: center;
+        }
+
+        .frac>span {
+            display: block;
+            padding: 0.1em;
+        }
+
+        .frac span.bottom {
+            border-top: thin solid black;
+        }
+
+        .frac span.symbol {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navMain">
+        <div class="container">
+            <a class="navbar-brand " href="#" onclick="showHome()"><b class="TextColorBackBlack">PRUEBAS DE HIPOTESIS</b></a>
+            <a class="navbar-brand " href="#" onclick="goHome()"><b class="TextColorBackBlack">Inicio</b></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle TextColorBackBlack" href="#" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b class="TextColorBackBlack">Estadistica</b>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" onclick="goProbabilidad()">Probabilidad</a>
+                            <a class="dropdown-item" href="#" onclick="goEstadistica()">Estadistica</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="goTeoriaNumeros()">Teoria de numeros</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0 buscaBotonNoBorder" onclick="buscar()"
+                        type="submit"><b>Buscar</b></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <br />
+-->
+    <div class="container-fluid contenedor" style="height: 100%;">
+        <div class="row" style="height: 100%; overflow: auto;">
+            <div class="col-sm-3 leftCol">
+                <br />
+                <ul class="list-group">
+                    <li class="list-group-item itemHover">
+                        <a>Pruebas de Hipótesis &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(0)">
+                                &#8226; Definición
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(1)">
+                                &#8226; Hipótesis nulas
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(2)">
+                                &#8226; Hipótesis alternativas
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(3)">
+                                &#8226; Significancia
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(4)">
+                                &#8226; Nivel de significancia
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Errores &darr;</a>
+                        <ul class="list-group ">
+
+                            <li class="list-group-item itemHover" onclick="hider(5)">
+                                &#8226; Errores tipo 1
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(6)">
+                                &#8226; Errores tipo 2
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Tipos de pruebas &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(7)">
+                                &#8226; En distribuciones normales
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(9)">
+                                &#8226; Especiales
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(10)">
+                                &#8226; Potencia de una prueba
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(11)">
+                                &#8226; Para diferencias muestrales
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(12)">
+                                &#8226; Región de rechazo
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover" onclick="hider(13)">
+                        <a>Ejemplos &rarr;</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-sm-9 rigthCol">
+                <br />
+                <div class="row" id="home">
+                    <div class="col-sm-12">
+                        <div id="pageContent">
+                            <center>
+                                <h1>Pruebas de hipotesis</h2>
+                                    <hr>
+
+                                    <img src="../img/logo.png" alt="Estadistica"
+                                        style="max-width: 50%;max-height: 50%;display: block;">
+                            </center>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" id="tema0">
+                    <div class="container">
+                        <h1>
+                            <b>¿Que es una prueba de hipótesis?</b>
+                        </h1>
+                        <hr>
+                        <p>
+                            Es un procedimiento en el cual, a partir de un parámetro poblacional, se busca decidir si
+                            una
+                            afirmación sobre una hipótesis estadística es verdadera o falsa.(FEDE, 2016).
+                            <br>
+                            <br>
+                            Un ejemplo del dia a dia se encuentra cuando viajamos en transporte público, supongamos que
+                            la
+                            empresa que se encarga del servicio afirma que el bus que necesitamos coger pasa
+                            aproximadamente
+                            cada 3 minutos, pero cada día que vamos a coger el bus vemos que a veces se demora 4, 6 o 10
+                            minutos en pasar de nuevo, por lo que dudamos de la información que nos da la empresa.
+                            <br>
+                            Aquí se presentan la hipótesis nula que es la afirmación de la empresa, osea que los buses
+                            llegan aproximadamente cada 3 minutos, y la hipótesis alternativa la cual es la que vemos,
+                            osea
+                            que los buses se demoran mucho más tiempo del que se nos ha dicho.
+                            <br>
+                            <br>
+                            Como no conocemos la razón por la cual la empresa afirma que los buses llegan cada tres
+                            minutos, nosotros podemos hacer una muestra aleatoria <b>X</b> en la cual registramos los
+                            intervalos de llegada de cada bus. El tamaño de la muestra, o la cantidad de veces que vamos
+                            a contar el intervalo va a depender de la precisión que queramos de nuestro resultado. Una
+                            vez estemos satisfechos con los datos vamos a calcular la media muestral <b>x&#772;</b> esto debido
+                            a que es un buen estimador de la media poblacional. (FEDE, 2016).
+                            <br>
+                            <br>
+                            Pero para poder aplicar la prueba de hipótesis nula, tenemos que especificar un nivel de
+                            significancía, esto es una pequeña desviación que nos permite aceptar alguna de las dos
+                            hipótesis, en el ejemplo vamos a suponer que este valor <b>α=1</b> minuto puesto que no se puede
+                            esperar que todos los buses sean precisos en cuanto se tienen que demorar entre parada y
+                            parada. (Minitab, 2019).
+                            <br>
+                            <br>
+                            Por lo tanto si <b<>x&#772;</b> es parecido a 3 minutos, digamos <b<>x&#772;</b> = 2.5 minutos, podemos decir que la
+                            empresa está diciendo la verdad. En este caso aceptamos la hipótesis nula.
+                            Si x&#772; se aleja de 3 minutos, más del valor de α, digamos x&#772;= 5 minutos, podemos
+                            decir
+                            que la empresa <b>NO</b> está diciendo la verdad. En este caso aceptamos la hipótesis alternativa.
+                            <br>
+                        </p>
+                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                style="font-size: larger;">Siguiente: Hipótesis nulas &rarr; </b></button>
+                    </div>
+                </div>
+                <div class="row" id="tema1">
+                    <div class="col-lg-12">
+                        <h1><b>Hipotesis nulas</b></h1>
+                        <hr>
+                        <p>
+                            Una hipótesis es una afirmación sobre un parámetro de la población (como la media o
+                            desviación estándar) y se representa con <b>H<sub>0</sub></b>​ La hipótesis nula es la
+                            afirmación de que
+                            dos (o más) parámetros o fenómenos no tienen relación entre sí. 
+                            <br>
+                            Es un punto de partida para
+                            la investigación que no se rechaza a menos que los datos de la muestra parezcan evidenciar
+                            que es falsa. Técnicamente, la <b>hipótesis nula</b> es una aplicación a la estadística del
+                            método de reducción al absurdo, por el cual se supone, en principio, lo contrario de lo que
+                            se desea probar, hasta que la evidencia o las conclusiones obtenidas demuestran que el punto
+                            de partida fue falso o absurdo y, por tanto, se rechaza y se concluye lo contrario (lo que
+                            se quería probar).
+                            <br>
+                        </p>
+                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(0)"><b
+                                style="font-size: larger;">&larr; Anterior:
+                                Definición </b></button>
+                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(2)"><b
+                                style="font-size: larger;">Siguiente: Hipótesis Alternativas &rarr; </b></button>
+                    </div>
+                </div>
+                <div class="row" id="tema2">
+                    <div class="col-lg-12">
+                        <h1><b>Hipótesis Alternativas</b></h1>
+                        <hr>
+                        <p>
+                            Se entiende por hipótesis alternativa a la suposición <b>alternativa</b> a la hipótesis nula
+                            formulada en un experimento y/o investigación. Esta surge como resultado de una determinada
+                            investigación realizada sobre una población o muestra.
+                            <br>
+                            <br>
+                            Entendida de manera sencilla, la hipótesis alternativa representa la conclusión que el
+                            investigador quiere demostrar o afirmar tras su estudio. Esta se expresa con la expresión
+                            <b>H<sub>1</sub></b> y va a representar, por lo general, lo contrario a la hipótesis nula.
+                            <br>
+                        </p>
+                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                style="font-size: larger;">&larr; Anterior:
+                                Hipótesis nulas & </b></button>
+                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                style="font-size: larger;">Siguiente:
+                                Significancia &rarr; </b></button>
+                    </div>
+                </div>
+                <div class="row" id="tema3">
+                    <div class="col-lg-12">
+                        <h1><b>Significancia</b></h1>
+                        <hr>
+                        <p>
+                            Un test de significancia estadística mide si es probable que los resultados de la muestra
+                            sean aplicables al conjunto de la población. Los equipos pueden usarla para determinar si
+                            deben confiar en los resultados de un test A/B. Por ejemplo, si ellos conocen que al 20 por
+                            ciento de su base de suscriptores les encantaba un correo electrónico, pueden verificar que
+                            el resultado fue significativo antes de enviar el correo al conjunto de la lista.
+                        </p>
+                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(2)"><b
+                                style="font-size: larger;">&larr; Anterior:
+                                Hipótesis Alternativas </b></button>
+                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                style="font-size: larger;">Siguiente: Niveles de Significancia &rarr; </b></button>
+                    </div>
+                </div>
+                <div class="row" id="tema4">
+                    <div class="col-lg-12">
+                        <h1><b>Niveles de significancia</b></h1>
+                        <hr>
+                        <p>
+                            El nivel de significación, también denotado como <b>alfa o α</b>, es la probabilidad de rechazar la
+                            hipótesis nula cuando es verdadera. Por ejemplo un nivel de significación de 0.05 indica un
+                            riesgo del 5% de concluir que existe una diferencia cuando no hay una diferencia real.
+                            <br>
+                            <br>
+                            El nivel de significación determina a qué distancia del valor de la hipótesis nula se
+                            dibujará esa línea en el gráfico. Para graficar un nivel de significación de 0.05, será
+                            necesario sombrear el <b>5%</b> de la distribución que está más alejada de la hipótesis nula.
+                            <br>
+                        </p>
+                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                style="font-size: larger;">&larr; Anterior:
+                                Significancia </b></button>
+                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)"><b
+                                style="font-size: larger;">Siguiente:
+                                Error tipo I &rarr; </b></button>
+                    </div>
+                </div>
+                <div class="row" id="tema5">
+                    <div class="col-lg-12">
+                        <div class="container">
+                            <P style="font-size: 24px; text-align: justify;">
+                                Partiendo de que ninguna prueba de hipótesis es 100% cierta. Puesto que la prueba se
+                                basa en probabilidades,
+                                siempre existe la posibilidad de llegar a una conclusión incorrecta. Cuando usted
+                                realiza
+                                una prueba de hipótesis, puede cometer dos tipos de error: <b>tipo I</b> y <b>tipo
+                                    II</b>.
+                            </P>
+                            <h1><b>
+                                    ¿Que es un Error Tipo 1?
+                                </b>
+                            </h1>
+                            <p style="font-size: 22px; text-align: justify;">
+                                <b>*</b>Cuando se rechaza la hipótesis nula cuando es verdadera, se comete un error de
+                                tipo 1.
+                                La probabilidad de cometer un error de tipo 1 es <b>α</b>, que es el nivel de
+                                significancia
+                                que se establece para la prueba de hipótesis.
+                                <br>
+                                Por ejemplo un <b>α</b> de 0.05 indica que se está dispuesto a aceptar una probabilidad
+                                de 5%
+                                de estar equivocado al rechazar la hipótesis nula. Para reducir este riesgo, debe
+                                utilizar un
+                                valor menor para <b>α</b>. Sin embargo, usar un valor menor para alfa significa que
+                                usted tendrá
+                                menos probabilidad de detectar una diferencia si esta realmente existe.
+                                <br>
+                                En otras palabras, consiste en <b>NO ACEPTAR</b> la Hipótesis Nula cuando debimos
+                                haberla aceptado.
+                                <br>
+                                <nav>
+                                    <ul class="list-group">
+                                        <li class="list-group-item itemHover">
+                                            <a>Para entender mejor el error de tipo 1, despliegue el siguiente ejemplo
+                                                &darr;</a>
+                                            <ul style="display:none;">
+                                                <li>
+                                                    Ejemplo teorico
+                                                    <br>
+                                                    Se desarrolla una Prueba a un nivel de significancia del 0.05 de
+                                                    acuerdo a las siguientes hipótesis:
+                                                    <center>
+                                                        <b>Ho:</b> % Personas que prefieren el color naranja en los
+                                                        restaurantes ≤ 0.80
+                                                        <br>
+                                                        <b>H1:</b> % Personas que prefieren el color naranja en los
+                                                        restaurantes > 0.80
+                                                    </center>
+                                                    Se aplica la Prueba de Hipótesis y el resultado es rechazar la
+                                                    Hipótesis Nula,
+                                                    aceptando de esta forma la Hipótesis Alternativa.
+
+                                                    <br>
+                                                    <br>
+                                                    <h4 style="color: crimson;">¿Qué se puede concluir?</h4>
+                                                    Existe suficiente evidencia para aceptar que más del 80% de las
+                                                    personas prefieren
+                                                    el color naranja en los restaurantes, a un nivel de significancia
+                                                    del 0.05, es decir,
+                                                    tenemos una probabilidad de habernos equivocado del 5%
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </p>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">&larr; Anterior:
+                                    Niveles de significancia </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                    style="font-size: larger;">Siguiente: Errores Tipo 2 &rarr; </b></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="tema6">
+                    <div class="col-lg-12">
+                        <div class="container">
+                            <h1><b>
+                                    ¿Que es un Error Tipo 2?
+                                </b>
+                            </h1>
+                            <hr>
+                            <p style="font-size: 22px; text-align: justify;">
+                                <b>-></b> Cuando la hipótesis nula es falsa y no se rechaza, se comete un error de
+                                <b>tipo II</b>.
+                                <br>
+                                La probabilidad de cometer un error de tipo II es <b>β</b>, que depende de la potencia
+                                de la prueba.
+                                Puede reducir el riesgo de cometer un error de tipo II al asegurarse de que la prueba
+                                tenga
+                                suficiente potencia.
+                                <br>
+                                Para ello, se asegura que el tamaño de la muestra sea lo suficientemente grande
+                                como para detectar una diferencia práctica cuando esta realmente exista.
+                                En otras palabras, aceptamos la Hipótesis Nula cuando debimos haberla rechazado.
+                                <br>
+                                La probabilidad de rechazar la hipótesis nula cuando es falsa es igual
+                                a <b>1–β</b>. Este valor es la potencia de la prueba.
+                                <nav>
+                                    <ul class="list-group">
+                                        <li class="list-group-item itemHover">
+                                            <a>Tabla de Errores &darr;</a>
+                                            <ul style="display:none;">
+                                                <li>
+                                                    <img src="../img/Tabla.png" border="0" width="721" height="191">
+                                                    <br>
+                                                    <i style="font-size: 14px;">Tomado de:
+                                                        https://support.minitab.com/es-mx/minitab/18/help-and-how-to/statistics/basic-statistics/supporting-topics/basics/type-i-and-type-ii-error/</i>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </p>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)"><b
+                                    style="font-size: larger;">&larr; Anterior:
+                                    Errores Tipo 1 </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                    style="font-size: larger;">Siguiente: Tipos de Pruebas &rarr; </b></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="tema7">
+                    <div class="col-lg-12">
+                        <h1><b>
+                            <center>
+                            Tipos de pruebas
+                            </center>
+                        </b>
+                        </h1>
+                        <hr>
+                        <h4 style="color:#8C1919"><b>
+                            En distribuciones normales:
+                        </b>
+                        </h4>
+                        <p style="font-size: 20px; text-align: justify;">
+                                Cuando se analizan datos medidos por una variable cuantitativa continua, las 
+                                pruebas estadísticas de estimación y contraste frecuentemente empleadas se basan 
+                                en suponer que se ha obtenido una muestra aleatoria de una distribución de probabilidad 
+                                de tipo normal o de Gauss.
+                                <br>
+                                <br>
+                                Para este caso disponemos del mecanismo de la distribucion normal, es decir los datos
+                                se pueden transformar de tal manera que sigan una distribución normal.
+                                <br>
+                                La distribución normal es un ejemplo importante referido a una variable aleatoria 
+                                continua (la variable puede tomar cualquier valor real) Podemos usar la distribución 
+                                normal como una herramienta para calcular probabilidades. Por ejemplo, puede usarse 
+                                para aproximar la distribución binomial (calcular probabilidades de la distribución 
+                                binomial con números 'grandes' no ha sido tarea sencilla). Esta propiedad está en el 
+                                origen de la curva normal. 
+                                <nav>
+                                    <ul class="list-group">
+                                        <li class="list-group-item itemHover">
+                                            <a>Fórmula de la distribución normal &darr;</a>
+                                            <ul style="display:none;">
+                                                <li>
+                                                    <center>
+                                                    <img src="../img/Normal.png" border="0" width="474" height="116">
+                                                    </center>
+                                                    Esta es la formula o modelos continuo mas importante de la estadistica, donde:
+                                                    <center>
+                                                        <img src="../img/Variables.png" border="0" width="498" height="96">
+                                                    </center>
+                                                    <i style="font-size: 14px;">Tomado de:
+                                                            http://www.matematicasvisuales.com/html/probabilidad/varaleat/normal.html</i>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <br>
+                                <p style="font-size: 19px; text-align: justify;">
+                                La función de densidad de una distribución normal tiene forma de <b>campana</b>.
+                                Es simétrica en torno a la media. El área total bajo la curva es 1 
+                                (como corresponde a una función de densidad).</p> <button class="btn btn-dark my-2 my-sm-0" onclick="hider(8)"><b
+                                    style="font-size: larger;">Siguiente: Representación gráfica &rarr; </b></button>
+                            </p>
+                            <br>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                    style="font-size: larger;">&larr; Anterior:
+                                    Errores Tipo 2 </b></button>
+                    </div>
+                </div>
+                <div class="row" id="tema8">
+                        <div class="col-lg-12">
+                                <p style="font-size: 20px; text-align: justify;">
+                                        La <b>representación gráfica</b> de esta distribución es una curva simétrica 
+                                        y su forma se asemeja a una campana por lo que se comoce como <b>campana de Gauss</b>.  
+                                        <hr>
+                                        <center>
+                                            <img src="../img/Gauss.png" border="0" width="731" height="388">
+                                            <i style="font-size: 14px;">
+                                                    Tomado de: http://www.matematicasvisuales.com/html/probabilidad/varaleat/normal.html
+                                            </i>
+                                        </center>
+                                        <br>
+                                        <p style="font-size: 20px; text-align: justify;"></p>
+                                        La densidad está concentrada en torno a la media <b>μ</b> y se hace muy pequeña conforme 
+                                        nos alejamos del centro por la derecha o la izquierda (las 'colas' de la distribución). 
+                                        Cuanto más alejado es el valor del centro de la función de densidad menos probable es
+                                        observar ese valor. 
+                                        <br>
+                                        <li class="list-group-item itemHover">
+                                                <a><b>Algunas propiedades de la distribución normal son:</b></a>
+                                        <ul style="display:none;">
+                                            <li>
+                                                La forma de la curva de la distribución depende de sus dos parámetros: 
+                                                la media y la desviación estándar.
+                                            </li>
+                                            <li>
+                                                La media indica la posición de la campana, la gráfica se desplaza a lo largo del eje x.
+                                            </li>
+                                            <li>
+                                                A mayor desviación la curva será más "plana", dado que la distribución, 
+                                                en este caso, presenta una mayor variabilidad.
+                                            </li>
+                                            <li>
+                                                La curva es simétrica respecto a la media <b>μ</b>.
+                                            </li>
+                                        </ul>
+                                        </li>
+                                        </p>                                  
+                                    </p>
+                                    <br>
+                                    <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                            style="font-size: larger;">&larr; Anterior:
+                                            Distribución Normal </b></button>
+                                    <button class="btn btn-dark my-2 my-sm-0" onclick="hider(9)"><b
+                                            style="font-size: larger;">Siguiente: Tipos de Pruebas Especiales &rarr; </b></button>        
+                            </div>
+                </div>
+                <div class="row" id="tema9">
+                    <div class="col-lg-12">
+                            <div class="col-lg-12">
+                                    <h1><b>
+                                        <center>
+                                        Tipos de pruebas
+                                        </center>
+                                    </b>
+                                    </h1>
+                                    <hr>
+                                    <h4 style="color:#8C1919"><b>
+                                       Especiales:
+                                    </b>
+                                    </h4>
+                                    <p style="font-size: 20px; text-align: justify;">
+                                        Estas pruebas especiales tambien se llaman pruebas <b>no parametricas</b> estas son 
+                                        las que, a pesar de basarse en determinadas suposiciones, no parten de la base de 
+                                        que los datos analizados adoptan una distribución normal. 
+                                        <br>
+                                        Basicamente es una técnica estadística que no presupone ninguna distribución de 
+                                        probabilidad teórica de la distribución de nuestros datos.
+                                        En la mayor parte de ellas los resultados estadísticos se derivan únicamente a 
+                                        partir de procedimientos de ordenación y recuento, por lo que su base lógica es de 
+                                        fácil comprensión. 
+                                        <br>
+                                        <br>
+                                        Por ejemplo <b>--></b> cuando trabajamos con muestras pequeñas <b>(n < 10)</b> en 
+                                        las que se desconoce si es válido suponer la normalidad de los datos, conviene 
+                                        utilizar pruebas no paramétricas, al menos para corroborar los resultados obtenidos 
+                                        a partir de la utilización de la teoría basada en la normal. 
+                                        <br>
+                                        En estos casos se emplea como parámetro de centralización la mediana, que es 
+                                        aquel punto para el que el valor de <b>X</b> está el 50% de las veces por debajo y el 50% por encima.
+                                        <br>
+                                        Las pruebas no paramétricas no requieren asumir normalidad de la población y en su mayoría se 
+                                        basan en el ordenamiento de los datos, la población tiene que ser continua.
+                                        <br>
+                                        <br>
+                                        Unas cosas para tener en cuenta son:
+                                        <ul>
+                                                <li>
+                                                    El parámetro que se usa para hacer las pruebas estadísticas es la Mediana y no la Media.
+                                                </li>
+                                                <li>
+                                                    Son técnicas estadísticas que no presuponen ningún modelo probabilístico teórico.
+                                                </li>
+                                                <li>
+                                                    Son menos potentes que las técnicas paramétricas, aunque tienen la ventaja 
+                                                    que se pueden aplicar más fácilmente.
+                                                </li>
+                                            </ul>
+                                    </p>
+                                    <br>
+                                    <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                        style="font-size: larger;">&larr; Anterior:
+                                            Distribución normal </b></button>
+                                    <button class="btn btn-dark my-2 my-sm-0" onclick="hider(10)"><b
+                                        style="font-size: larger;">Siguiente: Potencia de una prueba &rarr; </b>
+                                    </button>
+                                </div>
+                    </div>
+                </div>
+                <div class="row" id="tema10">
+                        <div class="col-lg-12">
+                                <div class="col-lg-12">
+                                        <h1><b>
+                                            <center>
+                                            Tipos de pruebas
+                                            </center>
+                                        </b>
+                                        </h1>
+                                        <hr>
+                                        <h4 style="color:#8C1919"><b>
+                                           Potencia de una prueba:
+                                        </b>
+                                        </h4>
+                                        <p style="font-size: 20px; text-align: justify;">
+                                            La <b>potencia</b> de una prueba de hipótesis es la probabilidad de que la 
+                                            prueba rechace correctamente la hipótesis nula cuando la hipótesis alternativa 
+                                            es verdadera (es decir, la probabilidad de no cometer un error del <b>tipo II</b>).
+                                            La potencia de una prueba de hipótesis se ve afectada por el tamaño de la
+                                            muestra, la diferencia, la variabilidad de los datos y el nivel de significancia de la prueba.                                         
+                                            <br>
+                                            <br>
+                                            La potencia es en general una función de las distribuciones posibles, a menudo determinada 
+                                            por un parámetro, bajo la hipótesis alternativa. A medida que aumenta la potencia, las 
+                                            posibilidades de que se presente un error del tipo II disminuyen. La probabilidad de que 
+                                            ocurra un error de tipo II se conoce como la tasa de falsos negativos <b>(β)</b>. Por lo tanto 
+                                            la potencia es igual a <b>1 - β</b>, que también se conoce como la <b>sensibilidad</b>. 
+                                            <br>
+                                            <br>
+                                            En este sentido, la potencia de la prueba refleja la <b>“sensibilidad”</b> de un contraste de 
+                                            hipótesis, esto es, su capacidad para detectar diferencias significativas existentes 
+                                            entre los grupos.
+                                            <br>
+                                            <br>
+                                            En <b>Conclusion --></b> Si una prueba tiene poca potencia, es posible que usted no detecte un efecto y 
+                                            concluya erróneamente que no existe ninguno. Si la potencia de una prueba es demasiado 
+                                            alta, efectos muy pequeños y posiblemente sin importancia podrían parecer significativos.
+                                            Generalmente un valor de potencia de <b>0.80</b> es aceptable y se puede usar como punto de referencia.  
+                                        </p>
+                                        <br>
+                                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(9)"><b
+                                            style="font-size: larger;">&larr; Anterior:
+                                                Especiales </b></button>
+                                        <button class="btn btn-dark my-2 my-sm-0" onclick="hider(11)"><b
+                                            style="font-size: larger;">Siguiente: Diferencias muestrales &rarr; </b>
+                                        </button>
+                                    </div>
+                        </div>
+                    </div>
+                    <div class="row" id="tema11">
+                            <div class="col-lg-12">
+                                    <div class="col-lg-12">
+                                            <h1><b>
+                                                <center>
+                                                Tipos de pruebas
+                                                </center>
+                                            </b>
+                                            </h1>
+                                            <hr>
+                                            <h4 style="color:#8C1919"><b>
+                                               Diferencias muestrales:
+                                            </b>
+                                            </h4>
+                                            <p style="font-size: 20px; text-align: justify;">
+                                                  Las diferencias muestrales o tambien llamadas distribuciones muestrales es util cuando
+                                                  en ocasiones interesa definir un intervalo de valores tal que permita establecer cuales 
+                                                  son los valores mínimo y máximo aceptables para la diferencia entre las medias de dos poblaciones. 
+                                                  Pueden darse dos situaciones según las muestras sean o no independientes; siendo en ambos 
+                                                  casos condición necesaria que las poblaciones de origen sean normales o aproximadamente normales.
+                                                  <br>
+                                                  <br>
+                                                  La distribución muestral de la estadística <b>X</b> con tamaño muestral <b>n</b> es la distribución que 
+                                                  resulta cuando un experimento se lleva a cabo una y otra vez (siempre con tamaño muestral n) y 
+                                                  resultan los diversos valores de <b>X</b>. Esta distribución muestral, entonces, describe la 
+                                                  variabilidad de los promedios muestrales alrededor de la media poblacional <b>μ</b>. 
+                                                <br>
+                                                <br>
+                                                  Por <b>ejemplo: </b>a través de las diferencias muestrales se puede afirmar que un 
+                                                  funcionario de cierta compañía calcula la media de 40 bebidas y obtiene 236 c.c., 
+                                                  y con base en este valor decide que la máquina aún sirve bebidas con un contenido promedio 
+                                                  de μ=240 c.c. Las 40 bebidas representan una muestra de la <b>población infinita</b> de 
+                                                  posibles bebidas que esta máquina servirá.
+                                                  <br>
+                                                  En cada uno de estos ejemplos calculamos una estadística a partir de una <b>muestra</b> 
+                                                  seleccionada de la <b>población</b>, y de estas estadísticas hacemos varias 
+                                                  afirmaciones con respecto a los valores de los <b>parámetros de la población</b> que 
+                                                  pueden ser ciertos o no.
+                                                  <br>
+                                                  <br>
+                                                  <ul class="list-group">
+                                                    <li class="list-group-item itemHover">
+                                                        <a>Ejemplo Teorico &darr;</a>
+                                                        <ul style="display:none;">
+                                                            <li>
+                                                                Una empresa eléctrica fabrica lámparas que tienen una duración que se distribuye
+                                                               aproximadamente en forma normal, con <b>media de 800 horas</b> y desviación estándar de <b>40 horas</b>. 
+                                                               Calcular la probabilidad de que una m.a. de <b>16 lámparas</b> tenga una vida media de 
+                                                               menos de <b>775 horas</b>.
+                                                               <br>
+                                                               <br>
+                                                               Para este caso la distribución muestral de <b>X</b> Será aproximadamente normal con media 800
+                                                               y desviación estándar <b>40/&#8730;16=10.</b> La probabilidad que se desea está dada por:
+                                                                <center>
+                                                                <img src="../img/Formu.png" border="0" width="356" height="38">   
+                                                                <br>
+                                                                <i style="font-size: 14px;">
+                                                                    Tomado de: http://www.ub.edu/aplica_infor/spss/cap4-3.htm</i>
+                                                                </center>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                            <br>
+                                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(10)"><b
+                                                style="font-size: larger;">&larr; Anterior:
+                                                    Potencia de una prueba </b></button>
+                                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(12)"><b
+                                                style="font-size: larger;">Siguiente: Region de rechazo &rarr; </b>
+                                            </button>
+                                        </div>
+                            </div>
+                        </div>
+                        <div class="row" id="tema12">
+                                <div class="col-lg-12">
+                                        <div class="col-lg-12">
+                                                <h1><b>
+                                                    <center>
+                                                    Tipos de pruebas
+                                                    </center>
+                                                </b>
+                                                </h1>
+                                                <hr>
+                                                <h4 style="color:#8C1919"><b>
+                                                   Region de rechazo:
+                                                </b>
+                                                </h4>
+                                                <p style="font-size: 20px; text-align: justify;">
+                                                    Si la estadística de prueba cae dentro de la región de aceptación, 
+                                                    no se puede rechazar la hipótesis nula. <b>La región de rechazo</b> puede 
+                                                    considerarse como el conjunto de valores de la estadística de prueba 
+                                                    que no tienen posibilidad de presentarse si la hipótesis nula es verdadera.  
+                                                    <br>
+                                                    <br>
+                                                    La Región de Rechazo es el conjunto de valores
+                                                    tales que si la prueba estadística cae dentro de
+                                                    este rango, decidimos rechazar la Hipótesis Nula.
+                                                    <br>
+                                                    Su localización depende de la forma de la Hipótesis Alternativa:
+                                                    <br>
+                                                    <br>
+                                                    Si <b>H :μ > μ<sub>0</sub></b> entonces la región se encuentra en
+                                                    la cola derecha de la distribución de la
+                                                    estadística de prueba.
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item itemHover">
+                                                            <a>Grafico 1 &darr;</a>
+                                                            <ul style="display:none;">
+                                                                    <center>
+                                                                    <img src="../img/Rec.png" border="0" width="518" height="291">   
+                                                                    <br>
+                                                                    <i style="font-size: 14px;">
+                                                                        Tomado de: https://slideplayer.es/slide/3147246/</i>
+                                                                    </center>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <br>
+                                                    <p style="font-size: 20px; text-align: justify;">
+                                                    Si <b>H :μ < μ<sub>0</sub></b> entonces la región se encuentra en
+                                                    la cola izquierda de la distribución de la
+                                                    estadística de prueba.
+                                                    <br>
+                                                    <br>
+                                                    Si <b>H :μ != μ<sub>0</sub></b> entonces la región se divide en dos
+                                                    partes, una parte estará en la cola derecha de la
+                                                    distribución de la estadística de prueba y la otra
+                                                    en la cola izquierda de la distribución de la
+                                                    estadística de prueba.
+                                                    </p>
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item itemHover">
+                                                            <a>Grafico 2&darr;</a>
+                                                            <ul style="display:none;">
+                                                                    <center>
+                                                                    <img src="../img/Rec1.png" border="0" width="464" height="284">   
+                                                                    <br>
+                                                                    <i style="font-size: 14px;">
+                                                                        Tomado de: https://slideplayer.es/slide/3147246/</i>
+                                                                    </center>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </p>
+                                                <br>
+                                                <button class="btn btn-dark my-2 my-sm-0" onclick="hider(11)"><b
+                                                    style="font-size: larger;">&larr; Anterior:
+                                                        Diferencias muestrales </b></button>
+                                                <button class="btn btn-dark my-2 my-sm-0" onclick="hider(13)"><b
+                                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b>
+                                                </button>
+                                            </div>
+                                </div>
+                            </div>
+                <div class="row" id="tema13">
+                    <div class="col-lg-12">
+                        <h1><b>PRUEBAS DE HIPÓTESIS</b></h1>
+                        <hr>
+                        <br>
+                        <h2>Ejemplos:</h2>
+                        <br />
+                        <ul>
+                            <li class="listaButtons">
+                                <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo11"
+                                    onclick="calculoEj11();"><b style="font-size: larger;">Ejemplo 1
+                                        &rarr;</b></button>
+                            </li>
+                            <li class="listaButtons">
+                                <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo12"
+                                    onclick="calculoEj12();"><b style="font-size: larger;">Ejemplo 2
+                                        &rarr;</b></button>
+                            </li>
+                            <li class="listaButtons">
+                                <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo13"
+                                    onclick="calculoEj13()"><b style="font-size: larger;">Ejemplo 3 &rarr;</b></button>
+                            </li>
+                            <li class="listaButtons">
+                                <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo14"
+                                    onclick="calculoEj14()"><b style="font-size: larger;">Ejemplo 4 &rarr;</b></button>
+                            </li>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="modals">
+        <div class="modal" id="ejemplo11">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"><b>Pruebas de Hipótesis - Ejemplo 1</b></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+                        <p>
+                            Modificado de: Anderson, Sweeney & Williams (2008). Estadística para
+                            administración y
+                            economía (décima edición) México: Limusa (P. 344).
+                        </p>
+                        <hr>
+                        <p>
+                            El Rector de una universidad Colombiana, afirma que sus estudiantes poseen un coeficiente
+                            intelectual superior al de las demás universidades del país. Una muestra aleatoria de
+                        </p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 50">
+                            <input type="text" value="30" style="width: 40px;"
+                                onchange="var a= this.value; $('tej11-4').each(function(i){this.textContent = a}); calculoEj11()"
+                                autocomplete="off" />
+                        </div>
+                        <p>
+                            alumnos, obtenida sobre los resultados del examen de IQ implementado en la universidad,
+                            tiene un
+                            promedio de</p>
+                        <div class="hint--bottom-left hint--info hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 0 y 100">
+                            <input type="text" value="100" style="width: 40px;"
+                                onchange="var a= this.value; $('tej11-2').each(function(i){this.textContent = a}); calculoEj11()"
+                                autocomplete="off" />
+                        </div>
+                        <p>
+                            puntos.</p>
+                        <br>
+                        <p> ¿Existe suficiente evidencia que soporte la afirmación del rector,
+                            conociendo que el promedio de IQ de la población colombiana es de</p>
+                        <div class="hint--bottom-right hint--large hint--rounded hint--bounce"
+                            aria-label="Cual cree que es el IQ de la poblacion colombiana">
+                            <input type="text" value="84" style="width: 40px;"
+                                onchange="var a= this.value; $('tej11-1').each(function(i){this.textContent = a}); calculoEj11()"
+                                autocomplete="off" />
+                        </div>
+                        <p>
+                            puntos, y posee una
+                            desviación estándar de</p>
+                        <div class="hint--bottom hint--success hint--rounded hint--bounce"
+                            aria-label="Ingrese un numero en 1 y 10">
+                            <input type="text" value="8" style="width: 40px;"
+                                onchange="var a= this.value; $('tej11-3').each(function(i){this.textContent = a}); calculoEj11()"
+                                autocomplete="off" />
+                        </div>
+                        <p>?.</p>
+
+                        <hr>
+                        <p>
+                            <b>Paso 1:</b> Enunciar la Hipótesis Nula.
+                            El hecho real es que el promedio de IQ de la población colombiana es de
+
+                            <tej11-1>84</tej11-1>
+                            , así que:
+                            H<sub>0</sub>:μ=
+                            <tej11-1>84</tej11-1>
+                        </p>
+                        <hr>
+                        <p>
+                            <b>Paso 2:</b> Enunciar la Hipótesis Alternativa.
+                            La afirmación realizada por el rector dice que sus alumnos poseen un IQ superior al
+                            promedio,
+                            así que:
+                            H<sub>1</sub>:μ>
+                            <tej11-1>84</tej11-1>
+                            .
+                        </p>
+                        <hr>
+                        <p>
+                            <b>Paso 3:</b> Dibujar la distribución de IQ para visualizar gráficamente el problema.
+                        </p>
+                        <br>
+                        <center>
+                            <div id="chartContainer" style="height: 450px; width: 100%; overflow: auto"></div>
+                        </center>
+                        <br>
+                        <br>
+                        <br>
+                        <hr>
+                        <p>
+                            <b>Paso 4:</b> Enunciar el nivel de significancia.
+                            En caso de no contar con un nivel de significancia se recomienda usar el 5% (0.005)
+                        </p>
+                        <hr>
+                        <p>
+                            <b>Paso 5:</b>Hallar la región de rechazo (Indicada por el nivel de significancia)
+                            Un área de 0.05 posee una puntuación estándar de 1.645. Este valor se encuentra buscando en
+                            la
+                            tabla de distribución normal, el valor que corresponda a un 0.95, este se halla en la fila
+                            de
+                            1.6x y entre las columnas 0.4 y 0.5, así que por eso se toma el valor intermedio de 1.645.
+                        </p>
+                        <buttonT type="button" class="btn btn-danger hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Tabla de distribución normal" onclick="$('tdn1').show(100); $(this).hide();">
+                            Mostrar tabla</buttonT>
+                        <br>
+                        <tdn1>
+                            <button type="button" class="btn btn-danger"
+                                onclick="$('tdn1').hide(100); $('buttonT').show(100);">Ocultar tabla</button>
+                            <br>
+                            <img src="../img/TablaDisNormal.JPG" style="max-height: 100%; max-width: 100%;">
+                        </tdn1>
+                        <br>
+                        <br>
+                        <hr>
+                        <p>
+                            <b>Paso 6:</b> Realizar la prueba estadística, usando la fórmula:
+                        </p>
+                        <br>
+                        <center>
+                        Z=<div class="frac">
+                            x&#772; - μ<sub>0</sub>
+                            <span class="symbol">/</span>
+                            <span class="bottom">
+                                &sigma;/&#8730;n
+                            </span>
+
+                        </div>
+                        <br>
+                        Z=<div class="frac">
+                            <tej11-2>100</tej11-2> - <tej11-1>84</tej11-1>
+                            <span class="symbol">/</span>
+                            <span class="bottom">
+                                <tej11-3>8</tej11-3>/&#8730;<tej11-4>30</tej11-4>
+                            </span>
+
+                        </div>
+                        <br>
+                        Z=<div class="frac">
+                            <tej11-r1>16</tej11-r1>
+                            <span class="symbol">/</span>
+                            <span class="bottom">
+                                <tej11-r2>1.46059348668</tej11-r2>
+                            </span>
+                        </div>
+                        <br>
+                        Z=<tej11-r3>10.95</tej11-r3>
+                        </center>
+                        <br>
+                        <b>Si el resultado del paso 6, es mayor al número del paso 5, se rechaza la hipótesis nula, si
+                            el valor del paso 5 es superior no se puede rechazar la hipótesis nula.</b>
+                        <br>
+                        <hr>
+                        <h2><b>Conclusión</b></h2>
+                        <p>
+                            En este caso 10.95 > 1.645 así que se rechaza la hipótesis nula.
+                            Por lo tanto se puede afirmar que el rector tiene razón en afirmar que sus estudiantes se
+                            encuentran por encima del promedio de IQ nacional.
+                        </p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                                data-target="#ejemplo12" onclick="calculoEj12();">Ejemplo 2</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal" id="ejemplo12">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"><b>Pruebas de Hipótesis - Ejemplo 2</b></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+                        <p>
+                            Adaptado de: Anderson, Sweeney & Williams (2008). Estadística para
+                            administración y economía (décima edición) México: Limusa (P. 344)
+                        </p>
+                        <hr>
+                        <p>
+                            En la ciudad de Bogotá un estadista hace un estudio sobre las gasolineras averiguando sobre
+                            el valor real que dispensa la máquina al tanquear, tomó</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 50">
+                            <input type="text" value="25" style="width: 40px;"
+                                onchange="var a= this.value; $('tej12-1').each(function(){this.textContent = a}); calculoEj12()"
+                                autocomplete="off" />
+                        </div>
+                        <p>
+                            pruebas en diferentes estaciones
+                            de gasolina pidiendo que llenaran exactamente un litro en cada estación, el resultado que se
+                            obtuvo fue que el promedio de estas fue de
+                        </p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 0 y 2">
+                            <input type="text" value="0.97" style="width: 40px;"
+                                onchange="var a= this.value; $('tej12-2').each(function(){this.textContent = a}); calculoEj12()"
+                                autocomplete="off" />
+                        </div>
+                        <p>
+                            litros, por lo cual podría demandar, sin embargo según la ley se puede tomar un
+                        </p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 0 y 10">
+                            <input type="text" value="1" style="width: 40px;"
+                                onchange="var a= this.value; $('tej12-3').each(function(){this.textContent = a}); calculoEj12()"
+                                autocomplete="off" />
+                        </div>
+                        <p>
+                            % de error
+                            en estas medidas, por lo cual se toma una significancia aceptada de <tej12-3>1</tej12-3>% en
+                            este caso.
+                        </p>
+                        <br>
+                        <p>
+                            En el experimento el estadista observó en sus pruebas que la desviación estándar en todas
+                            sus mediciones fue de</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="12" style="width: 40px;"
+                                onchange="var a= this.value; $('tej12-4').each(function(){this.textContent = a}); calculoEj12()"
+                                autocomplete="off" />
+                        </div>
+                        <p>%
+                            y decidió hacer una prueba de hipótesis apuntando lo siguiente:
+                        </p>
+                        <br>
+
+                        <b>
+                            h<sub>0</sub>&mu; &lessdot; <tej12-3>1</tej12-3>
+                            <br>
+                            h<sub>a</sub>&mu; &geq; <tej12-3>1</tej12-3>
+                        </b>
+                        <p>
+                            Haciendo el siguiente análisis, la pregunta es, ¿Estará incumpliendo la ley las gasolineras
+                            de la ciudad de Bogotá?
+
+                        </p>
+                        <br>
+                        <hr>
+                        <h2>Solución</h2>
+                        <ol>
+                            <li>
+                                <p>
+                                    Lo primero que se deberá hacer es hallar el error estándar del promedio que está
+                                    dado por la fórmula:
+                                </p>
+                                <b>
+                                    <div class="row col-6">
+                                        <div class="col-6">
+                                            &sigma;<sub>x</sub>=<div class="frac">
+                                                &sigma;
+                                                <span class="symbol">/</span>
+                                                <span class="bottom">
+                                                    &#8730;n
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            n= Número de muestras
+                                            &sigma;= Desviación estándar
+                                            &sigma;<sub>x</sub>= Error estándar
+                                        </div>
+                                    </div>
+                                </b>
+                                <p>
+                                    Teniendo así que:
+                                </p>
+                                <b>
+                                    &sigma;<sub>x</sub>=<div class="frac">
+                                        <tej12-4>0.12</tej12-4>
+                                        <span class="symbol">/</span>
+                                        <span class="bottom">
+                                            &#8730;<tej12-1>25</tej12-1>
+                                        </span>
+                                    </div>
+                                </b>
+                                <br>
+                                <b>
+                                    &sigma;<sub>x</sub>= <tejr12-1>0.024</tejr12-1>
+                                </b>
+
+                            </li>
+                            <li>
+                                <p>
+                                    Encontrar el valor z para este caso, el cual tiene la siguiente fórmula:
+                                </p>
+                                <b>
+                                    Z=<div class="frac">
+                                        x&#772; - μ<sub>0</sub>
+                                        <span class="symbol">/</span>
+                                        <span class="bottom">
+                                            &sigma;<sub>x</sub>>
+                                        </span>
+                                    </div>
+                                </b>
+                                <p>
+                                    Evaluando esto con nuestro ejemplo obtenemos que:
+                                </p>
+                                <b>
+                                    Z=<div class="frac">
+                                        <tej12-2>0.97</tej12-2>-1</sub>
+                                        <span class="symbol">/</span>
+                                        <span class="bottom">
+                                            <tejr12-1>0.024</tejr12-1>
+                                        </span>
+                                    </div>
+                                </b>
+                                <br>
+                                <b>
+                                    Z=<tejr12-2>-1.25</tejr12-2>
+                                </b>
+                                <p>
+                                    Lo que significa que valor de x una desviación estándar menor que el valor
+                                    hipotético de la media ya que el valor de z es cercano a 1, si z=2 esto significa
+                                    que el valor de es dos errores estándar menor que el valor hipotético de la media y
+                                    así sucesivamente.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Al ya obtenerse el valor de z, esto se debe comparar en la función de la
+                                    distribución normal, para poder comparar el valor -p de z.
+                                </p>
+                                <br>
+                                <center>
+                                    <div id="chartContainer2" style="height: 450px; width: 100%; overflow: auto"></div>
+                                </center>
+                                <br>
+                            </li>
+                            <li>
+                                <p>
+                                    Sabemos que la probabilidad acomulada es el area bajo de la cuerva de la grafica de
+                                    densidad de probabilidad, es decir:
+                                </p>
+                                <br>
+                                <center>
+                                    <img src="../img/funDisNomAcum.JPG" />
+                                </center>
+                                <br>
+                                <p>
+                                    al evaluarla obtenemos que la probabilidad para este caso es <tejr12-3>0.0098
+                                    </tejr12-3> es decir <tejr12-4>0.98</tejr12-4>%
+                                </p>
+                            </li>
+
+                        </ol>
+                        <hr>
+                        <h2><b>Conclusión</b></h2>
+                        <p>
+                            Obtuvimos el valor <tejr12-4>0.98</tejr12-4>% que es menor la significancia que teniamos
+                            definida, es decir, el
+                            1%. por lo tanto rechazamos la hipotesis de que las gasolineras infringen la ley.
+                        </p>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                                data-target="#ejemplo11" onclick="calculoEj11();">Ejemplo 1</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                                data-target="#ejemplo13" onclick="calculoEj13();">Ejemplo 3</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal" id="ejemplo13">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"><b>Pruebas de Hipótesis - Ejemplo 3</b></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+                        <p>
+                            Autoria propia.
+                        </p>
+                        <hr>
+                        <p>
+                            Se ha esparcido el rumor de que el Coronavirus es una fiebre con un alto índice de
+                            mortalidad, que las personas que llegan a contraer la enfermedad tienen más del </p><div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="80" style="width: 40px;"
+                                onchange="var a= this.value; $('tej13-4').each(function(){this.textContent = a}); calculoEj13()"
+                                autocomplete="off" />
+                        </div>%<p> de
+                            probabilidad de morir.
+                        </p>
+                        <br>
+                        <p>
+                            Sin embargo, se han obtenido algunos datos sobre  
+                        </p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="20" style="width: 40px;"
+                                onchange="var a= this.value; $('tej13-1').each(function(){this.textContent = a}); calculoEj13()"
+                                autocomplete="off" />
+                        </div>
+                        <p>
+                            personas que lo han contraído, de las cuales 
+                        </p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="8" style="width: 40px;"
+                                onchange="var a= this.value; $('tej13-2').each(function(){this.textContent = a}); calculoEj13()"
+                                autocomplete="off" />
+                        </div>
+                        <p>
+                            han muerto.
+                        </p>
+                        <br>
+                        <p>
+                            ¿Será cierta la afirmación de que la probabilidad de morir es de más del <tej13-4>80</tej13-4>%?
+                        </p>
+                        <br>
+                        <p>
+                            El error maximo permitido para este caso es 
+                        </p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 0 y 100">
+                            <input type="text" value="0.05" style="width: 40px;"
+                                onchange="var a= this.value; $('tej13-3').each(function(){this.textContent = a}); calculoEj13()"
+                                autocomplete="off" />
+                        </div>%
+                        
+                        <hr>
+                        <h2><b>Solución</b></h2>
+                        <ol>
+                            <li>
+                                <p>
+                                    Enunciar la hipótesis nula. <b>H<sub>0</sub></b> La mortalidad del Coronavirus es mayor al
+                                    <tej13-4>80%</tej13-4> <b>(p &GreaterEqual; <tej13-4>80</tej13-4>%)</b>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Enunciar hipótesis alternativa. H<sub>1</sub> La mortalidad del Coronavirus es menor
+                                    al <tej13-4>80%</tej13-4> <b>(p &lt; <tej13-4>80</tej13-4>%)</b>.
+                                </p>
+
+                            </li>
+                            <li>
+                                <p>
+                                    Establecer el valor <b>&alpha;</b> que nos indica el punto de referencia para rechazar la
+                                    hipotesis <b>&alpha;=<tej13-3>0.05</tej13-3></b>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Realizar la prueba estadistica, en este caso se usa la distribución binomial
+                                    <b>(n=<tej13-1>20</tej13-1>,p=<tejr13-1>0.8</tejr13-1>)</b>.
+                                </p>
+                                <br>
+                                <center>
+                                <b style="font-size: xx-large;">
+                                    P<sub>x</sub>=<div class="frac">
+                                        n! * p<sup>n</sup> * (1-p)<sup>n-x</sup>
+                                        <span class="symbol">/</span>
+                                        <span class="bottom">
+                                            n! * (n-x)!
+                                        </span>
+                                    </div>
+                                </b>
+                            </center>
+                            </li>
+                            <li>
+                                Dibujamos la gráfica de distribución binomial
+                                <br>
+                                <center>
+                                    <div id="chartContainer3" style="height: 450px; width: 100%; overflow: auto"></div>
+                                </center>
+                                <br>
+                            </li>
+                            <li>
+                                <p>
+                                    Ya que la cantidad de personas infectadas que murieron fueron <tej13-2>8</tej13-2>
+                                    evaluamos la
+                                    función de distribución binomial en este valor.
+                                </p>
+                                <br>
+                                <p>
+                                    Obtenemos: <b>P(<tej13-2>8</tej13-2>) = <tejr13-2>0.000086</tejr13-2> &approx;
+                                    <tejr13-3>0.0001</tejr13-3> = <tejr13-4>0.01</tejr13-4>%</b>
+                                </p>
+                            </li>
+                        </ol>
+                        <hr>
+                        <h2><b>Conclusión</b></h2>
+                        <p>
+                            Se contrasta con alfa para aceptar o rechazar la prueba de hipótesis.
+                            <br>
+                        </p>
+                        <p>
+                            <tejr13-5>como <b>α>p (<tej13-3>0.05</tej13-3>%><tejr13-4>0.01</tejr13-4>)</b> se rechaza
+                            </tejr13-5>
+                            la hipótesis nula.
+                        </p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                                data-target="#ejemplo12" onclick="calculoEj12();">Ejemplo 2</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                                data-target="#ejemplo14" onclick="calculoEj14();">Ejemplo 4</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h6>Blog Estadistica UD</h6>
+                        <p class="text-justify">Este Blog es desarrollado con el fin de proporcionar
+                            conceptos, teoria, ejemplos y herramientas dinamicas a aquellos estudiantes
+                            o personas interesadas en las Pruebas de Hipotesis o la Estadistica en General.
+                        </p>
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <h6>Desarrollado por: </h6>
+                        <ul class="footer-links">
+                            <li><a href="">Sebastian Salazar</a></li>
+                            <li><a href="">Carlos Andres Lopez</a></li>
+                            <li><a href="">Nacaca Rodriguez</a></li>
+                            <li><a href="">Juan Montes</a></li>
+                            <li><a href="">Andres Rojas</a></li>
+                        </ul>
+                    </div>
+                    <img src="../img/Logo_UD.png" border="0" width="180" height="170">
+                </div>
+                <hr>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <p class="copyright-text">Copyright &copy; 2020 Todos los derechos reservados
+                            <a href="#">Estadistica UD</a>.
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="social-icons">
+                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+        <script src="../js/jQuery.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/blogs.js"></script>
+        <script src="../canvasjs/canvasjs.min.js"></script>
+        <script src="../js/api.js"></script>
+
+        <script>
+
+            for (var i = 0; i <= numSubtemas; i++) {
+                $("tdn" + i).hide();
+            }
+
+            $(this).find('ul').toggle(300)
+
+            function calculoEj11() {
+
+                var main = $('tej11-1')[0].textContent;
+                var dx = $('tej11-2')[0].textContent;
+                var desv = $('tej11-3')[0].textContent;
+                var muestra = $('tej11-4')[0].textContent;
+                var xd = 1;
+                var limit = main * 2;
+                var datas = [];
+                var increase = main / 8;
+
+                for (var i = 1; i <= limit; i = i + increase) {
+                    xd = i;
+                    var ecuation = (Math.pow(Math.E, -1 * ((Math.pow(xd - main, 2) / (2 * Math.pow(desv, 2)))))) / (desv * Math.sqrt(2 * Math.PI));
+                    datas.push({ x: xd, y: ecuation });
+                }
+
+                var chart = new CanvasJS.Chart("chartContainer",
+                    {
+                        height: 400,
+                        title: {
+                            text: "Grafico de distribución normal"
+                        },
+                        axisY: {
+                            minimum: 0
+                        },
+                        data: [
+                            {
+                                type: "spline",
+                                dataPoints: datas
+                            }
+                        ]
+                    });
+
+                setTimeout(() => {
+                    chart.render();
+                }, 100);
+
+
+
+                var zNum = (dx - main);
+                var zDem = (desv / Math.sqrt(muestra));
+                var z = zNum / zDem;
+                $('tej11-r1')[0].textContent = zNum.toFixed(2);
+                $('tej11-r2')[0].textContent = zDem.toFixed(2);
+                $('tej11-r3')[0].textContent = z.toFixed(2);
+                $('tej11-r4')[0].textContent = z.toFixed(2);
+
+            }
+
+            function calculoEj12() {
+                var main = $('tej12-2')[0].textContent;
+                var desv = parseFloat($('tej12-4')[0].textContent) / 100;
+                if (desv * 100 < 1) {
+                    desv *= 100;
+                }
+                var muestra = $('tej12-1')[0].textContent;
+                var xd = 1;
+                var limit = main * 2;
+                var datas = [];
+                var increase = main / 10;
+
+                for (var i = main / 5; i <= limit; i = i + increase) {
+                    xd = i;
+                    var ecuation = (Math.pow(Math.E, -1 * ((Math.pow(xd - main, 2) / (2 * Math.pow(desv, 2)))))) / (desv * Math.sqrt(2 * Math.PI));
+                    if (ecuation > 0) {
+                        datas.push({ x: xd, y: ecuation });
+                    }
+                }
+
+                var chart = new CanvasJS.Chart("chartContainer2",
+                    {
+                        height: 400,
+                        title: {
+                            text: "Grafico de distribución normal"
+                        },
+                        axisY: {
+                            minimum: 0
+                        },
+                        data: [
+                            {
+                                type: "spline",
+                                dataPoints: datas
+                            }
+                        ]
+                    });
+                setTimeout(() => {
+                    chart.render();
+                }, 250);
+                var sx = desv / Math.sqrt(muestra);
+                $('tejr12-1')[0].textContent = sx;
+
+                var z = (main - 1) / sx;
+                $('tejr12-2')[0].textContent = z;
+
+                var start;
+                var end;
+
+                if (z >= 0) {
+                    end = z;
+                    start = "inf";
+                } else {
+                    start = Math.abs(z);
+                    end = "inf";
+                }
+                var res = ajaxCall(desv, main, start, end, 'tejr12-3', 'tejr12-4');
+            }
+
+            function calculoEj13() {
+                var n = parseInt($('tej13-1')[0].textContent);
+                var p = parseFloat($('tej13-4')[0].textContent) / 100;
+                $('tejr13-1')[0].textContent = p;
+                var datas = [];
+
+                for (var i = 0; i <= n; i++) {
+                    xd = i;
+                    var ecuation = bin(xd, n, p);
+                    if (ecuation > 0) {
+                        datas.push({ x: xd, y: ecuation });
+                    }
+                }
+
+                var chart = new CanvasJS.Chart("chartContainer3",
+                    {
+                        height: 400,
+                        title: {
+                            text: "Gráfico de distribución binomial"
+                        },
+                        axisY: {
+                            minimum: 0
+                        },
+                        data: [
+                            {
+                                type: "spline",
+                                dataPoints: datas
+                            }
+                        ]
+                    });
+                setTimeout(() => {
+                    chart.render();
+                }, 250);
+                var ev = bin(parseInt($('tej13-2')[0].textContent), n, p);
+                $('tejr13-2')[0].textContent = ev.toFixed(6);
+                $('tejr13-3')[0].textContent = ev.toFixed(4);
+                $('tejr13-4')[0].textContent = (ev * 100).toFixed(2);
+
+                var alpha = parseFloat($('tej13-3')[0].textContent);
+                var del = (ev * 100).toFixed(2);
+                var r = "";
+                if (alpha > del) {
+                    r = "como α>p (<tej13-3>" + alpha + "</tej13-3>%><tejr13-4>" + del + "</tejr13-4>%) se rechaza";
+                } else if (alpha <= del) {
+                    r = "como α<=p (<tej13-3>" + alpha + "</tej13-3>%<=<tejr13-4>" + del + "</tejr13-4>%) se acepta";
+                }
+
+                $('tejr13-5')[0].innerHTML = r;
+            }
+
+
+        </script>
+</body>
+
+</html>
