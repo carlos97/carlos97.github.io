@@ -1,0 +1,122 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de mínimos cuadrados</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Regresión múltiple</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Todos los capítulos <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sub-temas
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="modelo_de_regresion_multiple.html">Modelo de regresión múltiple</a>
+                        <a class="dropdown-item" href="metodo_minimos_cuadrados.html">Método de mínimos cuadrados</a>
+                        <a class="dropdown-item" href="coeficientes_determinancion_multiple.html">Coeficientes de determinación múltiple</a>
+                        <a class="dropdown-item" href="prueba_de_insignificancia.html">Prueba de significancia</a>
+                        <a class="dropdown-item" href="uso_de_la_ecuacion_de_regresion_estimada.html">Uso de la ecuación de regresión estimada para estimaciones y predicciones</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="formulas.html">Fórmulas</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 50px; text-align:justify;">
+      
+      <h1 style="text-align: center; font-style:oblique;">Método de mínimos cuadrados</h1><br><hr>
+      <ul>
+        <li style="font-size:larger;"><a href="#teoria">Teoría</a></li> 
+        <li style="font-size: larger;"><a href="#ejemplos">Ejemplo Interactivo</a></li> 
+      </ul><hr>
+      <h2 id="teoria" style="font-style: oblique;">Teoría</h2>
+      <p style="text-align:justify;">
+        En el <a href="">capítulo anterior</a>, se usó el método de mínimos cuadrados para obtener la ecuación de regresión estimada que permitía aproximar mejor la relación lineal entre las variables dependiente e independiente. Este método también se usa para obtener la ecuación de regresión múltiple estimada. El criterio en el método de mínimos cuadrados, como ya se dijo, es el siguiente.
+      </p>
+       <!-- Button trigger modal -->
+       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" >
+       Ver fórmula
+      </button><hr>
+
+      <h2 id="ejemplos" style="font-style: oblique;">Ejemplo interactivo</h2>
+      <p style="font-size: smaller;">
+       <i>Fuente: Autor</i> 
+      </p>
+      <p>Considérense los datos siguientes que corresponden a la variable dependiente <i>y</i> y a las dos variables independientes <i>x1 </i> y <i>x2</i>. <br><br>
+        <ol>
+          <li>Obtenga una ecuación de regresión estimada que relacione y con <i>x1</i>  y <i>x2</i>. </li>
+          <li> Estime <i>y</i>  si <i>x1</i>=45 y <i>x2</i>=15.</li>
+        </ol>  
+        <br> <p style="font-size: large; color:green;">***Recuerde que puede editar los campos correspondientes a los datos <i>x1, x2</i> y <i>y.</i>***</p><br>
+        <p style="font-size: smaller;"><i>Fuente:Autor</i></p>
+      </p>
+
+      <div>
+        <iframe style="width: 100%; height: 95%;" src="https://docs.google.com/spreadsheets/d/15DRTHbPyL_1H5N-vdQaQwnR7-QrKJaWGilmUQmbw6rA/edit#gid=0"></iframe>
+      </div><hr>
+</div>
+
+
+
+
+      <!-- Modal -->
+<div class="modal fade bd-example-modal-lg"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CRITERIO DE MÍNIMOS CUADRADOS </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="imagenes/formulas/16.PNG" alt="">
+        <p>Donde</p>
+        <img src="imagenes/formulas/17.PNG" alt="">
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+
+
+    <footer class="Container-fluid" style="background-color: rgb(0, 0, 0); color: #ffffff;">
+      <div class="row">
+        <div class="col" style="text-align: center;"> <b>Colaboradores</b> <br><br>
+          <i> Nicolás  Buitrago-20172020079</i><br>
+          <i>Michael Ramirez-20172020101</i><br>
+          <i>Edwin Hernández-20152020013</i><br>
+         <i>Diego Tellez-20162020015</i><br>
+           <i>Felipe Rojas-20161020108 </i><br><br>
+        </div>
+        <div class="col" style="text-align: center;">  <b>Universidad Distrital</b><br><br>  
+          <a href="https://udistrital.edu.co"> <i>Página principal<i> </a>
+    </footer>
+
+</body>
+</html>

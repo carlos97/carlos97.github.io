@@ -1,0 +1,83 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de la ecuación de regresión estimada</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Regresión múltiple</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Todos los capítulos <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sub-temas
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="modelo_de_regresion_multiple.html">Modelo de regresión múltiple</a>
+                <a class="dropdown-item" href="metodo_minimos_cuadrados.html">Método de mínimos cuadrados</a>
+                <a class="dropdown-item" href="coeficientes_determinancion_multiple.html">Coeficientes de determinación múltiple</a>
+                <a class="dropdown-item" href="prueba_de_insignificancia.html">Prueba de significancia</a>
+                <a class="dropdown-item" href="uso_de_la_ecuacion_de_regresion_estimada.html">Uso de la ecuación de regresión estimada para estimaciones y predicciones</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="formulas.html">Fórmulas</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+        </div>
+    </nav>
+    <div class="container" style="padding-top: 50px; text-align:justify;">
+      <h1 style="text-align: center; font-style:oblique;">Uso de la ecuación de regresión estimada</h1><br><hr>
+
+      <ul>
+        <li style="font-size:larger;"><a href="#teoria">Teoría</a></li> 
+        <li style="font-size: larger;"><a href="#ejemplo">Ejemplo interactivo</a></li> 
+      </ul><hr>
+      <h2 id="teoria" style="font-style: oblique;">Teoría</h2>
+      <p style="text-align:justify;">
+        Los procedimientos empleados en la regresión múltiple para estimar el valor medio de <i>y</i>  y para predecir el valor de un solo valor de <i>y</i>  son similares a los empleados en el análisis de regresión para una sola variable independiente. El procedimiento para hallar una estimación puntual, es decir, los valores dados de <i>x1, x2, . . .,xp</i> se sustituyen en la ecuación de regresión y como estimación puntual se emplea el correspondiente valor de <i>y(estimada)</i>. Supóngase que en el ejemplo de Butler Truking se desea usar la ecuación de regresión estimada con <i>x1 (millas recorridas)</i>  y <i>x2 (número de entregas)</i> para obtener dos estimaciones por intervalo: 
+      </p><hr>
+
+      <h2 id="ejemplo" style="font-style: oblique;">Ejemplo interactivo</h2>
+      <p style="font-size: smaller;"><i>Basado en el ejemplo resuelto del capítulo 15 escrito por Anderson David, Sweeney Dennis & Williams Thomas. 2008 “Estadística para Administración y Economía”, décima edición. Traducido por Ma. del Carmen Hano Roa; München: DE . Cengage Learning Editores.</i><br>
+      </p>
+      <p>"Butler Trucking Company, una empresa que se dedica al transporte de objetos y mercancías en el sur de California. La actividad principal de esta empresa es hacer entregas en su área local. Para mejorar el horario de trabajo, los gerentes deseaban estimar el tiempo total de recorrido diario necesario para hacer las entregas.
+        Al principio, los gerentes creyeron que el tiempo total de recorrido diario estaba estrechamente relacionado con el número de millas recorridas para hacer las entregas, sin embargo, los gerentes deseaban considerar otra variable independiente más para explicar parte de la variabilidad restante de la variable dependiente.
+        Al tratar de encontrar otra variable independiente los gerentes encontraron que el número de entregas podía contribuir también a la duración total del recorrido. Partiendo de una muestra aleatoria simple de 10 entregas se obtuvieron los datos que se presentan a continuación".
+        </p>
+        <br> <p style="font-size: large; color:green;">***Recuerde que puede editar los campos correspondientes a los datos <i>x1, x2</i> y <i>y.</i>***</p><br>
+        <p style="font-size: smaller;"><i>Fuente:Autor</i></p>
+        <iframe src="https://docs.google.com/spreadsheets/d/1XonrPh5EnFytpjyvb0IjH0tb1ilq2qCGrg4GNzxbwXI/edit?usp=sharing" style="width: 75%; height: 85%;"></iframe>
+        <hr>
+    </div>
+
+    <footer class="Container-fluid" style="background-color: rgb(0, 0, 0); color: #ffffff;">
+      <div class="row">
+        <div class="col" style="text-align: center;"> <b>Colaboradores</b> <br><br>
+          <i> Nicolás  Buitrago-20172020079</i><br>
+          <i>Michael Ramirez-20172020101</i><br>
+          <i>Edwin Hernández-20152020013</i><br>
+         <i>Diego Tellez-20162020015</i><br>
+           <i>Felipe Rojas-20161020108 </i><br><br>
+        </div>
+        <div class="col" style="text-align: center;">  <b>Universidad Distrital</b><br><br>  
+          <a href="https://udistrital.edu.co"> <i>Página principal<i> </a>
+    </footer>
+</body>
+</html>

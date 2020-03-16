@@ -1,0 +1,171 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de significancia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Regresión múltiple</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Todos los capítulos <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sub-temas
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="modelo_de_regresion_multiple.html">Modelo de regresión múltiple</a>
+                        <a class="dropdown-item" href="metodo_minimos_cuadrados.html">Método de mínimos cuadrados</a>
+                        <a class="dropdown-item" href="coeficientes_determinancion_multiple.html">Coeficientes de determinación múltiple</a>
+                        <a class="dropdown-item" href="prueba_de_insignificancia.html">Prueba de significancia</a>
+                        <a class="dropdown-item" href="uso_de_la_ecuacion_de_regresion_estimada.html">Uso de la ecuación de regresión estimada para estimaciones y predicciones</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="formulas.html">Fórmulas</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 50px; text-align:justify;">
+      <h1 style="text-align: center; font-style:oblique;">Prueba de significancia</h1><br><hr>
+
+      <ul>
+        <li style="font-size:larger;"><a href="#teoria">Teoría</a></li> 
+        <li style="font-size: larger;"><a href="#ejemplo">Ejemplo</a></li> 
+      </ul><hr>
+
+      <h2 id="teoria" style="font-style: oblique;">Teoría</h2>
+      <p style="text-align:justify;">
+        En esta sección se muestra cómo realizar una prueba de significancia para una relación de regresión múltiple. Las pruebas de significancia que se usaron en la regresión lineal simple fueron la prueba t y la prueba F. En la regresión lineal simple, estas dos pruebas llevan a la misma conclusión; es decir, si se rechaza la hipótesis nula, se concluye que b distinto de 0. En la regresión múltiple, la prueba t y la prueba F tienen propósitos diferentes.
+
+        <ul>
+          <li> La prueba F se usa para determinar si existe una relación de significancia entre la variable dependiente y el conjunto de todas las variables independientes; a esta prueba F se le llama prueba de significancia global. </li>
+          <li>Si la prueba F indica que hay significancia global, se usa la prueba t para ver si cada una de las variables individuales es significativa. Para cada una de las variables independientes del modelo se realiza una prueba t. A cada una de estas pruebas t se le conoce como prueba de significancia individual.</li>
+        </ul>
+      </p><hr>
+      <h2 id="ejemplo" style="font-style: oblique;">Ejemplo</h2>
+      <p style="font-size: smaller;"><i>Basado en el ejemplo resuelto del capítulo 15 escrito por Anderson David, Sweeney Dennis & Williams Thomas. 2008 “Estadística para Administración y Economía”, décima edición. Traducido por Ma. del Carmen Hano Roa; München: DE . Cengage Learning Editores.</i><br>
+      </p>
+      <p>"Butler Trucking Company, una empresa que se dedica al transporte de objetos y mercancías en el sur de California. La actividad principal de esta empresa es hacer entregas en su área local. Para mejorar el horario de trabajo, los gerentes deseaban estimar el tiempo total de recorrido diario necesario para hacer las entregas.
+        Al principio, los gerentes creyeron que el tiempo total de recorrido diario estaba estrechamente relacionado con el número de millas recorridas para hacer las entregas, sin embargo, los gerentes deseaban considerar otra variable independiente más para explicar parte de la variabilidad restante de la variable dependiente.
+        Al tratar de encontrar otra variable independiente los gerentes encontraron que el número de entregas podía contribuir también a la duración total del recorrido. Partiendo de una muestra aleatoria simple de 10 entregas se obtuvieron los datos que se presentan a continuación".
+        </p>
+        <div class="container" style="width: 90%;">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col" style="font-style: italic;">Recorrido</th>
+                <th scope="col" style="font-style: italic;">X1= Millas</th>
+                <th scope="col" style="font-style: italic;">Y=Timepo(horas)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>100</td>
+                <td>9.3</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>50</td>
+                <td>4.8</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>100</td>
+                <td>8.9</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>100</td>
+                <td>6.5</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>50</td>
+                <td>4.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>80</td>
+                <td>6.2</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>75</td>
+                <td>7.4</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>65</td>
+                <td>6.0</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>90</td>
+                <td>7.6</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>90</td>
+                <td>6.1</td>
+              </tr>
+            </tbody>
+          </table></div><br>
+
+          <p style="font-size: larger;">Como se tienen dos variables independientes, las hipótesis se expresan como sigue. <br>
+            <ul>
+             Ho: β1 = β2  = 0 <br>
+              Ha: β1 o β2 no es igual a 0. <br>
+          </ul><br>
+          Ahora bien haciendo el cálculo correspondiente para el numerador y denominador de la prueba estadística F, tenemos: CMR = 10.8 y CME = 0.328. <br>
+          
+          <img src="imagenes/formulas/18.PNG" alt=""><br><br>
+
+          Este valor lo obtenemos con α = 0.01 y P = 0.00; ahora podemos rechazar la hipótesis nula puesto que: <br><br>
+         <b>P ≤ α</b>  <br><br>
+          O ahora bien por otro lado podríamos rechazar esta hipótesis teniendo que con dos grados de libertad en el numerador y siete grados de libertad en el denominador (F0.01 = 9.55). <br><br>
+        <b>9.55 < 32.9br</b> <br><br>
+          Con esto se concluye que existe una relación significativa entre el tiempo de recorrido “y” y las dos variables independientes “millas recorridas y número de entregas”. <br><br>
+          Ahora podremos hacer la prueba estadística t, primero debemos calcular los valores de b1, sb1, b2, sb2. <br> <br>
+          <img src="imagenes/formulas/19.PNG" alt=""><br><br>
+          Y ahora calculamos los valores de t: <br><br>
+          <img src="imagenes/formulas/20.PNG" alt=""><br><br>
+          Utilizando, α = 0.01, los valores p = 0.000 y 0.004; esto indican que se pueden rechazar H0: β1 = 0 y H0: β2 = 0. Por lo tanto, ambos parámetros son estadísticamente significativos. También, se encuentra que para n - p - 1 = 10 - 2 - 1 = 7 grados de libertad, t0.005 = 3.499. Como 6.18 > 3.499, se rechaza H0: β1 = 0. De manera similar, como 4.18 > 3.499, se rechaza H0: β2 = 0.
+
+        </p>
+        </div><hr>
+
+        <footer class="Container-fluid" style="background-color: rgb(0, 0, 0); color: #ffffff;">
+          <div class="row">
+            <div class="col" style="text-align: center;"> <b>Colaboradores</b> <br><br>
+              <i> Nicolás  Buitrago-20172020079</i><br>
+              <i>Michael Ramirez-20172020101</i><br>
+              <i>Edwin Hernández-20152020013</i><br>
+             <i>Diego Tellez-20162020015</i><br>
+               <i>Felipe Rojas-20161020108 </i><br><br>
+            </div>
+            <div class="col" style="text-align: center;">  <b>Universidad Distrital</b><br><br>  
+              <a href="https://udistrital.edu.co"> <i>Página principal<i> </a>
+        </footer>
+        
+
+</body>
+</html>
