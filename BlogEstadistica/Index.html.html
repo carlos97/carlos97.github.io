@@ -1,0 +1,249 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Estadistica
+    </title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tema3.css">
+
+</head>
+
+<body>
+    <div class="container-fluid contenedor" style="height: 100%;">
+        <div class="row" style="height: 100%; overflow: auto;">
+            <div class="col-sm-3 leftCol">
+                <br />
+                <ul class="list-group">
+                    <li class="list-group-item itemHover">
+                        <a>Estadistica &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="window.location.href='grupo1\\EstadisticaV2\\index.html'">
+                                &#8226; Estimacion por intervalos
+                            </li>
+                            <li class="list-group-item itemHover" onclick="window.location.href='grupo2\\blog\\Estadistica\\tema2.html'">
+                                &#8226; Pruebas de hipotesis
+                            </li>
+                            <li class="list-group-item itemHover" onclick="window.location.href='grupo3\\Blog-estadistica-master\\index.html'">
+                                &#8226; Inferencia estadistica
+                            </li>
+                            <li class="list-group-item itemHover"  onclick="window.location.href='grupo4\\entrega-master\\blog\\index.html'">
+                                &#8226; Varianza poblacional
+                            </li>
+                            <li class="list-group-item itemHover"  onclick="window.location.href='grupo5\\blogEstadistica\\Estadistica\\tema5.html'">
+                                &#8226; Prueba de bondad de ajuste 
+                            </li>
+                            <li class="list-group-item itemHover"  onclick="window.location.href='grupo6\\Pagina\\index.html'">
+                                &#8226; Análisis de varianza
+                            </li>
+                            <li class="list-group-item itemHover"  onclick="window.location.href='grupo7\\Estadistica\\index.html'">
+                                &#8226; Regresión lineal simple
+                            </li>
+                            <li class="list-group-item itemHover"  onclick="window.location.href='grupo8\\regresion-multiple-gh-pages\\index.html'">
+                                &#8226; Regresión multiple
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-9 rigthCol">
+                <br />
+                <div class="row" id="home">
+                    <div class="col-sm-12">
+                        <div id="pageContent">
+                            <center>
+                                <h1>Blog de Estadística</h2>
+                                    <hr>
+
+                                    <img src="logos_escudo_vertical/logo.png" alt="Estadistica"
+                                        style="max-width: 50%;max-height: 50%;display: block;">
+                            </center>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+        <script src="../js/jQuery.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/blogs.js"></script>
+        <script src="../canvasjs/canvasjs.min.js"></script>
+        <script src="../js/api.js"></script>
+
+        <script>
+
+            for (var i = 0; i <= numSubtemas; i++) {
+                $("tdn" + i).hide();
+            }
+
+            $(this).find('ul').toggle(300)
+
+            function calculoEj11() {
+
+                var main = $('tej11-1')[0].textContent;
+                var dx = $('tej11-2')[0].textContent;
+                var desv = $('tej11-3')[0].textContent;
+                var muestra = $('tej11-4')[0].textContent;
+                var xd = 1;
+                var limit = main * 2;
+                var datas = [];
+                var increase = main / 8;
+
+                for (var i = 1; i <= limit; i = i + increase) {
+                    xd = i;
+                    var ecuation = (Math.pow(Math.E, -1 * ((Math.pow(xd - main, 2) / (2 * Math.pow(desv, 2)))))) / (desv * Math.sqrt(2 * Math.PI));
+                    datas.push({ x: xd, y: ecuation });
+                }
+
+                var chart = new CanvasJS.Chart("chartContainer",
+                    {
+                        height: 400,
+                        title: {
+                            text: "Grafico de distribución normal"
+                        },
+                        axisY: {
+                            minimum: 0
+                        },
+                        data: [
+                            {
+                                type: "spline",
+                                dataPoints: datas
+                            }
+                        ]
+                    });
+
+                setTimeout(() => {
+                    chart.render();
+                }, 100);
+
+
+
+                var zNum = (dx - main);
+                var zDem = (desv / Math.sqrt(muestra));
+                var z = zNum / zDem;
+                $('tej11-r1')[0].textContent = zNum.toFixed(2);
+                $('tej11-r2')[0].textContent = zDem.toFixed(2);
+                $('tej11-r3')[0].textContent = z.toFixed(2);
+                $('tej11-r4')[0].textContent = z.toFixed(2);
+
+            }
+
+            function calculoEj12() {
+                var main = $('tej12-2')[0].textContent;
+                var desv = parseFloat($('tej12-4')[0].textContent) / 100;
+                if (desv * 100 < 1) {
+                    desv *= 100;
+                }
+                var muestra = $('tej12-1')[0].textContent;
+                var xd = 1;
+                var limit = main * 2;
+                var datas = [];
+                var increase = main / 10;
+
+                for (var i = main / 5; i <= limit; i = i + increase) {
+                    xd = i;
+                    var ecuation = (Math.pow(Math.E, -1 * ((Math.pow(xd - main, 2) / (2 * Math.pow(desv, 2)))))) / (desv * Math.sqrt(2 * Math.PI));
+                    if (ecuation > 0) {
+                        datas.push({ x: xd, y: ecuation });
+                    }
+                }
+
+                var chart = new CanvasJS.Chart("chartContainer2",
+                    {
+                        height: 400,
+                        title: {
+                            text: "Grafico de distribución normal"
+                        },
+                        axisY: {
+                            minimum: 0
+                        },
+                        data: [
+                            {
+                                type: "spline",
+                                dataPoints: datas
+                            }
+                        ]
+                    });
+                setTimeout(() => {
+                    chart.render();
+                }, 250);
+                var sx = desv / Math.sqrt(muestra);
+                $('tejr12-1')[0].textContent = sx;
+
+                var z = (main - 1) / sx;
+                $('tejr12-2')[0].textContent = z;
+
+                var start;
+                var end;
+
+                if (z >= 0) {
+                    end = z;
+                    start = "inf";
+                } else {
+                    start = Math.abs(z);
+                    end = "inf";
+                }
+                var res = ajaxCall(desv, main, start, end, 'tejr12-3', 'tejr12-4');
+            }
+
+            function calculoEj13() {
+                var n = parseInt($('tej13-1')[0].textContent);
+                var p = parseFloat($('tej13-4')[0].textContent) / 100;
+                $('tejr13-1')[0].textContent = p;
+                var datas = [];
+
+                for (var i = 0; i <= n; i++) {
+                    xd = i;
+                    var ecuation = bin(xd, n, p);
+                    if (ecuation > 0) {
+                        datas.push({ x: xd, y: ecuation });
+                    }
+                }
+
+                var chart = new CanvasJS.Chart("chartContainer3",
+                    {
+                        height: 400,
+                        title: {
+                            text: "Gráfico de distribución binomial"
+                        },
+                        axisY: {
+                            minimum: 0
+                        },
+                        data: [
+                            {
+                                type: "spline",
+                                dataPoints: datas
+                            }
+                        ]
+                    });
+                setTimeout(() => {
+                    chart.render();
+                }, 250);
+                var ev = bin(parseInt($('tej13-2')[0].textContent), n, p);
+                $('tejr13-2')[0].textContent = ev.toFixed(6);
+                $('tejr13-3')[0].textContent = ev.toFixed(4);
+                $('tejr13-4')[0].textContent = (ev * 100).toFixed(2);
+
+                var alpha = parseFloat($('tej13-3')[0].textContent);
+                var del = (ev * 100).toFixed(2);
+                var r = "";
+                if (alpha > del) {
+                    r = "como α>p (<tej13-3>" + alpha + "</tej13-3>%><tejr13-4>" + del + "</tejr13-4>%) se rechaza";
+                } else if (alpha <= del) {
+                    r = "como α<=p (<tej13-3>" + alpha + "</tej13-3>%<=<tejr13-4>" + del + "</tejr13-4>%) se acepta";
+                }
+
+                $('tejr13-5')[0].innerHTML = r;
+            }
+
+
+        </script>
+</body>
+
+</html>
