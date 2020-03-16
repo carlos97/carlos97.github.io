@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ejemplos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Análisis de varianza</strong> </a>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Ejemplos</h1>
+									</header>
+								</section>               
+                <section>
+                  <div class="row">
+                    <h1>Analisis de Varianza (Un factor)</h1>
+                    <h3>Se desea determinar si hay alguna influencia en el miedo de las personas con respecto al virus COVID-19 dependiendo al medio de comunicacion que suelen frecuenta.</h3>
+                    <h3>para eso de tomaron a 30 personas que vierean con frecuencia 3 diferentes medios de comunicacion y se le pidio que calificaran del 1 al 10 el temor que les daba el virus en cuestion obteniendo la siguiente tabla </h3>
+                  </div>
+                  <div class="row">
+                    <div class="col-5 col-12-medium" style="font-size: 130%;">
+                      <table>
+                        <tr>
+                          <th colspan="5">Medio de Televición</th>
+                        </tr>
+                        <tr>
+                          <td rowspan="11"></td>
+                          <td><h3>A</h3></td>
+                          <td><h3>B</h3></td>
+                          <td><h3>C</h3></td>
+                          <td rowspan="11"></td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>4</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>8</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>3</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>7</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>4</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>2</td>
+                          <td>8</td>
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>3</td>
+                          <td>10</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>8</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>8</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>Total</td>
+                          <td>48</td>
+                          <td>52</td>
+                          <td>54</td>
+                          <td>154</td>
+                        </tr>
+                        <tr>
+                          <td>Media </td>
+                          <td>4.8</td>
+                          <td>5.2</td>
+                          <td>5.4</td>
+                          <td>5.133</td>
+                        </tr>
+                      </table>
+                      <br>
+                      <div style=»padding: 10px; float: left; width: 45%; text-align: justify;»>
+                      <p>1. El pirmer paso es calcular la suma de cuadrados del modelo y la residual</p>
+                        <p>SSM = 1.867</p>
+                        <p>SSR = 247.6</p>
+                        <p>2. Los grados de libertad son:</p>
+                        <p>para SSM son 2</p>
+                        <p>para SSR son  37</p>
+                      <p>3. Se calculan el ratio F</p>
+                        <p>F = 0.1394</p>
+                        Esto esta por debajo del valor de region critica indicando que no se puede negar la hiposesis nula. <br>
+                        Es decir para este ejemplo: No se puede determinar que el madio de comunicacion este influenciando
+                      </div>
+                    </div>
+                    <div class="col-1 col-12-medium">
+                      
+                    </div>
+                    <div class="col-4 col-12-medium">
+                      <div style=»padding: 10px; float: right; width: 45%; text-align: justify;»>
+                      <h1>Formulas: </h1>
+                      <h4>1. SSM = <br/><img src="images/SSM.png"></h4> <br>
+                        SSR =   <img src="images/SSR.png"><br>
+                        2.<br> para SSM:  <img src="images/intervalo-ssm.png"><br>
+                          para SSR: <img src="images/intervalo-ssr.png"><br>
+                        3.  <br> <img src="images/s.png"><br>
+                            <img src="images/form1.jpg"><br/>
+                        <br/><br/><h2>Referencias: </h2>
+                        <h3>Ejemplo inspirado en "Wapole, Ronald E, & Myers, Raymond H. (2012c). Probabilidad y estadística para ingeniería y ciencias (9ª ed.). Página 507. México, México: Pearson Educación."</h3>    
+                      </div>
+
+                    </div>
+                  </div>
+                </section>
+                
+                <section>
+                <div class="row" >
+                  <h1>Analisis de Varianza (Un factor)</h1>
+                  <h3>Parte de un estudio realizado en Virginia Tech se diseño para medir los niveles de actividad de la fosfatasa alcalina sérica(en unidades de Bessey-Lowry) en niños con trastornos obsesivos compulsivos que recibían terapia de anticonvulsicantes bajo el cuidado de un médico privado.<br>
+                  Se reclutaron 45 sujetos para el estudio y se clasificaron en cuatro grupos de medicamentos:<br>
+                  <br>
+                  G-1: Control(no recibieron anticonvulsivantes ni tenían historia de trastornos convulsivos)
+                  <br>
+                  G-2: Fenobarbital<br>
+                  G-3: Carbamazepina<br>
+                  G-4: Otros anticonvulsivantes<br>
+                  <br>
+                  De las muestras de sangre tomadas a cada sujeto se determinó el nivel de actividad de la fosfatasa alcanina sérica y se registró tal como se observa en la tabla 13.4.<br>
+                  Pruebe la hipótesis de que, a un nivel de significancia de 0.05, el nivel promedio de actividad de la fosfatasa alcalina sérica es el mismo para los cuatro grupos de medicamentos.
+                  </h3>
+                </div>
+                  <div class="row">
+                    <div class="col-5 col-12-medium" style="font-size: 130%;">
+                    <style type="text/css">
+                    .tg  {border-collapse:collapse;border-spacing:0;}
+                    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:black;}
+                    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:black;}
+                    .tg .tg-wa1i{font-weight:bold;text-align:center;vertical-align:middle}
+                    .tg .tg-nrix{text-align:center;vertical-align:middle}
+                    </style>
+                    <table class="tg" >
+                      <tr>
+                        <th class="tg-wa1i" colspan="2">G1</th>
+                        <th class="tg-wa1i">G2</th>
+                        <th class="tg-wa1i">G3</th>
+                        <th class="tg-wa1i">G4</th>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">49.20</td>
+                        <td class="tg-nrix">97.50</td>
+                        <td class="tg-nrix">97.07</td>
+                        <td class="tg-nrix">62.10</td>
+                        <td class="tg-nrix">110.60</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">44.54</td>
+                        <td class="tg-nrix">105.00</td>
+                        <td class="tg-nrix">73.40</td>
+                        <td class="tg-nrix">94.95</td>
+                        <td class="tg-nrix">57.10</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">45.80</td>
+                        <td class="tg-nrix">58.05</td>
+                        <td class="tg-nrix">68.50</td>
+                        <td class="tg-nrix">142.50</td>
+                        <td class="tg-nrix">117.60</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">95.84</td>
+                        <td class="tg-nrix">86.60</td>
+                        <td class="tg-nrix">91.85</td>
+                        <td class="tg-nrix">53.00</td>
+                        <td class="tg-nrix">77.71</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">30.10</td>
+                        <td class="tg-nrix">58.35</td>
+                        <td class="tg-nrix">106.60</td>
+                        <td class="tg-nrix">175.00</td>
+                        <td class="tg-nrix">150.00</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">36.50</td>
+                        <td class="tg-nrix">72.80</td>
+                        <td class="tg-nrix">0.57</td>
+                        <td class="tg-nrix">79.50</td>
+                        <td class="tg-nrix">82.90</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">82.30</td>
+                        <td class="tg-nrix">116.70</td>
+                        <td class="tg-nrix">0.79</td>
+                        <td class="tg-nrix">29.50</td>
+                        <td class="tg-nrix">111.50</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">87.85</td>
+                        <td class="tg-nrix">45.15</td>
+                        <td class="tg-nrix">0.77</td>
+                        <td class="tg-nrix">78.40</td>
+                        <td class="tg-nrix"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">105.00</td>
+                        <td class="tg-nrix">70.35</td>
+                        <td class="tg-nrix">0.81</td>
+                        <td class="tg-nrix">127.50</td>
+                        <td class="tg-nrix"></td>
+                      </tr>
+                      <tr>
+                        <td class="tg-nrix">95.22</td>
+                        <td class="tg-nrix">77.40</td>
+                        <td class="tg-nrix"></td>
+                        <td class="tg-nrix"></td>
+                        <td class="tg-nrix"></td>
+                      </tr>
+                    </table>
+                    <br>
+                    <div>
+                    <p>1. El pirmer paso es calcular la suma de cuadrados del modelo y la residual</p>
+                      <p>SSM = 13939</p>
+                      <p>SSR = 53376</p>
+
+                    <p>2. Los grados de libertad son:</p>
+                      <p>para SSM son 37</p>
+                      <p>para SSR son  41</p>
+
+                    <p>3. Se calculan el ratio F</p>
+                      <p>F = 3.57</p>
+
+                    Decisión: Rechazar H0 y concluir que los niveles promedio de la actividad de fosfata alcalina del suero para los cuatro grupos no son todos iguales
+
+                    </div>
+                    </div>
+                    <div class="col-1 col-12-medium">
+                    </div>
+                    <div class="col-5 col-12-medium">
+                      <div >
+                      <h1>Formulas: </h1>
+                      <h4>1. SSM = <br/><img src="images/SSM.png"></h4> <br>
+                        SSR =   <img src="images/SSR.png"><br>
+                        2.<br> para SSM:  <img src="images/intervalo-ssm.png"><br>
+                          para SSR: <img src="images/intervalo-ssr.png"><br>
+                        3.  <br> <img src="images/s.png"><br>
+                            <img src="images/form1.jpg">
+                        <br/><br/><h2>Referencias:</h2>
+                        <h3>Ejercicio propuesto en "Wapole, Ronald E, & Myers, Raymond H. (2012c). Probabilidad y estadística para ingeniería y ciencias (9ª ed.). Página 514. México, México: Pearson Educación."</h3>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="row">
+                    <h1>Analisis de Varianza (Dos factores )</h1>
+                    <h3>En un experimento realizado para determinar cuál de 3 sistemas de misiles distintos es
+                    preferible, se midió la tasa de combustión del propulsor para 24 arranques estáticos.</h3>
+
+                    <h3> Se
+                    emplearon 4 tipos de combustible diferentes y el experimento generó observaciones duplicadas de las tasas de combustión para cada combinación de los tratamientos.
+                    </h3>
+                  </div>
+                  <div class="row">
+                    <div class="col-5 col-12-medium" style="font-size: 130%;">
+                      <table>
+                      <tr>
+                        <th rowspan="2">Sistema de misiles</th>
+                        <th colspan="4">tipo de impulsor </th>
+                      </tr>
+                      <tr>
+                        <td>b1</td>
+                        <td>b2</td>
+                        <td>b3</td>
+                        <td>b4</td>
+                      </tr>
+                      <tr>
+                        <td>a1</td>
+                        <td>34.4<br>32.7</td>
+                        <td>30.1<br>32.8</td>
+                        <td>29.8<br>26.7</td>
+                        <td>29.0<br>28.9</td>
+                      </tr>
+                      <tr>
+                        <td>a2</td>
+                        <td>32.0<br>33.2</td>
+                        <td>30.2<br>29.8</td>
+                        <td>28.7<br>28.1</td>
+                        <td>27.6<br>27.8</td>
+                      </tr>
+                      <tr>
+                        <td>a3</td>
+                        <td>28.4<br>29.3</td>
+                        <td>27.3<br>28.9</td>
+                        <td>29.7<br>27.3</td>
+                        <td>28.8<br>29.1</td>
+                      </tr>
+                    </table>
+                    <br>
+                    <div style=»padding: 10px; float: left; width: 45%; text-align: justify;»>
+                    <p>1. Se utiliza la fórmula de la suma de cuadrados  el análisis de varianza.</p>
+
+                      <img src="images/tabla1.png"> <br>
+                    <p>2. De lo anterior y teniendo claro que:</p>
+                      <p>Hipotesis Nulas</p>
+                      <p>a) H'0: α1 = α2 = α3 = 0</p>
+                      <p>b) H''0 : β1 = β2 = β3 = β4 = 0.</p>
+                      <p>c) H''0 : (αβ)11 = (αβ)12 = ··· = (αβ)34 = 0</p>
+                      <p>Hipotesis Alternativas</p>
+                      <p>a) H'1: Al menos una de las αi
+                    no es igual a 0.</p>
+                      <p>b) H''1 : Al menos una de las βj
+                    no es igual a 0.</p>
+                      <p>c)H'''1 : Al menos una de las (αβ)
+                    ij no es igual a 0.</p>
+
+                    Al comparar con el valor crítico f
+                    0.05(1, 12) = 4.75, se encuentra que f
+                    1 es significativo.
+                    De hecho, el valor P es menor que 0.01. Así, el primer contraste indica que se rechaza la
+                    hipótesis
+
+                    Como f
+                    2
+                    "<"  4.75, las tasas medias de combustión del primer y segundo sistemas no son
+                    significativamente diferentes.
+                    </div>
+                    </div>
+                    <div class="col-1 col-12-medium">
+                    </div>
+                    <div class="col-5 col-12-medium">
+                      <div style=»padding: 10px; float: right; width: 45%; text-align: justify;»>
+                    <h1>Formulas</h1>
+                    <h3>1. La formula para las veiansas (cuadrado medio) seran:</h3> <br>
+                        <img src="images/s21.png"><br>
+                        <img src="images/s22.png"><br>
+                        <img src="images/s23.png"><br>
+                        <img src="images/s.png"><br>
+                    <h3>3. los puntos critico son calculados con la siguiente formula</h3> 
+                      <br> <img src="images/f1.png"><br>
+                        <img src="images/f2.png"><br>
+                        <img src="images/f3.png"><br>
+                    </div>
+                    </div>
+                  </div>
+                </section>
+						</div>
+					</div>
+
+					<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Búsqueda" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<a href="index.html"><h2>Incio</h2></a>
+									</header>
+									<ul>
+										<li>
+                      <span class="opener">Introducción</span>
+											<ul>
+												<li><a href="#">Conceptos</a></li>
+												<li><a href="#">¿Qué es la varianza?</a></li>
+											</ul>
+                    </li>
+										<li>
+                      <span class="opener">Ejemplos</span>
+										  <ul>
+										    <li><a href="ejemplos.html">Experimentos de un factor</a></li>
+												<li><a href="ejemplos.html">Experimentos de dos factores</a></li>
+											</ul>
+                    </li>
+									</ul>
+                  
+								</nav>
+
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy;Universidad Distrital FJC adaptado de: <a href="https://unsplash.com">Unsplash</a></p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

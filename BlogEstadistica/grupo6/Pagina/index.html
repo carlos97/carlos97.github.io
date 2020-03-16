@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Análisis de varianza</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+				<header id="header">
+					<h1>Análisis de varianza</h1>
+
+					<a href="index.html" class="logo"></a>
+				</header>
+
+				<!-- Banner -->
+				<section id="banner">
+					<div class="content">
+						<div class="row">
+							<div class="col-6 col-12-medium">
+								<header>
+									<h1>Conceptos</h1>
+								</header>
+								<h3>El análisis de la varianza parte de los conceptos de regresión lineal. Un análisis
+									de la varianza permite determinar si diferentes tratamientos muestran diferencias
+									significativas o por el contrario puede suponerse que sus medias poblacionales no
+									difieren.<br /> El análisis de la varianza permite superar las limitaciones de hacer
+									contrastes bilaterales por parejas que son un mal método para determinar si un
+									conjunto de variables con n > 2 difieren entre sí. El primer concepto fundamental es
+									asumir que todo valor observado.</h3>
+							</div>
+							<div class="col-6 col-12-medium">
+								<h1>¿Qué es la varianza?</h1>
+								<h3>¿Cuáles son sus aplicaciones en los procesos estadísticos?</h3>
+							</div>
+						</div>
+				</section>
+				<section id="banner">
+					<div class="row">
+						<div class="col-5 col-12-medium">
+							<h1>Analisis de varianza</h1>
+							<h2>-Conceptos previos</h2>
+							<h2>*Hipótesis Nula:</h2>
+							<h3>Se denomina hipótesis nula H0, a la hipótesis que se desea contrastar.
+								El nombre de nula indica que H0, representa la hipótesis que mantendremos a no ser que
+								los datos indiquen su falsedad, y puede entenderse, por tanto, en el sentido de
+								neutra.<br>
+								La hipótesis H0, nunca se considera probada, aunque puede ser rechazada por los
+								datos.<br><br></h3>
+							<h2>*Hipótesis Alternativa:</h2>
+							<h3>
+								El enfoque actual considera siempre una hipótesis alternativa a la hipótesis nula.<br>
+								De manera explícita o implícita, la hipótesis nula, se enfrenta a otra hipótesis que
+								denominaremos hipótesis alternativa y que se denota H1.<br>
+								En los casos en los que no se especifica H1, de manera explícita, podemos considerar que
+								ha quedado definida implícitamente como H0, es falsa.<br>
+								Donde:<br><br>
+								H0: μ=μ2=...=μk,<br>
+								H1: Al menos dos de las medias son diferentes.<br>
+								<br>
+								Esto puede ser facilmente adaptado para que el analisis consista en la varianza y se
+								determine el efecto estadistico en varias muestras
+								<br><br>
+							</h3>
+						</div>
+						<div class="col-1 col-12-medium">
+
+						</div>
+						<div class="col-5 col-12-medium">
+							<h3>
+								Aunque la razón F que se obtiene con el procedimiento del análisis de varianza no es
+								sensible a las desviaciones de la suposición de varianzas iguales para las K poblaciones
+								normales cuando las muestras son de igual tamaño, debe tenerse precaución y efectuar una
+								prueba preliminar sobre la homogeneidad de las varianzas.<br>
+								En el caso de muestras de tamaños distintos, salta a la vista que es aconsejable
+								realizar una prueba como ésa, si existe duda razonable acerca de la homogeneidad de las
+								varianzas de la población.<br>
+								Por lo tanto, suponga que se desea probar la hipótesis nula.
+								<br>
+
+								<br>
+								en comparación con la alternativa<br>
+								H0: <img src="images/f4.png"><br>
+								H1: No todas las varianzas son iguales.<br>
+								La prueba que usaremos, denominada prueba de Bartlett, se basa en un estadístico cuya
+								distribución muestral proporciona valores críticos exactos cuando los tamaños de las
+								muestras son iguales.<br>
+								Dichos valores críticos para tamaños de las muestras iguales también se pueden utilizar
+								para obtener aproximaciones muy exactas de los valores críticos para tamaños muestrales
+								distintos.
+							</h3>
+            <h2>Referencias: </h2>
+            <h3>Meyer, P. “Probabilidad y aplicaciones estad´ısticas”(1992)
+              I Cap´ıtulo 15
+              I Newbold, P. “Estad´ıstica para los negocios y la economía”(1997)
+              I Cap´ıtulo 9
+              I Pe˜na,“Regresi´on y an´alisis de experimentos”(2005)
+              I Capítulo 10</h3>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<!-- Sidebar -->
+		<div id="sidebar" class="inactive">
+			<div class="inner">
+
+				<!-- Search -->
+				<section id="search" class="alt">
+					<form method="post" action="#">
+						<input type="text" name="query" id="query" placeholder="Búsqueda" />
+					</form>
+				</section>
+
+				
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<a href="index.html">
+							<h2>Incio</h2>
+						</a>
+					</header>
+					<ul>
+						<li>
+							<span class="opener">Introducción</span>
+							<ul>
+								<li><a href="#">Conceptos</a></li>
+								<li><a href="#">¿Qué es la varianza?</a></li>
+							</ul>
+						</li>
+						<li>
+							<span class="opener">Ejemplos</span>
+							<ul>
+								<li><a href="ejemplos.html">Experimentos de un factor</a></li>
+								<li><a href="ejemplos.html">Experimentos de dos factores</a></li>
+							</ul>
+						</li>
+						
+					</ul>
+
+				</nav>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy;Universidad Distrital FJC adaptado de: <a
+							href="https://unsplash.com">Unsplash</a></p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
