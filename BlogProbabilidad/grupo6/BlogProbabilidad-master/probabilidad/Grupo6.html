@@ -1,0 +1,1326 @@
+﻿<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Probabilidad
+    </title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tema3.css">
+
+    <style>
+        .frac {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            letter-spacing: 0.001em;
+            text-align: center;
+        }
+
+        .frac>span {
+            display: block;
+            padding: 0.1em;
+        }
+
+        .frac span.bottom {
+            border-top: thin solid black;
+        }
+
+        .frac span.symbol {
+            display: none;
+        }
+
+        .floating {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            visibility: hidden;
+        }
+	.display-3 decor-min-let.decor-min-let{
+	    font-size: 3.5rem;
+	}
+	.grafic{
+	margin:0 auto;
+	padding: 14px 16px;
+	background: rgb(50,125,125,0.3);
+	}
+	.btn-normalito{
+	color: white;
+	}
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navMain">
+        <div class="container">
+	    <a href="https://udistrital.edu.co/"><img width="50" height="60" src="../img/escudo universidad.png" alt="Co-gestores:" data-toggle="tooltip" data-placement="right" title="" data-original-title="Co-gestores: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Barrera, Pedro E. (20171020057) pebarreraa@correo.udistrital.edu.co &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Bernal, Julio C. (20171020014) jcbernalp@correo.udistrital.edu.co &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -González, Johan S. (20172020039) josgonzalezm@correo.udistrital.edu.co &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Mendez, Johan S. (20172020070) jsmendezv@correo.udistrital.edu.co &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Velez, Diego A. (20172020075) davelezg@correo.udistrital.edu.co"></a>
+            <a class="navbar-brand " href="#" onclick="showHome()"><b class="TextColorBackBlack">DISTRIBUCIONES DE VARIABLE DISCRETA</b></a>
+            <a class="navbar-brand " href="#" onclick="goHome()"><b class="TextColorBackBlack">Inicio</b></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle TextColorBackBlack" href="#" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b class="TextColorBackBlack">Probabilidad</b>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" onclick="goProbabilidad()">Probabilidad</a>
+                            <a class="dropdown-item" href="#" onclick="goEstadistica()">Estadistica</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="goTeoriaNumeros()">Teoria de numeros</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0 buscaBotonNoBorder btn-normalito" onclick="buscar()"
+                        type="submit"><b>Buscar</b></button>
+                </form>
+            </div>
+	    <a href="https://bogota.gov.co/"><img width="50" height="60" src="..//img/escudo bogota.svg" alt=""></a>
+        </div>
+    </nav>
+
+    <br />
+
+    <div class="container-fluid contenedor" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+            <div class="col-sm-3 leftCol">
+                <br />
+
+                <ul class="list-group">
+                    <li class="list-group-item itemHover">
+                        <a>Distribución Uniforme Discreta &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(1)" active>
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(2)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Proceso de Bernoulli &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(3)" active>
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(4)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Distribución Binomial &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(5)">
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(6)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Distribución Multinomial &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(7)">
+                                Definición
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(8)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Distribución Hipergeométrica &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(9)" active>
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(10)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Distribución Binomial Negativa &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(11)" active>
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(12)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-sm-9 rigthCol">
+                <div class="container">
+                    <br />
+                    <div class="row" id="home">
+                        <div class="col-sm-12">
+                            <div id="pageContent">
+                                <center>
+                                    <h1 class="display-3 decor-min-let"><b>¿Qué es un espacio muestral?</b></h1>
+                                    <br>
+                                    <p>Antes de definir que es un espacio muestral debemos conocer dos conceptos: <b>observación</b> y <b>experimento</b><br><br>
+                                        Nos referiremos a cualquier registro de información, ya sea numérico o categórico, como una <b>observación</b>. <br><br>
+                                        Los estadísticos utilizan la palabra <b>experimento</b> para describir cualquier proceso que genere un conjunto de datos a partir de la observación.
+                                        Estamos particularmente interesados en las observaciones que se obtienen por la repetición del experimento varias veces.<br>
+                                    </p>
+                                    <h3>Definición</h3>
+                                    <div class="border border-secondary p-2 rounded-lg"><p> El conjunto de todos los resultados posibles de un experimento estadístico se llama <b>espacio muestral</b> y se representa con el símbolo <b>S</b>. </p></div>
+                                    <img class="mt-5" src="../img/EspacioMuestral.png" alt="EspacioMuestral" style="max-width: 50%;max-height: 50%;display: block;">
+                                    tomado de: matematicas10.net
+                                    <img class="mt-5" src="../img/EspacioMuestral2.png" alt="EspacioMuestral" style="max-width: 50%;max-height: 50%;display: block;">
+                                    tomado de: matematicas10.net
+                                </center>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" id="tema1">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Distribución Uniforme Discreta</h1>
+                            <br />
+                            <p>La más simple de todas las distribuciones de probabilidad discreta es aquella donde la variable
+                                aleatoria toma cada uno de sus valores con una probabilidad idéntica.
+                                Tal distribución de probabilidad se denomina <b>distribución uniforme discreta.</b></p>
+                            <br />
+                            <h3>Definición</h3>
+                                    <div class="border border-secondary p-2 rounded-lg"><p> Si la variable aleatoria X toma los valores x1, x2,...,xk, con idénticas probabilidades, entonces, la distribución uniforme discreta está dada por
+                                    </p>
+                                    <img src="../img/FDistUniforme.png" alt="Formula Dist Uniforme" data-toggle="tooltip" data-placement="right" title="Tomado de Walpole, Ronald (2007) Probabilidad y Estadística para Ingeniería y Ciencias, Ciudad de México, MX : Pearson Educación de México, S.A. de C.V (Ed. 8)">
+                                </div>
+                            <center>
+                                <img class="mt-5" src="../img/distUnifDiscreta.gif" alt="distUnifDiscreta" style="max-width: 50%;max-height: 50%;display: block;">
+                                tomado de: ub.edu
+                            </center>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(2)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema2">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Ejemplos De Distribución Uniforme Discreta</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo11"><b
+                                            style="font-size: larger;">Ejemplo 1 &rarr;</b></button>
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo12"><b
+                                            style="font-size: larger;">Ejemplo 2 &rarr;</b></button>
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo13"><b
+                                            style="font-size: larger;">Ejemplo 3 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                    style="font-size: larger;">Siguiente: Proceso de Bernoulli &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema3">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Proceso de Bernoulli</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                            <p>Estrictamente hablando, el proceso de Bernoulli debe tener las siguientes propiedades: 1. El
+                                experimento
+                                consiste en n ensayos que se repiten. 2. Cada ensayo produce un resultado que se puede clasiﬁ car como
+                                éxito
+                                o fracaso. 3. La probabilidad de un éxito, que se denota con p, permanece constante de un ensayo a otro.
+                                4.
+                                Los ensayos que se repiten son independientes</p>
+                                <br />
+                                <center>
+                                    <img class="mt-5" src="../img/Bernoulli.jpg" alt="Bernoulli" style="max-width: 50%;max-height: 50%;display: block;">
+                                    tomado de: wikipedia.org
+                                    <img class="mt-5" src="../img/Bernoulli.gif" alt="PrBernoulli" style="max-width: 50%;max-height: 50%;display: block;">
+                                    tomado de: todomatematicas.es
+                                </center>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                    style="font-size: larger;">&larr; Anterior: Distribución Uniforme Discreta </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema4">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Ejemplos del Proceso de Bernoulli</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo21"><b
+                                            style="font-size: larger;">Ejemplo 1 &rarr;</b></button>
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo22"><b
+                                            style="font-size: larger;">Ejemplo 2 &rarr;</b></button>
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo23"><b
+                                            style="font-size: larger;">Ejemplo 3 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)"><b
+                                    style="font-size: larger;">Siguiente: Distribución Binomial &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema5">
+                        <div class="col-lg-12">
+                                                        <h1 class="display-3 decor-min-let">Distribuci&oacute;n Binomial</h1>
+                            <br />
+                            <h2>Definici&oacute;n:</h2>
+                            <br />
+                            <div>
+                                <p>La distribuci&oacute;n binomial se refiere a una serie de n pruebas en las que cada prueba solo pueden resultar en uno de dos estados: p->exito, q->fracaso;
+                                    <br/>
+                                    Los n eventos deben ser independientes para poder aplicar la siguiente funcion de probabilidad:</p>
+                                    <br/>
+                                    <center>
+					<a href="https://www.codecogs.com/eqnedit.php?latex=f(x)=\binom{n}{x}p^{_{x}}(p-1)^{_{n-x}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)=\binom{n}{x}p^{_{x}}(p-1)^{_{n-x}}" title="Funci&oacute;n de probabilidad" /></a>
+                                    </center>
+                                    <p>
+                                    	Al tener una variable aleatoria <b><i>X</i></b> cualquiera, que este definida en los n resultados de las n pruebas, la funcion de probabilidad es aplicable, y su grafica se ver&aacute;:
+                                    </p>
+                                    <center>
+                                        <img class="mt-5" src="../img/Binomial.jpg" alt="Binomial" style="max-width: 50%;max-height: 50%;display: block;">
+                                        tomado de: fisicaymates.com
+                                    </center>
+                                <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                        style="font-size: larger;">&larr; Anterior: Proceso de Bernoulli</b></button>
+                                <button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                        style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row" id="tema6">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Ejemplos de Distribuci&oacute;n Binomial</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo31"><b
+                                            style="font-size: larger;">Ejemplo 1 &rarr;</b></button>
+									<button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo32"><b
+											style="font-size: larger;">Ejemplo 2 &rarr;</b></button>
+									<button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo33"><b
+											style="font-size: larger;">Ejemplo 3 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definici&oacute;n </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                    style="font-size: larger;">Siguiente: Distribuci&oacute;n Multinomial &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema7">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Distribución Multinomial<h1>
+                                <p>El experimento binomial se convierte en un experimento multinomial si cada prueba tiene más de dos
+                                    resultados posibles. Por ello, la clasiﬁ cación de un producto fabricado como ligero, pesado o
+                                    aceptable,
+                                    y
+                                    el registro de los accidentes en cierto
+                                    crucero de acuerdo con el día de la semana, constituyen experimentos multinomiales. Extraer una carta de
+                                    una
+                                    baraja con reemplazo también es un experimento multinomial si los 4 palos son los resultados de interés.
+                                  </p>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)"><b
+                                    style="font-size: larger;">&larr; Anterior: Distribución Binomial</b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(8)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema8">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Ejemplos de Distribución Multinomial<h1>
+                                <br />
+                                <h2>Ejemplos:</h2>
+                                <br />
+                                <ul>
+                                    <li class="listaButtons">
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo41"><b
+                                                style="font-size: larger;">Ejemplo 1 &rarr;</b></button>
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo42"><b
+                                                style="font-size: larger;">Ejemplo 2 &rarr;</b></button>
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo43"><b
+                                                style="font-size: larger;">Ejemplo 3 &rarr;</b></button>
+                                    </li>
+                                </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición</b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(9)"><b
+                                    style="font-size: larger;">Siguiente: Distribución Hipergeométrica &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema9">
+                        <div class="col-lg-12">
+                            <h1 align="center" class="display-3 decor-min-let">Distribución Hipergeométrica<h1>
+                                    <br/>
+                                    <h2>Definición:</h2>
+                                <p align="center">La manera más simple de ver la diferencia entre la distribución binomial y la
+                                   distribución hipergeométrica está en la forma en que se realiza el muestreo. </p>
+                                <p align="center">Mientrás que en la binomial se requiere independencia entre las pruebas y por tanto el muestreo se debe efectuar <b>con reemplazo</b> de cada
+artículo después de que se observe, la distribución hipergeométrica no requiere independencia y se basa en el muestreo que se realiza <b>sin reemplazo</b>.</p>
+                                <div class="border border-secondary p-2 rounded-lg"><p>Se conoce como un <b>experimento hipergeométrico</b> a aquel que posee
+                                        las siguientes dos propiedades: <br/> <b>1.</b> Se selecciona una muestra aleatoria de tamaño <i>n</i> sin reemplazo de <i>N</i> artículos.<br>
+                                        <b>2.</b> <i>k</i> de los <i>N</i> artículos se pueden clasificar como éxitos y <i>N − k</i> se clasifican como fracasos.<br/>
+                                                El número <i>X</i> de éxitos de un experimento hipergeométrico se denomina <b>variable
+aleatoria hipergeométrica</b>. <br/>En consecuencia, la distribución de probabilidad de
+la variable hipergeométrica se llama <b>distribución hipergeométrica</b>, y sus valores
+se denotan como <i>h(x; N, n, k)</i>, debido a que dependen del número de éxitos <i>k</i> en el
+conjunto <i>N</i> del que seleccionamos <i>n</i> artículos.
+                                    </p>
+                                </div>
+                                <div class="border border-secondary p-2 rounded-lg"><p>La distribución de probabilidad de la variable aleatoria hipergeométrica <i>X</i>, el
+                                        número de éxitos en una muestra aleatoria de tamaño <i>n</i> que se selecciona de <i>N</i>
+                                        artículos, en los que <i>k</i> se denomina <b>éxito</b> y <i>N − k</i> <b>fracaso</b>, es
+                                        </p>
+                                        <img src="../img/FDistHiperG.png" alt="Formula Dist Hipergeometrica" data-toggle="tooltip" data-placement="right" title="Tomado de Walpole, Ronald (2007) Probabilidad y Estadística para Ingeniería y Ciencias, Ciudad de México, MX : Pearson Educación de México, S.A. de C.V (Ed. 8)" style="max-width:100%;width:auto;height:auto;">
+                                <p>El rango de <i>x</i> puede determinarse mediante los tres coeficientes binomiales en la
+                                    definición, donde <i>x</i> y <i>n − x</i> no son más que <i>k</i> y <i>N − k</i>; respectivamente; y ambas
+                                    no pueden ser menores que 0. <br/>Por lo general, cuando tanto <i>k</i> (el número de éxitos)
+                                    como <i>N − k</i> (el número de fracasos) son mayores que el tamaño de la muestra <i>n</i>, el
+                                    rango de una variable aleatoria hipergeométrica será <i>x =</i> 0, 1, . . . , <i>n</i>.</p>
+                                </div> <br/>
+                                <p align="center"> Los tipos de aplicaciones de la distribución hipergeométrica son muy similares a los de la distribución binomial, además de que se encuentran en muchas areas, con gran uso en muestreo de aceptación, pruebas electrónicas y garantía
+de calidad.</p><br/>
+                                 <p>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                    style="font-size: larger;">&larr; Anterior: Distribución Multinomial</b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(10)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema10">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Ejemplos de Distribución Hipergeométrica<h1>
+                                <br />
+                                <h2>Ejemplos:</h2>
+                                <br />
+                                <ul>
+                                    <li class="listaButtons">
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo51"><b
+                                                style="font-size: larger;">Ejemplo 1 &rarr;</b></button>
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo52"><b
+                                                style="font-size: larger;">Ejemplo 2 &rarr;</b></button>
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo53"><b
+                                                style="font-size: larger;">Ejemplo 3 &rarr;</b></button>
+                                    </li>
+                                </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(9)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición</b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(11)"><b
+                                    style="font-size: larger;">Siguiente: Distribución Binomial Negativa &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema11">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Distribución Binomial Negativa<h1>
+                                <p>El número X de pruebas que genera k éxitos en un experimento binomial negativo se llama variable
+                                    aleatoria
+                                    binomial negativa y su distribución de probabilidad se llama distribución binomial negativa.</p>
+                                  <p>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(9)"><b
+                                    style="font-size: larger;">&larr; Anterior: Distribución hipergeométrica<b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(12)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema12">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">Ejemplos de Distribución Binomial Negativa<h1>
+                                <br />
+                                <h2>Ejemplos:</h2>
+                                <br />
+                                <ul>
+                                    <li class="listaButtons">
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo61"><b
+                                                style="font-size: larger;">Ejemplo 1 &rarr;</b></button>
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo62"><b
+                                                style="font-size: larger;">Ejemplo 2 &rarr;</b></button>
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo63"><b
+                                                style="font-size: larger;">Ejemplo 3 &rarr;</b></button>
+                                    </li>
+                                </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(11)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición</b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(13)"><b
+                                    style="font-size: larger;">Siguiente: None &rarr; </b></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div id="modals">
+        <div class="modal" id="ejemplo10">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Probabilidad condicional - Ejemplo 1</h2>
+                        <br>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+                        Adaptado del ejercicio propuesto 2.81 pagina 65 del libro Probabilidad y estadística
+                        para
+                        ingeniería y ciencias de Ronald E. Walpole,Raymond H. Myers,Sharon L. Myers,Keying Ye -
+                        editorial pearson octava edición 2007
+                        <hr>
+                        El reconocido personaje de artes marciales Son Goku se ha enfrentado a múltiples batallas con el
+                        fin de proteger el planeta tierra. Si se sabe que la probabilidad que Goku tiene de vencer a
+                        Freezer es de
+
+                        <input type="text" value="0.83 " style="width: 40px;"
+                            onchange="var a= this.value; $('tej11-1').each(function(i){this.textContent = a}); calculoEj11()"
+                            autocomplete="off" />
+
+                        mientras que la probabilidad de vencer a Cell es de
+
+                        <input type="text" value="0.77" style="width: 40px;"
+                            onchange="var a= this.value; $('tej11-2').each(function(i){this.textContent = a}); calculoEj11()"
+                            autocomplete="off" />
+                        , y además la
+                        probabilidad que tiene de derrotar a ambos oponentes es de
+                        <input type="text" value="0.75" style="width: 40px;"
+                            onchange="var a= this.value; $('tej11-3').each(function(i){this.textContent = a}); calculoEj11()"
+                            autocomplete="off" />
+                        . ¿Cuál es la probabilidad de que
+                        Goku venza a Cell dado que derrotó primero a Freezer?
+                        Para este problema es necesario definir dos eventos:
+                        <br />
+                        A: Probabilidad de que Goku venza a Freezer.
+                        <br />
+                        B: Probabilidad de que Goku venza a Cell.
+                        <hr>
+                        Teniendo en cuenta lo anterior ya conocemos la probabilidad de los eventos A y B:
+                        <br />
+                        P(A)=<tej11-1>0.83</tej11-1>
+                        <br />
+                        P(B)=<tej11-2>0.77</tej11-2>
+                        <br />
+                        Además se tiene la probabilidad de que derrote a ambos oponentes, es decir la intersección:
+                        <br />
+                        P(A&#8745;B)=<tej11-3>0.75</tej11-3>
+                        <br />
+                        Con base al enunciado se sabe que se está haciendo uso de una probabilidad condicional, puesto
+                        que se quiere saber cual es la probabilidad de que Goku venza a Cell dado que venció a Freezer
+                        primero, haciendo uso del teorema descrito en la sección anterior.
+                        <br />
+                        <b>
+                            P(B/A)=<div class="frac">
+                                <span>P(B&#8745;A)</span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">P(A)</span>
+                            </div>
+                        </b>
+                        <br />
+                        P(B/A)=<div class="frac">
+                            <tej11-3>0.75</tej11-3>
+                            <span class="symbol">/</span>
+                            <span class="bottom">
+                                <tej11-1>0.83</tej11-1>
+                            </span>
+
+                        </div>
+                        <br />
+                        P(B/A)=<res11-1>0.90</res11-1>
+                        <br />
+                        <hr>
+                        <h3>Conclusión:</h3>
+                        Es decir que la probabilidad que tiene Goku de vencer a Cell dado que derrotó a Freezer primero
+                        es de 0.90, lo cual se aproxima considerablemente a la saga de Dragon Ball Z.
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="floating">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                                data-target="#ejemplo12">Ejemplo 2</button>
+                        </div>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo12">Ejemplo 2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo20">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Proceso de Bernoulli - Ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        Adaptado de un ejercicio propuesto por Angelica Zavala y que se puede encontrar <a href="https://prezi.com/xfuncujnbdix/proceso-de-bernoulli/">aqui</a>
+                        <hr>
+                        Se sabe que en una estación de Transmilenio
+                        <input type="text" value="60" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-1').each(function(i){this.textContent = a/100}); calculoEj21()"
+                            autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        de cada
+                        <input type="text" value="30" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-2').each(function(i){this.textContent = a/100}); calculoEj21()"
+                            autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        personas viajan por trabajo, las demás lo hacen por diversión. Se tiene una muestra de
+                        <input type="text" value="10" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-3').each(function(i){this.textContent = a/100}); calculoEj21()"
+                            autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        personas cuales quiera y se necesita encontrar la probabilidad de encontrar entre la muestra
+                        <input type="text" value="10" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-3').each(function(i){this.textContent = a/100}); calculoEj21()"
+                            autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        personas que viajen por trabajo.
+                        <br>
+                        Sabemos que las respuestas son: <br>
+                        -si viaja por trabajo (éxito) <br>
+                        -no viaja por trabajo (fracaso) <br>
+                        y que la respuesta de una persona no influye en la siguiente persona encuestada. <br><br>
+                        Entonces tenemos: <br><br>
+
+                        <center>
+                            X=40 <br>
+                            n=70 <br>
+                            p=12/15 <br>
+                            q=3/15 <br><br>
+                            <img src="../img/EjBernoulli1.png" alt="EjBernoulli1">
+                        </center>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo22">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div><div class="modal" id="ejemplo31" onmouseover="calculoEj31();">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Distribuci&oacute;n binomial - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto; font-weight: normal;">
+                        Ejemplo 3 - autor&iacute;a https://www.vadenumeros.es/sociales/ejemplos-distribucion-binomial.htm
+                        <hr>
+                        En un colegio publico de la localidad de engativa (Bogot&aacute;) existe una probabilidad del
+                        <input type="text" id="tej31-1" value="30" style="width: 40px;"
+                            onchange="calculoEj31()"
+                            autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" title="Si desea modificar: introduzca una probabilidad entre 0 y 100 %"/>%
+                        de que un alumno de 7mo grado repruebe el curso.
+			<br/>
+			Si se toman
+                        <input type="text" id="tej31-2" value="20" style="width: 40px;"
+                            onchange="calculoEj31()"
+                            autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" title="Si desea modificar: introduzca un numero entre 10 y 40 estudiantes"/>
+			             estudiantes de grado 7mo, y se quiere calcular la probabilidad de que
+                        <input type="text" id="tej31-3" value="4" style="width: 40px;"
+                            onchange="calculoEj31()"
+                            autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" title="Si desea modificar: introduzca un numero menor a 20 estudiantes"/>
+			                 de estos reprueben el curso. Obtenemos que:
+                        <br>
+                        <div id="sol-tej31">
+                        </div>
+                        <br>
+                        <br>
+                        As&iacute; obtenemos una grafica discreta que nos muestra la distribucion de probabilidad:
+						<div><center>
+							<canvas id="gra-tej31" class="grafic"></canvas>
+                        </center></div>
+                        </div>
+			<div class="modal-footer">
+        	                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                	        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+	                            data-target="#ejemplo32">Ejemplo 2</button>
+                        	<button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+        	                    data-target="#ejemplo33">Ejemplo 3</button>
+                    </div>
+						</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div class="modal" id="ejemplo32" onmouseover="calculoEj32()">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Distribuci&oacute;n binomial - Ejemplo 2</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto; font-weight: normal;">
+                        Ejercicio 2 - autor&iacute;a https://www3.uji.es/~mateu/t4-alumnos.pdf
+                        <hr>
+                        En la sala 504 (un aula de computacion de la Universidad Distrital Francisco Jos&eacute; de Caldas), hay un total de
+                        <input type="text" id="tej32-1" value="24" style="width: 40px;"
+                            onchange="calculoEj32()"
+                            autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" title="Si desea modificar: introduzca un numero mayor a 20"/>
+							 computadores para uso academico de los estudiantes.
+						Si se sabe que el 12% de los estudiantes que piden un computador lo usan con fines no academicos, y un dia en particular lo piden
+                        <input type="text" id="tej32-2" value="20" style="width: 40px;"
+                            onchange="calculoEj32()"
+                            autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" title="Si desea modificar: introduzca un numero entre 5 y 24 estudiantes"/>
+			             estudiantes ¿Cu&aacute;l es la probabilidad de que menos de <label id="lb32-1">20</label> estudiantes esten utilizando inadecuadamente los computadores?
+                        <br>
+                        <div id="sol-tej32">
+                        </div>
+                        <br>
+                        <br>
+                        As&iacute; obtenemos una grafica discreta que nos muestra la distribucion de probabilidad:
+						<div><center>
+							<canvas id="gra-tej32-1" class="grafic"></canvas>
+							<canvas id="gra-tej32-2" class="grafic"></canvas>
+                        </center></div>
+                        </div>
+			<div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo31">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo33">Ejemplo 3</button>
+                    </div>
+						</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="ejemplo33">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Binomial</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 3 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!CI57%3ACX75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo31">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo32">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo51">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hipergeometrica</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 1 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!B2%3AQ30&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo52">Ejemplo 2</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo53">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo52">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hipergeometrica</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 2 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!B33%3AQ54&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo51">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo53">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo53">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hipergeometrica</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 3 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!B57%3AQ75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo51">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo52">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo41">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Multinomial</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 1 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!S2%3AAH30&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo42">Ejemplo 2</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo43">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo42">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Multinomial</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 2 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!S33%3AAH54&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo41">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo43">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo43">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Multinomial</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 3 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!S57%3AAH75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo42">Ejemplo 2</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo43">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo21">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Bernoulli</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 1 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BA2%3ABP30&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo22">Ejemplo 2</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo23">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo22">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Bernoulli</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 2 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BA33%3ABP54&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo21">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo23">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo23">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Bernoulli</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 3 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BA57%3ABP75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo21">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo22">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo11">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Distribucion uniforme</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 1 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BR2%3ACG30&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo12">Ejemplo 2</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo13">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo12">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Distribucion uniforme</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 2 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BR33%3ACG54&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo13">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo13">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Distribucion uniforme</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 3 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BR57%3ACG75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo12">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo61">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Binomial Negativa</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 1 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!AJ2%3AAY30&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo62">Ejemplo 2</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo63">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo62">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Binomial Negativa</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 2 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!AJ33%3AAY54&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo61">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo63">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+<div class="modal" id="ejemplo63">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Binomial Negativa</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo 3 - Fuente: <i> Autor</i>
+                        <hr>
+                        <iframe width="100%" height="486" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!AJ57%3AAY75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo61">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo62">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    </div>
+    <!--<footer class="page-footer font-small blue">
+        <div class="footer-copyright text-center py-3">
+            <b>© 2020 Carlos Lopez</b>
+        </div>
+    </footer>-->
+
+    <script src="../js/jQuery.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/blogs.js"></script>
+
+    <script>
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        function factorial (n) {
+        	if (n == 0){
+        		return 1;
+        	}
+        	return n * factorial (n-1);
+        }
+        function calculoEj11() {
+            $("res11-1")[0].textContent = (Number($("tej11-3")[0].textContent) / Number($("tej11-1")[0].textContent)).toFixed(2);
+        }
+        function drawLine(ctx, startX, startY, endX, endY,color){
+            ctx.save();
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.moveTo(startX,startY);
+            ctx.lineTo(endX,endY);
+            ctx.stroke();
+            ctx.restore();
+        }
+		function drawEjes(ctx, canv, color){
+		drawLine(
+			ctx,
+			0,
+			canv.height,
+			canv.width,
+			canv.height,
+			color
+		);
+		drawLine(
+			ctx,
+			0,
+			canv.height,
+			0,
+			0,
+			color
+		);
+		}
+        function calculoEj21() {
+            if ((Number($("tej21-1")[0].textContent) + Number($("tej21-2")[0].textContent) + Number($("tej21-3")[0].textContent)).toFixed(2) != 1) {
+                alert("la suma de los campos debe ser 100%");
+            } else {
+                var res = 0;
+                for (var i = 1; i <= 3; i++) {
+                    res += Number($("tej21-" + i)[0].textContent) * Number($("tej21-" + (i + 3))[0].textContent);
+                }
+                $("tej21-r1")[0].textContent = res;
+                $("tej21-r2")[0].textContent = (res * 100);
+            }
+
+        }
+    function calcularBinomio(p, n, x){
+        return ((factorial(n)/(factorial(x)*(factorial(n-x))))*(Math.pow(p,x))*(Math.pow(1-p,n-x))).toString();
+    }
+	function calculoEj31(){
+	    var tej311=document.getElementById("tej31-1");
+	    var tej312=document.getElementById("tej31-2");
+	    var tej313=document.getElementById("tej31-3");
+	    var soltej31=document.getElementById("sol-tej31");
+        if (parseInt(tej311.value) > 100 || parseInt(tej311.value)<0) {
+		alert("la probabilidad de reprobar el curso debe ser menor a 100% pero mayor al 0%");
+		tej311.value=30;
+	    }
+	    if (parseInt(tej312.value) > 40 || parseInt(tej312.value)<10) {
+	    	alert("el numero de estudiantes debe estar entre 10 y 40");
+	    	tej312.value=20;
+	    }
+	    if (parseInt(tej313.value) > parseInt(tej312.value) || parseInt(tej313.value)<0) {
+	    	alert("el numero de estudiantes a calcular debe ser mayor a 0 y menor al numero de muestra");
+	    	tej313.value=0;
+	    }
+	    tej313.title="introduzca un numero menor a " + tej312.value + " estudiantes";
+        soltej31.innerHTML="Aplicando la funcion de probabilidad para una distribucion binomial tenemos que:"+
+        "<center>"+
+        "<a href='https://www.codecogs.com/eqnedit.php?latex=P(x="+ tej313.value +")=\\binom{" + tej312.value +
+        "}{" + tej313.value+"}"+ parseFloat(tej311.value/100).toString()+"^{_{"+tej313.value+"}}(1-"+
+        parseFloat(tej311.value/100).toString() +")^{_{"+tej312.value+"-"+tej313.value+"}}' target=_blank'>"+
+		"<img src='https://latex.codecogs.com/gif.latex?P(x="+ tej313.value +")=\\binom{" + tej312.value +
+        "}{" + tej313.value+"}"+ parseFloat(tej311.value/100).toString()+"^{_{"+tej313.value+"}}(1-"+
+        parseFloat(tej311.value/100).toString() +")^{_{"+tej312.value+"-"+tej313.value+"}}'/></a>"+
+        " = " +(calcularBinomio(parseInt(tej311.value)/100,parseInt(tej312.value),parseInt(tej313.value))).toString()+
+        "</center>";
+        var grafej31 = document.getElementById("gra-tej31");
+        grafej31.width = 300;
+        grafej31.height = 300;
+        var funcej31 = grafej31.getContext("2d");
+		drawEjes(funcej31,grafej31,"#ff0000");
+        for (var i = 0; i<parseInt(tej312.value); i++){
+            var col = "#000000";
+            var cordX = grafej31.width/parseInt(tej312.value);
+			if (i==parseInt(tej313.value)){col="#ff0000"}
+            drawLine(
+                funcej31,
+                i*cordX,
+                300,
+                i*cordX,
+                ((1)-calcularBinomio(parseInt(tej311.value)/100,parseInt(tej312.value),i))*grafej31.height*(1),
+                col
+            );
+        }
+        }
+	function calculoEj32(){
+	    var tej321=document.getElementById("tej32-1");
+	    var tej322=document.getElementById("tej32-2");
+	    var soltej32=document.getElementById("sol-tej32");
+        if (parseInt(tej321.value)<20) {
+		alert("El numero de computadores en la sala debe ser superior");
+		tej321.value=24;
+	    }
+	    if (parseInt(tej322.value) > parseInt(tej321.value) || parseInt(tej322.value)<5){
+	    	alert("el numero de estudiantes a calcular debe ser mayor a 5 y menor al numero de computadores");
+	    	tej322.value=20;
+	    }
+	    tej322.title="Si desea modificar: introduzca un numero entre 5 y" + tej321.value + "estudiantes";
+		document.getElementById("lb32-1").innerHTML=tej322.value;
+		var sol = 0;
+		var grafej321 = document.getElementById("gra-tej32-1");
+		var grafej322 = document.getElementById("gra-tej32-2");
+        grafej321.width = 300;
+        grafej321.height = 300;
+		grafej322.width = 300;
+		grafej322.height = 300;
+        var funcej321 = grafej321.getContext("2d");
+		var funcej322 = grafej322.getContext("2d");
+		drawEjes(funcej321, grafej321, "#ff0000");
+		drawEjes(funcej322, grafej322, "#ff0000");
+		var pTot=0;
+		for (var i = 1; i<parseInt(tej321.value); i++){
+			var col = "#000000";
+            var cordX = grafej322.width/parseInt(tej321.value);
+			var sum = parseFloat(calcularBinomio(12/100,parseInt(tej321.value),i));
+			if (i==parseInt(tej322.value)){col="#ff0000"}
+            drawLine(
+                funcej321,
+                i*cordX,
+                grafej321.height,
+                i*cordX,
+                ((1)-sum)*grafej321.height*(1),
+                col
+            );
+			if (i<=parseInt(tej322.value)){
+				var cordX = grafej322.width/parseInt(tej322.value);
+				sol += (sum);
+				pTot += parseFloat(sum);
+				drawLine(
+					funcej322,
+					i*cordX,
+					grafej322.height,
+					i*cordX,
+					(pTot)*grafej322.height*(1),
+					col
+				);
+			}
+		}
+		sol = 1-sol;
+        soltej32.innerHTML="Aplicando la funcion de probabilidad para una distribucion binomial tenemos que:"+
+        "<center>"+
+        "<a href='https://www.codecogs.com/eqnedit.php?latex=1-P(x<"+ tej322.value +")=1-\\sum_{i=0}^{"+ tej322.value +"}\\binom{" + tej321.value +
+        "}{i}0.12^{_{i}}("+
+        "1-0.12)^{_{"+tej321.value+"-i}}' target=_blank'>"+
+		"<img src='https://latex.codecogs.com/gif.latex?1-P(x<"+ tej322.value +")=1-\\sum_{i=0}^{"+ tej322.value +"}\\binom{" + tej321.value +
+        "}{i}0.12^{_{i}}("+
+        "1-0.12)^{_{"+tej321.value+"-i}}'/></a>"+
+        " = " + sol.toString() +
+        "</center>";
+	}
+	function calculoEj33(){
+        }
+
+
+    </script>
+</body>
+
+</html>
