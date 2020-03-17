@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Medida y varianza de la distribución normal</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/colores.css">
+</head>
+<body>
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+	<!-- Navbar content -->
+		<a class="navbar-brand" href="https://bogota.gov.co/">
+			<img src="../img/distrito1.jpg" width="30" height="30" alt="">
+		</a>
+		<a class="btn btn-outline-success btn-outline-info" href="../index.html">Volver al temario</a>
+		<a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+			<img src="../img/logoDistri.png" width="40" height="40" alt="">
+		</a>
+	</nav>
+	<header>
+		<div class="container">
+			
+			<h1 class="titPrin">Medida y varianza de la distribución normal</h1> <br>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<section class="main row">
+			<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+				<br><h3>Ej: Altura de los perros</h3> <br>
+					
+				<div class="ejemplo">
+					<p class="text-left">
+						Adaptado del unico ejemplo del pdf Pértegas Díaz, S., & Pita Fernández, S. (2001). <i>La distribución normal.</i> Cad Aten Primaria, 8, 268-274.
+					</p><br>
+					<p class="text-justify">
+						Tú y tus amigos han medido las alturas de sus perros (en milímetros):
+					</p>
+					
+					<img class="mx-auto d-block" src="../img/alturaPerros.jpg" width="600px" height="180px" alt="">
+					<h6 class="text-center">
+						<a href="#bibliografia">[1]</a>
+					</h6><br><br>
+					<input type="text" id="num1" placeholder="600" size="1" title="Si desea cambiar el ejemplo por favor digita la altura del perro #1"> + <input type="text" id="num2" placeholder="470" size="1" title="Si desea cambiar el ejemplo por favor digita la altura del perro #2"> + <input type="text" id="num3" placeholder="170" size="1" title="Si desea cambiar el ejemplo por favor digita la altura del perro #3"> + <input type="text" id="num4" placeholder="430" size="1" title="Si desea cambiar el ejemplo por favor digita la altura del perro #5"> + <input type="text" id="num5" placeholder="300" size="1" title="Si desea cambiar el ejemplo por favor digita la altura del perro #6">  = <label id="lblResSum" >1970</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-outline-info" value="Calcular" onclick="calcularPerros();"><br><br>
+					<label id="lblResSum1">1970</label> / 5 = <label id="lblProm">394</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(1)</b><br><br>
+					Así que la altura media es <label id="lblProm1">394</label> mm. <br><br>
+					Para calcular la varianza, toma cada diferencia, elévala al cuadrado, y haz la media: <br><br>
+					Varianza: σ^2 =  (<label id="lblDif1">206</label>)^2 + (<label id="lblDif2">76</label>)^2 + (<label id="lblDif3">-224</label>)^2 + (<label id="lblDif4">36</label>)^2 + (<label id="lblDif5">-94</label>)^2 = (<label id="lblSumDif">108520</label> / 5 )	= <label id="lblVarianza">21704</label> <br><br>
+
+					Así que la varianza es <label id="lblVarianza1">21704</label>. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(2)</b><br>
+					Y la desviación estándar es la raíz de la varianza, así que: <br><br>
+					Desviación estándar: σ = √<label id="lblVarianza2">21704</label> = <label id="lblDesviacion">147</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(3)</b><br><br>
+					
+				</div>
+			</article>
+			<div class="ventana col-xs-12 col-sm-4 col-md-3 col-lg-3">
+				<br><h4>Pasos de solucion: </h4> <br>
+				<p class="introduccion">
+					<ol>
+						<li>Encontramos el valor para la media μ. </li><a class="linkPasos" href="#paso1">Descubrir como</a><hr>
+						<li>Calculamos el valor de la varianza var[X]. </li><a class="linkPasos" href="#paso2">Descubrir como</a><hr>
+						<li>Calculamos el valor de la desviacion estandar o tipica σ. </li><a class="linkPasos" href="#paso3">Descubrir como</a><hr>
+					</ol>
+ 				</p>
+			</div>
+		</section>
+		<hr>
+		<div class="row">
+			<div class="container">
+				<div class="col-xs-12">
+					<h3>Esperanza y varianza</h3>
+					<p class="introduccion">
+						Los nombres de esperanza matemática y valor esperado tienen su origen en los juegos de azar y hacen referencia a la ganancia promedio esperada por un jugador cuando hace un gran número de apuestas.
+						<a id="paso1"></a>
+						Si la esperanza matemática es cero, E(x) = 0, el juego es equitativo, es decir, no existe ventaja ni para el jugador ni para la banca.
+					</p>					
+					<img class="mx-auto d-block" src="../img/media.jpg" alt="" width="400rem" height="200rem">
+					<hr>
+					<img class="mx-auto d-block" src="../img/rifa.jpg" alt="" width="300rem" height="200rem"> 
+					<h6 class="text-center">
+						<a href="#bibliografia">2</a>
+					</h6><br><br> <br>
+					<h5>Ejemplos</h5>
+					<p class="introduccion">
+						Si una persona compra una papeleta en una rifa, en la que puede ganar de 5.000 € ó un segundo premio de 2000 € con probabilidades de: 0.001 y 0.003. ¿Cuál sería el precio justo a pagar por la papeleta?
+					</p>
+						E(x) = 5000 · 0.001 + 2000 · 0.003 = 11 €<br><br>
+					<p class="introduccion">
+						Un jugador lanza dos monedas. Gana 1 ó 2 € si aparecen una o dos caras. Por otra parte pierde 5 € si no aparece cara. Determinar la esperanza matemática del juego y si éste es favorable. 
+					</p>
+						E = {(c,c);(c,x);(x,c);(x,x)} <br><br>
+						p(+1) = 2/4 <br>
+						p(+2) = 1/4 <br>
+						p(−5) = 1/4	<br><br>
+						E(x)= 1 · 2/4 + 2 · 1/4 - 5 · 1/4 = −1/4. <br><br>
+						Por lo tanto se puede decir que es desfavorable. <br><br>
+						<a id="paso3"></a>
+					</p>
+					<hr>
+					<h5>Desviación estándar</h5>
+					<p class="introduccion">
+						La desviación estándar (σ) mide cuánto se separan los datos.
+						La fórmula es fácil: es la raíz cuadrada de la varianza. Así que, "¿qué es la varianza?"
+
+					</p>
+					<img class="mx-auto d-block" src="../img/desviacion.jpg" alt="">
+					<hr>
+					<h5>Varianza</h5>
+					<p class="introduccion">
+						La varianza (que es el cuadrado de la desviación estándar: σ2) se define así: es la media de las diferencias con la media elevadas al cuadrado. <br>
+						En otras palabras, sigue estos pasos:
+						<ol>
+							<li>Calcula la media (el promedio de los números)</li>
+							<li>Ahora, por cada número resta la media y eleva el resultado al cuadrado (la diferencia elevada al cuadrado). </li>
+							<li>Ahora calcula la media de esas diferencias al cuadrado. </li>
+						</ol>
+						<a id="paso2"></a>
+					</p>					
+					<img class="mx-auto d-block" src="../img/varianza.jpg" alt="">
+					&nbsp;&nbsp;&nbsp;<h5>Propiedades de la varianza: </h5>
+					<p class="text-justify">
+						Si X es una variable aleatoria con función de probabilidad o densidad f(x), la varianza de una función de la variable X , m(x) , se calcula según la expresión:
+					</p>
+					<img src="../img/propVar.gif" alt=""><br><br>
+					Casos concretos: <br><br>
+					<ol>
+						<li><p class="text-justify">
+							Cuando a todos los valores de una variable se les suma una constante, la varianza de la variable conserva el mismo valor (ver imagen en las propiedades de la media). <br><br>
+							<img src="../img/casCon.gif" alt="">
+						</p></li>
+						<li><p class="text-justify">
+							Cuando a todos los valores de una variable se les multiplica por una constante, la varianza de la variable queda multiplicada por el valor de la constante elevado al cuadrado (ver imagen en las propiedades de la media). <br><br>
+							<img src="../img/casCon2.gif" alt="">
+						</p></li>
+						<li><p class="text-justify">
+							Si X e Y son dos variables aleatorias con función de densidad o probabilidad conjunta f(x,y), la varianza de la función m(x,y) = a X ± b Y, donde a y b son constantes reales se calcula como: <br><br>
+							<img src="../img/casCon3.gif" alt="">
+						</p></li>
+					</ol>
+					En el caso de que a = b = 1  <br>
+					<img src="../img/casCon4.gif" alt=""><br><br>
+					Si además ocurre que X e Y sean independientes σxy = 0 , luego <br>
+					<img src="../img/casCon5.gif" alt=""><br><br>
+				</div>
+			</div>
+		</div>
+	<footer>
+		<div class="container">
+			<a id="bibliografia"></a>			
+			<h5>Bibliografia: </h5>
+			<ul>
+				<li><a href="https://es.dreamstime.com/grupo-de-diversos-perros-del-tama%C3%B1o-sobre-blanco-un-grande-diversas-razas-y-tama%C3%B1os-que-se-colocan-en-fondo-image142859694">https://es.dreamstime.com/grupo-de-diversos-perros-del-tama%C3%B1o-sobre-blanco-un-grande-diversas-razas-y-tama%C3%B1os-que-se-colocan-en-fondo-image142859694 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (1)</a></li>
+				<li><a href="https://previews.123rf.com/images/iqoncept/iqoncept1611/iqoncept161100161/66144180-participa-para-ganar-concurso-de-la-rifa-palabras-billete-de-loter%C3%ADa-afortunada-3d-ilustraci%C3%B3n.jpg">https://previews.123rf.com/images/iqoncept/iqoncept1611/iqoncept161100161/66144180-participa-para-ganar-concurso-de-la-rifa-palabras &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(2)</a></li>
+			</ul>
+		</div>
+	</footer>
+	<hr>
+	<br><br>
+	<script src="../js/operations.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.js"></script>
+</body>
+</html>

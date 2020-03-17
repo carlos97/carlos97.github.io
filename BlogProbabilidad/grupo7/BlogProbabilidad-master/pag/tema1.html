@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Distribución normal general</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/colores.css">
+</head>
+<body>
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+	<!-- Navbar content -->
+		<a class="navbar-brand" href="https://bogota.gov.co/">
+			    <img src="../img/distrito1.jpg" width="30" height="30" alt="">
+		</a>
+		<a class="btn btn-outline-success btn-outline-info" href="../index.html">Volver al temario</a>
+		<a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+			<img src="../img/logoDistri.png" width="40" height="40" alt="">
+		</a>
+	</nav>
+	<header>
+		<div class="container">
+			
+			<h1 class="titPrin">Distribución normal general</h1> <br>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<section class="main row">
+			<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+					<br><h3>Ej: Cultura general </h3> <br>	
+					<p class="text-justify">Ejemplo 3.1 adaptado del pdf Pértegas Díaz, S., & Pita Fernández, S. (2001).
+					<i>La distribución normal.</i> Cad Aten Primaria, pag 128-132.</p>
+					<br><br>
+					<img class="mx-auto d-block" src="../img/cultura.jpg" alt="">
+					<h6 class="text-center">
+						<a href="#bibliografia">[1]</a>
+					</h6><br>
+					<div class="ejemplo">
+						<p class="introduccion">
+							Tras un encuesta  de cultura general realizada en la universidad Distrital se observa que las puntuaciones obtenidas siguen una distribución N(65, 18). Se desea clasificar a los examinados en tres grupos (de baja cultura general, de cultura general aceptable, de excelente cultura general) de modo que hay en el primero un 20% la población, un 65% el segundo y un 15% en el tercero. ¿Cuáles han
+							de ser las puntuaciones que marcan el paso de un grupo al otro? 
+						</p>
+						<img class="mx-auto d-block" src="../img/recorte.jpg" alt="">
+						<h6 class="text-center">
+						<a href="#bibliografia">[2]</a>
+						</h6><br><br>
+						Baja cultura hasta 49 puntos. <br><br>
+						Cultura aceptable entre 50 y 83. <br><br>
+						Excelente cultura a partir de 84 puntos. <br><br>
+						 
+					</div>
+			</article>
+			<div class="ventana col-xs-12 col-sm-4 col-md-3 col-lg-3">
+				<br><h4>Pasos de solucion: </h4> <br>
+				<p class="introduccion">
+					<ol>
+						<li>Encontramos el valor para μ, σ, X. </li><a class="linkPasos" href="">Descubrir como</a><hr>
+						<li>Reemplazamos en la ecuacion para encontrar Z. </li><a class="linkPasos" href="">Descubrir como</a><hr>
+						<li>Miramos en la tabla de distribución normal que probabilidad hay para el Z obtenido. </li><a class="linkPasos" href="">Descubrir como</a><hr>
+					</ol>
+ 				</p>
+			</div>
+		</section>
+		<hr>
+		<div class="row">
+			<div class="container">
+				<div class="col-xs-12">
+					
+					<h3>Distribución normal general</h3>
+					<p class="text-justify">
+						Como se ha dicho ,depende de dos parametros , μ ,σ , que como luego comprobaremos , son su media y su desviacion tipica . El hecho de que una variable x se distribuya con una distribucion normal de media μ y desviacion tipica σ se representa por: <br><br>
+					</p>
+					<img src="../img/disNorGen.jpg" alt=""><br><br>
+					<p class="text-justify">
+						Aunque nosotros seguiremos este sistema de especificacion, <b>es bastante corriente, tambien, que a la distribucion normal se la especifique por los parametros media y varianza ( en vez de desviacion tipica), μ , σ^2 </b><br><br>
+						Su funcion de densidad es: <br><br>
+					</p>
+						<img class="mx-auto d-block" src="../img/funDenNorm.png" alt=""><br><br>
+						Las caracteristicas de dicha función de densidad seran: <br><br>
+						Si realizamos la primera derivada de dicha funcion tendremos que : <br><br>
+						&nbsp;&nbsp;&nbsp;dado que:<img src="../img/funDenNorm1.jpg"><br><br>
+						<img class="mx-auto d-block" src="../img/funDenNorm2.png" alt=""><br><br>
+						la segunda derivada será: <br><br>
+						<img src="../img/funDenNorm3.jpg" alt=""><br><br>
+					<p class="text-justify">
+							Igualando a cero la primera derivada obtenemos que y'=0 para X = μ y para X = ∞. <br>
+							Como la segunda derivada en x = μ es negativa ,concluimos que la funcion de densidad presenta un maximo en X = μ , lo que nos hace afirmar que la media (μ) es también la moda de la distribución normal. <br>
+							Es facil comprobar que la función de densidad presenta dos puntos de inflexión en los valores X = μ+-σ <br>
+							Por otro lado para cualquier valor de a se verifica que: f(μ+a) = f(μ-a) por lo que la función es simétrica respecto a μ.
+					</p>
+					
+				</div>
+			</div>
+		</div>
+		<hr>
+	<footer>
+		<div class="container">
+			<a id="bibliografia"></a>
+			<h5>Bibliografia: </h5>
+			<ul>
+				<li><a href="https://www.bbvaopenmind.com/articulos/">https://www.bbvaopenmind.com/articulos/</a><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[1]</b></li>
+				<li><a href="https://matemovil.com/distribucion-normal-ejercicios-resueltos/">https://matemovil.com/distribucion-normal-ejercicios-resueltos/</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>[2]</b></li>
+			</ul>
+		</div>
+		<br><br>
+	</footer>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.js"></script>
+</body>
+</html>

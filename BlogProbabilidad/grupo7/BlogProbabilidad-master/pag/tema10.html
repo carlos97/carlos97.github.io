@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Chebyshev</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/colores.css">
+</head>
+<body>
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+	<!-- Navbar content -->
+		<a class="navbar-brand" href="https://bogota.gov.co/">
+			    <img src="../img/distrito1.jpg" width="30" height="30" alt="">
+		</a>
+		<a class="btn btn-outline-success btn-outline-info" href="../index.html">Volver al temario</a>
+		<a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+			<img src="../img/logoDistri.png" width="40" height="40" alt="">
+		</a>
+	</nav>
+	<header>
+		<div class="container">	
+			<h1 class="titPrin">Teorema de Chebyshev</h1> <br>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<section class="main row">
+			<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+				<h3>Ejemplo: </h3> <br>
+				<img src="../img/fondoInversion.jpg" alt="" class="mx-auto d-block" width="400rem" height="250" alt="Formula Dist Uniforme" data-toggle="tooltip" data-placement="right" title="Tomado de Walpole, Ronald (2007) Probabilidad y Estadística para Ingeniería y Ciencias, Ciudad de México, MX : Pearson Educación de México, S.A. de C.V (Ed. 8)">
+				<h6 class="text-center">
+						<a href="#bibliografia">[1]</a>
+					</h6><br>
+					<p class="text-justify">
+						Supongamos que somos gestores de un fondo de inversión. La cartera que estamos gestionando tiene una rentabilidad media del 8,14% y una desviación típica del 5,12%. <br>Para saber por ejemplo que porcentaje de nuestros retornos se encuentran al menos a 3 desviaciones típicas de nuestra rentabilidad media simplemente aplicaríamos la formula anterior de la expresión 2.
+					</p><br>
+					k    = 1,96 <br><br>
+					Sustituyendo el valor de k: 1-1/1,96^2 = 0,739 = 73,9% <br><br>
+					<p class="text-justify">
+						Esto quiere decir que hay un 73,9% de los resultados que están en el intervalo de confianza situado a 1,96 desviaciones típcas de la media.
+					</p>
+					Realicemos el ejemplo anterior para valores distintos de k. <br><br>
+					k = 2,46 <br>
+					k = 3 <br><br>
+					Sustituyendo el valor de k: 1-1/2,46^2 = 0,835 = 83,5% <br>
+					Sustituyendo el valor de k: 1-1/3^2 = 0,889 = 88,9% <br><br>
+					<a id="paso3"></a>
+					<p class="text-justify">
+						Hay un 83,5% de los datos que están a una distancia de 2,46 desviaciones típicas de la media y un 88,9% que están a 3 desviaciones típicas de la media.
+					</p>
+					<h4>En conclusion</h4>
+					<p class="text-justify">
+						Utilizando la desigualdad de Chebyshev, es sencillo deducir que a mayor valor de K (mayor desviación del valor estimado sobre su media) mayor probabilidad de que la variable aleatoria se encuentro dentro del intervalo acotado.
+					</p>
+			</article>
+			<div class="ventana col-xs-12 col-sm-4 col-md-3 col-lg-3">
+				<br><h4>Pasos de solucion: </h4> <br>
+				<p class="introduccion">
+					<ol>
+						<li>Identificamos los valores de X, µ y k.</li><a href="#paso1">Descubrir como</a><hr>
+						<li>Aplicamos la formula anterior de la expresión 2.</li><a href="#paso2">Descubrir como</a><hr>
+						<li>Interpretar la relacion del resultado obtenido con las desviaciones tipicas medias. </li><a href="#paso3">Descubrir como</a><hr>
+					</ol>
+ 				</p>
+			</div>
+		</section>
+		<hr>
+		<div class="row">
+			<div class="container">
+				<div class="col-xs-12">
+					<h3>Teorema de Chebyshev</h3><br>
+					<img class="mx-auto d-block" src="../img/cheby.jpg" alt="">
+					<h6 class="text-center">
+						<a href="#bibliografia">[2]</a>
+					</h6><br>
+					<p class="text-justify">
+						La desigualdad de Chebyshev es un teorema utilizado en estadística que proporciona una estimación conservadora (intervalo de confianza) de la probabilidad de que una variable aleatoria con varianza finita, se sitúe a una cierta distancia de su esperanza matemática o de su media.
+					</p>
+					<a id="paso1"></a>
+					Su expresión formal es la siguiente: <br>
+					<img src="../img/cheby.png" alt=""><br>
+					X    = Valor estimado <br>
+					µ    = Esperanza matemática del valor estimado <br>
+					Ϭ   = Desviación típica del valor esperado <br>
+					k    = Número de desviaciones típicas <br> <br>
+					<a id="paso2"></a>
+					<p class="text-justify">
+						Partiendo de esta expresión general y desarrollando la parte que queda dentro del valor absoluto tendríamos lo siguiente:
+					</p>
+					<img src="../img/cheby1.png" alt=""><br><br>
+					<p class="text-justify">
+						Si prestamos atención a la expresión anterior, se aprecia que la parte de la izquierda no es más es un intervalo de confianza. Este nos ofrece tanto una cota inferior, como una superior para el valor estimado. <br>Por lo tanto, la desigualdad de Chebyshev nos dice la probabilidad mínima, de que el parámetro poblacional se encuentre dentro de una determinada cantidad de desviaciones típicas por encima o por debajo de su media. <br>O dicho de otra manera, nos da la probabilidad de que de que el parámetro poblacional se encuentre dentro de ese intervalo de confianza.
+					</p>
+					<p class="text-justify">
+						La desigualdad de Chebyshev proporciona cotas aproximadas para el valor estimado. A pesar de tener cierto grado de imprecisión, es un teorema bastante útil dado que se puede aplicar a un amplio abanico de variables aleatorias independientemente de sus distribuciones. <br>La única restricción para poder utilizar esta desigualdad es que k tiene que ser mayor que 1 (k>1).
+					</p>
+
+
+				</div>
+			</div>
+		</div>
+	<a id="bibliografia"></a>
+	<footer>
+		<div class="container">
+			<br><h4>Referencias</h4>
+			<ul>
+				<li>Pagina de libre aceceso: <a href="https://pxhere.com/es/photo/1576177">https://pxhere.com/es/photo/1576177</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>[1]</b></li>
+				<li>Pagina de libre aceceso: <a href="https://worhogagal.ml/estadistica-aplicada-teorema-de-chebychev">https://worhogagal.ml/estadistica-aplicada-teorema-de-chebychev</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>[2]</b></li>
+			</ul>
+			<br><br>
+		</div>
+	</footer>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.js"></script>
+</body>
+</html>

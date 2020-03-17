@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Distribución normal</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/colores.css">
+</head>
+<body>
+	<nav class="navbar sticky-top navbar-dark bg-dark">
+	<!-- Navbar content -->
+
+		<a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+			<img src="img/logoDistri.png" width="80" height="80" alt="Co-gestores:" data-html="true" data-toggle="tooltip" data-placement="right" title="Co-gestores: <br><br>Andrade, Nicolas P. (20172020097)  nandradep@correo.udistrital.edu.co<br><br> Galeano, Diego A. (20172020074) dagaleanoh@correo.udistrital.edu.co<br><br>  Nuñez, Josue A. (20172020071) janunezp@correo.udistrital.edu.co<br><br> Rodriguez, Daniel E. (20172020120) derodriguezf@correo.udistrital.edu.co <br><br>Wilches, Andres F. (20172020114) afwilchest@correo.udistrital.edu.co">
+		</a>
+		<h1 class="titPrin">Distribución de probabilidad</h1>
+		<a class="navbar-brand" href="https://bogota.gov.co/">	
+			<img src="img/distrito1.jpg" width="60" height="60" alt="" >
+		</a>
+	  	<form class="form-inline">
+	    <input class="form-control mr-sm-2" id="formulario" placeholder="Search" aria-label="Search">
+	    <button class="btn btn-outline-info my-2 my-sm-0" id="buscar">Buscar</button>
+	  	</form>
+	</nav>
+	<header>
+	</header>
+	<div class="container-fluid">
+		<section class="main row">
+			<aside class="ventana text-white col-xs-12 col-sm-4 col-md-3 col-lg-3">
+				<br>
+				<h2 class="display-5 text-dark">Temario</h2>
+					<ul id="temas">
+					</ul>
+				
+			</aside>
+			<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+				<p>	
+					<div class="introduccion">
+
+						<h2>Definición</h2>
+						<p class="introduccion">
+					
+							Distribución normal o gaussiana. Función de densidad de probabilidad para la variable aleatoria continua. Fue descubierta por Carl Gauss al estudiar el comportamiento de los procesos aleatorios. Es ampliamente utilizada en estadística y teoría de las probabilidades.
+						</p>
+						<img class="mx-auto d-block" src="img/introduccion.gif" alt="" title="https://www.uv.es/ceaces/tex1t/1%20normal/aninor0.gif">
+						
+						<h6 class="text-center">
+							<a href="#bibliografia">[1]</a>
+						</h6><br>
+						
+						La función asociada a la distribución normal está dada por: <br/><br/>
+						<img class="mx-auto d-block" src="img/funDisNorm.gif" ><br/><br/>
+						<p>
+							Donde: <br> 
+							μ: media de la distribución. <br>
+							σ: desviación estándar de la distribución. <br>
+							π = 3.1415926535… <br>
+							x: variable aleatoria. <br>
+							A una distribución normal de media μ y desviación estándar σ se le denota N(μ,σ). <br>
+							La distribución normal cuando μ = 0 y σ = 1 recibe el nombre de curva normal unitaria (N(0,1)) <br>
+						</p>
+						
+						
+				</p>
+			</article>
+			
+			<div class="introduccion container">
+			<hr>
+	
+				<h3>Representacion grafica</h3>
+						<p class="introduccion">
+							La representación gráfica de esta distribución es una curva simétrica y su forma se asemeja a una campana por loq ue se comoce como campana de Gauss.</p>
+						<img class="mx-auto d-block" src="img/CampanaDeGauss.png" title="PDF: Probabilidad y ejercicios. Campana de Gauss"></a>
+						<h6 class="text-center">
+							<a href="#bibliografia">[2]</a>
+						</h6><br>
+						<hr>
+						<h5>Propiedades de la distribucion normal</h5>
+						<ul>
+							<li>La forma de la curva de la distribución depende de sus dos parámetros: la media y la desviación estándar.</li>
+							<li>La media indica la posición de la campana, la gráfica se desplaza a lo largo del eje x.</li>
+							<li>A mayor desviación la curva será más "plana", dado que la distribución, en este caso, presenta una mayor variabilidad.</li>
+							<li>La curva es siimétrica respecto a la media</li>
+						</ul>
+						<hr>
+						<h3>Intervalos de una distribución normal</h3>
+						<p class="introduccion">
+							Por su importancia en el análisis estadístico son de interés los intervalos donde el área bajo la curva corresponde a determinados valores de probabilidad.
+						</p>
+						<img class="mx-auto d-block" src="img/IntervalosDistribucion.jpg" alt="" >
+						<h6 class="text-center">
+							<a href="#bibliografia">[3]</a>
+						</h6><br>
+						<hr>
+						<h3>Tipificacion de una variable</h3>
+						<p class="introduccion">
+							Es posible expresar cualquier distribución normal como una de la forma unitaria (N(0,1)), la cual se denomina distribución normal tipificada. Para ello se utiliza la expresión:
+						</p>
+						<img class="mx-auto d-block"src="img/Tipificacion.jpg" alt=""> <br> <br>
+						Una de las ventajas de tipificar una distribución es que se puede medir la desviación de los datos respecto a la media, lo cual permite comparar la posición relativa de los datos. <br>
+
+						La distribución tipificada se aplica en estadística inferencial para determinar intervalos de confianza para la media de una población, usualmente se utiliza un nivel de confianza del 95% para el cual Z = 1.96.
+			</div>
+			
+		</section>
+	<hr>
+	<footer>
+		<div class="container-fluid">
+			<a id="bibliografia"></a>			
+			<br><h4>Referencias: </h4>
+			<ul>
+				<li>Pagina de libre aceceso: <a href="https://www.uv.es/ceaces/tex1t/1%20normal/aninor0.gif"> https://www.uv.es/ceaces/tex1t/1%20normal/aninor0.gif</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>[1]</b></li>
+				<li>Pagina de libre aceceso: <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fexceltotal.com%2Fcomo-hacer-una-campana-de-gauss-en-excel%2F&psig=AOvVaw152IpM1w9-dRbduCoe1icH&ust=1583897898212000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODI6ND9jugCFQAAAAAdAAAAABAm">PDF: Probabilidad y ejercicios. Campana de Gauss</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>[2]</b></li>
+				<li>Pagina de libre aceceso: <a href="https://www.ecured.cu/images/4/49/IntervalosDistribucion.jpg">Enciclopedia cubana: Probabilidad </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>[3]</b></li>
+				<li>Pagina de libre aceceso: <a href="https://www.uv.es/ceaces/pdf/normal.pdf">https://www.uv.es/ceaces/pdf/normal.pdf</a> </li>
+				<li>Pagina de libre aceceso: <a href="https://economipedia.com/definiciones/curtosis.html">https://economipedia.com/definiciones/curtosis.html</a></li>
+				<li>Pagina de libre aceceso: <a  href="https://matemovil.com/distribucion-normal-ejercicios-resueltos/">https://matemovil.com/distribucion-normal-ejercicios-resueltos/</a></li>
+				<li>Pagina de libre aceceso: <a  href="https://vereniciafunez94hotmail.files.wordpress.com/2014/08/8va-probabilidad-y-estadistica-para-ingenier-walpole_8.pdf">Probabilidad y estadistica para ingenieria y ciencias</a></li>
+				<li>Pagina de libre aceceso: <a  href="https://www.uv.es/ceaces/tex1t/1%20normal/simple.htm">https://www.uv.es/ceaces/tex1t/1%20normal/simple.htm</a></li>
+				<li>Pagina de libre aceceso: <a  href="http://www.x.edu.uy/inet/Distribucion_Normal_ejemplos.pdf">http://www.x.edu.uy/inet/Distribucion_Normal_ejemplos.pdf</a></li>
+				<li>Pagina de libre aceceso: <a href="http://www.estadistica.net/Aeronautica2016/ejercicios-distribuciones.pdf">http://www.estadistica.net/Aeronautica2016/ejercicios-distribuciones.pdf</a></li>
+			</ul>
+		</div>
+	</footer>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script>
+		$(function(){
+    	$('[data-toggle="tooltip"]').tooltip()
+		});
+		const temas = [
+			{nombre: 'La Distribución normal general', ref: 'pag/tema1.html'},
+			{nombre: 'La Distribución normal reducida', ref: 'pag/tema2.html'},
+			{nombre: 'Funciones de Distribución', ref: 'pag/tema3.html'},
+			{nombre: 'Media y Varianza de la Distribución Normal', ref: 'pag/tema5.html'},
+			{nombre: 'Coeficientes de asimetria, kurtosis de distribucion normal', ref: 'pag/tema6.html'},
+			{nombre: 'Teorema de adicion', ref: 'pag/tema7.html'},
+			{nombre: 'Teorema Fundamental de las Distribuciones Normales', ref: 'pag/tema8.html'},
+			{nombre: 'Distribuciones Normales-Transformadas', ref: 'pag/tema9.html'},
+			{nombre: 'Teorema de Chebyshev', ref: 'pag/tema10.html'},
+			];
+		const formulario = document.querySelector('#formulario');
+		const boton = document.querySelector('#buscar');
+		const temitas = document.querySelector('#temas');
+
+		const filtrar = ()=>{
+			//console.log(formulario.value);
+			temitas.innerHTML = '';
+			const texto = formulario.value.toLowerCase();
+			for (let tema of temas) {
+				let nombre = tema.nombre.toLowerCase();
+				if(nombre.indexOf(texto)!== -1){
+					temitas.innerHTML += `
+						<li> <a class="btn btn-outline-dark tema" href="${tema.ref}">${tema.nombre}</a></li>
+					`
+				}
+			}
+
+			if (temitas.innerHTML === '') {
+				temitas.innerHTML += `
+					<li>Tema no encontrado</li>
+				`
+			}
+		}
+
+		boton.addEventListener('click', filtrar);
+		formulario.addEventListener('keyup', filtrar);
+
+		filtrar();
+	</script>
+</body>
+</html>

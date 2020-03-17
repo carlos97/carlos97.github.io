@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Coeficientes de asimetria , kurtosis de distribución normal</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/colores.css">
+</head>
+<body>
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+	<!-- Navbar content -->
+		<a class="navbar-brand" href="https://bogota.gov.co/">
+			<img src="../img/distrito1.jpg" width="30" height="30" alt="">
+		</a>
+		<a class="btn btn-outline-success btn-outline-info" href="../index.html">Volver al temario</a>
+		<a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+			<img src="../img/logoDistri.png" width="40" height="40" alt="">
+		</a>
+	</nav>
+	<header>
+		<div class="container">
+			
+			<h1 class="titPrin"> Coeficientes de asimetria y curtosis de la distribución normal</h1> <br>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<section class="main row">
+			<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+				<div class="ejemplo">	
+					<h3>Ejemplo: cálculo de curtosis para datos sin agrupar</h3> <br>
+					<p class="text-left">
+					Ejemplo adaptado Canal, S. Y., Elorza, M. C. J., & Morales, J. C. C. (1999). <i>Una revisión de medidas multivariadas de asimetría y Kurtosis para pruebas de multinormalidad.</i> Revista Colombiana de Estadística, 22(2).
+				</p><br>
+					Supongamos que queremos calcular la curtosis de la siguiente distribución: 8,5,9,10,12,7,2,6,8,9,10,7,7. <br><br>
+					Primero calculamos la media aritmética (µ), que sería 7,69. <br><br>
+					A continuación, calculamos la desviación típica, que sería 2,43. <br><br>
+					<p class="text-justify">
+						Tras tener estos datos y para comodidad en el cálculo, se puede realizar una tabla para calcular la parte del numerador (cuarto momento de la distribución). Para el primer cálculo sería: (Xi-µ)^4 = (8-7,69)^4 = 0,009.
+					</p> <br>
+					<img class="mx-auto d-block" src="../img/curEjem.jpg" alt=""><br><br>
+					Una vez tenemos esta tabla hecha, simplemente tendríamos que aplicar la formula expuesta con anterioridad para tener la curtosis. <br><br>
+					g2 = 1.518,27/13*(2,43)^4 = 3,34 <br><br>
+					<p class="text-justify">
+						En este caso dado que g2 es mayor que 3, la distribución sería leptocurtica, presentando un mayor apuntamiento que la distribución normal.
+					</p>
+					<h5>Exceso de curtosis</h5>
+					<p class="introduccion">
+						En algunos manuales la curtosis se presenta como exceso de curtosis. En este caso esta se compara directamente con la de la distribución normal. Dado que la distribución normal, tiene curtosis 3, para obtener el exceso, solo habría restarle 3 a nuestro resultado.
+					</p>
+					Exceso de curtosis = g2-3 = 3,34-3 = 0,34. <br><br>
+					<b>La interpretación del resultado en este caso, sería la siguiente:</b> <br><br>
+					g2-3 > 0 -> distribución leptocúrtica. <br><br>
+					g2-3 = 0 -> distribución mesocúrtica (o normal). <br><br>
+					g2-3 < 0 -> distribución platicúrtica. <br><br>
+				</div>
+				
+			</article>
+			<div class="ventana col-xs-12 col-sm-4 col-md-3 col-lg-3">
+				<br><h4>Pasos de solucion: </h4> <br>
+				<p class="introduccion">
+					<ol>
+						<li> </li><a class="linkPasos" href="">Descubrir como</a><hr>
+						<li> </li><a class="linkPasos" href="">Descubrir como</a><hr>
+						<li> </li><a class="linkPasos" href="">Descubrir como</a><hr>
+					</ol>
+ 				</p>
+			</div>
+		</section>
+		<hr>
+		<div class="row">
+			<div class="container">
+				<div class="col-xs-12">
+					<h3>Coeficientes de asimetria</h3>
+					<p class="text-justify">
+						Dado que se trata de calcular el coeficiente de asimetrÌa para cualquier distribución normal, pues es evidente que todas tendran la misma forma. <br> Es conveniente que nos planteemos la resolución para la normal reducida N[0;1], lo que logicamente nos ahorrará calculos. <br> El coeficiente de asimetría de la normal reducida o tipificada es el momento central de tercer orden de dicha variable tipificada (z), así: <br><br>
+					</p>
+					<img class="mx-auto d-block" src="../img/asimetria.jpg" alt=""> <br><br>
+					<p class="text-justify">
+						ya que la media de la variable tipificada es cero, para calcular el coeficiente de asimetrÌa nos bastar· con calcular el momento ordinario de tercer orden de la variable tipificada. <br> Y el momento de tercer orden de la variable tipificada sera el valor que tome la tercera derivada de la F.G.M. de la distribución de z ( normal reducida) en el punto t = 0:
+					</p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la F.G.M de la tipificada resultaba ser <img src="../img/asimetria1.jpg" alt=""><br><br>
+					La primera derivada sera: <br><br>
+					<img src="../img/asimetria2.jpg" alt=""><br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;luego para t=0 sera: <img src="../img/asimetria3.jpg" alt=""><br><br>
+					La segunda derivada sera: <br><br>
+					<img src="../img/asimetria4.jpg" alt=""><br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;luego para t=0 sera: <img src="../img/asimetria5.jpg" alt=""><br><br>
+					La tercera derivada sera: <br><br>
+					<img src="../img/asimetria6.jpg" alt=""> o lo que es lo mismo<br><br>
+					<img src="../img/asimetria7.jpg" alt=""><br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;haciendo t=0 tendremos que: <img src="../img/asimetria8.jpg" alt=""><br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;luego quedaria: <br><br>
+					<img src="../img/asimetria9.jpg" alt=""><br><br>
+					<p class="text-justify">
+						<b>Por lo que el coeficiente de asimetría de la distribución normal es cero lo que supone, como cabría esperar, que la distribución es simétrica .Su eje de simetría es la media (µ) que por esta razón es también le mediana de la distribución.</b>
+					</p>
+					<hr>
+					<h3>Curtosis</h3>
+					<p class="text-justify">
+						<b>La curtosis (también conocida como medida de apuntamiento) es una medida estadística, que determina el grado de concentración que presentan los valores de una variable alrededor de la zona central de la distribución de frecuencias.</b>
+					</p>
+					<p class="text-justify">
+						Cuando medimos una variable aleatoria, por lo general, los resultados que tienen una mayor frecuencia son los que se sitúan en torno a la media de la distribución. Imaginemos la altura de los alumnos de una clase. <br> Si la altura media de la clase es 1,72, lo más normal es que las alturas del resto de los alumnos estén en torno a este valor (con cierto grado de variabilidad, pero sin ser esta demasiado grande). <br>Si esto sucede, se considera que la distribución de la variable aleatoria se distribuye con normalidad. <br>Pero dada la infinidad de variables que se pueden medir, esto no siempre sucede así.
+					</p>
+					<p class="text-justify">
+						Existen algunas variables que presentan un mayor grado de concentración (menor dispersión) de los valores en torno a su media y otras, por el contrario, presentan un menor grado de concentración (mayor dispersión) de sus valores en torno a su valor central. <br> <b>Por tanto, la curtosis nos informa de lo apuntada (mayor concentración) o lo achatada (menor concentración) que es una distribución.</b>
+					</p>
+					<h5>Tipos de curtosis</h5>
+					Dependiendo del grado de curtosis, tenemos tres tipos de distribuciones:
+					<ol>
+						<li>
+							<b>Leptocúrtica:</b> Existe una gran concentración de los valores en torno a su media (g2>3) <br>
+							<img class="mx-auto d-block" src="../img/curtosis1.jpg" alt="">
+							<h6 class="text-center">
+						<a href="#bibliografia">[1]</a>
+						</h6><br><br>
+						</li>
+						<li>
+							<b>Mesocúrtica:</b> Existe una concentración normal de los valores en torno a su media (g2=3). <br>
+							<img class="mx-auto d-block" src="../img/curtosis2.jpg" alt="">
+							<h6 class="text-center">
+							<a href="#bibliografia">[2]</a>
+							</h6><br><br>
+						</li>
+						<li>
+							<b>Platicúrtica:</b> Existe una baja concentración de los valores en torno a su media (g2<3). <br>
+							<img class="mx-auto d-block" src="../img/curtosis3.jpg" alt="">
+							<h6 class="text-center">
+						<a href="#bibliografia">[3]</a>
+						</h6><br><br>
+						</li>
+					</ol>
+					<h5>Medidas de curtosis según los datos</h5>
+					Dependiendo de la agrupación o no de los datos, se utiliza una fórmula u otra. <br><br>
+					Datos sin agrupar: <br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/curtosis4.jpg" alt=""><br><br>
+					Datos agrupados en tablas de frecuencia: <br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/curtosis5.jpg" alt=""><br><br>
+					Datos agrupados en intervalos: <br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/curtosis6.jpg" alt=""><br><br>
+					<img src="../img/curtosis7.jpg" alt="">
+				</div>
+			</div>
+		</div>
+	<hr>
+	<a id="bibliografia"></a>
+	<footer>
+		<div class="container">
+			<br><h5>Referencias: </h5>
+			<ul>
+				<li><a href="https://economipedia.com/wp-content/uploads/2017/09/Leptocurtica-2.jpg">https://economipedia.com/wp-content/uploads/2017/09/Leptocurtica-2.jpg</a><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[1]</b></li>
+				<li><a href="https://economipedia.com/wp-content/uploads/2017/09/normal.jpg">https://economipedia.com/wp-content/uploads/2017/09/normal.jpg</a><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[2]</b></li>
+				<li><a href="https://economipedia.com/wp-content/uploads/2017/09/Platicurtica.jpg">https://economipedia.com/wp-content/uploads/2017/09/Platicurtica.jpg</a><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[3]</b></li>
+			</ul>			
+			<br><br>
+		</div>
+	</footer>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.js"></script>
+</body>
+</html>

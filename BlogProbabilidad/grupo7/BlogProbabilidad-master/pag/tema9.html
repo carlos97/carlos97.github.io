@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Distribuciones normales - transformadas</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/colores.css">
+</head>
+<body>
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+	<!-- Navbar content -->
+		<a class="navbar-brand" href="https://bogota.gov.co/">
+			    <img src="../img/distrito1.jpg" width="30" height="30" alt="">
+		</a>
+		<a class="btn btn-outline-success btn-outline-info" href="../index.html">Volver al temario</a>
+		<a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+			<img src="../img/logoDistri.png" width="40" height="40" alt="">
+		</a>
+	</nav>
+	<header>
+		<div class="container">
+			
+			<h1 class="titPrin">Distribuciones normales - transformadas</h1> <br>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<hr>
+		<div class="container col-xs-12">
+			<h3>Distribución normal - transformada</h3>
+			<p class="text-justify">
+				Una variable aleatoria x sigue una distribución normal-transformada si, no siendo ella misma normal, si lo es una cierta función de ella:
+			</p>
+			z = h (x) -> N [ μ ; σ ] <br><br>
+			la función de densidad de x será : <br><br>
+			<img class="d-block" src="../img/disTrans.gif" alt=""> <br>
+			donde el jacobiano &nbsp;&nbsp;&nbsp;<img src="../img/disTrans1.gif" alt=""> <br>
+			de forma que la función de densidad quedaría de la siguiente manera : <br><br>
+			<img  src="../img/disTrans2.gif" alt=""><br><br>
+			<p class="text-justify">
+				Un caso especialmente importante es el de la distribución logaritmo-normal , log-normal, o distribución de Galton: <br><br>
+				X sigue una distribución de Galton si Z = ln (x - a) -> N ( μ ; σ ) <br><br>
+				Y , así , su función de densidad será  : <br><br>
+				<img src="../img/disTrans3.gif" alt=""><br><br>
+				que evidentemente , sólo estará  definida para valores x > a. <br>
+				A modo orientativo planteamos la forma de tres distribuciones lognormales con medias y varianza distintas : <br><br>
+				<img class="mx-auto d-block" src="../img/disTrans4.gif" alt="">
+				<h6 class="text-center">
+						<a href="#bibliografia">[1]</a>
+					</h6><br>
+			</p>
+			
+			
+		</div>
+	</div>
+	<hr>
+	<a id="bibliografia"></a>
+	<footer>
+		<div class="container">
+			<h5>Referencias: </h5>
+			<ul>
+				<li><a href="https://www.uv.es/ceaces/pdf/normal.pdf">https://www.uv.es/ceaces/pdf/normal.pdf</a><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[1]</b></li>
+			</ul>
+		</div>
+	</footer>
+	<br><br>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.js"></script>
+</body>
+</html>

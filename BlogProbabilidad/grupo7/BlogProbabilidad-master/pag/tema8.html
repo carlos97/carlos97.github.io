@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Teorma fundamental de la distribucion normal</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/colores.css">
+</head>
+<body>
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+	<!-- Navbar content -->
+		<a class="navbar-brand" href="https://bogota.gov.co/">
+			    <img src="../img/distrito1.jpg" width="30" height="30" alt="">
+		</a>
+		<a class="btn btn-outline-success btn-outline-info" href="../index.html">Volver al temario</a>
+		<a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+			<img src="../img/logoDistri.png" width="40" height="40" alt="">
+		</a>
+	</nav>
+	<header>
+		<div class="container">
+			
+			<h1 class="titPrin">Teorema fundamental de las distribuciones normales</h1> <br>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<section class="main row">
+			<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+					<h3>Ejemplo: Piezas </h3> <br><br>
+					<img class="mx-auto d-block" src="../img/pieza.jpg" alt="">
+					<h6 class="text-center">
+							<a href="#bibliografia">[1]</a>
+							</h6><br><br>
+					<div class="ejemplo">
+						<p class="introduccion">
+							Una pieza J está compuesta por 2 elementos de A y uno de B, que se unen sin solapamiento. La longitud de las piezas A sigue una N [4;1] cm., mientras que las B también son normales N [12;2]cm. Se quiere conocer la probabilidad de crear una pieza J de longitud inferior a 20,2 cm.
+						</p>
+						Datos: <br><br>
+						<ul>
+							<li>Longitud de J = longitud de A+ longitud de A + longitud de B</li>
+							<li>y no Longitud de J = 2veces longitud de A + longitud de B</li>
+						</ul>
+						<p class="text-justify">
+							Dado que si una pieza A es de una determinada longitud aleatoria la otra pieza A no tiene por qué ser de la misma longitud (aunque proceda o se distribuya con la misma distribución de probabilidad). A parte de esto, el hecho de utilizar suma o producto no da el mismo resultado al aplicar el teorema fundamental de las distribuciones normales, dado que la suma o producto se realizan dentro de una raíz. Por ello, en este caso, hemos de tomar la primera expresión, así:
+						</p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L(J)=L(A)+L(A)+L(B) simplificando J=A+A+B &nbsp;&nbsp;&nbsp;dado que: <br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A -> N [ 4; 1] y B -> N[12; 2] y son independientes: <br><br>
+						y en aplicación del teorema fundamental de las distribuciones normales, tendremos que: <br><br>
+						<img class="mx-auto d-block" src="../img/teorema4.jpg" alt=""><br><br>
+						Luego J -> N[20 ; 2.449] <br><br>
+						y que evidentemente no resultaría lo mismo si hubiésemos hecho, como antes dijimos: <br><br>
+						<img class="mx-auto d-block" src="../img/teorema5.jpg" alt=""><br><br>
+						cuyo resultado sería: J -> N [20 ; 2.82] <br><br>
+						Conociendo que la verdadera longitud de la pieza es J -> N [20 ; 2.449] <br><br>
+						Se nos pregunta por:
+						<img class="mx-auto d-block" src="../img/teorema6.jpg" alt=""><br><br>
+						<b>siendo el resultado según tabla de la N[0;1] ; 0.532 </b><br><br>
+						<p class="text-left">
+							Recuperado de: <br>
+							Uv.es. (2017). t fundamental. [online] Available at: https://www.uv.es/ceaces/tex1t/1%20normal/tfundamental.htm [Accessed 3 Mar. 2020].
+						</p>
+					</div>
+
+			</article>
+			<div class="ventana col-xs-12 col-sm-4 col-md-3 col-lg-3">
+				<br><h4>Pasos de solucion: </h4> <br>
+				<p class="introduccion">
+					<ol>
+						
+					</ol>
+ 				</p>
+			</div>
+		</section>
+		<hr>
+		<div class="row">
+			<div class="container">
+				<div class="col-xs-12">
+					<br><h3>Teorema</h3><br><br>
+					<p class="text-justify">
+						Cualquier combinación lineal de variables aleatorias normales independientes es una variable aleatoria normal con media la misma combinación lineal de las medias y con varianza la combinación lineal de las varianzas con los coeficientes que las acompañan al cuadrado. (Su desviación típica será la raíz cuadrada de esta combinación lineal). <br><br> 
+						Sean las variables aleatorias Xi, con i=1,2,3,...n, todas ellas independientes tales que: <br><br>
+					</p>
+					<img class="mx-auto d-block" src="../img/teorema1.jpg" alt=""><br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y sean los números reales ai con i=1,2, 3,...n. <br><br>
+					La variable combinación lineal: <br><br>
+					<img class="mx-auto d-block" src="../img/teorema2.jpg" alt=""><br><br>
+					Se distribuirá según: <br><br>
+					<img class="mx-auto d-block" src="../img/teorema3.jpg" alt=""><br><br>
+				</div>
+			</div>
+		</div>
+	<a id="bibliografia"></a>
+	<footer>
+		<div class="container">
+
+			<h5>Bibliografia: </h5>
+			<ul>
+				<li><a href="https://www.freepik.es/fotos-vectores-gratis/piezas-de-rompecabezas">https://www.freepik.es/fotos-vectores-gratis/piezas-de-rompecabezas</a><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[1]</b></li>
+			</ul>
+			<br><br>
+		</div>
+	</footer>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.js"></script>
+</body>
+</html>
