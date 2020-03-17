@@ -1,0 +1,1206 @@
+﻿<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Probabilidad
+    </title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tema3.css">
+
+
+    <style>
+        .frac {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            letter-spacing: 0.001em;
+            text-align: center;
+        }
+
+        .frac>span {
+            display: block;
+            padding: 0.1em;
+        }
+
+        .frac span.bottom {
+            border-top: thin solid black;
+        }
+
+        .frac span.symbol {
+            display: none;
+        }
+
+        .floating {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            visibility: hidden;
+        }
+		.popup {
+		  position: relative;
+		  display: inline-block;
+		  cursor: pointer;
+		  -webkit-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		/* The actual popup */
+		.popup .popuptext {
+		  visibility: hidden;
+		  width: 160px;
+		  background-color: #555;
+		  color: #fff;
+		  text-align: center;
+		  border-radius: 6px;
+		  padding: 8px 0;
+		  position: absolute;
+		  z-index: 1;
+		  bottom: 125%;
+		  left: 50%;
+		  margin-left: -80px;
+		}
+
+		/* Popup arrow */
+		.popup .popuptext::after {
+		  content: "";
+		  position: absolute;
+		  top: 100%;
+		  left: 50%;
+		  margin-left: -5px;
+		  border-width: 5px;
+		  border-style: solid;
+		  border-color: #555 transparent transparent transparent;
+		}
+
+		/* Toggle this class - hide and show the popup */
+		.popup .show {
+		  visibility: visible;
+		  -webkit-animation: fadeIn 1s;
+		  animation: fadeIn 1s;
+		}
+
+		/* Add animation (fade in the popup) */
+		@-webkit-keyframes fadeIn {
+		  from {opacity: 0;} 
+		  to {opacity: 1;}
+		}
+
+		@keyframes fadeIn {
+		  from {opacity: 0;}
+		  to {opacity:1 ;}
+		}
+		
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navMain">
+        <div class="container">
+            
+			 <a class="navbar-brand" href="https://bogota.gov.co/">	
+				<img width="60" height="60" src="../img/distrito1.jpg" alt="">
+			</a>
+			
+            <a class="navbar-brand " href="#" onclick="goHome()"><b class="TextColorBackBlack">MUESTREO  </b></a>
+			
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" id="formulario" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-info my-2 my-sm-0" id="buscar">Buscar</button>
+                   
+                </form>
+            </div>
+			
+			<div class="container">
+				<a href="https://www.udistrital.edu.co/" data-toggle="tooltip" title="Cogestores:&nbsp; Peña, Paula V. (20181020104) pvpenah@correo.udistrital.edu.co  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pineda, Jhoan S. (20162020060) jspinedag@correo.udistrital.edu.co &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ramirez, Christian G. (20161020093) cgramirezm@correo.udistrital.edu.co " ><img width="80" height="80" src="../img/logoDistri.png" alt="Co-gestores:"></a>
+			</div>
+				
+			
+			
+			
+        </div>
+    </nav>
+
+    <br />
+
+    <div class="container-fluid contenedor" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+            <div class="col-sm-3 leftCol">
+                <br />
+
+                <ul class="list-group">
+                    <li class="list-group-item itemHover">
+                        <a>Muestreo  &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(1)" active>
+                                Definición
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(5)" active>
+                                Referencias
+                            </li>
+                       
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a> Muestreo Probabilistico  &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(4)">
+                                Definición 
+                            </li>                            
+							<li class="list-group-item itemHover" onclick="hider(8)">
+                                Muestreo Aleatorio Simple
+                            </li>
+							<li class="list-group-item itemHover" onclick="hider(9)">
+                                Muestreo Aleatorio Estratificado
+                            </li>
+							<li class="list-group-item itemHover" onclick="hider(10)">
+                                Muestreo Aleatorio Sistematico
+                            </li>
+							<li class="list-group-item itemHover" onclick="hider(11)">
+                                Muestreo Aleatorio Por Conglomerados
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a> Muestreo no Probabilistico  &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(6)">
+                                Definición
+                            </li>
+							<li class="list-group-item itemHover" onclick="hider(7)">
+                                Muestreo Por Cuotas
+                            </li>
+							<li class="list-group-item itemHover" onclick="hider(12)">
+                                Muestreo Por Conveniencia
+                            </li>
+							<li class="list-group-item itemHover" onclick="hider(2)">
+                                Muestreo Bola Du Nieve
+                            </li>
+							<li class="list-group-item itemHover" onclick="hider(3)">
+                                Muestreo Discrecional
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-sm-9 rigthCol">
+                <div class="container">
+                    <br />
+                    <div class="row" id="home">
+                        <div class="col-sm-12">
+                            <div id="pageContent">
+                                <center>
+                                    <h1>Blog de Probabilidad
+				
+
+                                </center>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" id="tema1">
+                        <div class="col-lg-12">
+                            <h1>MUESTREO</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                            <p>
+                                El muestreo es la selección de un conjunto de personas o cosas tomados como representantes del campo al que pertenecen, con el fin de estudiar o determinar las características del grupo.
+								<br>
+
+								Por ejemplo, se quiere estudiar una poblacion de animales en cierto entorno, entonces en vez de tomar a cada individuo y estudiarlo se toma una muestra mas
+								pequeña que van a representar a todos los demas. 
+								<br>
+
+								Este método utiliza la teoría estadística para seleccionar pequeños grupo de personas (muestra) de una gran población existente y luego predecir que todas las respuestas juntas coincidirán con la población en general.
+
+								
+                            </p>
+                            <h2></h2>
+                            
+                            <br />
+                            <center>
+								<img src="../img/índice.jpg" alt="Los Tejos" />
+ 
+                                
+                            </center>
+							
+                           
+                        </div>
+
+
+
+
+                    </div>
+					
+
+                    <div class="row" id="tema4">
+                        <div class="col-lg-12">
+                            <h1>Muestreo Probabilistico</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                            <p>
+                                El muestreo probabilístico es una de las ramas de los metodos de muestreo, se caracteriza por usar métodos de selección aleatoria, es decir, cada individuo dentro de la poblacion 
+								
+								debe tener la misma probabilidad de ser seleccionado que todos los demas.<br>  Por ejemplo, si tienes una población de 100 personas, cada persona tendría una probabilidad de 1 de 100
+
+								de ser seleccionado. <br> El método de muestreo probabilístico te ofrece la mejor oportunidad de crear una muestra representativa de la población.
+
+                                <center>
+                                   <img src="../img/probabilistico.jpg" alt="Los Tejos" />
+                                </center>
+								
+                            </p>
+                            
+                            <br />
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición muestreo </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(8)"><b
+                                    style="font-size: larger;">Siguiente: Muestreo aleatorio simple &rarr; </b></button>
+                        </div>
+                    </div>
+					<div class="row" id="tema5">
+                        <div class="col-lg-12">
+                            <h1>REFERENCIAS</h1>
+                            <br />
+
+                            <a href="#Referencias">Referencias</a>
+                            
+                            <p><i>
+							[1] Ejemplo adaptado Otzen, T., & Manterola, C. (2017). Técnicas de Muestreo sobre una Población a Estudio. International Journal of Morphology
+							, 35(1), 227-232. Link: <a href="https://scielo.conicyt.cl/scielo.php?pid=S0717-95022017000100037&script=sci_arttext"> Técnicas de Muestreo sobre una Población a Estudio</a><br />
+							[2] Ejemplo adaptado de Casal, J., & Mateu, E. (2003). Tipos de muestreo. Rev. Epidem. Med. Prev, 1(1), 3-7. Link: <a href="https://s3.amazonaws.com/academia.edu.documents/49963657/TiposMuestreo1.pdf?response-content-disposition=inline%3B%20f
+							ilename%3DTIPOS_DE_MUESTREO.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWOWYYGZ2Y53UL3A%2F20200317%2Fus-east-1%2Fs3%2F
+							aws4_request&X-Amz-Date=20200317T030008Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6d680b3b0f862663dab9ab3222d871584899729d61011fd5ec4a2922e0358e76 "> TIPOS DE MUESTREO</a><br />
+							[3] Ejemplo adaptado de Carlos Ochoa (2015) blog Muestreo probabilístico: muestreo sistemático. Link: <a href="https://www.netquest.com/blog/es/blog/es/muestreo-sistematico "> blog de muestreo sistematico</a><br />
+							[4] Ejemplo adaptado de Zapata, F. Muestreo por cuotas: método, ventajas, desventajas, ejemplos. Link: <a href="https://www.lifeder.com/muestreo-por-cuotas/#Caso_practico">Muestreo por cuotas</a><br />
+							[5] Ejemplo adaptado del ejemplo propueto  por Valencia, Miguel A (1972) “Técnicas de muestreo”. Centro de Investigaciones Sociales en la Universidad de Puerto
+							Rico [UPR RRP,SB Lázaro Colección Puertorriqueña]	<br />				
+							[6] Ejemplo adaptado de Ochoa, C.(2015) Muestreo no probabilístico por bola de nieve. Link: <a href="https://www.universoformulas.com/estadistica/inferencia/muestreo-bola-nieve/">Bola de nieve</a><br />
+							[7] Ejemplo adaptado de Explorable.com(2009) Muestreo discrecional. Link: <a href="https://www.universoformulas.com/estadistica/inferencia/muestreo-discrecional/">Muestreo discrecional</a><br /></i>
+                            [8] Todas las imagenes usadas en este apartado son de nuestra autoria. 
+
+								
+                            </p>                            
+                            
+                            <br />
+                           
+                        </div>
+
+
+
+
+                    </div>
+					
+                
+                  
+                    <div class="row" id="tema6">
+                        <div class="col-lg-12">
+                            <h1>Muestreo no Probabilistico</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                             <p>
+                                El muestreo no probabilístico es la otra gran rama de las tecnicas de muestreo, esta se carateriza, al contrario que el muestreo probabilistico
+								
+								, en seleccionar muestras basadas en un juicio subjetivo en lugar de hacer la selección al azar.
+								<br>
+
+								En el muestreo no probabilístico, los individuos no tienen las mismas oportunidades de ser participes del estudio probabilistico;
+
+								El muestreo no probabilístico aparte de ser un metodo menos estricto y depende en gran parte de la experiencia del investigador, 
+								
+								normalmente es llevado a cabo apartir de métodos de observación, y es usado con gran amplitud en la investigación cualitativa.
+								<br>
+								
+								Se utiliza donde no es posible extraer un muestreo de probabilidad aleatorio debido a consideraciones de tiempo o costo.
+								
+								<center>
+								<img src="../img/noprobabilistico.jpg" alt="MNP" />
+ 
+                                
+								</center>
+								
+							
+							</p>
+                           
+                            
+                            <br />
+                       
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                    style="font-size: larger;">Siguiente: Muestreo por cuotas &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema7">
+                        <div class="col-lg-12">
+                            <h1>Muestreo Por Cuotas</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                             <p>
+								El muestreo por cuotas es un método de muestreo no probabilístico. Este metodo divide la poblacion objetivo en grupos o estratos mas pequeños a partir de los cuales se 
+
+								seleccionara la muestra. Supongamos que tenemos una población de N individuos y que queremos elegir una muestra de n sujetos. Tomaremos los individuos para la muestra 
+								
+								mediante el siguiente proceso:
+								<br>
+
+								se divide la pobalcion en k grupos o estratos, pueden ser divididos por edad, sexo, nivel educativo, entre otros. cada estrato o grupo tienen N1, N2,…, Nk elementos, tales que	
+								
+								el investigador elige las cuotas (número de sujetos) n1, n2,…, nk que se van a tomar de cada grupo, siendo su suma el total de elementos n de la muestra							
+								
+								Las cuotas se pueden decidir a criterio lógico del investigador o mediante criterios adaptados a la muestra.						
+							   
+							   
+							   <center>
+								<img src="../img/muestreoporcuotas.jpg" alt="MS" />
+ 
+                                
+								</center>
+
+							
+							   
+							  </p>
+							  <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo31"><b
+                                            style="font-size: larger;">Ejemplo  &rarr;</b></button>
+									<button class="btn btn-dark my-2 my-sm-0" onclick="hider(12)"><b
+                                    style="font-size: larger;">Siguiente: Muestreo por conveniencia &rarr; </b></button>
+                                </li>
+								
+							</ul>
+                            
+                            <br />
+                       
+             
+                        </div>
+                    </div>
+					
+					<div class="row" id="tema12">
+                        <div class="col-lg-12">
+                            <h1>Muestreo Por Conveniencia</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                             <p>
+								Consiste en la elección por métodos no aleatorios de una muestra cuyas características 
+								sean similares  a  las  de  la  población  objetivo.  En  este  tipo  de  muestreos 
+								la  “representatividad”  la  determina el investigador de modo subjetivo, siendo este
+								el mayor inconveniente del método ya que no podemos cuantificar la representatividad 
+								de la muestra.
+
+							   
+							   <center>
+								<img src="../img/muestreo-conveniencia.jpg" alt="MS" />
+ 
+                                
+								</center>
+
+								<i>Tomado de "Tipos de muestreo" Jordi Casal1, Enric Mateu (2003) Universitat Autònoma de Barcelona, 08193-Bellaterra, Barcelona
+								Link: <a href="https://s3.amazonaws.com/academia.edu.documents/49963657/TiposMuestreo1.pdf?response
+								-content-disposition=inline%3B%20filename%3DTIPOS_DE_MUESTREO.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&
+								X-Amz-Credential=AKIAIWOWYYGZ2Y53UL3A%2F20200312%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=2020031
+								2T033752Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=47daa68cbc3197d52a1215d519181
+								91a8dbabf8b39d32e946b3dabf20fc5ed4c">TIPOS DE MUESTREO</a></i>
+							   
+							  </p>
+							  <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo33"><b
+                                            style="font-size: larger;">Ejemplo  &rarr;</b></button>
+												<button class="btn btn-dark my-2 my-sm-0" onclick="hider(2)"><b
+                                    style="font-size: larger;">Siguiente: Muestreo por bola de nieve &rarr; </b></button>
+                                </li>
+								
+							</ul>
+                            
+                            <br />
+                       
+             
+                        </div>
+                    </div>
+					<div class="row" id="tema2">
+                        <div class="col-lg-12">
+                            <h1>Muestreo Bola de nieve</h1>
+                            <br />
+                            <h2>Definición:</h2>
+							<br />
+                            <p>
+							El metodo de muestreo por bola de nieve es una tecnica no probabilistica usada cuando el objeto a investigar es dificil de identificar o encontrar.
+							<br>
+							un investigador usa este metodo cuando la muestra a estudiar es muy rara o hace parte de un grupo limitado.
+							esta tecnica funciona buscando nuevos miembros para la muestra a partir del primer miembro de la muestra, ya que este ayuda al investigador 
+							a identificar nuevos posibles miembros con rasgos de interese similar.
+
+                            <br />
+                            
+                                <center>
+                                    <img src="../img/bola.jpg"  />
+                                </center>
+								
+                            </p>
+                            
+                            <br />
+							<ul>
+                            <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo74"><b
+                                            style="font-size: larger;">Ejemplo  &rarr;</b></button>
+                                </li>
+								
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                    style="font-size: larger;">Siguiente: Muestreo discrecional &rarr; </b></button>
+									</ul>
+                        </div>
+                    </div>
+					
+					
+					<div class="row" id="tema3">
+						<div class="col-lg-12">
+                            <h1>Muestreo discrecional</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                             <p>
+								El metodo de muestreo discrecional, o muestreo por juicio hace parte de el muestreo no probabilistico y se basa en la seleccion de los 
+								sujetos para la muestra a partir de el juicio del investigador, el criterio del profesional es el que determina quien hará parte y quien no 
+								en la muestra.
+								<br> El investigador puede basarse en experiencias de estudios anteriores o sus conocimientos sobre la poblacion objetivo	y su forma de comportarse 
+								frente al objeto de estudio.
+							</p>
+							<br />
+							   
+							   <center>
+								<img src="../img/discrecional.jpg" alt="MS" />
+ 
+                                
+								</center>
+
+								
+							   
+							  
+							  <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo35"><b
+                                            style="font-size: larger;">Ejemplo  &rarr;</b></button>
+												
+                                </li>
+								
+							</ul>
+                            
+                            <br />
+                       
+             
+                        </div>
+                        
+                    </div>
+					
+					
+                    <div class="row" id="tema8">
+                        <div class="col-lg-12">
+                            <h1>Muestreo Aleatorio Simple</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                             <p>
+                               El muestreo aleatorio simple es una técnica de muestreo en la que todos los elementos que forman el universo - y que por lo tanto están incluídos en el marco muestral - tienen exactamente la misma probabilidad de ser seleccionados para la muestra.
+
+							   El proceso de muestreo que emplea esta técnica es equivalente a hacer un sorteo entre los individuos del universo: asignamos a cada persona un boleto, introducimos los boletos en una urna y empezamos a extraer boletos al azar. 
+							   
+							   Todos los individuos que tengan un boleto extraído de la urna formarían la muestra. 
+							   
+							   
+							   
+							   
+							   <center>
+								<img src="../img/MAS.jpeg" alt="Los Tejos" />
+ 
+                                
+								</center>
+								
+								
+
+								
+							   
+							  </p>
+							  <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo21"><b
+                                            style="font-size: larger;">Ejemplo  &rarr;</b></button>
+									<button class="btn btn-dark my-2 my-sm-0" onclick="hider(9)"><b
+                                    style="font-size: larger;">Siguiente: Muestreo aleatorio estratificado &rarr; </b></button>
+                                </li>
+								
+							</ul>
+                            
+                            <br />
+                       
+             
+                        </div>
+                    </div>
+                    <div class="row" id="tema9">
+                        <div class="col-lg-12">
+                            <h1>Muestreo Aleatorio Estratificado</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                             <p>
+                               El muestreo estratificado es un tipo de muestreo probabilístico.
+
+							   El investigador se encarga de dividir la poblacion en grupos o estratos segun la conveniencia del estudio.
+							   
+							   luego de esto se encarga de seleccionar aleatoria y equivalentemente los individuos de cada estrato para formar la muestra. 
+							   
+							   Cada elemento debe pertenecer a un único estrato. 
+							   <br>
+							   La pauta elegida para formar los estratos no se puede permitir que un individuo o elemento de la población pertenezca a más de uno de ellos.
+							   
+							   
+							   
+							   
+							   <center>
+								<img src="../img/muestreo-estratificado.jpeg" alt="MAE" />
+ 
+                                
+								</center>
+
+								
+							   
+							  </p>
+							  <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo23"><b
+                                            style="font-size: larger;">Ejemplo  &rarr;</b></button>
+									<button class="btn btn-dark my-2 my-sm-0" onclick="hider(10)"><b
+                                    style="font-size: larger;">Siguiente: Muestreo aleatorio sistematico &rarr; </b></button>
+									
+                                </li>
+								
+							</ul>
+                            
+                            <br />
+                       
+             
+                        </div>
+                    </div>
+					<div class="row" id="tema10">
+                        <div class="col-lg-12">
+                            <h1>Muestreo Aleatorio Sistematico</h1>
+                            <br />
+                            <h2>Definición:</h2>
+							
+                            <br />
+                             <p>
+
+								El muestreo sistemático es un proceso muy simple y que sólo requiere la elección de un individuo x al azar.
+								
+								se divide el tamaño N de la poblacion entre el tamaño n de la muestra que se desea tomar, luego de cada grupo formado se toma el individuo numero x + N/n y luego de esto el individuo x +2 N/n
+								
+								y asi sucesivamente hasta completar toda la muestra.
+								<br>
+
+								Es  un proceso trivial y rápido,
+								
+								los resultados que obtenemos son representativos de la población, de forma similar al muestreo aleatorio simple, siempre que no haya algún factor
+								
+								en la forma en que los individuos están listados que haga que se reproduzcan ciertas características poblacionales cada cierto número de individuos. Este suceso es realmente poco frecuente.
+							   
+								
+							   
+							   
+							   <center>
+								<img src="../img/muestreosistematico.jpeg" alt="MS" />
+ 
+                                
+								</center>
+
+							   
+							  </p>
+							  <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo11"><b
+                                            style="font-size: larger;">Ejemplo  &rarr;</b></button>
+											<button class="btn btn-dark my-2 my-sm-0" onclick="hider(11)"><b
+                                    style="font-size: larger;">Siguiente: Muestreo aleatorio por conglomerados &rarr; </b></button>
+                                </li>
+								
+							</ul>
+                            
+                            <br />
+                       
+             
+                        </div>
+                    </div>
+					<div class="row" id="tema11">
+                        <div class="col-lg-12">
+                            <h1>Muestreo Aleatorio Por Conglomerados</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                             <p>
+							La tecnica de muestreo por conglomerados es una tecnica que toma grupos o conglomerados ya existentes de los cuales puede sacar un provecho ya que esta representa 
+							correctamente el total de la poblacion respecto a las caracteristicas que se desean medir.	
+							Dicho de otro modo, estos grupos contienen toda la variabilidad de la población. Si esto sucede, podemos seleccionar únicamente algunos de estos 							
+							conglomerados para conocer la información de interés del total de la población.
+							   
+								
+							   
+							   
+							   <center>
+									<img src="../img/conglomerado.jpg" alt="MAPC" />
+ 
+                                
+								</center>
+
+						
+							  </p>
+							  <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo32"><b
+                                            style="font-size: larger;">Ejemplo  &rarr;</b></button>
+									<button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                    style="font-size: larger;">Siguiente: Muestreo no probabilistico &rarr; </b></button>
+                                </li>
+								
+							</ul>
+                            
+                            <br />
+                       
+             
+                        </div>
+                    </div>
+				</div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <div id="modals">
+        <div class="modal" id="ejemplo11">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Muestreo Aleatorio Sistematico</h2>
+                        <br>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+					
+						En una comunidad se quiere crear una junta directiva pero ciertas personas específicas dentro de ella quieren truncar el proceso de elección para salir elegidos.
+						Se elegirán a
+						<div class="popup" onclick="myFunction()"><input id="dato31" class="form-operacion">
+						<span class="popuptext" id="myPopup">Escribe el tamaño de muestra n que desees</span>
+						</div> personas de entre un listado de 
+						<div class="popup" onclick="myFunction1()"><input id="dato32" class="form-operacion">
+						<span class="popuptext" id="myPopup1">Escribe el tamaño de la poblacion N que desees</span>
+						</div> 
+						para posicionarse en la junta, se convence a las personas de usar el proceso de muestreo sistemático para hacer la elección de forma "justa".
+						¿en qué puestos deberían las personas corruptas listarse para hacer parte de la junta, si saben de antemano que el número inicial será 
+						<div class="popup" onclick="myFunction2()"><input id="dato33" class="form-operacion">
+						<span class="popuptext" id="myPopup2">Elige el numero inicial: este debe estar dentro del rango de 0 a N/n </span>
+						</div> ?
+						<br>
+						Dividimos en primer lugar el marco muestral en los fragmentos posibles. el número "aleatorio" ya está dado.
+						se deberían listar así:
+						<br>
+							<div class="rta" id="dato34"></div>
+						<br>
+                        <br>
+						<center>
+                        <a href="#" onclick="hider(5)" active>[3]</a>
+                        <br>
+
+
+						<script type="text/javascript">
+                    		function Operar3(){
+                    			var aaa = document.getElementById("dato31").value;
+                    			var bbb = document.getElementById("dato32").value;
+                    			var ccc = document.getElementById("dato33").value;
+
+                    			var eee = document.getElementById("dato34");
+	                    			lista = new Array(aaa);
+	                    			for(i = 0; i < aaa; i++){
+	                    				if ((ccc+(i*10)<=bbb)) {
+	                    					var h = parseInt((i*10))+parseInt(ccc);
+	                    					lista[i] = h;
+	                    				}
+									} 
+								eee.innerHTML = lista;
+								console.log(lista);
+
+                    		}
+
+
+                    	</script>
+                    	<input type="button" value="Operar" onclick="Operar3(); return false;" /><br />
+
+						
+
+					
+              
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="floating">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <br>
+                            <br>
+                       
+                        </div>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo21">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ejemplo muestreo aleatorio simple</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+
+
+
+                        Una institución educativa con <div class="popup" onclick="myFunction3()"><input id="dato1" class="form-operacion">
+						<span class="popuptext" id="myPopup3">Escribe el tamaño de poblacion N que desees</span>
+						</div>alumnos decide hacer una investigación sobre la felicidad en los estudiantes, para ello necesita realizar una muestra estadística de 
+						personas (<div class="popup" onclick="myFunction4()"><input id="dato2" class="form-operacion">
+						<span class="popuptext" id="myPopup4">Escribe el tamaño de muestra n que desees</span>
+						</div>%) al menos, ya que los investigadores acordaron usar el muestreo aleatorio simple asignaron un número a cada estudiante y por medio de un software se tomaron <div class="rta" id="dato3"></div>
+						números al azar, los cuales corresponden a los <div class="rta" id="dato4"></div> alumnos elegidos para la muestra.
+						todos los estudiantes tuvieron las mismas posibilidades de ser elegidos.
+                        <br>
+						<center>
+                        <a href="#" onclick="hider(5)" active>[1]</a>
+                        <br>
+						
+						<script type="text/javascript">
+                    		function Operar1(){
+                    			var a = document.getElementById("dato1").value;
+                    			var b = document.getElementById("dato2").value;
+
+                    			var e = document.getElementById("dato3");
+								e.innerHTML = Math.floor(Math.random() * ((a*b)/100 - 0 )) + 1;
+
+								var g = document.getElementById("dato4");
+								g.innerHTML = a;
+
+                    		}
+
+                    	</script>
+
+                   
+						<input type="button" value="Operar" onclick="Operar1(); return false;" /><br />
+						
+					
+
+					
+
+                       
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+		</div>
+		<div class="modal" id="ejemplo23">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ejemplo muestreo aleatorio estratificado	</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        En una red social que consta de <div class="popup" onclick="myFunction5()"><input id="dato21" class="form-operacion">
+						<span class="popuptext" id="myPopup5">Escribe el tamaño de poblacion N que desees</span>
+						</div> personas se quiere tomar una muestra de 
+						<div class="popup" onclick="myFunction6()"><input id="dato22" class="form-operacion">
+						<span class="popuptext" id="myPopup6">Escribe el tamaño de la muestra n que desees</span>
+						</div>. Por las estadísticas 
+						de la empresa se sabe que el 30% de los perfiles están interesados en la música, el 20% 
+						en cine, el 10% en noticias actuales , el 25% en literatura y el 15% en videojuegos, cuantos perfiles se deberian tomar por cada interes de las personas?. 
+						<br>						
+					    x1= <div class="rta" id="dato23"></div> perfiles interesados en la música.
+						<br>	
+						x2= <div class="rta" id="dato24"></div> perfiles interesados en el cine.
+						<br>	
+						x3= <div class="rta" id="dato25"></div> perfiles interesados en noticias actuales.
+						<br>	
+						x4= <div class="rta" id="dato26"></div> perfiles interesados en literatura.
+						<br>	
+						x5= <div class="rta" id="dato27"></div> perfiles interesados en videojuegos.
+						<br>
+						<center>
+                        <a href="#" onclick="hider(5)" active>[2]</a>
+                        <br>
+
+						<script type="text/javascript">
+                    		function Operar2(){
+                    			var a = document.getElementById("dato21").value;
+                    			var b = document.getElementById("dato22").value;
+
+                    			var e = document.getElementById("dato23");
+								e.innerHTML = b*0.3 ;
+
+								var g = document.getElementById("dato24");
+								g.innerHTML = b*0.2;
+
+								var e = document.getElementById("dato25");
+								e.innerHTML = b*0.1;
+
+								var g = document.getElementById("dato26");
+								g.innerHTML = b*0.25;
+
+								var g = document.getElementById("dato27");
+								g.innerHTML = b*0.15;
+
+                    		}
+
+                    	</script>
+                    	<input type="button" value="Operar" onclick="Operar2(); return false;" /><br />
+
+						
+						
+                       
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+							
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+        <div class="modal" id="ejemplo31">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ejemplo muestreo por cuotas
+						</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" >
+                        Se desea hacer una encuesta sobre la satisfacción que tienen los usuarios con respecto al servicio de boliche que se presta en el centro comercial.
+						estudios del centro comercial revelaban que de una muestra de <div class="popup" onclick="myFunction7()"><input id="dato221" class="form-operacion">
+						<span class="popuptext" id="myPopup7">Escribe el tamaño de la muestra n que desees</span>
+						</div> personas el 35% de los visitantes son jóvenes entre 16 y 20 años, el 54% son adultos entre 21 y 55 años, y el 11% restante son adultos mayores. el boliche quiere saber el número de encuestas que se harán por cada estrato 
+						El número de encuestas por estrato quedaria asi:
+						<br>
+						Jóvenes: Muestra * 35% = Muestra * (35/100) = <div class="rta" id="dato205"></div> encuestas
+						<br>
+						Adultos: Muestra * 54% = Muestra * (54/100) = <div class="rta" id="dato206"></div> encuestas
+						<br>
+						Mayores: Muestra * 11% = Muestra * (11/100) = <div class="rta" id="dato207"></div> encuestas
+						<br>
+						<br>
+						<script type="text/javascript">
+                    		function Operar4(){
+                    			var qw = document.getElementById("dato221").value;
+
+								var ll = document.getElementById("dato205");
+								ll.innerHTML = qw*(35/100);
+
+								var jj = document.getElementById("dato206");
+								jj.innerHTML = (54/100)*qw;
+
+								var rr = document.getElementById("dato207");
+								rr.innerHTML = (11/100)*qw;
+
+                    		}
+
+                    	</script>
+                    	<input type="button" value="Operar" onclick="Operar4(); return false;" /><br />
+                        <br>
+						<center>
+                        <a href="#" onclick="hider(5)" active>[4]</a>
+                        <br>
+
+
+					
+					
+
+                        
+                       
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+ 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+		<div class="modal" id="ejemplo32">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ejemplo muestreo por conglomerado
+						</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        
+						Se desea saber el numero promedio de personas enfermas por el COVID-19 en cierta ciudad europea,
+						ya que un senso por toda la ciudad seria tremendamente consotos y no es una opcion facil de implementar, 
+						se opta por hacer el muestreo por conglomerados ya que los hospitales son conglomerados perfectos para tomar 
+						la muestra, y asi se hace, del hospital principal de la ciudad se toma una muestra de 150 personas de las cuales el 10%
+						tiene el virus.
+						<br>
+				
+						<br>
+						
+						<i>Ejemplo de propia autoria
+						
+						
+
+                        
+                       
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+ 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+		<div class="modal" id="ejemplo33">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ejemplo muestreo por conveniencia
+						</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        
+						Los investigadores estaban interesados en seleccionar una muestra de jóvenes adultos (+18)
+						para analizar la jugabilidad de su nuevo MMORPG y así lanzarlo al mercado. Le hicieron el 
+						acercamiento a los participantes durante un evento del Salón de Ocio y Fantasía (SOFA) 
+						y se utilizaron los datos de 42 sujetos.
+						<br>
+						Conclusión: Se encontró una correlación modesta
+						<br>
+						Recomendación: Para confirmar la observación sugieren estudios futuros con muestras grandes.						
+						<br>
+					
+					
+                        <br>
+						<center>
+                        <a href="#" onclick="hider(5)" active>[5]</a>
+                        <br>
+						
+
+                        
+                       
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+ 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+		<div class="modal" id="ejemplo74">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ejemplo muestreo por bola de nieve
+						</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        
+						Se desea realizar un estudio sobre el comportamiento de los individuos del kkk (KU KLUX KLAN).
+						Por esta razón, el investigador se dirige a la oficina postal donde se encontrará con un ex-miembro 
+						quien le puede ayudar a llevar su estudio a cabo y además facilitarle el contacto con más ex-integrantes 
+						de esta secta secreta y a través del muestreo por bola de nieve puede recopilar la cantidad de datos 
+						necesarios para satisfacer la investigación.
+						<br>
+					    <br>
+						<center>
+                        <a href="#" onclick="hider(5)" active>[6]</a>
+                        <br>
+						
+                    </div>
+
+                    
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+ 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+		<div class="modal" id="ejemplo35">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ejemplo muestreo discrecional
+						</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        
+						El director de la UDFJC (Universidad Distrital Francisco José de Caldas) quiere saber cuales son 
+						las estrategias para mejorar la calidad de pruebas SABERPRO respecto a los egresados, para esto las
+						únicas personas que podrán brindarle el mejor asesoramiento serán aquellas que se graduaron con los
+						más altos honores como líderes de opinión. Con este grupo tan específico y limitado de personas el
+						director debe hacer un muestreo discrecional.
+
+						<br>
+					
+						
+						<br>
+						<center>
+                        <a href="#" onclick="hider(5)" active>[7]</a>
+                        <br>
+
+                        
+                       
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+ 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<footer class="page-footer font-small blue">
+
+        <div class="footer-copyright text-center py-3">
+            <b>© 2020 Carlos Lopez</b>
+
+        </div>
+
+    </footer>-->
+
+    <script src="../js/jQuery.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/blogs.js"></script>
+
+    <script>
+        function calculoEj11() {
+            $("res11-1")[0].textContent = (Number($("tej11-3")[0].textContent) / Number($("tej11-1")[0].textContent)).toFixed(2);
+        }
+
+        function calculoEj21() {
+            if ((Number($("tej21-1")[0].textContent) + Number($("tej21-2")[0].textContent) + Number($("tej21-3")[0].textContent)).toFixed(2) != 1) {
+                alert("la suma de los campos debe ser 100%");
+            } else {
+                var res = 0;
+                for (var i = 1; i <= 3; i++) {
+                    res += Number($("tej21-" + i)[0].textContent) * Number($("tej21-" + (i + 3))[0].textContent);
+                }
+                $("tej21-r1")[0].textContent = res;
+                $("tej21-r2")[0].textContent = (res * 100);
+            }
+
+        }
+
+        function calculoEj31() {
+            if ((Number($("tej31-1")[0].textContent) + Number($("tej31-2")[0].textContent) + Number($("tej31-3")[0].textContent)).toFixed(2) != 1) {
+                alert("la suma de los campos debe ser 100%");
+            } else {
+                var probTotal = 0;
+                for (var i = 1; i <= 3; i++) {
+                    probTotal += Number($("tej31-" + i)[0].textContent) * Number($("tej31-" + (i + 3))[0].textContent);
+                }
+                $("tej31-7")[0].textContent = probTotal;
+                $("tej31-r1")[0].textContent = (Number($("tej31-1")[0].textContent) * Number($("tej31-4")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r2")[0].textContent = (Number($("tej31-1")[0].textContent) * Number($("tej31-4")[0].textContent) / probTotal).toFixed(3) * 100;
+                $("tej31-r3")[0].textContent = (Number($("tej31-2")[0].textContent) * Number($("tej31-5")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r4")[0].textContent = (Number($("tej31-2")[0].textContent) * Number($("tej31-5")[0].textContent) / probTotal).toFixed(3) * 100;
+                $("tej31-r5")[0].textContent = (Number($("tej31-3")[0].textContent) * Number($("tej31-6")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r6")[0].textContent = (Number($("tej31-3")[0].textContent) * Number($("tej31-6")[0].textContent) / probTotal).toFixed(3) * 100;
+            }
+        }
+		
+
+		function myFunction() {
+			var popup = document.getElementById("myPopup");
+			popup.classList.toggle("show");
+		}
+		function myFunction1() {
+			var popup = document.getElementById("myPopup1");
+			popup.classList.toggle("show");
+		}
+		function myFunction2() {
+			var popup = document.getElementById("myPopup2");
+			popup.classList.toggle("show");
+		}
+		function myFunction3() {
+			var popup = document.getElementById("myPopup3");
+			popup.classList.toggle("show");
+		}
+		function myFunction4() {
+			var popup = document.getElementById("myPopup4");
+			popup.classList.toggle("show");
+		}
+		function myFunction5() {
+			var popup = document.getElementById("myPopup5");
+			popup.classList.toggle("show");
+		}
+		function myFunction6() {
+			var popup = document.getElementById("myPopup6");
+			popup.classList.toggle("show");
+		}
+		function myFunction7() {
+			var popup = document.getElementById("myPopup7");
+			popup.classList.toggle("show");
+		}
+		function myFunction8() {
+			var popup = document.getElementById("myPopup8");
+			popup.classList.toggle("show");
+		}
+	
+		$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();   
+		});
+
+
+
+
+
+        
+    </script>
+</body>
+
+</html>
