@@ -1,0 +1,1854 @@
+﻿<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Probabilidad
+    </title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tema3.css">
+    <link rel="stylesheet" href="../css/tooltip.css">
+    <link rel="stylesheet" href="../Vtree/css/vtree.css" type="text/css" />
+
+
+    <style>
+        .frac {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            letter-spacing: 0.001em;
+            text-align: center;
+        }
+
+        .frac>span {
+            display: block;
+            padding: 0.1em;
+        }
+
+        .frac span.bottom {
+            border-top: thin solid black;
+        }
+
+        .frac span.symbol {
+            display: none;
+        }
+
+        .floating {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navMain">
+        <div class="container">
+            <a href="https://udistrital.edu.co/" style="background-color: white;"><img width="50" height="60" src="../logos_escudo_vertical/logo.png"
+                    alt="Co-gestores:" data-toggle="tooltip" data-placement="right" title=""
+                    data-original-title="Co-gestores: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Barrera, Pedro E. (20171020057) pebarreraa@correo.udistrital.edu.co &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Bernal, Julio C. (20171020014) jcbernalp@correo.udistrital.edu.co &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -González, Johan S. (20172020039) josgonzalezm@correo.udistrital.edu.co &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Mendez, Johan S. (20172020070) jsmendezv@correo.udistrital.edu.co &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -Velez, Diego A. (20172020075) davelezg@correo.udistrital.edu.co"></a>
+            <a class="navbar-brand " href="#" onclick="showHome()"><b class="TextColorBackBlack">EVENTOS
+                    DEPENDIENTES</b></a>
+            <a class="navbar-brand " href="#" onclick="goHome()"><b class="TextColorBackBlack">Inicio</b></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle TextColorBackBlack" href="#" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b class="TextColorBackBlack">Probabilidad</b>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" onclick="goProbabilidad()">Probabilidad</a>
+                            <a class="dropdown-item" href="#" onclick="goEstadistica()">Estadistica</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="goTeoriaNumeros()">Teoria de numeros</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0 buscaBotonNoBorder" onclick="buscar()"
+                        type="submit"><b>Buscar</b></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <br />
+
+    <div class="container-fluid contenedor" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+            <div class="col-sm-3 leftCol">
+                <br />
+
+                <ul class="list-group">
+                    <li class="list-group-item itemHover">
+                        <a>Probabilidad condicional &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(1)" active>
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(3)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Probabilidad total &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(4)">
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(5)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Regla de Bayes &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(6)">
+                                Definición
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(7)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-sm-9 rigthCol">
+                <div class="container">
+                    <br />
+                    <div class="row" id="home">
+                        <div class="col-sm-12">
+                            <div id="pageContent">
+                                <center>
+                                    <h1>Blog de Probabilidad
+
+                                        <img src="../img/logo.png" alt="Estadistica"
+                                            style="max-width: 50%;max-height: 50%;display: block;">
+                                </center>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" id="tema1">
+                        <div class="col-lg-12">
+                            <h1>PROBABILIDAD CONDICIONAL</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                            <p>
+                                Se habla de probabilidad condicional sí la probabilidad de que un evento B ocurre cuando
+                                se
+                                sabe que ya ocurrió algún
+                                otro evento A.
+                                <br />
+                                La probabilidad condicional se denota con<b> P(B|A)</b>.
+                                <br />
+                                El símbolo <b> P(B|A)</b> por lo general, se lee “la probabilidad de que ocurra B dado
+                                que
+                                ocurrió A”
+                                o simplemente “la probabilidad de B, dado A”.
+                            </p>
+                            <h2>Teorema:</h2>
+                            <p>
+                                la probabilidad condicional de B dado A se denota <b> P(B|A)</b> y se define como
+                                <!--<center>
+                                    <img src="../img/condicionalTeorema.JPG" alt="condicional"
+                                        style="width: 40%;height: 15%;display: block;">
+                                </center>-->
+                            </p>
+                            <br />
+                            <center>
+                                <img src="../img/probCondicional.jpeg" alt="condicional"
+                                    style="max-width: 100%;max-height: 100%;display: block;">
+                            </center>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="row" id="tema2">
+                        tema12
+                    </div>
+                    <div class="row" id="tema3">
+                        <div class="col-lg-12">
+                            <h1>PROBABILIDAD CONDICIONAL</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo11"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo12"><b
+                                            style="font-size: larger;">ejemplo 2 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo13"><b
+                                            style="font-size: larger;">ejemplo 3 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo14"><b
+                                            style="font-size: larger;">ejemplo 4 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo15"><b
+                                            style="font-size: larger;">ejemplo 5 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">Siguiente: Probabilidad total &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema4">
+                        <div class="col-lg-12">
+                            <h1>PROBABILIDAD TOTAL</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                            <p>
+                                Es la suma exhaustiva de las probabilidades de todos los casos mutuamente excluyentes
+                                que
+                                conducen a dicho evento, es decir:
+                                <center>
+                                    <img src="../img/propTotal.png" alt="condicional"
+                                        style="width: 60%;height: 20%;display: block;">
+                                </center>
+                            </p>
+                            <h2>Teorema:</h2>
+                            <p>
+                                El Teorema de la probabilidad total nos permite calcular la probabilidad de un suceso a
+                                partir de probabilidades condicionadas.
+                                Si los eventos B1, B2,..., Bk constituyen una partición del espacio muestral S tal que
+                                P(Bi)
+                                != 0 para i = 1, 2,..., k, entonces, para cualquier evento A de S,
+                                <center>
+                                    <img src="../img/teoPropTotal.png" alt="condicional"
+                                        style="width: 50%;height: 15%;display: block;">
+                                </center>
+                            </p>
+                            <br />
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema5">
+                        <div class="col-lg-12">
+                            <h1>PROBABILIDAD TOTAL</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo21"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo22"><b
+                                            style="font-size: larger;">ejemplo 2 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo23"><b
+                                            style="font-size: larger;">ejemplo 3 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo24"
+                                        onclick="draw('contej24');"><b style="font-size: larger;">ejemplo 4
+                                            &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo25"><b
+                                            style="font-size: larger;">ejemplo 5 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                    style="font-size: larger;">Siguiente: teorema de bayes &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema6">
+                        <div class="col-lg-12">
+                            <h1>TEOREMA DE BAYES</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                            <p>
+                                El teorema de Bayes es utilizado para calcular la probabilidad de un suceso, teniendo
+                                información de antemano sobre ese suceso.
+                                Podemos calcular la probabilidad de un suceso A, sabiendo además que ese A cumple cierta
+                                característica que condiciona su probabilidad.
+                            </p>
+                            <h2>Teorema:</h2>
+                            <p>
+                                Si los eventos B1, B2, ..., Bk constituyen una partición del espacio muestral S, donde
+                                P(Bi) 0 para i / 1, 2,..., k, entonces, para cualquier evento A en S tal que P(A) 0
+                                <center>
+                                    <img src="../img/teoBayes1.png" alt="condicional"
+                                        style="width: 50%;height: 20%;display: block;">
+                                </center>
+
+                            </p>
+                            <p>
+                                Es decir, que el teorema de bayes puede ser interpretado como la razón de la
+                                probabilidad condicional de los eventos evulados entre la probabilidad total de los
+                                mismos
+                            </p>
+                            <br />
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">&larr; Anterior: Probabilidad total </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema7">
+                        <div class="col-lg-12">
+                            <h1>TEOREMA DE BAYES</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo31"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo32"><b
+                                            style="font-size: larger;">ejemplo 2 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo33"><b
+                                            style="font-size: larger;">ejemplo 3 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo34"><b
+                                            style="font-size: larger;">ejemplo 4 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema8">
+                        tema32
+                    </div>
+                    <div class="row" id="tema9">
+                        tema33
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div id="modals">
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+        <!-----------------------------------------------------------------1-------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+        <div class="modal" id="ejemplo11">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Probabilidad condicional - ejemplo 1</h2>
+                        <br>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+                        <p>
+                            Adaptado del ejercicio 2.81 propuesto por Ronald E. Walpole,Raymond H. Myers,Sharon L.
+                            Myers,Keying Ye (2007). Probabilidad y estadística
+                            para ingeniería y ciencias(8 Ed.) Mexico: editorial pearson. (pag 65).
+                        </p>
+                        <hr>
+                        <p>
+                            Un reconocido artista marcial se ha enfrentado a múltiples batallas
+                            con el
+                            fin de proteger el planeta tierra. Si se sabe que la probabilidad que tiene de vencer al
+                            primero opnente es de</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="83" style="width: 40px;"
+                                onchange="var a= this.value; $('tej11-1').each(function(i){this.textContent = a/100}); calculoEj11()"
+                                autocomplete="off" />%
+                        </div>
+                        <p>
+                            mientras que la probabilidad de vencer al segundo es de</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="77" style="width: 40px;"
+                                onchange="var a= this.value; $('tej11-2').each(function(i){this.textContent = a/100}); calculoEj11()"
+                                autocomplete="off" />%
+                        </div>
+                        <p>
+                            , y además la
+                            probabilidad que tiene de derrotar a ambos oponentes es de</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="75" style="width: 40px;"
+                                onchange="var a= this.value; $('tej11-3').each(function(i){this.textContent = a/100}); calculoEj11()"
+                                autocomplete="off" />%
+                        </div>
+                        <p>
+                            . ¿Cuál es la probabilidad de que
+                            venza a segundo dado que derrotó al primero?
+                            Para este problema es necesario definir dos eventos:</p>
+                        <br />
+                        <p>A: Probabilidad de que venza al primero.</p>
+                        <br />
+                        <p>B: Probabilidad de que venza aal segundo.</p>
+                        <hr>
+                        <p>Teniendo en cuenta lo anterior ya conocemos la probabilidad de los eventos A y B:</p>
+                        <br />
+                        P(A)=<tej11-1>0.83</tej11-1>
+                        <br />
+                        P(B)=<tej11-2>0.77</tej11-2>
+                        <br />
+                        <p>Además se tiene la probabilidad de que derrote a ambos oponentes, es decir la intersección:
+                        </p>
+                        <br />
+                        P(A&#8745;B)=<tej11-3>0.75</tej11-3>
+                        <br />
+                        <p>Con base al enunciado se sabe que se está haciendo uso de una probabilidad condicional,
+                            puesto
+                            que se quiere saber cual es la probabilidad de que Goku venza al segundo dado que venció al
+                            primero. Haciendo uso del teorema descrito en la sección anterior.</p>
+                        <br />
+                        <b>
+                            P(B/A)=<div class="frac">
+                                <span>P(B&#8745;A)</span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">P(A)</span>
+                            </div>
+                        </b>
+                        <br />
+                        P(B/A)=<div class="frac">
+                            <tej11-3>0.75</tej11-3>
+                            <span class="symbol">/</span>
+                            <span class="bottom">
+                                <tej11-1>0.83</tej11-1>
+                            </span>
+
+                        </div>
+                        <br />
+                        P(B/A)=<res11-1>0.90</res11-1>
+                        <br />
+                        <hr>
+                        <h3>Conclusión:</h3>
+                        <p>La probabilidad que tiene Goku de vencer al segundo dado que derrotó al primero
+                            es de 0.90.</p>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="floating">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                                data-target="#ejemplo12">Ejemplo 2</button>
+                        </div>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo12">Ejemplo 2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo12">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Probabilidad condicional - ejemplo 2</h2>
+                        <br>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+                        Adaptado del ejercicio 2.78 propuesto por Ronald E. Walpole,Raymond H. Myers,Sharon L.
+                        Myers,Keying Ye (2007). Probabilidad y estadística
+                        para ingeniería y ciencias(8 Ed.) Mexico: editorial pearson. (pag 65).
+                        <hr>
+                        <p>
+                            Una pelicula de super heroes se estrenará el próximo 5 de junio en las salas de cine en
+                            Colombia. Si
+                            se sabe que la probabilidad de que Andrés vaya a ver la película el día de estreno en la
+                            primera
+
+                            función es de 0.4, y la probabilidad de que su mejor amigo, Camilo, vaya a verla el dia de
+                            estreno en la segunda función es de 0.5, mientras que la probabilidad de que Camilo vaya a
+                            verla
+                            una semana después del estreno dado que Andrés se la recomienda es de 0.7.
+                        </p><br>
+                        <p>¿Cuál será la
+                            probabilidad de que ambos vayan a verla el mismo dia de estreno en la misma función?
+                        </p>
+                        <br>
+                        <p>
+                            Para resolver este ejercicio es necesario definir los siguientes eventos:
+                        </p>
+                        <br>
+                        <p>
+                            A: probabilidad de que Andrés vaya a ver la película el día de estreno en la primera
+                            función.
+                        </p>
+                        <br>
+                        <p>
+                            B|A: probabilidad de que Camilo vaya a ver la película una semana después del estreno dado
+                            que
+                            Andrés se la recomienda.
+                        </p>
+                        <br>
+                        <p>
+                            Lo cual nos permite conocer las siguientes probabilidades:
+                        </p>
+                        <br>
+                        P(A)=0.4
+                        <br>
+                        P(B/A)=0.5
+                        <p>
+                            Ya que sabemos que el evento B/A implica una probabilidad condicional, hacemos uso del
+                            teorema
+                            descrito en la sección 3.1.2:
+                        </p>
+                        <br>
+                        <b>
+                            P(B|A)=<div class="frac">
+                                <span>P(B&#8745;A)</span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">P(A)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <p>
+                            puesto que nos preguntan por la probabilidad de que ambos chicos vean la película el mismo
+                            dia,
+                            esto se interpreta como intersección:
+                        </p>
+                        <br>
+                        <b>
+                            P(B&#8745;A)=
+                            <span>P(B|A)*P(B)</span>
+                        </b>
+                        <br>
+                        <b>
+                            P(B&#8745;A)=
+                            <span>0.7*0.5</span>
+                        </b>
+                        <br>
+                        <b>
+                            P(B&#8745;A)=
+                            <span>0.35</span>
+                        </b>
+                        <br>
+                        <hr>
+                        <h3><b>Conclusión</b></h3>
+                        La probabilidad de que ambos chicos vean la película en el mismo dia y función es
+                        del 35%
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo13">Ejemplo 3</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo13">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Probabilidad condicional - ejemplo 3</h2>
+                        <br>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+                        Adaptado del ejercicio 2.89 propuesto por Ronald E. Walpole,Raymond H. Myers,Sharon L.
+                        Myers,Keying Ye (2007). Probabilidad y estadística
+                        para ingeniería y ciencias(8 Ed.) Mexico: editorial pearson. (pag 66).
+                        <hr>
+                        <p>
+                            En su décimo octavo cumpleaños una princesa anhela abandonar su castillo para conocer
+                            las luces flotantes que se observan cada año en su cumpleaños, todo esto sin el
+                            consentimiento de su madrastra, la probabilidad que tiene la princesa de no ser descubierta
+                            es de 0.7, y la probabilidad de que su madrastra la encierre por siempre en la torre dado
+                            que la descubre abandonando la torre es de 0.9.
+                        </p>
+                        <br>
+                        <p> ¿Cuál será la probabilidad de que tiene la
+                            princesa de ser descubierta y encerrada por siempre en la torre?
+                        </p>
+                        <br>
+                        <hr>
+                        <p>
+                            Para resolver este ejercicio es necesario describir los siguientes eventos:
+                        </p>
+                        <br>
+                        <p>
+                            A: probabilidad que tiene la princesa de no ser descubierta
+                        </p><br>
+                        <p>
+                            A’: probabilidad que tiene la princesa de ser descubierta
+                        </p><br>
+                        <p>
+                            B/A’: probabilidad que tiene la princesa de ser encerrada por siempre en la torre dado que
+                            la descubre su madrastra abandonando la torre
+                        </p><br>
+                        <p>
+                            Por lo tanto los valores de estas probabilidades son:
+                        </p><br>
+                        P(A)=0.7
+                        <br>
+                        P(B/A)=0.5
+                        <p>
+                            Ya que A y A’ son eventos mutuamente excluyentes, es decir que su intersección es cero, se
+                            puede calcular la probabilidad del evento A’ así:
+                        </p><br>
+                        P(A’)=1-P(A)
+                        <br>
+                        P(A’)=1-0.7
+                        <br>
+                        P(A’)=0.3
+                        <p>
+                            Ademas el enunciado nos dice que P(B|A’)=0.9, es decir que se hace uso de probabilidad
+                            condicional, en este caso nos preguntan la intersección de dos eventos, de acuerdo al
+                            teorema descrito en la sección 3.1.2:
+                        </p>
+                        <br>
+                        <b>
+                            P(B|A)=<div class="frac">
+                                <span>P(B&#8745;A)</span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">P(A)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(B&#8745;A)=
+                            <span>P(B|A)*P(B)</span>
+                        </b>
+                        <br>
+                        <b>
+                            P(B&#8745;A)=
+                            <span>0.3*0.9</span>
+                        </b>
+                        <b>
+                            P(B&#8745;A)=
+                            <span>0.27</span>
+                        </b>
+                        <hr>
+                        <h3><b>Conclusión</b></h3>
+                        <p>
+                            La probabilidad que tiene la princesa de ser atrapada y encerrada en la torre
+                            por siempre es del 27%.
+
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo12">Ejemplo 2</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo14">Ejemplo 4</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo14">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Probabilidad condicional - ejemplo 4</h2>
+                        <br>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+                        Fuente: Autor
+                        <hr>
+                        <p>
+                            Desde hace ya unos años el cierto juego ha sido uno de los videojuegos con
+                            el mayor número de jugadores en el mundo, esta semana dos amigos piensan en jugar unas
+                            rankeds de este juego; Juan tiene una posibilidad de 0,6 de poder jugar debido a los
+                            trabajos de la universidad, Andrés su amigo tiene una posibilidad de un 0,4 debido a que
+                            estudia y además trabaja, además la probabilidad de que ellos dos se conecten a jugar juntos
+                            es de 0,18.
+                        </p>
+                        <hr><br>
+                        <p> A) ¿Cuál será la probabilidad de que Juan se conecte a jugar dado que Andrés
+                            jugó en esa semana?.
+                        </p><br>
+                        <p>
+                            B) Ahora ¿Cuál será la probabilidad de que Andrés se conecte a jugar dado que Juan ya jugó
+                            esta semana?.
+                        </p><br>
+                        <hr>
+                        <p>
+                            Este es un ejercicio en el que ya nos dan varias probabilidades en el enunciado:
+                        </p><br>
+                        <p>
+                            P(A) Tomando que en el evento A se la probabilidad de que Juan juegue esta semana, la cual
+                            será de 0,6
+
+                        </p><br>
+                        <p>
+                            P(B) Teniendo en cuenta que el evento B lo consideramos como la probabilidad de que Andrés
+                            juegue esta semana la cual será de 0,4
+
+                        </p><br>
+                        <p>
+                            Por último nos dicen que la probabilidad de que los dos jueguen juntos esta semana la cual
+                            la consideramos como P(AnB) es de 0,18
+
+                        </p><br>
+                        <p>
+                            A) Nos preguntan por la probabilidad de que Juan juegue esta semana dado a que Andrés ya
+                            jugó; por lo cual lo consideramos como P(A|B) y
+                            Utilizamos la fórmula anteriormente vista y reemplazamos las probabilidades.
+
+                        </p><br>
+                        <b>
+                            P(B|A)=<div class="frac">
+                                <span>P(B&#8745;A)</span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">P(A)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(B|A)=<div class="frac">
+                                <span>0,18</span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">0,4</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(B|A)=0,45
+                        </b>
+                        <hr>
+                        <h3><b>Conclusión</b></h3>
+                        <p>
+                            La probabilidad de que Juan juegue esta semana dado que Andrés ya jugo es de
+                            0,45 es decir un 45%
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo13">Ejemplo 3</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo15">Ejemplo 5</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo15">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Probabilidad condicional - ejemplo 5</h2>
+                        <br>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;">
+                        Fuente: Autor
+                        <hr>
+                        <p>
+                            En los Oscares ocurridos este 9 de febrero de 2020 fueron nominadas diferentes y excelentes
+                            películas, el ganador como mejor película finalmente se la llevó Parasite del director Bong
+                            Joon-ho. Como siempre esta decisión despierta polémica en muchas personas, en esta ocasión
+                            un grupo de amigos estaban discutiendo sobre este tema, un 25% de este grupo de amigos les
+                            gustaba Parasite y también Joker , mientras que a un 60% les gustaba El joker.
+                        </p><br>
+                        <p>
+                            ¿Cuál es la probabilidad de que a un amigo al que le gusta El Joker, le guste Parasite?
+
+                        </p>
+                        <hr>
+                        <p>
+                            Empezamos viendo cuales son las probabilidades que nos proporciona el enunciado de este
+                            ejercicio y separamos cuales serán nuestros eventos; tomaremos el evento A como que a un
+                            amigo le guste Parasite y tomaremos el evento B como que a un amigo le guste El Joker.
+                        </p><br>
+                        <p>
+                            P(A) no la sabemos, debemos tener en cuenta que en algunos ejercicios no nos darán toda la
+                            información o incluso nos darán más información de la que necesitamos.
+
+
+                        </p><br>
+                        <p>
+                            P(B) es de un 60%
+                        </p><br>
+                        <p>
+                            P(AnB) es decir que a un amigo le guste Joker y Parasite es de 25%
+
+                        </p><br>
+                        <p>
+                            Ahora usaremos la fórmula de probabilidad condicional para calcular la probabilidad de que a
+                            un amigo le guste Parasite dado que le gustó El Joker.
+
+
+                        </p><br>
+                        <b>
+                            P(B|A)=<div class="frac">
+                                <span>P(B&#8745;A)</span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">P(A)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(B|A)=<div class="frac">
+                                <span>0,25</span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">0,6</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(B|A)=0,4167
+                        </b>
+                        <hr>
+                        <h3><b>Conclusión</b></h3>
+                        <p>
+                            La probabilidad es de 0,4167 es decir un 41,67%.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo14">Ejemplo 4</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+        <!-----------------------------------------------------------------2-------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
+        <div class="modal" id="ejemplo21">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Probabilidad total - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Adaptado del ejercicio 2.101 propuesto por Ronald E. Walpole,Raymond H. Myers,Sharon L.
+                            Myers,Keying Ye (2007). Probabilidad y estadística
+                            para ingeniería y ciencias(8 Ed.) Mexico: editorial pearson. (pag 72).</p>
+                        <hr>
+                        <p>
+                            En la copa pistón durante la carrera final el departamento que se encarga del mantenimiento
+                            de
+                            los autos maneja 3 compañías, la primera se encarga del</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="60" style="width: 40px;"
+                                onchange="var a= this.value; $('tej21-1').each(function(i){this.textContent = a/100}); calculoEj21()"
+                                autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        </div>
+                        <p>
+                            %
+                            de los participantes, la segunda del</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="30" style="width: 40px;"
+                                onchange="var a= this.value; $('tej21-2').each(function(i){this.textContent = a/100}); calculoEj21()"
+                                autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        </div>
+                        %<p>
+                            y la tercera el</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="10" style="width: 40px;"
+                                onchange="var a= this.value; $('tej21-3').each(function(i){this.textContent = a/100}); calculoEj21()"
+                                autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        </div>
+                        <p>
+                            %
+                            .</p>
+                        <br>
+                        <p>
+                            La probabilidad de que auto se averíe debido al mantenimiento de una pieza defectuosa en
+                            cada
+                            compañía es de</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="2" style="width: 40px;"
+                                onchange="var a= this.value; $('tej21-4').each(function(i){this.textContent = a/100}); calculoEj21()"
+                                autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        </div>
+                        <p>
+                            %
+                            ,</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="2" style="width: 40px;"
+                                onchange="var a= this.value; $('tej21-5').each(function(i){this.textContent = a/100}); calculoEj21()"
+                                autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        </div>
+                        <p>
+                            %
+                            y</p>
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="1.5" style="width: 40px;"
+                                onchange="var a= this.value; $('tej21-6').each(function(i){this.textContent = a/100}); calculoEj21()"
+                                autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        </div>
+                        <p>
+                            %
+                            respectivamente. Determine la probabilidad de que un auto se averíe
+                            P(A).</p>
+                        <hr>
+                        <p>
+                            Solución:
+                            <ul>
+                                <li>
+                                    Se definen los eventos:
+                                    <ol>
+                                        <li>
+                                            Que el auto esté afiliado a la primera compañía -><tej21-1>0.6</tej21-1>
+                                        </li>
+                                        <li>
+                                            Que el auto esté afiliado a la segunda compañía -><tej21-2>0.3</tej21-2>
+                                        </li>
+                                        <li>
+                                            Que el auto esté afiliado a la tercera compañía -><tej21-3>0.1</tej21-3>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    Se definen los valores de probabilidad condicional que conocemos:
+                                    <ol>
+                                        <li>
+                                            Que se averíe en la compañía 1 -> <tej21-4>0.02</tej21-4>
+                                        </li>
+                                        <li>
+                                            Que se averíe en la compañía 2 -> <tej21-5>0.03</tej21-5>
+                                        </li>
+                                        <li>
+                                            Que se averíe en la compañía 3 -> <tej21-6>0.015</tej21-6>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    Se aplica el teorema de probabilidad total para P(A):
+                                    <ol>
+                                        <li>
+                                            P(A) = (<tej21-4>0.02</tej21-4>x<tej21-1>0.6</tej21-1>) + (<tej21-5>0.03
+                                            </tej21-5>x<tej21-2>0.3</tej21-2>) +(<tej21-6>0.015</tej21-6>x<tej21-3>0.1
+                                            </tej21-3>)
+                                        </li>
+                                        <li>
+                                            P(A)= <tej21-r1>0.0225</tej21-r1> = <tej21-r2>2.25</tej21-r2>%
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </p>
+                        <hr>
+                        <h3><b>Conclusión</b></h3>
+                        <p>
+                            La probabilidad de que un auto se averíe es de 2.25%
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo22">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo22">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Probabilidad total - ejemplo 2</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Adaptado del ejercicio 2.105 propuesto por Ronald E. Walpole,Raymond H. Myers,Sharon L.
+                            Myers,Keying Ye (2007). Probabilidad y estadística
+                            para ingeniería y ciencias(8 Ed.) Mexico: editorial pearson. (pag 72).</p>
+                        <hr>
+                        <p>En Super mario party la probabilidad de que un jugador escoja como personaje a Mario es de
+                            60%, a Bowser 20%, a Luigi 5% y a Peach 15%, la cantidad de partidas que un jugador pierde
+                            es de 4 entre 10, 3 entre 5, 1 entre 3 y 2 entre 3 respectivamente.</p><br>
+                        <p> calcule la probabilidad total de que un jugador pierda una partida.
+                            P(A).</p>
+                        <hr>
+                        <p>
+                            Solución:
+                            <ul>
+                                <li>
+                                    Se aplica el teorema de probabilidad total para P(A):
+                                    <ol>
+                                        <li>
+                                            P(A) = (0.40.6) + (0.60.2) + (0.330.05)+(0.660.15)
+                                        </li>
+                                        <li>
+                                            P(A)= 0.4755 = 47.55%
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </p>
+                        <hr>
+                        <h3><b>Conclusión</b></h3>
+                        <p>
+                            La probabilidad de que un jugador pierda una partida es de 47.55%
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo21">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo23">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo23">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Probabilidad total - ejemplo 2</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Fuente: Autor</p>
+                        <hr>
+                        <p>EEn un partido de football de Cristiano Ronaldo la probabilidad de que termine sin un penalti
+                            de el es de 42% y de que consiga anotar un gol es de 75%, en el caso de que cobre un penalti
+                            la probabilidad de que anote gol es del 90%.</p><br>
+                        <p> ¿cuál es la probabilidad de que Cristiano Ronaldo anote gol en un partido?.
+                            P(A).</p>
+                        <hr>
+                        <p>
+                            Solución:
+                            <ul>
+                                <li>
+                                    Se definen los eventos:
+                                    <ol>
+                                        <li>
+                                            P(A1) =75%=0.42
+                                        </li>
+                                        <li>
+                                            P(A2) =38%=0.58
+                                        </li>
+                                        <li>
+                                            P(B1) =75%=0.75
+                                        </li>
+                                        <li>
+                                            P(B2) =90%=0.9
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    Se aplica el teorema de probabilidad total para P(A):
+                                    <ol>
+                                        <li>
+                                            P(A) =(0.420.75)+(0.580.9)
+                                        </li>
+                                        <li>
+                                            P(A) =0.837 = 83.7%
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </p>
+                        <hr>
+                        <h3><b>Conclusión</b></h3>
+                        <p>
+                            La probabilidad de que anote un gol en el partido es de 83.7%.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo22">Ejemplo 2</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo24">Ejemplo 4</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo24">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Probabilidad total - ejemplo 4</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Fuente: Autor</p>
+                        <hr>
+                        <p>El internet y en sí las redes sociales se han convertido en un aspecto muy importante en
+                            nuestras vidas, dentro de el inmenso contenido que tenemos en las redes sociales la mayoría
+                            de personas disfrutamos de los memes que salen en cada momentos sobre hechos importantes que
+                            suceden, juegos, gatos o cualquier cosa que te puedas imaginar, a mi amigo Carlos le encanta
+                            los memes, el 50% de sus memes vienen de Twitter, el 30% de Facebook y el 20% de Instagram;
+                            además de esto se da cuenta que algunos memes los ve repetidos, en Twitter ve un 0,1% de
+                            memes repetidos, en Facebook ve un 0,5% y en Instagram un 1%.</p><br>
+                        <p> ¿Cuál es la probabilidad de que Carlos mire un meme repetido?.
+                            P(A).</p>
+                        <hr>
+                        <p>
+                            Solución:
+                        </p><br>
+                        <p>
+                            Para la solución de este ejercicio podemos visualizarlo mejor mediante un diagrama de árbol
+                            teniendo como el evento A a la red social Twitter , B a Facebook y C a Instagram, ademas de
+                            esto pondremos a los memes repetidos como R y a los no repetidos como NR.
+                        </p>
+                        <br>
+                        <div>
+                            <div id="contej24"></div>
+                        </div>
+                        <br>
+                        <ul>
+                            <li>
+                                Se aplica el teorema de probabilidad total para P(A):
+                                <ol>
+                                    <li>
+                                        P(R)=P(A)P(R/A)+P(B)P(R/B)+P(C)P(R/C)
+                                    </li>
+                                    <li>
+                                        P(R) = (50/100 x 0.1/100) + (30/100 x 0.5/100) +(20/100 x 1/100)
+                                    </li>
+                                    <li>
+                                        P(R) =1/250=0.004= 0.4%
+                                    </li>
+                                </ol>
+                            </li>
+                        </ul>
+                        </p>
+                        <hr>
+                        <h3><b>Conclusión</b></h3>
+                        <p>
+                            Por lo tanto la probabilidad total es decir la probabilidad de que sea un meme repetido es
+                            de 0.4%
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo23">Ejemplo 3</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo25">Ejemplo 5</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo25">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Probabilidad total - ejemplo 5</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Fuente: Autor</p>
+                        <hr>
+                        <p>Johnny es un apasionado de la música, pero a él solo le gustan dos géneros, el Rock y el Rap;
+                            en la aplicación de Spotify de su celular tiene tres listas de canciones.En la primera lista
+                            tiene 140 canciones y Spotify le dice que el 25% de estas son de Rock, en la segunda tiene
+                            130 canciones y 91 de ellas son de Rap, finalmente en su tercera lista tiene 40 canciones de
+                            Rock y 80 de Rap. </p><br>
+                        <p> ¿Cual es la probabilidad de que al poner en aleatorio toda sus canciones, salga una canción
+                            de Rock?.
+                            P(A).</p>
+                        <hr>
+                        <p>
+                            Solución:
+                        </p><br>
+                        <p>
+                            Para la solución de este ejercicio podemos visualizarlo mejor mediante un diagrama de árbol
+                            teniendo como 1,2 y 3 sus respectivas listas de canciones y pondremos como Ro a las
+                            canciones de Rock y Ra a las de Rap
+
+                        </p>
+                        <img src="../img/arbolej25.png">
+                        <br>
+                        <ul>
+                            <li>
+                                Se aplica el teorema de probabilidad total para P(A):
+                                <ol>
+                                    <li>
+                                        P(R)=P(1)xP(Ro/1)+P(2)xP(RO/2)+P(3)xP(R0/3)
+                                    </li>
+                                    <li>
+                                        P(R) = (140/390x25/100) + (130/390x39/130) + (120/390x40/120)
+                                    </li>
+                                    <li>
+                                        P(R) =0.2923 = 29.23%
+                                    </li>
+                                </ol>
+                            </li>
+                        </ul>
+                        </p>
+                        <hr>
+                        <h3><b>Conclusión</b></h3>
+                        <p>
+                            La probabilidad total es decir la probabilidad de que salga una canción de Rock es de 29.23%
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo24">Ejemplo 4</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+        <!-----------------------------------------------------------------3-------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
+        <div class="modal" id="ejemplo31">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Teorema de bayes - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Fuente: Autor
+                        <hr>
+                        El famoso juego de Pokémon Go distribuye en una zona pokemones de tipo fuego, agua y planta, En
+                        esta zona la probabilidad de obtener un pokémon de tipo fuego, agua o planta es de
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="30" style="width: 40px;"
+                                onchange="var a= this.value; $('tej31-1').each(function(i){this.textContent = a/100}); calculoEj31()"
+                                autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        </div>
+                        %
+                        ,
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="20" style="width: 40px;"
+                                onchange="var a= this.value; $('tej31-2').each(function(i){this.textContent = a/100}); calculoEj31()"
+                                autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        </div>
+                        %
+                        y
+                        <div class="hint--top hint--danger hint--bounce hint--rounded"
+                            aria-label="Ingrese un numero entre 1 y 100">
+                            <input type="text" value="50" style="width: 40px;"
+                                onchange="var a= this.value; $('tej31-3').each(function(i){this.textContent = a/100}); calculoEj31()"
+                                autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d.]/,'')" />
+                        </div>
+                        %
+                        respectivamente.
+                        <br>
+                        <b>P(T1)=<tej31-1>0.30</tej31-1>, P(T2)=<tej31-2>0.20</tej31-2>, P(T3)=<tej31-3>0.50</tej31-3>
+                            .</b>
+                        <br>
+                        La posibilidad de que un pokémon salga repetido según su tipo es de:
+                        <br>
+                        <b>
+                            P(R|T1)=<tej31-4>0.1</tej31-4>, <tej31-5>0.3</tej31-5>, P(R|T3)=<tej31-6>0.2</tej31-6>.
+                        </b>
+                        <br>
+                        Si en medio de la partida aparece un pokémon salvaje, repetido, que probabilidad hay de que sea
+                        tipo fuego, agua o planta:
+
+                        <br>
+                        <hr>
+                        Aplicamos el teorema de bayes para cada caso:
+                        <hr>
+                        <br>
+                        1. de que salga un pokemón tipo fuego
+                        <br>
+                        P(T1|R)=<div class="frac">
+                            <span>P(T1)P(R|T1)</span>
+                            <span class="symbol">/</span>
+                            <span class="bottom">P(T1)P(R|T1)+P(T2)P(R|T2)+P(T3)P(R|T3)</span>
+                        </div>
+                        <br>
+                        <br>
+                        P(T1|R)=<div class="frac">
+                            <span>(<tej31-1>0.30</tej31-1>)(<tej31-4>0.1</tej31-4>)</span>
+                            <span class="symbol">/</span>
+                            <span class="bottom">(<tej31-1>0.30</tej31-1>)(<tej31-4>0.1</tej31-4>)(<tej31-2>0.20
+                                </tej31-2>+<tej31-5>0.3</tej31-5>)+(<tej31-3>0.50</tej31-3>)(<tej31-6>0.2</tej31-6>
+                                )</span>
+                        </div>
+                        <br>
+                        <br>
+                        P(T1|R)=<div class="frac">
+                            <span>0.03</span>
+                            <span class="symbol">/</span>
+                            <span class="bottom">
+                                <tej31-7>0.19</tej31-7>
+                            </span>
+                        </div>
+                        <br><b>
+                            P(T1|R)=<tej31-r1>0.158</tej31-r1>=<tej31-r2>15.8</tej31-r2>% (probabilidad de que sea un
+                            pokemón tipo fuego)</b>
+                        <br>
+                        <hr>
+                        2. de que salga un pokemón tipo agua
+                        <br>
+                        P(T1|R)=<div class="frac">
+                            <span>P(T1)P(R|T1)</span>
+                            <span class="symbol">/</span>
+                            <span class="bottom">P(T1)P(R|T1)+P(T2)P(R|T2)+P(T3)P(R|T3)</span>
+                        </div>
+                        <br>
+                        <br>
+                        P(T1|R)=<div class="frac">
+                            <span>(<tej31-2>0.20</tej31-2>)(<tej31-5>0.03</tej31-5>)</span>
+                            <span class="symbol">/</span>
+                            <span class="bottom">
+                                <tej31-7>0.19</tej31-7>
+                            </span>
+                        </div>
+                        <br>
+                        <br><b>
+                            P(T1|R)=<tej31-r3>0.316</tej31-r3>=<tej31-r4>31.6</tej31-r4>% (probabilidad de que sea un
+                            pokemón tipo agua)</b>
+                        <hr>
+                        3. de que salga un pokemón tipo planta
+                        <br>
+                        P(T1|R)=<div class="frac">
+                            <span>P(T1)P(R|T1)</span>
+                            <span class="symbol">/</span>
+                            <span class="bottom">P(T1)P(R|T1)+P(T2)P(R|T2)+P(T3)P(R|T3)</span>
+                        </div>
+                        <br>
+                        <br>
+                        P(T1|R)=<div class="frac">
+                            <span>(<tej31-3>0.50</tej31-3>)(<tej31-6>0.02</tej31-6>)</span>
+                            <span class="symbol">/</span>
+                            <span class="bottom">
+                                <tej31-7>0.19</tej31-7>
+                            </span>
+                        </div>
+                        <br>
+                        <br><b>
+                            P(T1|R)=<tej31-r5>0.526</tej31-r5>=<tej31-r6>52.6</tej31-r6>% (probabilidad de que sea un
+                            pokemón tipo agua)</b>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo13">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo32">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Teorema de bayes - ejemplo 2</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        <p>
+                            Adaptado del ejercicio 2.101 propuesto por Ronald E. Walpole,Raymond H. Myers,Sharon L.
+                            Myers,Keying Ye (2007). Probabilidad y estadística
+                            para ingeniería y ciencias(8 Ed.) Mexico: editorial pearson. (pag 72).</p>
+                        <hr>
+                        <p>
+                            El consumo de redes sociales actualmente está difundido por todo el globo terráqueo, la
+                            siguiente tabla muestra la cantidad de miles de personas que se conectan a diferentes redes
+                            en 1
+                            hora en tres diferentes paises:
+                        </p>
+                        <table class="table table-striped">
+
+                            <tr class="thead-dark">
+                                <th>
+                                    País
+                                </th>
+                                <th>
+                                    A
+                                </th>
+                                <th>
+                                    B
+                                </th>
+                                <th>
+                                    C
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Twitter
+                                </td>
+                                <td>
+                                    2
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Instagram
+                                </td>
+                                <td>
+                                    4
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                    2
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    snapchat
+                                </td>
+                                <td>
+                                    6
+                                </td>
+                                <td>
+                                    4
+                                </td>
+                                <td>
+                                    2
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    facebook
+                                </td>
+                                <td>
+                                    7
+                                </td>
+                                <td>
+                                    5
+                                </td>
+                                <td>
+                                    5
+                                </td>
+                            </tr>
+                        </table>
+
+                        <p>
+                            ¿Cuál es la probabilidad de que una persona que usa la red social “facebook” provenga del
+                            país C?.
+                        </p>
+                        <br>
+                        <p>
+                            Total de personas=36 mil
+                        </p>
+                        <br>
+                        <p>
+                            Total de personas que usan Facebook = 17 mil
+                        </p>
+                        <br>
+                        <p>
+                            P(F)=17/36
+                        </p>
+                        <br>
+                        <h2>Solución</h2>
+                        <img src="../img/arbolej32.png">
+                        <br>
+                        <b>
+                            P(F|C)=<div class="frac">
+                                <span>
+                                    P(D)xP(C|F)
+                                </span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">P(F)xP(A|F)+P(F)xP(B|F)+P(F)xP(C|F)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(F|C)=<div class="frac">
+                                <span>
+                                    (10/36)x(5/10)
+                                </span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">(17/36)x(2/18)+(13/36)x(5/13)+(10/36)x(5/10)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(F|C)=<div class="frac">
+                                <span>
+                                    45
+                                </span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">107</span>
+                            </div>
+                        </b>
+                        <b>
+                            P(F|C)=0.42 = 42%
+                        </b>
+                        <hr>
+                        <h3>Conclusión</h3>
+                        <p>
+                            La probabilidad de que una persona de la ciudad C use la red social “Facebook” es de 42%
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo13">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo33">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Teorema de bayes - ejemplo 3</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        <p>
+                            Fuente: Autor</p>
+                        <hr>
+                        <p>
+                            Ya llego la navidad y en el polo norte Papá Noel está pensando en la cantidad de juguetes
+                            que le va a tocar entregar este año, ya está bastante viejo y se le ocurre la idea de mandar
+                            a hacer los juguetes a diferentes fábricas para así apoyar más la
+                            economía.
+                        </p>
+                        <br>
+                        <p> Averiguando en las diferentes fábricas encontró tres que le llamaron la atención
+                            por su rapidez y eficacia, cada una de estas tenía un porcentaje de riesgo
+                            de 1%, 2% y 3% de que saliera defectuoso algún juguete.
+                        </p>
+                        <p> Viendo esto Papá Noel manda a hacer
+                            300 juguetes, 100 de cada fábrica y desafortunadamente el dia de la entrega un elfo mezcla
+                            todos los regalos por error, Papá Noel saca un juguete al azar y ve que está defectuoso,
+                            seguido de esto se enoja y despide al elfo.
+                        </p>
+                        <br>
+                        <p>
+                            ¿Cual es la probabilidad de que el juguete elegido por Papa Noel fuera sea de la primera
+                            fábrica?
+                        </p>
+                        <br>
+                        <hr>
+                        <h2>Solución</h2>
+                        <p>
+                            1. Realizaremos un diagrama de árbol para ver mejor el problema, tendremos las fábricas de
+                            juguetes como A,B Y C y los juguetes como D para los defectuoso y ND para los no defectuosos
+                        </p>
+                        <br>
+                        <img src="../img/arbolej33.png">
+                        <br>
+                        <p>2. Utilizamos ahora la fórmula de Bayes </p>
+                        <br>
+                        <b>
+                            P(A|D)=<div class="frac">
+                                <span>
+                                    P(A)xP(D|A)
+                                </span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">P(A)xP(D|A)+P(B)xP(D|B)+P(C)xP(D|C)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(F|C)=<div class="frac">
+                                <span>
+                                    (100/300)x(1/100)
+                                </span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">(100/300)x(1/100)+(100/300)x(2/100)+(100/300)x(3/100)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(F|C)=<div class="frac">
+                                <span>
+                                    1
+                                </span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">6</span>
+                            </div>
+                        </b>
+                        <b>
+                            P(F|C)=0.1667 = 16.67%
+                        </b>
+                        <hr>
+                        <h3>Conclusión</h3>
+                        <p>
+                            La probabilidad de que el juguete defectuoso fuera de la primera fabrica es de 16.67%
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo13">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo34">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Teorema de bayes - ejemplo 4</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        <p>
+                            Fuente: Autor</p>
+                        <hr>
+                        <p>
+                            En una universidad se ha estado haciendo una prueba de conocimientos debido a que un 12% del
+                            grupo estudiantil no estudia en todo el semestre, esta prueba es sobre varias áreas
+                            incluidas matemáticas, Ciencias Políticas, Idioma etc….
+                        </p>
+                        <br>
+                        <p>
+                            hasta hace unos días se pensaba que
+                            la prueba era efectiva para saber quien estudiaba y quien no, se hicieron varios estudios y
+                            resulto que no es 100% efectiva, al parecer el 90% que no aprueban el examen efectivamente
+                            no habían estudiado en todo el semestre, pero había un 5% de estudiantes perdían a pesar de
+                            haber estudiado mucho.
+
+                        </p>
+                        <p>
+                            ¿Cual es la probabilidad de que Alejandro habiendo estudiado todo el semestre pierda
+                            igualmente la prueba?
+                        </p>
+                        <br>
+                        <hr>
+                        <h2>Solución</h2>
+                        <p>
+                            1. Utilizaremos un diagrama de árbol para ilustrar el problema tomando como E a los
+                            estudiantes que no estudian, E como los estudiantes que estudian, P como los estudiantes que
+                            pierden y NP como los estudiantes que no pierden.
+
+                        </p>
+                        <img src="../img/arbolej34.png">
+                        <br>
+                        <p>2. Utilizamos ahora la fórmula de Bayes </p>
+                        <br>
+                        <b>
+                            P(E|P)=<div class="frac">
+                                <span>
+                                    P(E)xP(P|E)
+                                </span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">P(E)xP(P|E)+P(NE)xP(P|NE)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(F|C)=<div class="frac">
+                                <span>
+                                    (88/100)x(5/100)
+                                </span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">(88/100)*(5/100)+(12/100)(90/100)</span>
+                            </div>
+                        </b>
+                        <br>
+                        <b>
+                            P(F|C)=<div class="frac">
+                                <span>
+                                    11
+                                </span>
+                                <span class="symbol">/</span>
+                                <span class="bottom">38</span>
+                            </div>
+                        </b>
+                        <b>
+                            P(F|C)=0.2895 = 28.95%
+                        </b>
+                        <hr>
+                        <h3>Conclusión</h3>
+                        <p>
+                            La probabilidad de que Alejandro pierda la prueba habiendo estudiado es de 28.95%.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo13">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<footer class="page-footer font-small blue">
+
+        <div class="footer-copyright text-center py-3">
+            <b>© 2020 Carlos Lopez</b>
+
+        </div>
+
+    </footer>-->
+
+    <script src="../js/jQuery.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/blogs.js"></script>
+    <script src="../Vtree/d3.js" charset="utf-8"></script>
+    <script src="../Vtree/dist/vtree.js"></script>
+    <script>
+        function calculoEj11() {
+            $("res11-1")[0].textContent = (Number($("tej11-3")[0].textContent) / Number($("tej11-1")[0].textContent)).toFixed(2);
+        }
+
+        function calculoEj21() {
+            if ((Number($("tej21-1")[0].textContent) + Number($("tej21-2")[0].textContent) + Number($("tej21-3")[0].textContent)).toFixed(2) != 1) {
+                alert("la suma de los campos debe ser 100%");
+            } else {
+                var res = 0;
+                for (var i = 1; i <= 3; i++) {
+                    res += Number($("tej21-" + i)[0].textContent) * Number($("tej21-" + (i + 3))[0].textContent);
+                }
+                $("tej21-r1")[0].textContent = res;
+                $("tej21-r2")[0].textContent = (res * 100);
+            }
+
+        }
+
+        function calculoEj31(container) {
+            if ((Number($("tej31-1")[0].textContent) + Number($("tej31-2")[0].textContent) + Number($("tej31-3")[0].textContent)).toFixed(2) != 1) {
+                alert("la suma de los campos debe ser 100%");
+            } else {
+                var probTotal = 0;
+                for (var i = 1; i <= 3; i++) {
+                    probTotal += Number($("tej31-" + i)[0].textContent) * Number($("tej31-" + (i + 3))[0].textContent);
+                }
+                $("tej31-7")[0].textContent = probTotal;
+                $("tej31-r1")[0].textContent = (Number($("tej31-1")[0].textContent) * Number($("tej31-4")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r2")[0].textContent = (Number($("tej31-1")[0].textContent) * Number($("tej31-4")[0].textContent) / probTotal).toFixed(3) * 100;
+                $("tej31-r3")[0].textContent = (Number($("tej31-2")[0].textContent) * Number($("tej31-5")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r4")[0].textContent = (Number($("tej31-2")[0].textContent) * Number($("tej31-5")[0].textContent) / probTotal).toFixed(3) * 100;
+                $("tej31-r5")[0].textContent = (Number($("tej31-3")[0].textContent) * Number($("tej31-6")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r6")[0].textContent = (Number($("tej31-3")[0].textContent) * Number($("tej31-6")[0].textContent) / probTotal).toFixed(3) * 100;
+            }
+        }
+
+        function treeeee(cnt) {
+            document.getElementById(cnt).innerHTML = "";
+            var container = document.getElementById(cnt);
+            vt = new VTree(container);
+            var reader = new VTree.reader.Object();
+            var jsonData = JSON.parse(`[
+    {
+        "": "P",
+        " ": {
+            "A": "50/100",
+            "": {
+                "R": "0.1/100"
+            },
+            " ": {
+                "NR": "99.9/100"
+            }
+        },
+        "  ": {
+            "B": "30/100",
+            "": {
+                "R": "0.5/100"
+            },
+            " ": {
+                "NR": "99.5/100"
+            }
+        },
+        "   ": {
+            "C": "20/100",
+            "": {
+                "R": "1/100"
+            },
+            " ": {
+                "NR": "99/100"
+            }
+        }
+    }
+]`);
+            var data = reader.read(jsonData);
+            vt.data(data)
+                .update();
+            setTimeout(() => {
+                document.getElementsByClassName("vtree-root")[0].children[0].outerHTML = document.getElementsByClassName("vtree-root")[0].children[0].outerHTML.replace(/(translate)+[(]+[\d]+[\,]+[\d]+[)]/, "translate(260,100)");
+            }, 1500);
+        }
+
+        function draw(container) {
+            setTimeout(() => {
+                //https://github.com/ivan111/vtree
+                treeeee(container);
+            }, 250);
+        }
+
+
+    </script>
+</body>
+
+</html>
