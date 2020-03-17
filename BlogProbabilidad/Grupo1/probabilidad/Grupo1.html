@@ -1,0 +1,1166 @@
+﻿<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Probabilidad</title>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/tema3.css">
+
+<style>
+.frac {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    letter-spacing: 0.001em;
+    text-align: center;
+}
+
+.frac>span {
+    display: block;
+    padding: 0.1em;
+}
+
+.frac span.bottom {
+    border-top: thin solid black;
+}
+
+.frac span.symbol {
+    display: none;
+}
+
+.floating {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    visibility: hidden;
+}
+
+.display-3 decor-min-let.decor-min-let {
+    font-size: 3.5rem;
+}
+
+.grafic {
+    margin: 0 auto;
+    padding: 14px 16px;
+    background: rgb(50, 125, 125, 0.3);
+}
+
+.btn-normalito {
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navMain">
+        <div class="container">
+            <a href="https://bogota.gov.co/"><img width="50" height="50"
+                src="..//img/escudo bogota.svg" alt="" class="logob"></a> <a
+                class="navbar-brand " href="#" onclick="showHome()"><b
+                class="TextColorBackBlack">PROCESOS ESTOCÁSTICOS</b></a> </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown"><a
+                        class="nav-link dropdown-toggle TextColorBackBlack" href="#"
+                        id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"> <b
+                            class="TextColorBackBlack">Probabilidad</b>
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" onclick="goProbabilidad()">Probabilidad</a>
+                            <a class="dropdown-item" href="#" onclick="goEstadistica()">Estadistica</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="goTeoriaNumeros()">Teoria
+                                de numeros</a>
+                        </div></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search"
+                        placeholder="Buscar" aria-label="Search">
+                    <button
+                        class="btn btn-outline-primary my-2 my-sm-0 buscaBotonNoBorder btn-normalito"
+                        onclick="buscar()" type="submit">
+                        <b>Buscar</b>
+                    </button>
+                </form>
+            </div>
+            <a href="https://udistrital.edu.co/"><img width="50" height="50"
+                src="../img/escudo universidad.png" alt="" class="logo"></a>
+        </div>
+    </nav>
+
+    <br />
+
+    <div class="container-fluid contenedor" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+            <div class="col-sm-3 leftCol">
+                <br />
+
+                <ul class="list-group">
+                    <li class="list-group-item itemHover"><a>Procesos
+                            Estocásticos &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(1)" active>
+                                Definición</li>
+                            <li class="list-group-item itemHover" onclick="hider(2)">
+                                Ejemplo</li>
+                        </ul></li>
+                    <li class="list-group-item itemHover"><a>Funciones de
+                            momento &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(3)" active>
+                                Definición</li>
+                            <li class="list-group-item itemHover" onclick="hider(4)">
+                                Ejemplos</li>
+                        </ul></li>
+                    <li class="list-group-item itemHover"><a>Distribución de
+                            Poisson &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(5)">
+                                Definición</li>
+                            <li class="list-group-item itemHover" onclick="hider(6)">
+                                Ejemplos</li>
+                        </ul></li>
+                    <li class="list-group-item itemHover"><a>Martingala &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(7)">
+                                Definición</li>
+
+                        </ul></li>
+
+                </ul>
+
+            </div>
+            <div class="col-sm-9 rigthCol">
+                <div class="container">
+                    <br />
+                    <div class="row" id="home">
+                        <div class="col-sm-12">
+                            <div id="pageContent">
+                                <center>
+                                    <h1 class="display-3 decor-min-let">
+                                        <b>¿Qué son los procesos estocásticos?</b>
+                                    </h1>
+                                    <hr>
+                                    <p>La teoría de los procesos estocásticos se centra en el
+                                        estudio y modelización de sistemas que evolucionan a lo largo
+                                        del tiempo, o del espacio, de acuerdo a unas leyes
+                                        nodeterminísticas, esto es, de carácter aleatorio.</p>
+                                    <p>La forma habitual de describir la evolución del sistema
+                                        es mediante sucesiones o colec-ciones de variables aleatorias.
+                                        De esta manera, se puede estudiar cómo evoluciona unav.a.a lo
+                                        largo del tiempo. Por ejemplo, el número de personas que
+                                        espera ante una ventanilla de un banco en un instantetde
+                                        tiempo; el precio de las acciones de una empresa a lolargo de
+                                        un año; el número de parados en el sector de Hostelería a lo
+                                        largo de un año. La primera idea básica es identificar un
+                                        proceso estocástico con una sucesión dev.a.{Xn,n∈N}donde el
+                                        subíndice indica el instante de tiempo (o espacio)
+                                        correspondiente.</p>
+                                    <p>Esta idea inicial se puede generalizar fácilmente,
+                                        permitiendo que los instantes de tiempo en los que se definen
+                                        las v.a. sean continuos. Así, se podrá hablar de una colección
+                                        ofamilia dev.a.{Xt,t∈R}, que da una idea más exacta de lo que
+                                        es un proceso estocástico.</p>
+                                    <p>Se tenía que una v.a. X(s)es una función que va desde un
+                                        espacio muestral Sala recta real, de manera que a cada puntos
+                                        ∈S del espacio muestral se le puede asociar unnúmero de la
+                                        recta real. De este modo, la probabilidad de cada suceso deSse
+                                        puede trasladar a la probabilidad de que un valor de X (v.a.)
+                                        caiga en un cierto intervalo o conjunto de números reales. Si
+                                        a todo esto se le añade una dimensión temporal, se obtiene un
+                                        proceso estocástico.
+                                </center>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" id="tema1">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">
+                                <b>Procesos Estocasticos</b>
+                            </h1>
+                            <p>Un proceso estocástico es un concepto matemático que sirve
+                                para usar magnitudes aleatorias que varían con el tiempo o para
+                                caracterizar una sucesión de variables aleatorias (estocásticas)
+                                que evolucionan en función de otra variable, generalmente el
+                                tiempo.​ Cada una de las variables aleatorias del proceso tiene
+                                su propia función de distribución de probabilidad y pueden o no
+                                estar correlacionadas entre sí.</p>
+                            <hr>
+
+                            <h2>
+                                <b>Ejemplo</b>
+                                </h1>
+                                <hr>
+                                <p>Supongamos que se estudia el número de personas que
+                                    asisten al médico en cierto hospital, en un intervalo de tiempo
+                                    determinado, digamos una hora, se puede estudiar el
+                                    comportamiento de llegadas mediante la definición de la
+                                    variable aleatoria “Número de personas que llegan al
+                                    consultorio”. Ahora si en vez de una hora, consideramos dos, es
+                                    claro que el número de llegadas tiende a ser mayor y por
+                                    resultante, la distribución de probabilidad de esta nueva
+                                    variable aleatoria será distinta a la anterior.
+                                <p>
+                                    Esto nos permite decir que, para cada tiempo, se tendrá una
+                                    nueva variable aleatoria, generalmente distinta, una forma muy
+                                    natural de controlar nuestro estudio, es definiendo una familia
+                                    de variables aleatorias, las cuales dependen de una variable
+                                    que es el tiempo. En situaciones como esta, decimos que estamos
+                                    trabajando con un proceso estocástico. Para este caso:
+                                    Definimos el proceso estocástico <b>X(t)</b> como el número de
+                                    personas que llegan en el intervalo <b>(0, t)</b>. El resultado
+                                    puede variar dependiendo del tiempo, por lo que queda definido
+                                    como <b>X(t): t ∈ T</b>, donde T representa al tiempo.
+                                </p>
+
+                                <p>
+                                    Un proceso estocástico es un sistema que nos permite darle
+                                    seguimiento a un fenómeno aleatorio a través del tiempo. La
+                                    sucesión <b>{Xt(ω): t ∈ T, ω ∈ Ω} </b>es un proceso estocástico
+                                    si, para cada <b>t ∈ T, Xt(ω)</b> es una variable aleatoria.
+                                    Cada valor obtenido mediante la variable aleatoria definida,
+                                    nos dará información de lo que sucede con el fenómeno aleatorio
+                                    conforme transcurre el tiempo. A cada valor posible se le llama
+                                    un estado y a los distintos cambios de un estado a otro. Si <b>T
+                                        = {1, 2, ...}</b>, el proceso estocástico <b>Xt, t ∈ T </b>es
+                                    justamente una sucesión de variables aleatorias y, en tal caso,
+                                    hablamos de un proceso estocástico de tiempo discreto. Cuando T
+                                    es un conjunto continuo (un intervalo), hablamos de un proceso
+                                    estocástico de tiempo continuo. Al conjunto T se le llama el
+                                    conjunto índice o espacio del parámetro a <b>Xt(ω) o X(t) o
+                                        Xt</b>, como el estado del proceso en el tiempo t, y los cambios
+                                    en el valor de X(t) reciben el nombre de transiciones entre sus
+                                    estados. al conjunto de todos los valores posibles que las
+                                    variables aleatorias X(t) pueden asumir, se les llama espacio
+                                    de estados.
+                                </p>
+
+
+
+                                <b>Ejemplos de casos cotidianos:</b>
+                                <hr>
+
+                                <ul>
+
+
+                                    <li>X(t) puede ser el número de aprobados en el curso
+                                        Probabilidad en el tiempo t</li>
+                                    <li>X(t) puede ser igual al número total de clientes que
+                                        han entrado al supermercado en el tiempo t</li>
+                                    <li>X(t) puede ser el tiempo que debe transcurrir antes de
+                                        que un jugador pierda todo su capital.</li>
+                                </ul>
+                                <p>
+                                <hr>
+
+                                <button class="btn btn-dark my-2 my-sm-0" onclick="hider(2)">
+                                    <b style="font-size: larger;">Siguiente: Ejemplo &rarr; </b>
+                                </button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema2">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">
+                                <b>Ejemplos procesos estocásticos</b>
+                            </h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#ejemplo11">
+                                        <b style="font-size: larger;">Ejemplo 1 &rarr;</b>
+                                    </button>
+
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)">
+                                <b style="font-size: larger;">&larr; Anterior: Definición </b>
+                            </button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)">
+                                <b style="font-size: larger;">Siguiente: Funciones de
+                                    momento &rarr; </b>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema3">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">
+                                <b>Funciones de momento</b>
+                            </h1>
+                            <br />
+                            <h2>
+                                <b>Definición:</b>
+                            </h2>
+                            <p>Las funciones de momento son obtenidas a partir de los
+                                momentos de las variables involucradas y sirven para conocer su
+                                comportamiento. La función media es una de las funciones de
+                                momento más importantes y está definida como:</p>
+
+                            <img src="../img/Capture1.PNG">
+
+                            <hr>
+
+                            <p>Para su obtención se tiene en cuenta el tipo de variables
+                                del proceso Estocástico. Existen dos tipos de casos de funciones
+                                de momento El caso discreto que se define como:</p>
+                            <img src="../img/Capture2.PNG">
+
+                            <p>El caso continuo que se define como:</p>
+
+                            <img src="../img/Capture3.PNG">
+
+                            <p>La función de autocorrelación(R) es otra función de
+                                momento y se deﬁne a partir del momento conjunto de dos
+                                variables asociadas a dos tiempos cualesquiera (t1,t2):</p>
+
+                            <img src="../img/Capture4.PNG">
+
+                            <p>El caso discreto que se define como:</p>
+
+                            <img src="../img/Capture5.PNG">
+
+                            <p>El caso continuo que se define como:</p>
+
+                            <img src="../img/Capture6.PNG"> <br />
+
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)">
+                                <b style="font-size: larger;">&larr; Anterior: Procesos
+                                    Estocásticos </b>
+                            </button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)">
+                                <b style="font-size: larger;">Siguiente: Ejemplos &rarr; </b>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema4">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">
+                                <b>Ejemplos de Funciones de Momento</b>
+                            </h1>
+                            <br />
+                            <h2>
+                                <b>Ejemplos:</b>
+                            </h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#ejemplo21">
+                                        <b>Ejemplo 1</b><b></b>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)">
+                                <b style="font-size: larger;">&larr; Anterior: Definición </b>
+                            </button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)">
+                                <b style="font-size: larger;">Siguiente: Distribución de
+                                    Poisson &rarr; </b>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema5">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let">
+                                <b>Distribución de Poisson</b>
+                            </h1>
+                            <br>
+                            <h2>
+                                <b>Definici&oacute;n:</b>
+                            </h2>
+                            <br>
+                            <div>
+                                <p>La distribución de Poisson se utiliza como modelo
+                                    probabilísticos apropiado para un gran número de fenómenos
+                                    aleatorios. La distribución de Poisson es importante ya que
+                                    tiene muchos casos de uso. Ejemplo, la llegada de pasajeros de
+                                    un aeropuerto o estación de trenes o autobuses. La distribución
+                                    de Poisson se usa en ocasiones para aproximar la distribución
+                                    binomial. Se usan con respecto a las siguientes condiciones:</p>
+                                <p>n >= 100</p>
+                                <p>np <= 10</p>
+                                <p>Una variable aleatoria X tiene distribución de Poisson de
+                                    parámetro λ > 0 si toma valores en el conjunto {0, 1, 2, . . .
+                                    }, con probabilidad dada por:</p>
+
+                                <img src="../img/Capture15.PNG">
+
+                                <hr>
+                                <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)">
+                                    <b style="font-size: larger;">&larr; Anterior: Martingala</b>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="tema6">
+                        <div class="col-lg-12">
+                            <h1 class="display-3 decor-min-let"><b>Ejemplos de
+                                Distribuci&oacute;n de Poisson</b></h1>
+                            <br />
+                            <h2><b>Ejemplos:</b></h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#ejemplo31">
+                                        <b style="font-size: larger;">Ejemplo 1 &rarr;</b>
+                                    </button>
+                                    <button class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#ejemplo32">
+                                        <b></b>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)">
+                                <b style="font-size: larger;">&larr; Anterior:
+                                    Definici&oacute;n </b>
+                            </button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)">
+                                <b style="font-size: larger;">Siguiente: Martingala &rarr; </b>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row" class="mart" id="tema7">
+                        <div class="col-lg-12">
+                            <h1 class="title">Martingala</h1>
+                            <hr>
+
+
+                            <p>Es un tipo de procesos estocásticos, su nombre proviene de
+                                la estrategia de la martingala, una forma de apostar del siglo
+                                XVIII. Consiste en volver a apostar por el total perdido al
+                                momento de incurrir en una pérdida en un juego de azar. En la
+                                nueva apuesta, ya que es posible que el jugador pueda recobrar
+                                todas sus pérdidas Estadísticamente el capital medio del jugador
+                                se mantiene constante.</p>
+                            <p>El problema reside en que, al cabo de unos pocos ciclos de
+                                apuestas, el jugador se ve arruinado al ser incapaz de apostar
+                                de nuevo por el total de sus pérdidas. Debido a la estrategia de
+                                la martingala es una de las razones por las que los casinos
+                                establecen límites máximos al apostar.</p>
+                            <p>
+                                Sea un espacio de probabilidad definido por <b>( Ω , F , P )</b>
+                                donde Ω es el espacio de muestra (esto es, el conjunto de todos
+                                los posibles resultados de un experimento aleatorio); F es la
+                                σ-álgebra asociada a Ω , y P es la medida de probabilidad. Sea F
+                                una filtración de <b>σ F 1 ⊂ F 2 ⊂ … ⊂ F T ⊆ F. Sea { X ( t
+                                    ) } = X 1 , X 2 , … , X n></b> una sucesión de variables aleatorias
+                                que forman un proceso estocástico. Entonces, el proceso
+                                estocástico<b> { X ( t ) , t ≥ 0 }</b> adaptado a la filtración
+                                F recibe el nombre de martingala si <b>E ( X ( t ) | F s ) =
+                                    X ( s )</b> donde E es la esperanza matemática, y donde F es
+                                cualquier sub-σ-álgebra de la filtración.
+                            </p>
+                            <p>
+                                <b>Ejemplos (Adaptados de “Cimat, Mexico, (2010), Esperanza
+                                    condicional y Martingalas, MaterialDidactico – pag. 79”).</b> 1.Sea
+                                {Yn, n≥1} una sucesión de v.a.i. con media 0 y sea <b>Xn=
+                                    ∑nk = 1 Y k,n≥1 con Y0=X0=0.</b> Sea <b>Fn = σ(Y0, Y1, . . . ,
+                                    Yn) = σ(X0, X1, . . . , Xn), n≥0. </b>Entonces <b>{(Xn,Fn),
+                                    n≥1}</b> es una martingala y <b>{(Yn,Fn), n≥1}</b> es una sucesión
+                                de diferencias demartingala: <b>E(Xn+1|Fn) = E(Xn+Yn+1|Fn)
+                                    =Xn+ E(Yn+1|Fn) = Xn.</b> 2.Sean X∈L1 y {Fn, n≥0} una filtración.
+                                Paran ≥0 definimos: Xn= E(X|Fn) Entonces <b>{(Xn,Fn), n≥1}</b>
+                                es una martingala: <b>E(Xn+1|Fn) = E(E(X|Fn+1)|Fn) = E(X|Fn)
+                                    =Xn.</b>
+                            </p>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)">
+                                <b style="font-size: larger;">&larr; Anterior: Distribución
+                                    de Poisson</b>
+                            </button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div id="modals">
+        <div class="modal" id="ejemplo11">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Procesos Estocásticos - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body"
+                        style="overflow: auto; font-weight: normal;">
+                        <b>Ejemplo práctico</b>
+                        </p>
+
+                        <p>¿Cuál es el espacio de estados y el conjunto índice para un
+                            proceso estocástico(X(t)) que representa el posible marcador
+                            durante un partido de fútbol?
+                        <p>
+                            Solución: <b>S = {(x,y): x, y = 0, 1, 2, ...} T = (0,90)</b>
+                        </p>
+                        <p>Con cada gol, puede hacer que x ó y se incrementen en uno,
+                            de donde, el marcador (x,y) pasa a (x+1,y) o a (x,y+1). S es el
+                            conjunto de valores posibles que puede tomar el posible
+                            marcador(espacio de estados) T es el espacio del parámetro El
+                            proceso se inicia en el estado (0,0) y habrá transiciones entre
+                            los distintos estados, siempre que sea anotado un gol.</p>
+
+
+                        <img src="../img/futbol.jpg" height="300" width="700">
+
+
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"
+                            data-toggle="modal" data-target="#ejemplo11">Ejemplo 1</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <div class="floating">
+                <br> <br>
+
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo21">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Funciones de Momento - ejemplo 1</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto; font-weight: normal;">
+
+                    <p>
+                        <b>Ejercicio (Adaptado del ejemplo resuelto por Bernardo
+                            D’Auria (2020), del departamento de Estadística. Ejercicios de
+                            Procesos Estocásticos. Madrid: Universidad Carlos III de Madrid.
+                            (p.3)). </b>1.Definir y calcular la función media de la variable
+                        aleatoria X(t). Se tiene en cuenta una oscilación aleatoria tal
+                        como:
+                    </p>
+
+                    <img src="../img/Capture7.PNG">
+
+                    <p>Se define que f es una constante Real, φ es una variable
+                        aleatoria uniforme en el intervalo:</p>
+
+                    <img src="../img/Capture8.PNG">
+
+                    <p>B es una variable Aleatoria discreta y no depende de φ, la
+                        variable independiente es t P es probabilidad, se definen los
+                        valores p y q:
+                    <ul>
+                        <li>P (B=0) = p</li>
+                        <li>P (B=1) = q</li>
+                    </ul>
+
+                    </p>
+
+                    <p>
+                        <b>Solución:</b>
+                    </p>
+                    <img src="../img/Capture9.PNG">
+
+                    <hr>
+
+
+
+                    <p>
+                        <b>Ejercicio (Adaptado del problema propuesto por Bernardo
+                            D’Auria del departamento de Estadística. Ejercicios de Procesos
+                            Estocásticos, Universidad Carlos III de Madrid (p.9)) </b> 2.Se tiene
+                        un sistema de comunicación que utiliza la siguiente señal
+                        aleatoria:
+                    </p>
+                    <img src="../img/Capture10.PNG">
+
+                    <p>donde Φ∼U [0,2π] y la función de masa del vector aleatorio
+                        (A, B) es:</p>
+
+                    <img src="../img/Capture11.PNG">
+
+                    <p>Calcular: a) La media del proceso Y(t) b) La autocorrelación
+                        del proceso Y(t)
+                    <hr>
+                    Solución:
+                    </p>
+
+                    <img src="../img/Capture12.PNG">
+
+
+                    <p>a) La media del proceso Y(t): Utilizando la fórmula general:
+                    </p>
+
+                    <img src="../img/Capture13.PNG">
+
+                    <p>b)La autocorrelación del proceso Y(t):</p>
+
+                    <img src="../img/Capture14.PNG">
+
+
+
+
+
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        data-toggle="modal" data-target="#ejemplo21">Ejemplo 1</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <div class="modal-footer"></div>
+
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo31" onmouseover="calculoEj31();">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Distribución de Poisson - ejemplo 1</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto; font-weight: normal;">
+                    <p>
+                        <b>Ejemplos adaptados del libro (“Métodos cuantitativos y
+                            Simulación” - Jose Jesus Angel Angel) : </b> <b>1. </b> Un cable
+                        submarino tiene defectos de acuerdo a un proceso de Poisson de
+                        parámetro λ = 0.1 por km. (a) ¿Cuál es la probabilidad de que no
+                        haya defectos en los primeros dos kilómetros de cable? (b) Si no
+                        hay defectos en los primeros dos kilómetros ¿Cuál es la
+                        probabilidad de que tampoco los haya en el tercer km?
+
+                    </p>
+                    <hr>
+                    <p>
+                        <b>Solución:</b>
+                    <p>a. N(2) tiene distribución de Poisson de parámetro (0.1)(2)
+                        = 0.2. Por lo tanto: P(N(2)=)= e^(-0.2) = 0.8187 b. N(3) - N(2) y
+                        N(2) - N(0) = N(2) son independientes, de modo que:
+
+                        P(N(3)-N(2)=0|N(2)=0) = P(N(3)-N(2)=0) = e^(-0.1) = 0.9048</p>
+
+
+
+
+
+                    <hr>
+                    <p>
+                        <b>2.</b>Los clientes llegan a una tienda de acuerdo con un
+                        proceso de Poisson de tasa λ = 4 por hora.. Si la tienda abre a
+                        las 9 a.m. ¿Cuál es la probabilidad de que exactamente un cliente
+                        haya entrado antes de las 9:30 a.m. y que un total de cinco hayan
+                        entrado antes de las 11:30 a.m.
+                    </p>
+
+                    <img src="../img/store.jpg" height="400" width="700">
+
+
+                    <hr>
+                    <b>Solución:</b>
+                    <hr>
+
+                    <p>Medimos el tiempo t en horas a partir de las 9 a.m. Queremos
+                        hallar P(N(½) = 1, N(5/2) =5) y para esto usaremos la
+                        independencia de los incrementos:</p>
+                    </p>
+
+                    <img src="../img/Capture16.PNG">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        data-toggle="modal"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="modal" id="ejemplo32">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto; font-weight: normal;">
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo33">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Binomial</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 3 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!CI57%3ACX75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo51">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Hipergeometrica</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 1 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!B2%3AQ30&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="modal" id="ejemplo21">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Bernoulli</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 1 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BA2%3ABP30&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo22">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Bernoulli</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 2 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BA33%3ABP54&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo23">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Bernoulli</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 3 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BA57%3ABP75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        data-toggle="modal"></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo11">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Distribucion uniforme</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 1 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BR2%3ACG30&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        data-toggle="modal"></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo12">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Distribucion uniforme</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 2 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BR33%3ACG54&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo13">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Distribucion uniforme</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 3 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!BR57%3ACG75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo61">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Binomial Negativa</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 1 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!AJ2%3AAY30&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        data-toggle="modal"></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo62">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Binomial Negativa</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 2 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!AJ33%3AAY54&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal" id="ejemplo63">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Binomial Negativa</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="overflow: auto;">
+                    Ejemplo 3 - Fuente: <i> Autor</i>
+                    <hr>
+                    <iframe width="100%" height="486" frameborder="0" scrolling="no"
+                        src="https://onedrive.live.com/embed?resid=70227D8CC1C7436B%2113691&authkey=%21APM5KKLgEtUC8to&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Hoja1'!AJ57%3AAY75&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        data-toggle="modal"></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!--<footer class="page-footer font-small blue">
+        <div class="footer-copyright text-center py-3">
+            <b>© 2020 Carlos Lopez</b>
+        </div>
+    </footer>-->
+
+    <script src="../js/jQuery.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/blogs.js"></script>
+
+    <script>
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        function factorial (n) {
+            if (n == 0){
+                return 1;
+            }
+            return n * factorial (n-1);
+        }
+        function calculoEj11() {
+            $("res11-1")[0].textContent = (Number($("tej11-3")[0].textContent) / Number($("tej11-1")[0].textContent)).toFixed(2);
+        }
+        function drawLine(ctx, startX, startY, endX, endY,color){
+            ctx.save();
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.moveTo(startX,startY);
+            ctx.lineTo(endX,endY);
+            ctx.stroke();
+            ctx.restore();
+        }
+        function drawEjes(ctx, canv, color){
+        drawLine(
+            ctx,
+            0,
+            canv.height,
+            canv.width,
+            canv.height,
+            color
+        );
+        drawLine(
+            ctx,
+            0,
+            canv.height,
+            0,
+            0,
+            color
+        );
+        }
+        function calculoEj21() {
+            if ((Number($("tej21-1")[0].textContent) + Number($("tej21-2")[0].textContent) + Number($("tej21-3")[0].textContent)).toFixed(2) != 1) {
+                alert("la suma de los campos debe ser 100%");
+            } else {
+                var res = 0;
+                for (var i = 1; i <= 3; i++) {
+                    res += Number($("tej21-" + i)[0].textContent) * Number($("tej21-" + (i + 3))[0].textContent);
+                }
+                $("tej21-r1")[0].textContent = res;
+                $("tej21-r2")[0].textContent = (res * 100);
+            }
+
+        }
+    function calcularBinomio(p, n, x){
+        return ((factorial(n)/(factorial(x)*(factorial(n-x))))*(Math.pow(p,x))*(Math.pow(1-p,n-x))).toString();
+    }
+    function calculoEj31(){
+        var tej311=document.getElementById("tej31-1");
+        var tej312=document.getElementById("tej31-2");
+        var tej313=document.getElementById("tej31-3");
+        var soltej31=document.getElementById("sol-tej31");
+        if (parseInt(tej311.value) > 100 || parseInt(tej311.value)<0) {
+        alert("la probabilidad de reprobar el curso debe ser menor a 100% pero mayor al 0%");
+        tej311.value=30;
+        }
+        if (parseInt(tej312.value) > 40 || parseInt(tej312.value)<10) {
+            alert("el numero de estudiantes debe estar entre 10 y 40");
+            tej312.value=20;
+        }
+        if (parseInt(tej313.value) > parseInt(tej312.value) || parseInt(tej313.value)<0) {
+            alert("el numero de estudiantes a calcular debe ser mayor a 0 y menor al numero de muestra");
+            tej313.value=0;
+        }
+        tej313.title="introduzca un numero menor a " + tej312.value + " estudiantes";
+        soltej31.innerHTML="Aplicando la funcion de probabilidad para una distribucion binomial tenemos que:"+
+        "<center>"+
+        "<a href='https://www.codecogs.com/eqnedit.php?latex=P(x="+ tej313.value +")=\\binom{" + tej312.value +
+        "}{" + tej313.value+"}"+ parseFloat(tej311.value/100).toString()+"^{_{"+tej313.value+"}}(1-"+
+        parseFloat(tej311.value/100).toString() +")^{_{"+tej312.value+"-"+tej313.value+"}}' target=_blank'>"+
+        "<img src='https://latex.codecogs.com/gif.latex?P(x="+ tej313.value +")=\\binom{" + tej312.value +
+        "}{" + tej313.value+"}"+ parseFloat(tej311.value/100).toString()+"^{_{"+tej313.value+"}}(1-"+
+        parseFloat(tej311.value/100).toString() +")^{_{"+tej312.value+"-"+tej313.value+"}}'/></a>"+
+        " = " +(calcularBinomio(parseInt(tej311.value)/100,parseInt(tej312.value),parseInt(tej313.value))).toString()+
+        "</center>";
+        var grafej31 = document.getElementById("gra-tej31");
+        grafej31.width = 300;
+        grafej31.height = 300;
+        var funcej31 = grafej31.getContext("2d");
+        drawEjes(funcej31,grafej31,"#ff0000");
+        for (var i = 0; i<parseInt(tej312.value); i++){
+            var col = "#000000";
+            var cordX = grafej31.width/parseInt(tej312.value);
+            if (i==parseInt(tej313.value)){col="#ff0000"}
+            drawLine(
+                funcej31,
+                i*cordX,
+                300,
+                i*cordX,
+                ((1)-calcularBinomio(parseInt(tej311.value)/100,parseInt(tej312.value),i))*grafej31.height*(1),
+                col
+            );
+        }
+        }
+    function calculoEj32(){
+        var tej321=document.getElementById("tej32-1");
+        var tej322=document.getElementById("tej32-2");
+        var soltej32=document.getElementById("sol-tej32");
+        if (parseInt(tej321.value)<20) {
+        alert("El numero de computadores en la sala debe ser superior");
+        tej321.value=24;
+        }
+        if (parseInt(tej322.value) > parseInt(tej321.value) || parseInt(tej322.value)<5){
+            alert("el numero de estudiantes a calcular debe ser mayor a 5 y menor al numero de computadores");
+            tej322.value=20;
+        }
+        tej322.title="Si desea modificar: introduzca un numero entre 5 y" + tej321.value + "estudiantes";
+        document.getElementById("lb32-1").innerHTML=tej322.value;
+        var sol = 0;
+        var grafej321 = document.getElementById("gra-tej32-1");
+        var grafej322 = document.getElementById("gra-tej32-2");
+        grafej321.width = 300;
+        grafej321.height = 300;
+        grafej322.width = 300;
+        grafej322.height = 300;
+        var funcej321 = grafej321.getContext("2d");
+        var funcej322 = grafej322.getContext("2d");
+        drawEjes(funcej321, grafej321, "#ff0000");
+        drawEjes(funcej322, grafej322, "#ff0000");
+        var pTot=0;
+        for (var i = 1; i<parseInt(tej321.value); i++){
+            var col = "#000000";
+            var cordX = grafej322.width/parseInt(tej321.value);
+            var sum = parseFloat(calcularBinomio(12/100,parseInt(tej321.value),i));
+            if (i==parseInt(tej322.value)){col="#ff0000"}
+            drawLine(
+                funcej321,
+                i*cordX,
+                grafej321.height,
+                i*cordX,
+                ((1)-sum)*grafej321.height*(1),
+                col
+            );
+            if (i<=parseInt(tej322.value)){
+                var cordX = grafej322.width/parseInt(tej322.value);
+                sol += (sum);
+                pTot += parseFloat(sum);
+                drawLine(
+                    funcej322,
+                    i*cordX,
+                    grafej322.height,
+                    i*cordX,
+                    (pTot)*grafej322.height*(1),
+                    col
+                );
+            }
+        }
+        sol = 1-sol;
+        soltej32.innerHTML="Aplicando la funcion de probabilidad para una distribucion binomial tenemos que:"+
+        "<center>"+
+        "<a href='https://www.codecogs.com/eqnedit.php?latex=1-P(x<"+ tej322.value +")=1-\\sum_{i=0}^{"+ tej322.value +"}\\binom{" + tej321.value +
+        "}{i}0.12^{_{i}}("+
+        "1-0.12)^{_{"+tej321.value+"-i}}' target=_blank'>"+
+        "<img src='https://latex.codecogs.com/gif.latex?1-P(x<"+ tej322.value +")=1-\\sum_{i=0}^{"+ tej322.value +"}\\binom{" + tej321.value +
+        "}{i}0.12^{_{i}}("+
+        "1-0.12)^{_{"+tej321.value+"-i}}'/></a>"+
+        " = " + sol.toString() +
+        "</center>";
+    }
+    function calculoEj33(){
+        }
+
+
+    </script>
+</body>
+
+</html>
