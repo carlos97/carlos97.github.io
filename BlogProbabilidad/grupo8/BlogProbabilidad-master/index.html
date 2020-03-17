@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.4.1.slim.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/hint.css-2.6.0/hint.min.css">
+    
+    <title>Distribucion Continua</title>
+</head>
+<body>
+  
+  <main class="container-fluid">
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+      
+        <span class="hint hint--bottom-right hint--info hint--large" 
+        data-hint="CO-GESTORES
+        ________________________________
+        Barrero Francisco J. (20172020062).  fjbarreroz@correo.udistrital.edu.co.  
+        ________________________________
+        Fortich Jheisson E. (20172020049). jefortichs@correo.udistrital.edu.co. 
+        ________________________________
+        Gutierrez Oscar C. (20172020031). ocgutierrezv@correo.udistrital.edu.co. 
+        ________________________________
+        Salinas Edwin A. (20172020087). easalinasc@correo.udistrital.edu.co   ">
+        <a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+          <img src="images/logoDistri.png" width="80" height="80" alt="">
+  
+        </a>
+      </span>
+                    
+      
+        
+        <h1 class="titPrin">Distribuciones Continuas</h1>
+        <a class="navbar-brand" href="https://bogota.gov.co/">	
+          <img src="images/distrito1.jpg" width="60" height="60" alt="">
+        </a>
+          <form class="form-inline">
+          <input class="form-control mr-sm-2" id="formulario" placeholder="Search" aria-label="Search">
+          <button class="btn btn-danger my-2 my-sm-0" type="button" id="buscar">Buscar</button>
+          </form>
+    </nav>
+    <div class="row" > 
+      <nav id="tmSidebar" class="tm-bg-black-transparent tm-sidebar">
+        <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+          Temas
+        </button>  
+        
+        <div class="tm-brand-box">
+          <h1 class="tm-brand text-uppercase">
+            
+          </h1>
+        </div>
+        
+        <ul id="tmMainNav" class="nav flex-column text-uppercase text-left tm-main-nav">
+          <li class="nav-item">
+            <a href="#1" class="nav-link active" onclick="desplegar(1)">
+              <span class="d-inline-block mr-3">Funciones de Densidad</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#2" class="nav-link" onclick="desplegar(2)">
+              <span class="d-inline-block mr-3">Distribución Normal</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#3" class="nav-link" onclick="desplegar(3)">
+              <span class="d-inline-block mr-3">Distribución Exponencial</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#4" class="nav-link" onclick="desplegar(4)">
+              <span class="d-inline-block mr-3 ">Distribución Gamma</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#5" class="nav-link" onclick="desplegar(5)">
+              <span class="d-inline-block mr-3">Distribución Chi Cuadrada</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#6" class="nav-link" onclick="desplegar(6)">
+              <span class="d-inline-block mr-3">Distribución Weibull</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#7" class="nav-link" onclick="desplegar(7)">
+              <span class="d-inline-block mr-3">Distribución lognormal</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#8" class="nav-link" onclick="desplegar(8)">
+              <span class="d-inline-block mr-3">Distribución Beta</span>
+            </a>
+          </li>
+        </ul>
+        
+      </nav>
+        
+      <main role="main" class="ml-sm-auto col-12">
+        
+        <div class="tm-section-wrap" id="sect1">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Funciones de Densidad</h2>
+                <h5><b>Ejemplo :</b></h5>
+                <div class="row">
+                  <div class="col">
+                    <p>                      
+                      La cantidad de horas en las que un vehiculo tarda en atravesar una 
+                      autopista de 1 km en un recorrido rectilíneo, esta descrita por la <b>variable aleatoria X</b>, 
+                      con función de densidad:
+                    </p> 
+                    <img src="images/F_Densidad/funDens.jpg" width="250px" height="100px">
+                    
+                        
+                    <span class="hint--top hint--medium" 
+                    data-hint="Ecuación 1. [Formula]. Editado en codeodogs.com"><a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[1]</a></span>
+                    
+                      
+                    <p>
+                      Calcule la probabilidad de que el vehiculo:
+                      
+                    </p>
+                    <p>
+                      <ol type="a">
+                        <li class="subitems">tarde 12 minutos.</li>
+                        <li class="subitems">tarde entre 10 y 20 minutos.</li>
+                      </ol>
+                    </p>
+                    <blockquote> 
+                      <cite>
+                          Adaptado del Ejercicio 3.7 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                          Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.131)
+                      </cite>
+                    </blockquote>  
+                      
+                  </div>
+                  <div class="col">
+                    <img src="images/F_Densidad/Carros.jpg" 
+                    style="max-width: 460px; max-height: 470px;">
+                    <blockquote> 
+                      <cite>
+                        <span class="hint--top hint--medium" 
+                        data-hint="Vehiculos, carretera [Ilustración].Tomado de depositphotos.com"><a href="https://sp.depositphotos.com/category/jewelry-gems.html">[2]</a></span>
+                        
+                      </cite>
+                    </blockquote>
+                    
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de solución</h2>
+                  <ol type="a">
+                    <li>
+                      <ol>
+                        <li>Se plantean las siguientes integrales:</li>
+                        <img src="images/F_Densidad/Paso 1.png" style="margin-bottom: 30px;">
+                        
+                        <li>Evaluar las integrales y operar:</li>
+                        <img src="images/F_Densidad/Paso 2.png" style="margin-bottom: 30px;">
+                        <li>El resultado es: 0.68</li>
+                        <h5 class="resp">Respuesta:</h5>
+                        <p class="conc">La probabilidad de que tarde 12 minutos es de 68%</p>
+                        
+                      </ol>
+                      
+                    </li>
+                    <li>
+                      <ol>
+                        <li>Se plantea la siguiente integral:</li>
+                        <img src="images/F_Densidad/Paso 3.png" style="margin-bottom: 30px;">
+                        <li>Evaluar la integral y operar:</li>
+                        <img src="images/F_Densidad/Paso 4.png" style="margin-bottom: 30px;">
+                        <li>El resultado es: 0.375</li>
+                        <h5 class="resp">Respuesta:</h5>
+                        <p class="conc">La probabilidad de que tarde entre 10 y 20 minutos es de 37.5%</p> 
+                      </ol>
+                      <button type="button" class="btn btn-primary" onclick="ejemp('densidad');">Presione para ir al ejemplo interactivo</button>
+                    </li>
+                  </ol>
+                                   
+              </div>
+            </div>
+            <div class="col-xl-6">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos aplicados en la solución</h2>
+                <ol type="a">
+                  <li>
+                    <ol>
+                      <li>Por definición de distribución de probabilidad:</li>
+                      <img src="images/F_Densidad/DefDist.jpg" style="margin-bottom: 30px;">
+                      
+                      <li>Por Teorema Fundamental del Cálculo para integrales definidas:</li>
+                      <img src="images/F_Densidad/DefInt.png" style="margin-bottom: 90px;"> 
+                       </ol>
+                  </li>
+                  <li>
+                    <ol>
+                      <li>Por definición de distribucion de probabilidad:</li>
+                      <img src="images/F_Densidad/DefDist.jpg" style="margin-bottom: 30px;">
+                      <li>Por Teorema Fundamental del Calculo para integrales definidas:</li>
+                      <img src="images/F_Densidad/DefInt.png" style="margin-bottom: 140px;"> 
+                       </ol>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </section>
+        </div>
+        
+        <div class="tm-section-wrap" id="sect2">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Distribución Normal</h2>
+                <h5><b>Ejemplo :</b></h5>
+                <div class="row">
+                  <div class="col">
+                    <p>                      
+                      Una fabrica de madera reparte soportes a las tiendas locales y tienen una 
+                      longitud promedio de 30 centímetros y una desviación estándar de 2 centímetros. Si se 
+                      supone que las longitudes están distribuidas normalmente, ¿qué porcentaje de las barras son:
+                    </p> 
+                    
+                    <p>
+                      <ol type="a">
+                        <li class="subitems">más largas que 31.7 centímetros? </li>
+                        <li class="subitems">de entre 29.3 y 33.5 centímetros de longitud? </li>
+                        <li class="subitems">más cortas que 25.5 centímetros?</li>
+                      </ol>
+                    </p>
+                    <blockquote> 
+                      <cite>
+                          Adaptado del Ejercicio 6.12 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                          Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.186)
+                      </cite>
+                    </blockquote>  
+                     
+                  </div>
+                  <div class="col">
+                    <img src="images/D_Normal/Metros.jpg" 
+                    style="max-width: 460px; max-height: 470px;">
+                    <blockquote> 
+                      <cite>
+                        <span class="hint--top hint--medium" 
+                        data-hint="Cintas Métricas [Ilustración].Tomado de depositphotos.com"><a href="https://sp.depositphotos.com/category/jewelry-gems.html">[1]</a></span>
+                      </cite>
+                    </blockquote>
+                
+                  </div>
+                </div> 
+              </div>
+            </div>
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de solución</h2>
+                  <ol type="a">
+                    <li>
+                      <ol>
+                        <li>Primero buscamos el porcentaje de barras superior a 31,7 cm, 
+                          por medio de la fórmula de distribución normal estándar donde:</li>
+                        <img src="images/D_Normal/Paso 1.png" style="margin-bottom: 30px; margin-top: 10px;">
+                        <li>Se aplican propiedades de variable aleatoria y se opera:</li>
+                        <img src="images/D_Normal/Paso2.1.png" >
+                        <img src="images/D_Normal/Paso2.2.png" >
+                        <img src="images/D_Normal/Paso2.3.png" ><br>
+                        <img src="images/D_Normal/Paso2.4.png" style="margin-bottom: 30px;">
+                        
+                        <li>El resultado es: 0.1977</li>
+                        <h5 class="resp">Respuesta:</h5>
+                        <p class="conc">La probabilidad de que las barras sean mas largas de 31.7 centimetros es de 19.77%</p>
+                       
+
+                      </ol>
+                    </li>
+                    <li>
+                      <ol>
+                        <li>Del mismo modo determinamos el porcentaje de barras que se encuentran entre 29.3 y 33.5 cm:</li>
+                        <img src="images/D_Normal/Paso3.png" style="margin-bottom: 30px; margin-top: 10px;">
+                        <img src="images/D_Normal/Paso5.png" style="margin-bottom: 30px; margin-top: 10px;">
+                        <li>Se aplican propiedades de variable aleatoria y se opera:</li>
+                        <img src="images/D_Normal/Paso4.1.png" >
+                        <img src="images/D_Normal/Paso4.2.png" >
+                        <img src="images/D_Normal/Paso4.3.png" >
+                        <img src="images/D_Normal/Paso4.4.png" style="margin-bottom: 30px;">
+                        <li>El resultado es: 0.5967</li>
+                        <h5 class="resp">Respuesta:</h5>
+                        <p class="conc">La probabilidad de que las barras 29.3 y 33.5 centimetros es de 59.67%</p>
+                      </ol>
+                    </li>
+                    <li>
+                      <ol>
+                        <li>Finalmente calculamos el porcentaje de barras de diámetro menor a 25.5:</li>
+                        <img src="images/D_Normal/Paso7.png" style="margin-bottom: 30px; margin-top: 10px;">
+                        <li>Se aplican propiedades de variable aleatoria y se opera:</li>
+                        <img src="images/D_Normal/Paso7.1.png" >
+                        <img src="images/D_Normal/Paso7.2.png" style="margin-bottom: 30px;">
+                        <li>El resultado es: 0.122</li>
+                        <h5 class="resp">Respuesta:</h5>
+                        <p class="conc">La probabilidad de que las barras sea menor de 25.5 centimetros es de 12.2%</p>
+                      </ol>
+                      <button type="button" class="btn btn-primary" onclick="ejemp('normal');">Presione para ir al ejemplo interactivo</button>
+                    
+                    </li>
+                  </ol>
+                                  
+              </div>
+            </div>
+            <div class="col-xl-6">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos aplicados en la solución </h2>
+                <ol type="a">
+                  <li>
+                    <ol>
+                      <li>
+                        Z = Se interpreta como el número de desviaciones estándar que están comprendidas entre el
+                        promedio y un cierto valor de variable x.
+                        µ = Es la media de la distribución normal <br>
+                        σ= Es la desviación típica 
+                        </li>
+                      <li>Por definición de distribución normal:</li>
+                      
+                      <img src="images/D_Normal/DIstNorm.jpg" style="margin-bottom: 220px;margin-top: 50px; width: 300px;height: 80px;">
+                      <span class="hint--top hint--medium" 
+                      data-hint="Ecuación 2. Editado en codedogs.com"><a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[2]</a></span>
+                    
+                    </ol>
+                  </li>
+                  <li>
+                    <ol>
+                      <li>
+                        Z = Se interpreta como el número de desviaciones estándar que están comprendidas entre el promedio y un cierto valor de variable x.
+                        µ = Es la media de la distribución normal <br>
+                        σ= Es la desviación típica 
+                        </li>
+                        <li>Por definición de distribución normal:</li>
+                        
+                        <img src="images/D_Normal/DIstNorm.jpg" style="margin-bottom: 200px;margin-top: 50px;">
+                        <span class="hint--top hint--medium" 
+                        data-hint="Ecuación 2. Editado en codedogs.com"><a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[2]</a></span>
+                      
+                        
+                    </ol>
+                  </li>
+                  <li>
+                    <ol>
+                      <li>
+                        Z = Se interpreta como el número de desviaciones estándar que están comprendidas entre el promedio y un cierto valor de variable x
+                        µ = Es la media de la distribución normal <br>
+                        σ = Es la desviación típica 
+                        </li>
+                        <li>Por definición de distribución normal:</li>
+                        
+                          
+                        <img src="images/D_Normal/DIstNorm.jpg" style="margin-bottom: 150px;">
+                        <span class="hint--top hint--medium" 
+                        data-hint="Ecuación 2. Editado en codedogs.com"><a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[2]</a></span>
+                      
+                    </ol>
+                    
+                    
+                  </li>
+                </ol>
+              </div>
+            </div>  
+          </section>
+        </div>
+        
+        <div class="tm-section-wrap" id="sect3">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Distribución Exponencial</h2>
+                <h5><b>Ejemplo :</b></h5>
+                
+                <div class="row">
+                  <div class="col">
+                    <p>                      
+                      El tiempo de reparación en años de un computador, está descrito por la siguiente función de densidad:
+                    </p> 
+                    <img src="images/D_Exponencial/Probl.png" style="margin-bottom: 10px;">
+                    
+                    <span class="hint--top hint--medium" 
+                    data-hint="Ecuación 1. [Formula]. Editado en codedogs.com">
+                    <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[1]</a></span>
+                    <p>
+                      Calcule la probabilidad de que el computador requiera una reparación mayor despues de 2 años.
+                    </p>
+                    <blockquote> 
+                      <cite>
+                          Adaptado del Ejemplo 6.21 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                          Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.200)
+                      </cite>
+                    </blockquote> 
+                     
+                  </div>
+                  <div class="col">
+                    <img src="images/D_Exponencial/Pc.jpg" 
+                    style="width: 360px; height: 250px;margin-left: 5%;">
+                   
+                    <span class="hint--top hint--medium" 
+                    data-hint="Servicio Técnico. [Ilustración].Tomado de depositphotos.com"><a href="https://sp.depositphotos.com/category/jewelry-gems.html">[2]</a></span>
+                  
+                
+                  </div>
+                </div>  
+              </div>
+            </div>
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6" >
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de solución</h2>
+                  
+                      <ol>
+                        <li>Considerando la probabilidad como:</li>
+                        <img src="images/D_Exponencial/Paso1.png" style="margin-bottom: 30px; margin-top: 10px;">
+                        <li>Hallando la función de distribución acumulativa:</li>
+                        <img src="images/D_Exponencial/Paso2.png" style="margin-bottom: 30px;margin-top: 10px;">
+                        <li>Evaluando en la función de distribución acumulativa para y = 2:</li>
+                        <img src="images/D_Exponencial/Paso3.png" style="margin-bottom: 30px;margin-top: 10px;">
+                        
+                        <li>El resultado es: 0.393</li>
+                        <p class="resp">Respuesta: </p>
+                        <p class="conc">La probabilidad de que un computador requiera de una reparación mayor antes de 2 años es de 39.3%</p>
+                        <button type="button" class="btn btn-primary" onclick="ejemp('exponencial');">Presione para ir al ejemplo interactivo</button>
+                    
+                      </ol>
+                    
+                                  
+              </div>
+            </div>
+            <div class="col-xl-6" style="margin-bottom: 20%;">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos aplicados en la solución</h2>
+                
+                    <ol>
+                      <li>Por propiedad de variable aleatoria:</li>
+                      <img src="images/D_Exponencial/Arg1.png" style="margin-bottom: 30px;margin-top:15px;">
+                      
+                      <span class="hint--top hint--medium" 
+                      data-hint="Ecuación 2. [Formula]. Editado en codedogs.com">
+                      <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[3]</a></span>
+                      <li>Por definición de funcion de distribución de variable aleatoria continua:</li>
+                      <img src="images/D_Exponencial/Arg2.png" style="margin-bottom: 30px;margin-top:15px;"> 
+                                            
+                      <span class="hint--top hint--medium" 
+                      data-hint="Ecuación 3. [Formula]. Editado en codedogs.com">
+                      <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[4]</a></span>
+                    </ol>
+                    
+               </div>   
+            </div>
+          </section>
+        </div>
+      
+        <div class="tm-section-wrap" id="sect4">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Distribución Gamma</h2>
+                <h5><b>Ejemplo :</b></h5>
+                <div class="row">
+    
+                  <div class="col">
+                      
+                    <p>                      
+                      La distribución Gamma sirve para calcular la probabilidad de ciertos eventos en experimentos que 
+                      siguen un proceso de Poisson. 
+                      Por ejemplo, Suponga que las llamadas telefónicas que llegan a un asesor de call center
+                      particular siguen un proceso de Poisson con un promedio de 5 llamadas entrantes por minuto. ¿Cuál es la
+                      probabilidad de que transcurra hasta un minuto en el momento en que han entrado 2
+                      llamadas al asesor?.
+                      
+                    </p> 
+                    
+                    <blockquote> 
+                      <cite>
+                          Adaptado del Ejemplo 6.18 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                          Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.198)
+                      </cite>
+                    </blockquote>  
+                  </div>   
+                  <div class="col">
+                    <img src="images/asesor de callcenter.jpg" 
+                      style="max-width: 400px; max-height: 370px;margin-left: 7%;">
+                      
+                      <span class="hint--top hint--medium" 
+                      data-hint="Call Center Agent. [Ilustración].Tomado de depositphotos.com">
+                      <a href="https://sp.depositphotos.com/category/jewelry-gems.html">[1]</a></span>
+                  
+                  </div> 
+                </div> 
+              </div>
+            </div>
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de solución</h2>
+                  <ol>
+                   <li>Se plantea una distribucion gamma con:</li>
+                   <img src="images/D_Gamma/Paso1.gif" style="margin-bottom: 30px;margin-top: 10px;">
+                   
+                  
+                   <li>La probabilidad que se requiere esta dada por: </li>
+                   <img src="images/D_Gamma/Paso2.png" style="margin-bottom: 30px;margin-top: 10px;">
+                  <li>Evaluando y operando:</li>
+                  <img src="images/D_Gamma/Paso3.png" style="margin-bottom: 30px;margin-top: 10px;">
+                   <li>El resultado es: 0.96</li>
+                   <p class="resp">Respuesta: </p>
+                   <p class="conc">La probabilidad de que transcurra 1 minuto en el momento en que entraron 2 llamadas es de 96%</p>
+                   <button type="button" class="btn btn-primary" onclick="ejemp('gamma');">Presione para ir al ejemplo interactivo</button>
+                    
+                  </ol>
+                                  
+              </div>
+            </div>
+            <div class="col-xl-6" style="margin-bottom: 30%;">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos aplicados en la solución</h2>
+                <ol >
+                  <li>Por definición de función de distribución gamma: </li>
+                
+                  <img src="images/D_Gamma/funcion gamma.jpg" style=" max-width: 470px;">
+                  <span class="hint--top hint--medium" 
+                  data-hint="Ecuación 1. [Formula]. Editado en codedogs.com">
+                  <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[1]</a></span>  
+                </ol>
+                </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="tm-section-wrap" id="sect5">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Distribución Chi Cuadrada</h2>
+                
+                                      
+                
+                <h5><b>Ejemplo :</b></h5>
+                <div class="row">
+                  <div class="col">
+                    
+                <p>                      
+                  Si X tiene la siguiente distribución de probabilidad:
+                </p> 
+                <img src="images/D_ChiCuadrada/Ecu1.png">
+                <blockquote>
+                 <cite>
+                  <span class="hint--top hint--large" 
+                  data-hint="Ecuación 1. [Formula]. Editado en codedogs.com">
+                  <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[1]</a></span>
+                 </cite>
+ 
+                </blockquote>
+                <p>
+                  Calcule la distribución para:
+                  
+                </p>
+                <p>
+                  
+                  <ol type="a">
+                    <li class="subitems"><img src="images/D_ChiCuadrada/num.png" ></li>
+                    
+                  </ol>
+                </p>
+              
+                <blockquote> 
+                  <cite>
+                      Adaptado del Ejercicio 7.5 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                      Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.223)
+                  </cite>
+                </blockquote>  
+                  </div>
+                  <div class="col">
+                    <img src="images/D_ChiCuadrada/tit.jpg" >
+                    <img src="images/D_ChiCuadrada/Graf.jpg" style="width: 400px;height: 300px;">
+                    <blockquote> 
+                      <cite>
+                        <span class="hint--top hint--large" 
+                        data-hint="Walpole R., Myers R., Myers S., Keying Ye (2007).Figura 8.7 [Grafica]. Tomado de Probabilidad y Estadística para ingeniería y Ciencias (8va Edición).(p.245)">
+                        <a href="https://vereniciafunez94hotmail.files.wordpress.com/2014/08/8va-probabilidad-y-estadistica-para-ingenier-walpole_8.pdf">[2]</a></span>
+                         </cite>
+                    </blockquote>
+                  </div>
+                </div>
+                  
+              </div>
+            </div>
+            
+          </section>
+          <section  class="row tm-section">
+              <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de solución</h2>
+                  <ol type="a">
+                    <li>
+                      <ol>
+                        <li>La función inversa de Y es:</li>
+                        <img src="images/D_ChiCuadrada/Paso1.png" >
+                        <li>Aplicando teorema de distribuciones de probabilidad:</li>
+                        <img src="images/D_ChiCuadrada/Paso2.png">
+                        <li>Finalmente:</li>
+                        <img src="images/D_ChiCuadrada/Paso3.png" >
+                        <p class="resp">Respuesta: </p>
+                        <p class="conc">La distribución de probabilidad para <b>Y</b> es una distribución Chi Cuadrada con 2 grados de libertad.</p>
+                      
+                      </ol>
+                    </li>
+                    <button type="button" class="btn btn-primary" onclick="ejemp('cuadrada');">Presione para ir al ejemplo interactivo</button>
+                    
+                  </ol>
+                                  
+              </div>
+            </div>
+            <div class="col-xl-6" style="margin-bottom: 7%;">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos aplicados en la solución</h2>
+                <ol type="a">
+                  <li>
+                   
+                     Teorema de distribuciones de probabilidad
+                      <img src="images/D_ChiCuadrada/teo.jpg" style="width: 480px; height: 250px;">
+                      <blockquote> 
+                        <cite>
+                          <span class="hint--top hint--large" 
+                          data-hint="Walpole R., Myers R., Myers S., Keying Ye (2007).Teorema 7.5 [Texto]. Tomado de Probabilidad y Estadística para ingeniería y Ciencias (8va Edición). (p.217)">
+                          <a href="https://vereniciafunez94hotmail.files.wordpress.com/2014/08/8va-probabilidad-y-estadistica-para-ingenier-walpole_8.pdf">[2]</a></span>
+                           </cite>
+                      </blockquote>
+                  </li>
+
+                </ol>
+               
+            </div>
+          </section>
+        </div>
+
+        <div class="tm-section-wrap" id="sect6">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Distribución Weibull</h2>
+                <h5><b>Ejemplo :</b></h5>
+                
+                <div class="row">
+                  <div class="col">
+                    <p>                      
+                      Suponga que la vida de servicio de la batería de un auxiliar auditivo, en años, es una variable aleatoria que tiene una distribución de Weibull con α =1/2 y β = 2.
+                      ¿Cuánto tiempo se puede esperar que dure tal batería?
+    
+                      
+                    </p> 
+                    
+                    <blockquote> 
+                      <cite>
+                          Adaptado del Ejercicio 6.47 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                          Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.206)
+                      </cite>
+                    </blockquote>  
+                    
+                  </div>
+                  <div class="col">
+                    <img src="images/D_Weibull/audifono.jpg" 
+                    style="max-width: 300px; max-height: 300px;margin-left: 10%;">
+                    <blockquote> 
+                      <cite>
+                        <span class="hint--top hint--medium" 
+                        data-hint="Audífono Digital. [Ilustración].Tomado de depositphotos.com">
+                        <a href="https://sp.depositphotos.com/category/jewelry-gems.html">[1]</a></span>
+                      </cite>
+                    </blockquote>
+                  </div>
+                </div>  
+              </div>
+            </div>
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de Solución</h2>
+                  <ol>
+                    <li>Se aplica definición de distribución weibull:</li>
+                      <img src="images/D_Weibull/Paso1.png" >
+                    <li>Se opera de acuerdo a la expresión obtenida:</li>
+                      <img src="images/D_Weibull/Paso2.png" >
+                    <img src="images/D_Weibull/Paso3.png" >
+                    <li>Finalmente:</li> 
+                      <img src="images/D_Weibull/Paso4.png" >
+                    <li>El resultado es 1.25</li>
+                    
+                    <p class="resp">Respuesta:</p>
+                    <p class="conc">El tiempo en años que durará la bateria del audifono es de 1.25 años</p>
+                    <button type="button" class="btn btn-primary" onclick="ejemp('weibull');">Presione para ir al ejemplo interactivo</button>
+                    
+                  </ol>
+                                  
+              </div>
+            </div>
+            <div class="col-xl-6" style="margin-top: -16%;">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos aplicados en la solución</h2>
+                <ol >
+                  <li>De acuerdo a definición de distribución weibull</li>
+                  <img src="images/D_Weibull/def.jpg" >
+                  <blockquote> 
+                    <cite>
+                      <span class="hint--top hint--medium" 
+                      data-hint="Ecuación 1. [Formula]. Editado en codedogs.com">
+                      <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[2]</a></span></cite>
+                  </blockquote>
+                </ol>
+            </div>
+          </section>
+        </div>
+
+        <div class="tm-section-wrap" id="sect7">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Distribución Logarítmica Normal</h2>
+                <h5><b>Ejemplo :</b></h5>
+                <div class="row">
+                  <div class="col">
+                        
+                    <p>                      
+                      Los datos de frecuencia a menudo tienen una distribución logarítmica normal. 
+                      Se estudia el uso promedio de potencia (dB por hora) para una empresa específica y se sabe que tiene una 
+                      distribución logarítmica normal con parámetros μ = 4 y σ = 2. ¿Cuál es la probabilidad de que la empresa utilice 
+                      más de 270 dB durante cualquier hora particular?
+                      
+                    </p> 
+                    
+                    <blockquote> 
+                      <cite>
+                          Adaptado del Ejemplo 6.56 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                          Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.207)
+                      </cite>
+                    </blockquote>  
+                      
+                  </div>
+                  <div class="col">
+                    <img src="images/D_LogNormal/db.jpg" 
+                    style="max-width: 460px; max-height: 470px;">
+                    <blockquote> 
+                      <cite>
+                        <span class="hint--top hint--medium" 
+                        data-hint="Tabla de Decibelios. [Ilustración].Tomado de depositphotos.com">
+                        <a href="https://sp.depositphotos.com/category/jewelry-gems.html">[1]</a></span>
+                      </cite>
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de Solución</h2>
+                  <ol>
+                   <li>De acuerdo a la definición de distribución logaritmica normal:</li>
+                   <img src="images/D_LogNormal/Paso1.png" style="margin-top: 10px;">
+                  
+                   <li>Se opera de acuerdo a la expresión obtenida:</li>
+                   <img src="images/D_LogNormal/Paso2.png" style="margin-top: 10px;">
+                   <li>De esta manera se obtiene:</li>
+                   <img src="images/D_LogNormal/Paso3.png" style="margin-top: 10px;">
+                   <li>El resultado es: 0.2119</li>
+                   <p class="resp">Respuesta: </p>
+                   <p class="conc">La probabilidad de que la empresa utilice mas de 270 dB durante cualquier hora es de 21.19%</p>
+                   <button type="button" class="btn btn-primary" onclick="ejemp('logaritmica');">Presione para ir al ejemplo interactivo</button>
+                    
+                  </ol>
+                                  
+              </div>
+            </div>
+            <div class="col-xl-6" style="margin-top: -12%;">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos aplicados en la solución</h2>
+                <ol >
+                  <li>De acuerdo a la definición de distribución logaritmica:</li>
+                  <img src="images/D_LogNormal/def.jpg" >
+                  <blockquote> 
+                    <cite>
+                     
+                    <span class="hint--top hint--medium" 
+                    data-hint="Ecuación 1. [Formula]. Editado en codedogs.com">
+                    <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[2]</a></span>
+                    </cite>
+                  </blockquote>
+                  
+                  
+                </ol>
+            </div>
+          </section>
+        </div>
+        
+        <div class="tm-section-wrap" id="sect8">
+          <section  class="row tm-section">
+            <div class="s-header">
+              <div class="tm-section-half text-justify">    
+                                        
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Distribución Beta</h2>
+                <h5><b>Ejemplo :</b></h5>
+                <div class="row">
+                  <div class="col">
+                    <p>                      
+                      Una marca de equipos de sonido determina
+                      una variable aleatoria que tiene una distribución beta
+                      con α = 3 y β = 2. La cual representa la proporción de equipos que
+                      requieren servicio durante el primer año de operación<br>
+                      ¿Cuál es la probabilidad de que al
+                      menos 80% de los nuevos modelos de esta marca que
+                      se vendieron este año requieran servicio durante su primer año de operación?
+                    </p> 
+                    
+                    
+                    <blockquote> 
+                      <cite>
+                          Adaptado del Ejercicio 6.50 Propuesto por Walpole R., Myers R., Myers S., Keying Ye (2007).
+                          Probabilidad y Estadística para ingeniería y Ciencias (8va Edición),<br> Mexico D.F. : Pearson (p.206)
+                      </cite>
+                    </blockquote>  
+                      
+                  </div>
+                  <div class="col">
+                    <img src="images/D_Beta/sonido.jpg" 
+                    style="max-width: 460px; max-height: 470px;">
+                    <blockquote> 
+                      <cite>
+                        <span class="hint--top hint--medium" 
+                        data-hint="Cojín de MPC [Ilustración].Tomado de depositphotos.com"><a href="https://sp.depositphotos.com/category/jewelry-gems.html">[1]</a></span>
+                        
+                      </cite>
+                    </blockquote>
+                    
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </section>
+          <section  class="row tm-section">
+            <div class="col-xl-6">
+              <div class="tm-section-half text-justify">    
+                                        
+                  <h2 class="tm-section-title tm-color-primary font-italic mb-4">Pasos de solución</h2>
+                  
+                  <ol>
+                    <li>Se plantea la función de densidad:</li>
+                    <img src="images/D_Beta/Paso1.png" style="margin-bottom: 30px;">
+                    
+                    <li>Se resuelve para a X > 0.8:</li>
+                    <img src="images/D_Beta/Paso2.png" style="margin-bottom: 30px;">
+                    <li>El resultado es: 0.18</li>
+                    <h5 class="resp">Respuesta:</h5>
+                    <p class="conc">La probabilidad de que los modelos requieran servicio durante su primer año de operación es de 18%, es decir 9 de cada 50 equipos.</p>
+                    <button type="button" class="btn btn-primary" onclick="ejemp('beta');">Presione para ir al ejemplo interactivo</button>
+                  
+                  </ol>
+                      
+                    
+                                   
+              </div>
+            </div>
+            <div class="col-xl-6">
+            
+              <div class="tm-section-half">
+                  
+                <h2 class="tm-section-title tm-color-primary font-italic mb-4">Conceptos aplicados en la solución</h2>
+                
+                    <ol>
+                      <li>Por definición de Distribución Beta:</li>
+                      <img src="images/D_Beta/def.jpg" style="margin-bottom: 30px;">
+                      
+                     <blockquote>
+                       <cite>
+                        <span class="hint--top hint--medium" 
+                        data-hint="Ecuación 1. [Formula]. Editado en codedogs.com">
+                        <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[2]</a></span>
+                       </cite>
+                     </blockquote>
+                    
+                      
+                      <li>Por definición de distribución de probabilidad:</li>
+                      <img src="images/F_Densidad/DefDist.jpg" style="margin-bottom: 30px;">
+                                              
+                        <blockquote>
+                          <cite>
+                            <span class="hint--top hint--medium" 
+                            data-hint="Ecuación 2. [Formula]. Editado en codedogs.com">
+                            <a href="https://www.codecogs.com/latex/eqneditor.php?lang=es-es">[3]</a></span>
+                          </cite>
+
+                        </blockquote>
+                    
+                       </ol>
+                  
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="inter" id="interact">
+
+        </div>
+        
+      </main>
+    </div>
+  </main>        
+    
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.singlePageNav.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/navs.js"></script>
+  <script src="js/pags.js"></script>
+  
+  </script>
+</body>
+</html>
