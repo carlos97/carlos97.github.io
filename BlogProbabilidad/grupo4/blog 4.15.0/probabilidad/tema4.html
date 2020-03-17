@@ -1,0 +1,1103 @@
+﻿<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Probabilidad
+    </title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tema3.css">
+
+    <style>
+        .frac {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            letter-spacing: 0.001em;
+            text-align: center;
+        }
+
+        .frac>span {
+            display: block;
+            padding: 0.1em;
+        }
+
+        .frac span.bottom {
+            border-top: thin solid black;
+        }
+
+        .frac span.symbol {
+            display: none;
+        }
+
+        .floating {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navMain">
+        <div class="container">
+	    <img src="../logos_escudo_vertical/logo.png" class="img-fluid" style="max-width: 10%;max-height: 10%;display: block;"
+title="Aponte Javier A.            (20172020036) jaaponteq@correo.udistrital.edu.co
+Gonzalez Miguel A.       (20172020023) migagonzalezr@correo.udistrital.edu.co 
+Gutierrez Cristian C.      (20181020140) ccgutierrezg@correo.udistrital.edu.co
+Montano Leeynyker A.  (20172020046) lamontanor@correo.udistrital.edu.co
+">
+            <a class="navbar-brand " href="#" onclick="showHome()"><b class="TextColorBackBlack">Problemas de valor esperado</b></a>
+            <a class="navbar-brand " href="#" onclick="goHome()"><b class="TextColorBackBlack">Inicio</b></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+	
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle TextColorBackBlack" href="#" id="navbarDropdown"
+                            role="button">
+                            <b class="TextColorBackBlack">Probabilidad</b>
+                        </a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0 buscaBotonNoBorder" onclick="buscar()"
+                        type="submit"><b>Buscar</b></button>
+                </form>
+            </div>
+		
+        </div>
+	<img src="../logos_escudo_vertical/Bogota.png" class="img-fluid" style="max-width: 5%;max-height: 5%;display: block;">
+    </nav>
+
+    <br />
+
+    <div class="container-fluid contenedor" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+            <div class="col-sm-3 leftCol">
+                <br />
+
+                <ul class="list-group">
+                    <li class="list-group-item itemHover">
+                        <a>Media de una variable aleatoria &darr;</a>
+                        <ul id="ul1" class="list-group">
+                            <li class="list-group-item itemHover" onclick="hider(1)" active>
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(3)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Varianza &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(4)">
+                                Definición y teorema
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(5)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item itemHover">
+                        <a>Media y varianza de combinaciones lineales &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(6)">
+                                Definición
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(7)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+					<li class="list-group-item itemHover">
+                        <a>Covarianza &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(8)">
+                                Definición
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(9)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+					<li class="list-group-item itemHover">
+                        <a>Teorema de Chebyshev &darr;</a>
+                        <ul class="list-group ">
+                            <li class="list-group-item itemHover" onclick="hider(10)">
+                                Definición
+                            </li>
+                            <li class="list-group-item itemHover" onclick="hider(11)">
+                                Ejemplos
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-sm-9 rigthCol">
+                <div class="container">
+                    <br />
+                    <div class="row" id="home">
+                        <div class="col-sm-12">
+                            <div id="pageContent">
+                                <center>
+                                    <h1>¿Que es el valor esperado?</h1>
+                                </center> 
+                                <br>
+                                <br>
+                                    <div>
+                                        <p>Es el valor que se espera obtener de un experimento estadístico se llama el valor esperado. Tambien llamado "esperanza matemática".
+            <br>
+            <br>
+            Si tiramos una moneda 10 veces, esperamos que salga 5 veces "cara" y 5 veces "cruz". Esperamos obtener este valor porque la probabilidad de que salga "cara" es 0,5, y si lanzamos la moneda 10 veces, obtenemos 5. Por lo tanto, 5 es la media. 
+            <br>
+            <br>
+            Para formalizar este particular ejemplo de la media, si <i><b>p</b></i> es la probabilidad y <i><b>n</b></i> el número de eventos, la media es <i><b>a = np</i></b>. Esta es la forma de la media cuando se puede expresar la probabilidad por medio de la distribución binomial.</p>
+                                    </div>
+
+                                <center>
+                                    <img src="../img/moneda.gif" style="max-width: 50%;max-height: 50%;display: block;">
+
+                                </center>
+                                <p><font size="2"> <i><b>Moneda</b> Imagen tomada de</i> <a href="http://www.gifde.com/gif/otros/cosas-humanas-cotidianas/dinero/monedas/">gifde.com</a></font></p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" id="tema1">
+                        <div class="col-lg-12">
+                            <h1>Media De Una Variable Aleatoria</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                            <p>
+								Primero definiremos una variable aleatoria de la siguientemanera: Una variable aleatoria es una función 
+								que asocia un número real con cada elemento del espacio muestral. Walpole, R., Myers, R., & Myers, S. (2007). 
+								Probabilidad y estadística para ingeniería y ciencias (8a. ed.) (8th ed., p. 77). Distrito Federal: Pearson Educación.
+								<br /> 
+								La <b>media de una variable aleatoria</b>, tambien llamada <b>esperanza matemática</b> ó valor esperado, 
+								es el numero que representa el posible valor a tomar por el suceso que se está observando 
+								en una variable <i>X</i> y se calcula sumando cada suceso por la probabilidad de que ocurra.
+                            </p>
+                            <h2>Teorema:</h2>
+                            <p>
+                                Para una variable aleatoria discreta con valores posibles <i><b>x1, x2, ...xn</b></i>, y sus probabilidades 
+								representadas por la función de probabilidad <i><b>p(xi)</b></i> la esperanza se calcula de la siguiente manera:
+								<br />
+								<br />
+								<center><i>E[X]=x1p(X=x1)+...+xnp(X=xn)=Σ xi*p(xi)</i></center>
+								<br />
+							</p>
+							<p>
+								<br />
+								Para una variable aleatoria absolutamente continua, la esperanza se calcula mediante la integral de todos 
+								los valores y la función de densidad <i><b>ƒ(x)</b>></i>:
+								<br />
+								<br />
+								<center><img src="../img/media.gif" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+								<br />
+								<br />
+                            </p>
+                            
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(3)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+
+                    </div>
+                    <div class="row" id="tema3">
+                        <div class="col-lg-12">
+                            <h1>Media de una variable aleatoria</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo11"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo12"><b
+                                            style="font-size: larger;">ejemplo 2 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">Siguiente: Varianza de una variable aleatoria &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema4">
+                        <div class="col-lg-12">
+                            <h1>Varianza de una variable aleatoria</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                            <p>
+                                La medida de variabilidad más importante de una variable aleatoria <i><b>X</b></i> se obtiene
+                                aplicando
+                                <br>
+								<center><img src="../img/Var.gif" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+                                <br>
+                                A esta cantidad se le denomina <i><b>varianza</b></i>
+                                de la variable aleatoria X o <i><b>varianza</b></i> de la distribución de probabilidad de <i><b>X </b></i> y se
+                                denota como <i><b>Var(X)</b></i>, o con el símbolo <i><b> &sigma;&sup2;<sub>X</sub></b></i> , o simplemente como <i><b> &sigma;&sup2;</b></i>
+                                cuando es evidente a qué variable aleatoria se está haciendo referencia.
+                            </p>
+                            <h2>Teorema:</h2>
+                            <p>
+				                Sea <i><b>X</b></i> una variable aleatoria con distribución de probabilidad <i><b>f(x)</b></i> y media <i><b>μ</b></i>. La varianza de <i><b>X</b></i> es:</h3>
+				            <br />
+							    <h3>Variable aleatoria discreta:</h3>
+							<br>
+								<center><img src="../img/Var2.gif" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+							<br>
+                               <h3>Variable aleatoria continua:</h3>		
+							<br>
+							    <center><img src="../img/Var3.gif" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+							<br>
+                            </p>
+                            <br />
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(1)"><b
+                                    style="font-size: larger;">&larr; Anterior: Media de una variable aleatoria </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(5)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema5">
+                        <div class="col-lg-12">
+                            <h1>Varianza de una variable aleatoria</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo21"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+								 <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo22"><b
+                                            style="font-size: larger;">ejemplo 2 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                    style="font-size: larger;">Siguiente: Media y varianza de combinaciones lineales &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema6">
+                        <div class="col-lg-12">
+                            <h1>Media Y Varianza De Combinaciones Lineales</h1>
+                            <br />
+                            <!-- <h2>Definición:</h2> -->
+                            <p>
+                                Aquí veremos algunas propiedades que nos permitirán tratar con las esperanzas matemáticas, en relación
+                                con otros parámetros que ya se conocen o que se calculan con facilidad.
+                                <br>
+                                Todos los resultados que presentamos aquí son válidos para variables aleatorias tanto continuas como discretas.
+                                <br>
+                                <br>
+                                Recordemos que una <b>variable aleatoria</b> es una función que asigna un valor, usualmente numérico, al resultado de un experimento aleatorio.
+                            </p>
+                            <br />
+                            <p>
+                                
+                            </p>
+                            <h2>Teorema:</h2>
+                            <p>
+                               Si <small><em><b>a</b></em></small> y <small><em><b>b</b></em></small> son constantes, entonces: 
+                                <center><img src="../img/MediaVarianza.gif" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+                            </p>
+                            
+                            <br />
+                            <div>
+                                <button class="btn btn-dark my-2 my-sm-0" onclick="hider(4)"><b
+                                        style="font-size: larger;">&larr; Anterior: Varianza </b></button>
+                                <button class="btn btn-dark my-2 my-sm-0" onclick="hider(7)"><b
+                                        style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="tema7">
+                        <div class="col-lg-12">
+                            <h1>Media Y Varianza De Combinaciones Lineales</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo31"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                    
+                                </li>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo32"><b
+                                            style="font-size: larger;">ejemplo 2 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+							<button class="btn btn-dark my-2 my-sm-0" onclick="hider(8)"><b
+                                    style="font-size: larger;">Siguiente: Covarianza &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema8">
+						<div class="col-lg-12">
+							<h1>Covarianza</h1>
+							<br/>
+							<h2>Definición:</h2>
+							<br />
+							<p>
+								la <i><b>covarianza</b></i> es un valor que indica el grado de variación conjunta de dos variables aleatorias respecto 
+								a sus medias.
+                                <br>
+                                <br>
+                                Es el dato básico para determinar si existe una dependencia entre ambas variables y además 
+								es el dato necesario para estimar otros parámetros básicos, como el coeficiente de correlación lineal o 
+								la recta de regresión.
+							</p>
+							<h2>Teorema:</h2>
+							<p>
+								<center><img src="../img/for_cova.jpg" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+								Dónde la <i><b>y'</b></i> es la media de la variable <i><b>Y</b></i>, y la <i><b>x'</b></i> es la media de la variable <i><b>X</b></i>. 
+								<i><b>“i”</b></i> es la posición de la observación y <i><b>“n”</b></i> el número total de observaciones.
+							</p>
+							<p>
+								
+							</p>
+							<br />
+							<button class="btn btn-dark my-2 my-sm-0" onclick="hider(6)"><b
+									style="font-size: larger;">&larr; Anterior: Medias y varianzas de combinaciones lineales </b></button>
+							<button class="btn btn-dark my-2 my-sm-0" onclick="hider(9)"><b
+									style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+						</div>
+                    </div>
+                    <div class="row" id="tema9">
+                        <div class="col-lg-12">
+                            <h1>Covarianza</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo41"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(8)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+							<button class="btn btn-dark my-2 my-sm-0" onclick="hider(10)"><b
+                                    style="font-size: larger;">Siguiente: teorema de Chebyshev &rarr; </b></button>
+                        </div>
+                    </div>
+					<div class="row" id="tema10">
+                        <div class="col-lg-12">
+                            <h1>Teorema de Chebyshev</h1>
+                            <br />
+                            <h2>Definición:</h2>
+                            <br />
+                            <p>
+                                Este teorema establece un vaor minimo para la probabildad de una variable aleatoria enn un intervalo alrededor de la media, independientemente de su función de probabilidad. El valor que se obtiene es únicamente una referencia.
+                            </p>
+                            <br>
+                            <br>
+                            <h2>Teorema:</h2>
+                            <br>
+                            <p>
+                            Sea <i><b>X</b></i> una variable aleatoría discreta con media <i><b> &mu;</b></i> y varianza <i><b>&sigma;&sup2;</b></i>, entonces la probabilidad de <i><b>X</b></i> tome un valor de <i><b>k</b></i> desviaciones estándar <i><b>&sigma;</b></i> de su media <i><b> &mu;</b></i>, es al menos <i><b> 1 -1/k&sup2;</b></i>
+                            </p>
+                            <center>
+                                <font size="5"><i><b>P(&mu; - k&sigma; '<' x '<' &mu;-k&sigma;)&geq; 1 -1/k&sup2;, K&epsilon;R,k&geq;1</b></i> </font>
+                            </center>
+                            <p>
+                                
+                            </p>
+                            <p>
+                                
+                            </p>
+                            <br />
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(8)"><b
+                                    style="font-size: larger;">&larr; Anterior: Covarianza </b></button>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(11)"><b
+                                    style="font-size: larger;">Siguiente: Ejemplos &rarr; </b></button>
+                        </div>
+                    </div>
+                    <div class="row" id="tema11">
+                        <div class="col-lg-12">
+                            <h1>Teorema de Chebyshev</h1>
+                            <br />
+                            <h2>Ejemplos:</h2>
+                            <br />
+                            <ul>
+                                <li class="listaButtons">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#ejemplo51"><b
+                                            style="font-size: larger;">ejemplo 1 &rarr;</b></button>
+                                </li>
+                            </ul>
+                            <button class="btn btn-dark my-2 my-sm-0" onclick="hider(10)"><b
+                                    style="font-size: larger;">&larr; Anterior: Definición </b></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div id="modals">
+        <div class="modal" id="ejemplo11">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Media de una variable aleatoria - ejemplo de variable discreta</h2>
+                        <br>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large; background-color:#DEF0D6">
+                        Ejemplo media ó valor esperado adaptado del ejercicio propuesto 4.8 de Ronald E. Walpole,Raymond H.
+						Myers,Sharon L. Myers,Keying Ye -(2007) <i> Probabilidad y estadística
+                        para ingeniería y ciencias</i> Pearson octava edición, México (p.113).
+                        <hr>
+                        En un videojuego de aventura sin nombre, te encuentras con un mercader que puede comprar un tesoro raro que has obtenido 
+						matando un dragón, el unico problema es que el comerciante no te va a dar siempre lo mismo por este objeto, porque es un 
+						comerciante bastante ávaro. Con una posibilidad de 
+                        <input type="text" value="22 " style="width: 40px;"
+                            onchange="var a= this.value; $('tej11-1').each(function(i){this.textContent = a}); calculoEj11()"
+                            autocomplete="off" title="Ingrese el valor "/>
+
+                         % va a comprar tu objeto por 1000 de oro, con posibilidad de 
+
+                        <input type="text" value="36" style="width: 40px;"
+                            onchange="var a= this.value; $('tej11-2').each(function(i){this.textContent = a}); calculoEj11()"
+                            autocomplete="off" title="Ingrese el valor "/>
+                         % va a pagarte 800 de oro por el objeto, con una posibilidad de 
+                        <input type="text" value="28" style="width: 40px;"
+                            onchange="var a= this.value; $('tej11-3').each(function(i){this.textContent = a}); calculoEj11()"
+                            autocomplete="off" title="Ingrese el valor "/>
+                         % va a comprar tu objeto por 600 de oro, y por ultimo, hay una posibilidad de  
+						 <input type="text" value="14" style="width: 40px;"
+                            onchange="var a= this.value; $('tej11-4').each(function(i){this.textContent = a}); calculoEj11()"
+                            autocomplete="off" title="Ingrese el valor "/>
+						 % de que compre tu objeto por 500 de oro. 
+                        <br />
+                        ¿Cuál es tu ganancia esperada por vender el objeto?
+                        <br />
+                        <hr>
+                        Teniendo en cuenta lo anterior, tenemos que:
+                        <br />
+                        P(1000)=<tej11-1>22</tej11-1>
+                        <br />
+                        P(800)=<tej11-2>36</tej11-2>
+                        <br />
+						P(600)=<tej11-3>28</tej11-3>
+                        <br />
+                        P(500)=<tej11-4>14</tej11-4>
+                        <br />
+                        Con lo cual tenemos que nuestro valor esperado es:
+                        <br />
+                        <i>E[X]= (<tej11-1>22</tej11-1>%*1000)+(<tej11-2>36</tej11-2>%*800)+(<tej11-3>28</tej11-3>%*600)+(<tej11-2>14</tej11-2>%*500)</i>
+                        <hr>
+                        <h3>Conclusión:</h3>
+                        La ganancia esperada que obtendremos al vender nuestro tesoro al mercader avaro es de 
+						<res11-1>746</res11-1> monedas de oro.
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="floating">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                                data-target="#ejemplo12">Ejemplo 2</button>
+                        </div>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo12">Ejemplo 2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="modal" id="ejemplo12">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Media de una variable aleatoria - ejemplo de variable continua</h2>
+                        <br>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large;background-color:#DEF0D6">
+                        Ejemplo media ó valor esperado adaptado del ejercicio propuesto 4.12 de Ronald E. Walpole,Raymond H.
+						Myers,Sharon L. Myers,Keying Ye -(2007) <i> Probabilidad y estadística
+                        para ingeniería y ciencias</i> Pearson octava edición, México (p.113).
+                        <hr>
+                        Si la ganancia de un vendedor de gomitas en un colegio o universidad, en unidades de $
+						<input type="text" value="200 " style="width: 40px;"
+                            onchange="var a= this.value; $('tej12-1').each(function(i){this.textContent = a}); calculoEj12()"
+                            autocomplete="off" title="Ingrese el valor "/>
+						, para una gomita se puede ver como una variable aleatoria <i><b>X</b></i> que tiene la funcion de densidad
+						<br />
+						<br />
+						<center><i>ƒ(x)</i>= 2(1-2/3*x), con x entre 0 y 2, 0 en otro caso.</center>
+						<br />
+						Encuentre la ganancia promedio por gomita
+						<hr>
+                        <br />
+                        Teniendo en cuenta lo anterior, tenemos que:
+                        <br />
+                        <center>ƒ(x)=2(3-2/3*x)
+						<br />
+						El limite inferior es 0
+                        <br />
+						El limite superior es 2
+						<br />
+						g(x)= <tej12-1>200</tej12-1></center>
+						<br />
+                        Con lo cual tenemos que nuestro valor esperado es:
+                        <br />
+						<center>
+                        <i>E[X]= ∫<sub>0</sub><sup>2</sup> (<tej12-1>200</tej12-1>*2(1-2/3*x)) dx</i></center>
+						<br />
+						Con esto, sabemos que 
+						<br /><center><i>E[X]= <tej12-1>200</tej12-1>*2*∫<sub>0</sub><sup>2</sup> (1-2/3*x) dx</i></center>
+						<br />
+						Resolviendo la integral: 
+						<br /> <center><i>E[X]= <tej12-1>200</tej12-1>*2*[x-x<sup>2</sup>/3]<sub>0</sub><sup>2</sup></center>
+						<br /> finalmente 
+						<br /> <center><i>E[X]= <tej12-1>200</tej12-1>*2*0.66</center>
+                        <hr>
+                        <h3>Conclusión:</h3>
+                        La ganancia esperada que obtendremos por la venta de cada gomita es de $
+						<res12-1>266.66</res12-1>.
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="floating">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                                data-target="#ejemplo11">Ejemplo 1</button>
+                        </div>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo21">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Varianza de una variable aleatoria discreta - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="background-color:#DEF0D6">
+                        Ejemplo Varianza: Adaptado del ejemplo 4.8 de <b><i>Probabilidad y estadística
+			            para ingeniería y ciencias</i></b> de Ronald E. Walpole,Raymond H. Myers,Sharon L. Myers,Keying Ye -
+                        editorial pearson octava edición 2007. Mexico: Pearson (P.120) 
+                        <hr>
+                        Supongamos que la variable aleatoria X representa el número de celulares utilizados
+                        en negocios en un día de trabajo dado. La distribución de probabilidad 
+		                para la empresa A es: 
+                        <div>
+						<table class="table">
+						   <thead>
+                             <tr>
+                               <th>X</th>
+                               <th>1</th>
+                               <th>2</th>
+				               <th>3</th>
+                             </tr>
+                           </thead>
+                           <tbody>
+                             <tr>
+                               <td>F(X)</td>
+                               <td><input type="text" value="0.5" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-1').each(function(i){this.textContent = a}); calculoEj21()"
+                            autocomplete="off" title="Ingrese el valor "/></td>
+                               <td><td><input type="text" value="0.2" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-2').each(function(i){this.textContent = a}); calculoEj21()"
+                            autocomplete="off" title="Ingrese el valor " /></td></td>
+				               <td><td><input type="text" value="0.3" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-3').each(function(i){this.textContent = a}); calculoEj21()"
+                            autocomplete="off" title="Ingrese el valor "/></td></td>
+                             </tr>
+				           </tbody>
+                        </table>
+		                </div>
+		    y para la empresa B es: 
+		                <div>
+                        <table class="table">
+                        <thead>
+                           <tr>
+                             <th>X</th>
+				             <th>0</th>
+                             <th>1</th>
+                             <th>2</th>
+				             <th>3</th>
+				             <th>4</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>F(X)</td>
+                            <td><input type="text" value="0.2" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-4').each(function(i){this.textContent = a}); calculoEj21()"
+                            autocomplete="off" title="Ingrese el valor "/></td>
+                            <td><input type="text" value="0.3" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-5').each(function(i){this.textContent = a}); calculoEj21()"
+                            autocomplete="off" title="Ingrese el valor "/></td>
+				            <td><input type="text" value="0.2" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-6').each(function(i){this.textContent = a}); calculoEj21()"
+                            autocomplete="off" title="Ingrese el valor "/></td>
+				            <td><input type="text" value="0.2" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-7').each(function(i){this.textContent = a}); calculoEj21()"
+                            autocomplete="off" title="Ingrese el valor "/></td>
+				            <td><input type="text" value="0.1" style="width: 40px;"
+                            onchange="var a= this.value; $('tej21-8').each(function(i){this.textContent = a}); calculoEj21()"
+                            autocomplete="off" title="Ingrese el valor "/></td>
+                          </tr>
+				       </tbody>
+                       </table>
+		               </div>
+                        <hr>
+                        Solución:
+                        <ul>
+                            <li>
+                                Calculamos la media y la varianza de A:
+                                <ol>
+                                    <li>
+                                        &mu;<sub>A</sub> = &Epsilon;(X) = (1)(<tej21-1>0.5</tej21-1>) + (2)(<tej21-2>0.2</tej21-2>) + (3)(<tej21-3>0.3</tej21-3>) = <res21-1>2.4</res21-1>
+                                    </li>
+                                    <li>
+                                        &sigma;&sup2;<sub>A</sub> = &Sigma;&sup3;<sub>x = 1</sub>(x − 2)&sup2; = (1 − 2)&sup2;(<tej21-1>0.5</tej21-1>) + (2 − 2)&sup2;(<tej21-2>0.2</tej21-2>) + (3 − 2)&sup2;(<tej21-3>0.3</tej21-3>) = <res21-2>0.8</res21-2>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                Calculamos la media y la varianza de B:
+                                <ol>
+                                    <li>
+                                        &mu;<sub>B</sub> = &Epsilon;(X) = (0)(<tej21-4>0.2</tej21-4>) + (1)(<tej21-5>0.3</tej21-5>) + (2)(<tej21-6>0.2</tej21-6>) + (3)(<tej21-7>0.2</tej21-7>) + (4)(<tej21-8>0.1</tej21-8>) = <res21-3>1.7</res21-3>
+                                    </li>
+                                    <li>
+                                        &sigma;&sup2;<sub>B</sub> = &Sigma;<sup>4</sup><sub>x = 0</sub>(x − 2)&sup2;&fnof;(X) = (0 − 2)&sup2;(<tej21-4>0.2</tej21-4>) + (1 − 2)&sup2;(<tej21-5>0.3</tej21-5>) + (2 − 2)&sup2;(<tej21-6>0.2</tej21-6>) + (3 − 2)&sup2;(<tej21-7>0.2</tej21-7>) + (4 − 2)&sup2;(<tej21-8>0.1</tej21-8>)= <res21-4>1.7</res21-4>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ul>
+                        <h4>
+                            Podemos observar que la varianza del número de celulares que se utilizados con propósitos de
+                            negocios es mayor para la empresa B que para la empresa A.
+                        </h4>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo22">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+		 <div class="modal" id="ejemplo22">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Varianza de una variable aleatoria continua - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        Ejemplo Varianza: Adaptado del ejemplo 4.10 de <b><i>Probabilidad y estadística
+			            para ingeniería y ciencias</i></b> de Ronald E. Walpole,Raymond H. Myers,Sharon L. Myers,Keying Ye -
+                        editorial pearson octava edición 2007. Mexico: Pearson (P.121) 
+                        <hr>
+                        La energía necesaria para que nuestro heroe realice su ataque, esta en un valor de Ki
+                        y es una variable aleatoria continua X que tiene la siguiente densidad de
+                        probabilidad.
+                        <hr>
+						<br />
+								<center><img src="../img/VarContinua.gif" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+						<br />
+						<hr>
+                        Calcular la media y la varianza de X.
+                        <hr>
+                        Solución:
+                        <ul>
+                            <li>
+                                 Al calcular E(X) y E(X&sup2;) tenemos
+                                <ol>
+                                        <br />
+								          <center><img src="../img/VarContinua2.gif" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+						                <br />
+                                        <br />
+								          <center><img src="../img/VarContinua3.gif" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+						                <br />
+                                </ol>
+                            </li>
+                            <li>
+                                Calculamos la varianza de X.
+                                <ol>
+                                        <br />
+								          <center><img src="../img/VarContinua4.gif" alt="Estadistica"
+                                            			style="max-width: 50%;max-height: 50%;display: block;"></center>
+						                <br />
+                                </ol>
+                            </li>
+                        </ul>
+                        <h4>
+                            La varianza de la energia de nuestro heroe es de -7.52
+                        </h4>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo21">Ejemplo 1</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo31">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Media y varianza de combinaciones lineales - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        <p><font size="2">Ejemplo de media y varianza de combinaciones lineales- Adaptado del ejemplo 4.15 de Wallpole, Myers R. , Myers S. & Ye K. (2007)
+                        <i>Probabilidad y estadística para ingeniería y ciencias.</i> Mexico: Pearson. (P.123)</font></p>
+                        <hr>
+                        Suponga que el número de bombas molotov X que lanza un encapuchado entre 4:00 P.M.
+              y 5:00 P.M. en cualquier jueves de tropel tiene la siguiente distribución de probabilidad:
+                    </div>
+                    <div>
+                        <table class="table">
+                           <thead>
+                             <tr>
+                               <th>X</th>
+                               <th>4</th>
+                               <th>5</th>
+                               <th>6</th>
+                               <th>7</th>
+                               <th>8</th>
+                               <th>9</th>
+                             </tr>
+                           </thead>
+                           <tbody>
+                             <tr>
+                               <td>P(X = x)</td>
+                               <td><sup>1</sup>&frasl;<sub>12</sub></td>
+                               <td><sup>1</sup>&frasl;<sub>12</sub></td>
+                               <td><sup>1</sup>&frasl;<sub>4</sub></td>
+                               <td><sup>1</sup>&frasl;<sub>4</sub></td>
+                               <td><sup>1</sup>&frasl;<sub>6</sub></td>
+                               <td><sup>1</sup>&frasl;<sub>6</sub></td>
+                             </tr>
+                           </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <center> <img src="../img/imgtema4/molotov.png"></center>
+                    <div class="modal-body" style="overflow: auto;">
+                        <p><font size="2"> Imagen tomada de <a href="https://www.vexels.com/vectores/vista-previa/153394/vandalismo-lanzando-personaje-molotov">vexels.com</a></font></p>
+                        <br>
+                        Sea g(X) = 2X − 1 la cantidad de dinero en dólares que gasta dicho encapuchado. Encuentre el total de dinero que espera gastarse en este periodo específico.
+                        <br>
+                        <br>
+                        <div>
+                            <h3>Solución</h3>
+                            <p><font size="2"> Usando el teorema</font></p>
+                            <center>E(2X - 1) = 2E(X) - 1</center>
+                            Así,
+
+                            μ = E(X)= <img src="https://latex.codecogs.com/gif.latex?\sum_{x=4}^{9}xf(x)"/>
+                            <br>
+                            = (4)(<sup>1</sup>&frasl;<sub>12</sub>)+(5)(<sup>1</sup>&frasl;<sub>12</sub>)+(6)(<sup>1</sup>&frasl;<sub>4</sub>)+(7)(<sup>1</sup>&frasl;<sub>4</sub>)+(8)(<sup>1</sup>&frasl;<sub>6</sub>)+(9)(<sup>1</sup>&frasl;<sub>6</sub>) = <sup>41</sup>&frasl;<sub>6</sub>
+                            <br>
+                            <br>
+                            Por lo tanto
+                            <br>
+                            <center>μ2X-1 = 2(<sup>41</sup>&frasl;<sub>6</sub>)-1 = $12.67 </center>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <<!-- button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button> -->
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo32">Ejemplo 2</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+		<div class="modal" id="ejemplo41">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Teorema de bayes - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        Ejemplo covarianza - adaptado del Ejercicio 4.38, <i>Probability: With Applications and R</i> , Dobrow Robert, Editorial Wiley, pagina 172, año 2013.
+                        <hr>
+                     		Sean D1y D2 los resultados del lanzamiento de dos dados.<br>
+				Sea X =D1+ D2 la suma de los dos numeros obtenidos en el lanzamiento, y sea Y = D1− D2 su diferencia. 
+				Demuestre que X y Y son variables aleatorias descorrelacionadas, sin embargo no son independientes.
+                        <br>
+                        	La covarianza de X y Y es:
+                        <br>
+                        <i>
+                           	Cov(X, Y ) = E[XY ] − E[X]E[Y ] <br>
+				= E[(D1+ D2)(D1− D2)] − E[D1+ D2]E[D1− D2] <br>
+				= E[D21− D22] − (E[D1] + E[D2])(E[D1] − E[D2]) <br>
+				= E[D21] − E[D22] − [(E[D1])2− (E[D22)] <br>
+				= E[D21] − E[D22] − (E[D1])2+ (E[D2])2 <br>
+				= E[D21] − (E[D1])2− [E[D22] − (E[D2])2]Cov(X, Y ) <br>
+				= Var(D1) − Var(D2) <br>
+                        </i>
+                        <br>
+				Dado que la varianza de cada uno de los dados es la misma, Var(D1) = Var(D2), la covarianza de las variables X y Y es cero, 
+				Cov(X,Y) = 0 .Por lo tanto X y Y son variables aleatorias descorrelacionadas 
+				(pues su covarianza es cero). Sin embargo no son independientes puesto que una vez que 
+				se conoce el valor de la suma de los dados, por ejemplo si X=D1+D2 = i, los posibles valores de 
+				la diferencia quedan restringidos a los valores 
+				Y = D1−D2 = D1−(i − D1), es decir, 
+				Y = 2D1−i. Por lo tanto X y Y son descorrelacionadas pero dependientes.
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">cerrar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo11">Ejemplo 1</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                            data-target="#ejemplo13">Ejemplo 3</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="ejemplo32">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Media Y Varianza De Combinaciones Lineales</h2>
+                        <br>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; font-size: large; background-color:#DEF0D6">
+                        Ejemplo media y varianza de combinaciones lineales. Ejemplo propio.
+                        <hr>
+                        En una cuenta de spotify que no es premium se muestra publicidad despues de X cantidad de canciones en una hora, la cual tiene la siguiente distribución de probabilidad.
+                        <br />
+                        <br />
+                        <div>
+                            <table class="table">
+                            <thead>
+                               <tr>
+                                 <th>X</th>
+                                 <th>1</th>
+                                 <th>2</th>
+                                 <th>5</th>
+                                 <th>6</th>
+                                 <th>7</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>P(X=x)</td>
+                                <td><input type="text" value="20" style="width: 40px;"
+                                onchange="var x = this.value; $('tej32-1').each(function(i){this.textContent = x});calculo666()"
+                                autocomplete="off" title="Ingrese un valor entre 0 y 100"/></td>
+                                <td><input type="text" value="15" style="width: 40px;"
+                                onchange="var a= this.value; $('tej32-2').each(function(i){this.textContent = a}); calculo666()"
+                                autocomplete="off" title="Ingrese un valor entre 0 y 100"/></td>
+                                <td><input type="text" value="25" style="width: 40px;"
+                                onchange="var a= this.value; $('tej32-3').each(function(i){this.textContent = a}); calculo666()"
+                                autocomplete="off" title="Ingrese un valor entre 0 y 100"/></td>
+                                <td><input type="text" value="30" style="width: 40px;"
+                                onchange="var a= this.value; $('tej32-4').each(function(i){this.textContent = a}); calculo666()"
+
+                                autocomplete="off" title="Ingrese un valor entre 0 y 100" /></td>
+                                <td><res41-1>10</res41-1> </td>
+                              </tr>
+                           </tbody>
+                           </table>
+                       </div>
+                       <div>
+                        <br>
+                           <center> <img src="../img/imgtema4/musica1.png" ></center>
+                    <div class="modal-body" style="overflow: auto;">
+                        <p><font size="2"> <i><b>música</b> Imagen tomada de</i> <a href="https://www.freepng.es/hd-png/musica.html">freepng.es</a></font></p>
+                    </div>
+                    <br>
+                    Sea g(X)=30X + 0.5 la cantidad de dinero que gana spotify por cada anuncio, En cuentra la cantidad de dinero que la empresa espera ganar durate esa hora por cada uno de sus usuarios que no son premium
+                    <br>
+                    <br>
+                    <div>
+                            <h3>Solución</h3>
+                            <p><font size="2"> Usando el teorema</font></p>
+                            <center>E(30X + 0.5) = 30E(X) + 0.5</center>
+                            Así,
+
+                            μ = E(X)= <img src="https://latex.codecogs.com/gif.latex?\sum xf(x)"/>
+                            <br>
+                            <br>
+                            = (1)(<tej32-1>20</tej32-1> )+(2)(<tej32-2>15</tej32-2> )+(5)(<tej32-3>25</tej32-3>)+(6)(<tej32-4>30</tej32-4>)+(7)(<res41-1>10</res41-1>)
+                            <br>
+                            <br>
+                            Por lo tanto las ganancias de la empresa por persona durante esa hora es de
+                            <br>
+                            <br>
+                            <center>30X+0.5 = 30(<res41-2>4.25</res41-2>)+0.5 = $ <res41-3>128</res41-3> </center>
+                    </div>
+                    
+                    <br>
+                    <br>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+		</div>
+		<div class="modal" id="ejemplo51">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Teorema de Chebyshev - ejemplo 1</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+                        <p><font size="2">Ejemplo de Teorema de Chebyshev- Adaptado del ejemplo 4.27 de Wallpole, Myers R. , Myers S. & Ye K. (2007)
+                        <i>Probabilidad y estadística para ingeniería y ciencias.</i> Mexico: Pearson. (P.123)</font></p>
+                        <hr>
+                        Una variable aleatoria <i><b>X</i></b> tiene una media <i><b>μ</i></b> = 8, una varianza <i><b>σ<sup>2</sup></i></b> = 9 y una distribución
+						de probabilidad desconocida. Calcule: <br />
+						a) P (−4 < X < 20),<br />
+						b) P (|X − 8| ≥ 6).<br />
+						Solución: <br/>a) P (−4 < X < 20) = P [8 − (4)(3 ) < X < 8 + (4)(3)] ≥ 15/16 .<br />
+						b) P (|X− 8| ≥ 6) = 1 − P (|X − 8| < 6) = 1 − P (−6 < X − 8 < 6) = 1 − P [8 − (2)(3 ) < X < 8 + (2)(3)] ≤1/4<br />
+						El teorema de Chebyshev tiene validez para cualquier distribución de observaciones, por lo cual los resultados generalmente son débiles. El valor que proporciona el
+                        teorema es sólo un límite inferior, es decir, sabemos que la probabilidad de una variable
+						aleatoria que cae dentro de dos desviaciones estándar de la media no puede ser menor
+						que 3/4, pero nunca sabemos cuánto podría ser en realidad. Sólo cuando conocemos la
+						distribución de probabilidad podemos determinar probabilidades exactas. Por esta razón
+						llamamos al teorema resultado de distribución libre. El uso del teorema de Chebyshev se restringe a situaciones donde se
+						desconoce la forma de la distribución.
+.
+					</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">cerrar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+	</div>
+    <!--<footer class="page-footer font-small blue">
+
+        <div class="footer-copyright text-center py-3">
+            <b>© 2020 Carlos Lopez</b>
+
+        </div>
+
+    </footer>-->
+
+    <script src="../js/jQuery.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/blogs.js"></script>
+
+    <script>
+        function calculoEj11() {
+			if((Number($("tej11-1")[0].textContent)) + (Number($("tej11-2")[0].textContent)) + (Number($("tej11-3")[0].textContent)) + (Number($("tej11-4")[0].textContent)) == 1){
+				$("res11-1")[0].textContent = (Number($("tej11-1")[0].textContent)*1000 + Number($("tej11-2")[0].textContent)*800 + Number($("tej11-3")[0].textContent)*600 + Number($("tej11-4")[0].textContent)*500).toFixed(2);
+			} else {
+				alert("la suma de los campos debe ser 100%");
+				$("res11-1")[0].textContent =0;
+			}
+        }
+		function calculoEj12() {
+			$("res12-1")[0].textContent =(Number($("tej12-1")[0].textContent)) *1.333;
+        }
+
+        function calculoEj21() {
+                if((Number($("tej21-1")[0].textContent)) + (Number($("tej21-2")[0].textContent)) + (Number($("tej21-3")[0].textContent)) == 1 /*&& (Number($("tej21-4")[0].textContent)) + (Number($("tej21-5")[0].textContent)) + (Number($("tej21-6")[0].textContent)) + (Number($("tej21-7")[0].textContent)) + (Number($("tej21-8")[0].textContent)) == 1)*/){
+				    $("res21-1")[0].textContent = (Number($("tej21-1")[0].textContent)*1 + Number($("tej21-2")[0].textContent)*2 + Number($("tej21-3")[0].textContent)*3).toFixed(2);
+				    $("res21-2")[0].textContent = (Number($("tej21-1")[0].textContent)*Math.pow (1-2,2) + Number($("tej21-2")[0].textContent)*Math.pow (2-2,2) + Number($("tej21-3")[0].textContent)*Math.pow (3-2,2)).toFixed(2);
+			        $("res21-3")[0].textContent = (Number($("tej21-4")[0].textContent)*0 + Number($("tej21-5")[0].textContent)*1 + Number($("tej21-6")[0].textContent)*2 + Number($("tej21-7")[0].textContent)*3 + Number($("tej21-8")[0].textContent)*4).toFixed(2);
+				    $("res21-4")[0].textContent = (Number($("tej21-4")[0].textContent)*Math.pow (0-2,2) + Number($("tej21-5")[0].textContent)*Math.pow (1-2,2) + Number($("tej21-6")[0].textContent)*Math.pow (2-2,2) + Number($("tej21-7")[0].textContent)*Math.pow (3-2,2) + Number($("tej21-8")[0].textContent)*Math.pow (4-2,2)).toFixed(2);
+				} else {
+				    alert("la suma de los campos debe ser 100%");
+				    $("res21-1")[0].textContent =0;
+					$("res21-2")[0].textContent =0;
+					$("res21-3")[0].textContent =0;
+					$("res21-4")[0].textContent =0;
+				}
+                
+        }
+
+        function calculoEj31() {
+            if ((Number($("tej31-1")[0].textContent) + Number($("tej31-2")[0].textContent) + Number($("tej31-3")[0].textContent)).toFixed(2) != 1) {
+                alert("la suma de los campos debe ser 100%");
+            } else {
+                var probTotal = 0;
+                for (var i = 1; i <= 3; i++) {
+                    probTotal += Number($("tej31-" + i)[0].textContent) * Number($("tej31-" + (i + 3))[0].textContent);
+                }
+                $("tej31-7")[0].textContent = probTotal;
+                $("tej31-r1")[0].textContent = (Number($("tej31-1")[0].textContent) * Number($("tej31-4")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r2")[0].textContent = (Number($("tej31-1")[0].textContent) * Number($("tej31-4")[0].textContent) / probTotal).toFixed(3) * 100;
+                $("tej31-r3")[0].textContent = (Number($("tej31-2")[0].textContent) * Number($("tej31-5")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r4")[0].textContent = (Number($("tej31-2")[0].textContent) * Number($("tej31-5")[0].textContent) / probTotal).toFixed(3) * 100;
+                $("tej31-r5")[0].textContent = (Number($("tej31-3")[0].textContent) * Number($("tej31-6")[0].textContent) / probTotal).toFixed(3);
+                $("tej31-r6")[0].textContent = (Number($("tej31-3")[0].textContent) * Number($("tej31-6")[0].textContent) / probTotal).toFixed(3) * 100;
+            }
+        }
+
+        function calculo666(){
+
+            $('res41-1')[0].textContent = 100 - ((Number($('tej32-1')[0].textContent)) + (Number($('tej32-2')[0].textContent)) + (Number($('tej32-3')[0].textContent)) + (Number($('tej32-4')[0].textContent)));
+
+            $('res41-2')[0].textContent = (1 * ((Number($('tej32-1')[0].textContent))/100) + (2 * (Number($('tej32-2')[0].textContent))/ 100) + ( 5 *(Number($('tej32-3')[0].textContent))/100) + (6 *(Number($('tej32-4')[0].textContent)))/100) + (7 *(Number($('res41-1')[0].textContent))/100);
+
+            $('res41-3')[0].textContent = 30 + (Number($('res41-2')[0].textContent)) + 0.5
+
+        }
+
+        
+    </script>
+</body>
+
+</html>
