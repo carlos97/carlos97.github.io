@@ -20,7 +20,7 @@
 		</a>
 	  	<form class="form-inline">
 	    <input class="form-control mr-sm-2" id="formulario" placeholder="Search" aria-label="Search">
-	    <button class="btn btn-outline-info my-2 my-sm-0" id="buscar">Buscar</button>
+	    
 	  	</form>
 	</nav>
 	<header>
@@ -71,7 +71,7 @@
 				<h3>Representacion grafica</h3>
 						<p class="introduccion">
 							La representación gráfica de esta distribución es una curva simétrica y su forma se asemeja a una campana por loq ue se comoce como campana de Gauss.</p>
-						<img class="mx-auto d-block" src="img/CampanadeGauss.png" title="PDF: Probabilidad y ejercicios. Campana de Gauss"></a>
+						<img class="mx-auto d-block" src="img/CampanaDeGauss.png" title="PDF: Probabilidad y ejercicios. Campana de Gauss"></a>
 						<h6 class="text-center">
 							<a href="#bibliografia">[2]</a>
 						</h6><br>
@@ -142,7 +142,7 @@
 			{nombre: 'Teorema de Chebyshev', ref: 'pag/tema10.html'},
 			];
 		const formulario = document.querySelector('#formulario');
-		const boton = document.querySelector('#buscar');
+		//const boton = document.querySelector('#buscar');
 		const temitas = document.querySelector('#temas');
 
 		const filtrar = ()=>{
@@ -165,7 +165,7 @@
 			}
 		}
 
-		boton.addEventListener('click', filtrar);
+		//boton.addEventListener('click', filtrar);
 		formulario.addEventListener('keyup', filtrar);
 
 		filtrar();

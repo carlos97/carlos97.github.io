@@ -8,31 +8,32 @@
 	<link rel="stylesheet" href="../css/colores.css">
 </head>
 <body>
-	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+	<nav class="navbar fixed-top navbar-dark bg-dark">
 	<!-- Navbar content -->
-		<a class="navbar-brand" href="https://bogota.gov.co/">
-			    <img src="../img/distrito1.jpg" width="30" height="30" alt="">
+		<a class="navbar-brand" href="https://www.udistrital.edu.co/">	
+			<img src="../img/logoDistri.png" width="40" height="40" alt="Co-gestores:" data-html="true" data-toggle="tooltip" data-placement="right" title="Co-gestores: <br><br>Andrade, Nicolas P. (20172020097)  nandradep@correo.udistrital.edu.co<br><br> Galeano, Diego A. (20172020074) dagaleanoh@correo.udistrital.edu.co<br><br>  Nuñez, Josue A. (20172020071) janunezp@correo.udistrital.edu.co<br><br> Rodriguez, Daniel E. (20172020120) derodriguezf@correo.udistrital.edu.co <br><br>Wilches, Andres F. (20172020114) afwilchest@correo.udistrital.edu.co">
 		</a>
 		<a class="btn btn-outline-success btn-outline-info" href="../index.html">Volver al temario</a>
-		<a class="navbar-brand" href="https://www.udistrital.edu.co/">	
-			<img src="../img/logoDistri.png" width="40" height="40" alt="">
+		<a class="navbar-brand" href="https://bogota.gov.co/">
+			    <img src="../img/distrito1.jpg" width="30" height="30" alt="">
 		</a>
 	</nav>
 	<header>
 		<div class="container">
-			
+			<br><br>
 			<h1 class="titPrin">Teorema fundamental de las distribuciones normales</h1> <br>
 		</div>
 	</header>
-	<div class="container-fluid">
-		<section class="main row">
-			<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-					<h3>Ejemplo: Piezas </h3> <br><br>
+	<div class="container">
+		<section>
+			<article class="col-xs-12">
+				<br>
+					<h3>Ejemplo: Piezas </h3>
 					<img class="mx-auto d-block" src="../img/pieza.jpg" alt="">
 					<h6 class="text-center">
 							<a href="#bibliografia">[1]</a>
 							</h6><br><br>
-					<div class="ejemplo">
+					<div>
 						<p class="introduccion">
 							Una pieza J está compuesta por 2 elementos de A y uno de B, que se unen sin solapamiento. La longitud de las piezas A sigue una N [4;1] cm., mientras que las B también son normales N [12;2]cm. Se quiere conocer la probabilidad de crear una pieza J de longitud inferior a 20,2 cm.
 						</p>
@@ -63,14 +64,6 @@
 					</div>
 
 			</article>
-			<div class="ventana col-xs-12 col-sm-4 col-md-3 col-lg-3">
-				<br><h4>Pasos de solucion: </h4> <br>
-				<p class="introduccion">
-					<ol>
-						
-					</ol>
- 				</p>
-			</div>
 		</section>
 		<hr>
 		<div class="row">
@@ -98,10 +91,15 @@
 			<ul>
 				<li><a href="https://www.freepik.es/fotos-vectores-gratis/piezas-de-rompecabezas">https://www.freepik.es/fotos-vectores-gratis/piezas-de-rompecabezas</a><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[1]</b></li>
 			</ul>
-			<br><br>
 		</div>
 	</footer>
 	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.js"></script>
+	<script src="../js/bootstrap.bundle.min.js"></script>
+	<script>
+		$(function(){
+    	$('[data-toggle="tooltip"]').tooltip()
+		});
+	</script>
 </body>
 </html>
