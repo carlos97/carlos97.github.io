@@ -100,7 +100,8 @@ h1{
 
 	position: absolute;
 	top:5px;
-	right:0px;
+    left:15px;
+
 }
 
 .mart p{
@@ -112,5 +113,6 @@ h1{
 .logob{
   position: absolute;
   top:5px;
-  left:15px;
+
+  	right:0px;
 }
