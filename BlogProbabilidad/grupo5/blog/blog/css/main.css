@@ -5,9 +5,12 @@ body {
 .navMain {
     background-color: rgba(34, 39, 42, 1) !important;
 }
-
+.navbar-brand{
+    margin-left: 20%; /* Centrar buscador */
+}
 .TextColorBackBlack {
     color: white !important;
+    font-size: 30px; 
 }
 
 .TextColorBackWhite {
